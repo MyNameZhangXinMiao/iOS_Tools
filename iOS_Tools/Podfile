@@ -23,7 +23,8 @@ target 'iOS_Tools' do
 #  pod 'SuperPlayer', '~> 3.2.7'
   pod 'SJVideoPlayer', '~> 3.2.6'
   pod 'MJRefresh', '~> 3.1.15.3'
-
+  
+  pod 'YYCategories', '~> 1.0.4'
   
   pod 'FLEX', '~> 2.4.0', :configurations => ['Debug']
   

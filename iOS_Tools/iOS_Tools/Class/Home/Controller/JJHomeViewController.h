@@ -7,15 +7,18 @@
 //
 
 #import "JJBaseViewController.h"
-#import "JXCategoryView.h"
-#import "JXCategoryListContainerView.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JJHomeViewController : JJBaseViewController<JXCategoryListContainerViewDelegate>
+@interface JJHomeViewController : JJBaseViewController
+@property (nonatomic, strong) JJBaseNavigationView *navigawtionCustomView;
 
 
 @end
+
+
+
+
 
 NS_ASSUME_NONNULL_END

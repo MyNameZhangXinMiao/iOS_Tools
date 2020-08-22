@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class JJBaseNavigationView;
 @interface JJBaseViewController : UIViewController
+
+@property (nonatomic, strong) JJBaseNavigationView *navigationCustomView;
+
+- (void)setupNavigationViewTitle:(NSString *)title;
 
 @end
 

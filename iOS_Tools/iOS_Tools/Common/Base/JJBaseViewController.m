@@ -10,6 +10,7 @@
 
 @interface JJBaseViewController ()
 
+
 @end
 
 @implementation JJBaseViewController
@@ -19,7 +20,22 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
+    self.fd_prefersNavigationBarHidden = YES;
+    [self.view addSubview:self.navigationCustomView];
+    
+    [self.navigationCustomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.equalTo(self.view);
+        make.height.mas_equalTo(kNavBarHeight);
+    }];
+    
+    _navigationCustomView.hidden = YES;
+
 }
+
+- (void)setupNavigationViewTitle:(NSString *)title{
+    self.navigationCustomView.title = title;
+}
+
 
 /*
 #pragma mark - Navigation
@@ -30,5 +46,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+- (JJBaseNavigationView *)navigationCustomView{
+    if (_navigationCustomView == nil) {
+        _navigationCustomView = [[JJBaseNavigationView alloc] init];
+        _navigationCustomView.title = @"首页";
+        @weakify(self);
+        _navigationCustomView.backBtnActionCallBack = ^{
+            @strongify(self);
+            [self.navigationController popViewControllerAnimated:YES];
+        };
+    }
+    return _navigationCustomView;
+}
 
 @end

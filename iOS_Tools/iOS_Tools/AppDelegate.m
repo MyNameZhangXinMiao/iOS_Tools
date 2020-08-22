@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "KLTabBarController.h"
 #import "JJTabBarController.h"
 
 @interface AppDelegate ()
@@ -21,6 +22,7 @@
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     // 设置window的根视图控制器
+//    UITabBarController *tabBarController = [[KLTabBarController alloc]init];
     UITabBarController *tabBarController = [[JJTabBarController alloc]init];
     self.window.rootViewController = tabBarController;
     // 设置白色背景颜色,消除穿透效果

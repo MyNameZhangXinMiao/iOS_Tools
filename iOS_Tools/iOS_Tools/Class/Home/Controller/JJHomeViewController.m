@@ -7,24 +7,17 @@
 //
 
 #import "JJHomeViewController.h"
-#import "JJVideoFollowViewController.h"
-#import "JJVideoFocusViewController.h"
-#import "JXCategoryTitleView.h"
+#import "JJEmptyViewController.h"
 
-@interface JJHomeViewController ()
-<JXCategoryViewDelegate
->
 
-#define CategoryHeight 50
 
-@property (nonatomic, strong) JXCategoryIndicatorLineView *lineView;
+@interface JJHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic, strong) JXCategoryTitleView *myCategoryView;
+@property (nonatomic, strong) JJBaseNavigationView *navigationView;
 
-@property (nonatomic, strong) JXCategoryListContainerView *listContainerView;
+@property (nonatomic, strong) JJTableView *tableView;
 
-@property (nonatomic, strong) NSArray *titles;
-
+@property (nonatomic, strong) NSArray *data;
 @end
 
 @implementation JJHomeViewController
@@ -34,49 +27,24 @@
 
     self.fd_prefersNavigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.titles = @[@"关注",@"推荐"];
-    self.myCategoryView = ({
-        JXCategoryTitleView *titleView = [[JXCategoryTitleView alloc] init];
-        titleView.frame = CGRectMake(0, kStatusBarHeight, kScreenWidth, CategoryHeight);
-        titleView.delegate = self;
-        titleView.titleFont = kFont_Medium(16);
-        titleView.titles = self.titles;
 
-        titleView.selectedAnimationEnabled = YES;
-        titleView.averageCellSpacingEnabled = NO;
-        titleView.titleColorGradientEnabled = YES;
-        titleView.titleLabelZoomEnabled = YES;
-        titleView.titleLabelZoomScale = 1.2;
-        /// lineView
-        self.lineView = [[JXCategoryIndicatorLineView alloc] init];
-        self.lineView.indicatorWidth = 20;
-        self.lineView.lineStyle = JXCategoryIndicatorLineStyle_LengthenOffset;
-        self.lineView.indicatorColor = [UIColor blueColor];
-        self.lineView.indicatorCornerRadius = 2;
-        titleView.indicators = @[self.lineView];
-        
-        titleView;
-    });
-    [self.view addSubview:self.myCategoryView];
-
-    self.listContainerView = ({
-        JXCategoryListContainerView *listContainerView = [[JXCategoryListContainerView alloc] initWithType:(JXCategoryListContainerType_ScrollView) delegate:self];
-        listContainerView.defaultSelectedIndex = 0;
-        listContainerView.frame = CGRectMake(0, CategoryHeight + kStatusBarHeight, self.view.bounds.size.width, kScreenHeight-CategoryHeight-kTabBarHeight-kNavBarHeight);
-        [self.view addSubview:listContainerView];
-        listContainerView;
-    });
-    self.myCategoryView.listContainer = self.listContainerView;
-
+    self.data = @[@"空态图"];
+    
+    [self.view addSubview:self.navigationView];
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.view).mas_offset(kNavBarHeight);
+    }];
+    [self.navigationView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.equalTo(self.view);
+        make.height.mas_equalTo(kNavBarHeight);
+    }];
+    
+    
     
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-
-    //处于第一个item的时候，才允许屏幕边缘手势返回
-    self.navigationController.interactivePopGestureRecognizer.enabled = (self.myCategoryView.selectedIndex == 0);
-}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -85,39 +53,63 @@
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
 }
 
-- (JXCategoryListContainerView *)listContainerView {
-    if (_listContainerView == nil) {
-        _listContainerView = [[JXCategoryListContainerView alloc] initWithType:JXCategoryListContainerType_ScrollView delegate:self];
-    }
-    return _listContainerView;
+#pragma mark - tableView delegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return self.data.count;
 }
 
-#pragma mark - JXCategoryViewDelegate
-
-- (void)categoryView:(JXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index {
-    //侧滑手势处理
-    self.navigationController.interactivePopGestureRecognizer.enabled = (index == 0);
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.text = self.data[indexPath.row];
+    return cell;
 }
 
-- (void)categoryView:(JXCategoryBaseView *)categoryView didClickSelectedItemAtIndex:(NSInteger)index {
-    [self.listContainerView didClickSelectedItemAtIndex:index];
-}
-
-#pragma mark - JXCategoryListContainerViewDelegate
-
-- (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    if (index == 0) {
-        JJVideoFocusViewController *vc = [[JJVideoFocusViewController alloc] init];
-        return vc;
-    }else{
-        JJVideoFollowViewController *vc = [[JJVideoFollowViewController alloc] init];
-        return vc;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSString *text = self.data[indexPath.row];
+    if ([text isEqualToString:@"空态图"]) {
+        JJEmptyViewController *vc = [[JJEmptyViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        
     }
 }
 
-- (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {
-    return self.titles.count;
+
+#pragma mark - getter and setter
+
+- (JJBaseNavigationView *)navigationView{
+    if (_navigationView == nil) {
+        _navigationView = [[JJBaseNavigationView alloc] init];
+        _navigationView.title = @"首页";
+    }
+    return _navigationView;
+}
+
+- (JJTableView *)tableView{
+    if (_tableView == nil) {
+        _tableView = [[JJTableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+        //_tableView.showsVerticalScrollIndicator = NO;
+        //_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        if (@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+            _tableView.estimatedRowHeight = 0;
+            _tableView.estimatedSectionHeaderHeight = 0;
+            _tableView.estimatedSectionFooterHeight = 0;
+        } else {
+            self.tableView.automaticallyAdjustsScrollIndicatorInsets = NO;
+        }
+    }
+    return _tableView;
 }
 
 
