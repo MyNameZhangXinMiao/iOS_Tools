@@ -171,15 +171,18 @@ static void *jj_scrollEnabled = &jj_scrollEnabled;
             break;
     }
     
-    
-    
-    
-    
-    
 }
 
 - (void)jj_removePlaceholderView{
-    
+    if (self.jj_placeholderView) {
+        [self.jj_placeholderView removeFromSuperview];
+        self.jj_placeholderView = nil;
+    }
+    // 复原UIScrollView的scrollEnabled
+    if ([self isKindOfClass:[UIScrollView class]]) {
+        UIScrollView *scrollView = (UIScrollView *)self;
+        scrollView.scrollEnabled = self.jj_scrollEnabled;
+    }
 }
 
 
