@@ -25,7 +25,8 @@ target 'iOS_Tools' do
   pod 'MJRefresh', '~> 3.1.15.3'
   
   pod 'YYCategories', '~> 1.0.4'
-  
+  pod 'BlocksKit', '~> 2.2.5'
+
   pod 'FLEX', '~> 2.4.0', :configurations => ['Debug']
   
   

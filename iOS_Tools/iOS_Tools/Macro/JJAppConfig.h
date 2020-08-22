@@ -19,8 +19,8 @@
 /** 常用对象 */
 #define kAppWindow [[[UIApplication sharedApplication] delegate] window]
 /** 屏幕宽高 */
-#define kScreenWidth    [[UIScreen mainScreen] bounds].size.width
-#define kScreenHeight   [[UIScreen mainScreen] bounds].size.height
+#define KScreenWidth    [[UIScreen mainScreen] bounds].size.width
+#define KScreenHeight   [[UIScreen mainScreen] bounds].size.height
 
 #define kIs_iPhone_X ([[UIScreen mainScreen] bounds].size.height == 812.0 || [[UIScreen mainScreen] bounds].size.height == 896 )
 //#define kIs_iPhone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)

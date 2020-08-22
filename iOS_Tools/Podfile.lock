@@ -6,6 +6,21 @@ PODS:
   - AFNetworking/Reachability (4.0.1)
   - AFNetworking/Security (4.0.1)
   - AFNetworking/Serialization (4.0.1)
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
   - FDFullscreenPopGesture (1.1)
   - FLEX (2.4.0)
   - JXCategoryView (1.5.5)
@@ -94,6 +109,7 @@ PODS:
   - YYModel (1.0.4)
 
 DEPENDENCIES:
+  - BlocksKit (~> 2.2.5)
   - FDFullscreenPopGesture (~> 1.1)
   - FLEX (~> 2.4.0)
   - JXCategoryView (~> 1.5.5)
@@ -108,6 +124,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - BlocksKit
     - FDFullscreenPopGesture
     - FLEX
     - JXCategoryView
@@ -127,6 +144,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   JXCategoryView: 0293fcb356f10a5c2e679dac0a1a5f1899ee0c87
@@ -144,6 +162,6 @@ SPEC CHECKSUMS:
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 35542c69bc4df68c147af8d2942a2789580f0650
+PODFILE CHECKSUM: 1d55e0fd3be00d523f3647fa215f986827d7e1da
 
 COCOAPODS: 1.10.0.beta.2

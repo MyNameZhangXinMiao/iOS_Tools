@@ -51,6 +51,7 @@
 		32D3DD7C24F18D560098D608 /* JJTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DD7B24F18D560098D608 /* JJTableView.m */; };
 		32D3DD8124F18E580098D608 /* JJEmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DD8024F18E580098D608 /* JJEmptyViewController.m */; };
 		32D3DD8524F18F270098D608 /* JJBaseNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DD8424F18F270098D608 /* JJBaseNavigationView.m */; };
+		32D3DD8A24F1A0E00098D608 /* UIView+JJEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DD8924F1A0E00098D608 /* UIView+JJEmptyView.m */; };
 		CA266E4349B178249216DF36 /* Pods_iOS_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +144,8 @@
 		32D3DD8024F18E580098D608 /* JJEmptyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJEmptyViewController.m; sourceTree = "<group>"; };
 		32D3DD8324F18F270098D608 /* JJBaseNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJBaseNavigationView.h; sourceTree = "<group>"; };
 		32D3DD8424F18F270098D608 /* JJBaseNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJBaseNavigationView.m; sourceTree = "<group>"; };
+		32D3DD8824F1A0E00098D608 /* UIView+JJEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+JJEmptyView.h"; sourceTree = "<group>"; };
+		32D3DD8924F1A0E00098D608 /* UIView+JJEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+JJEmptyView.m"; sourceTree = "<group>"; };
 		80D20CA2196A5CC625556E6B /* Pods-iOS_Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Tools.release.xcconfig"; path = "Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools.release.xcconfig"; sourceTree = "<group>"; };
 		AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -188,6 +191,7 @@
 				32D3DC7C24F181610098D608 /* ClassJX */,
 				32D3DCCF24F181800098D608 /* Common */,
 				32D3DCB424F181610098D608 /* Data */,
+				32D3DD8624F1A08B0098D608 /* Public */,
 				32D3DC4424F14E280098D608 /* ViewController.h */,
 				32D3DC4524F14E280098D608 /* ViewController.m */,
 				32D3DCDA24F181EF0098D608 /* ToolsPrefixHeader.pch */,
@@ -654,6 +658,23 @@
 			path = "自定义导航栏";
 			sourceTree = "<group>";
 		};
+		32D3DD8624F1A08B0098D608 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DD8724F1A0A30098D608 /* Category */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		32D3DD8724F1A0A30098D608 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DD8824F1A0E00098D608 /* UIView+JJEmptyView.h */,
+				32D3DD8924F1A0E00098D608 /* UIView+JJEmptyView.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		35825BCAF47C217A7588D94B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -796,6 +817,7 @@
 				32D3DD6424F18BC50098D608 /* JJClubViewController.m in Sources */,
 				32D3DC4624F14E280098D608 /* ViewController.m in Sources */,
 				32D3DD7C24F18D560098D608 /* JJTableView.m in Sources */,
+				32D3DD8A24F1A0E00098D608 /* UIView+JJEmptyView.m in Sources */,
 				32D3DD7124F18BC60098D608 /* JJUserInfoBaseView.m in Sources */,
 				32D3DC4024F14E280098D608 /* AppDelegate.m in Sources */,
 				32D3DCBB24F181610098D608 /* KLClubListViewController.m in Sources */,
