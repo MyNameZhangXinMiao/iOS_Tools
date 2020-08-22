@@ -1,0 +1,31 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'iOS_Tools' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for iOS_Tools
+
+ 
+ 
+  pod 'YTKNetwork', '~> 3.0.0'
+  
+  pod 'JXCategoryView', '~> 1.5.5'
+  pod 'JXPagingView/Pager', '~> 2.0.8'
+  
+  pod 'FDFullscreenPopGesture', '~> 1.1'
+  pod 'Masonry', '~> 1.1.0'
+  
+  
+  pod 'SVGAPlayer', '~> 2.5.4'
+  #腾讯超级播放器
+#  pod 'SuperPlayer', '~> 3.2.7'
+  pod 'SJVideoPlayer', '~> 3.2.6'
+  pod 'MJRefresh', '~> 3.1.15.3'
+
+  
+  pod 'FLEX', '~> 2.4.0', :configurations => ['Debug']
+  
+  
+end

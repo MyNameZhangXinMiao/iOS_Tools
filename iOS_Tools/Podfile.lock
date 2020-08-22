@@ -1,0 +1,143 @@
+PODS:
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - FDFullscreenPopGesture (1.1)
+  - FLEX (2.4.0)
+  - JXCategoryView (1.5.5)
+  - JXPagingView/Pager (2.0.8)
+  - Masonry (1.1.0)
+  - MJRefresh (3.1.15.7)
+  - Protobuf (3.12.0)
+  - Reachability (3.2)
+  - SJBaseVideoPlayer (3.3.8):
+    - Masonry
+    - Reachability
+    - SJBaseVideoPlayer/AVPlayer (= 3.3.8)
+    - SJBaseVideoPlayer/Common (= 3.3.8)
+    - SJUIKit/AttributesFactory (>= 0.0.0.38)
+    - SJUIKit/ObserverHelper
+    - SJUIKit/Queues
+    - SJUIKit/SQLite3
+  - SJBaseVideoPlayer/AVPlayer (3.3.8):
+    - Masonry
+    - Reachability
+    - SJBaseVideoPlayer/Common
+    - SJUIKit/AttributesFactory (>= 0.0.0.38)
+    - SJUIKit/ObserverHelper
+    - SJUIKit/Queues
+    - SJUIKit/SQLite3
+  - SJBaseVideoPlayer/Common (3.3.8):
+    - Masonry
+    - Reachability
+    - SJBaseVideoPlayer/ResourceLoader
+    - SJUIKit/AttributesFactory (>= 0.0.0.38)
+    - SJUIKit/ObserverHelper
+    - SJUIKit/Queues
+    - SJUIKit/SQLite3
+  - SJBaseVideoPlayer/ResourceLoader (3.3.8):
+    - Masonry
+    - Reachability
+    - SJUIKit/AttributesFactory (>= 0.0.0.38)
+    - SJUIKit/ObserverHelper
+    - SJUIKit/Queues
+    - SJUIKit/SQLite3
+  - SJUIKit/AttributesFactory (0.0.0.51):
+    - SJUIKit/AttributesFactory/Deprecated (= 0.0.0.51)
+    - SJUIKit/AttributesFactory/UIKitText (= 0.0.0.51)
+  - SJUIKit/AttributesFactory/Deprecated (0.0.0.51)
+  - SJUIKit/AttributesFactory/UIKitText (0.0.0.51)
+  - SJUIKit/ObserverHelper (0.0.0.51)
+  - SJUIKit/Queues (0.0.0.51)
+  - SJUIKit/SQLite3 (0.0.0.51):
+    - SJUIKit/SQLite3/Core (= 0.0.0.51)
+    - SJUIKit/SQLite3/Protocol (= 0.0.0.51)
+    - YYModel
+  - SJUIKit/SQLite3/Core (0.0.0.51):
+    - SJUIKit/SQLite3/Protocol
+    - YYModel
+  - SJUIKit/SQLite3/Protocol (0.0.0.51):
+    - YYModel
+  - SJVideoPlayer (3.2.6):
+    - SJBaseVideoPlayer (>= 3.3.3)
+    - SJVideoPlayer/Common (= 3.2.6)
+    - SJVideoPlayer/ControlLayers (= 3.2.6)
+    - SJVideoPlayer/ResourceLoader (= 3.2.6)
+  - SJVideoPlayer/Common (3.2.6):
+    - Masonry
+    - SJBaseVideoPlayer (>= 3.3.3)
+    - SJUIKit/AttributesFactory
+    - SJVideoPlayer/ResourceLoader
+  - SJVideoPlayer/ControlLayers (3.2.6):
+    - SJBaseVideoPlayer (>= 3.3.3)
+    - SJVideoPlayer/Common
+  - SJVideoPlayer/ResourceLoader (3.2.6):
+    - SJBaseVideoPlayer (>= 3.3.3)
+  - SSZipArchive (2.2.3)
+  - SVGAPlayer (2.5.4):
+    - SVGAPlayer/Core (= 2.5.4)
+    - SVGAPlayer/ProtoFiles (= 2.5.4)
+  - SVGAPlayer/Core (2.5.4):
+    - SSZipArchive (>= 1.8.1)
+    - SVGAPlayer/ProtoFiles
+  - SVGAPlayer/ProtoFiles (2.5.4):
+    - Protobuf (~> 3.4)
+  - YTKNetwork (3.0.0):
+    - AFNetworking/NSURLSession (~> 4.0)
+  - YYModel (1.0.4)
+
+DEPENDENCIES:
+  - FDFullscreenPopGesture (~> 1.1)
+  - FLEX (~> 2.4.0)
+  - JXCategoryView (~> 1.5.5)
+  - JXPagingView/Pager (~> 2.0.8)
+  - Masonry (~> 1.1.0)
+  - MJRefresh (~> 3.1.15.3)
+  - SJVideoPlayer (~> 3.2.6)
+  - SVGAPlayer (~> 2.5.4)
+  - YTKNetwork (~> 3.0.0)
+
+SPEC REPOS:
+  trunk:
+    - AFNetworking
+    - FDFullscreenPopGesture
+    - FLEX
+    - JXCategoryView
+    - JXPagingView
+    - Masonry
+    - MJRefresh
+    - Protobuf
+    - Reachability
+    - SJBaseVideoPlayer
+    - SJUIKit
+    - SJVideoPlayer
+    - SSZipArchive
+    - SVGAPlayer
+    - YTKNetwork
+    - YYModel
+
+SPEC CHECKSUMS:
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
+  JXCategoryView: 0293fcb356f10a5c2e679dac0a1a5f1899ee0c87
+  JXPagingView: 913b44c05972f5b351232816f33db130b1b524ab
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SJBaseVideoPlayer: 85f98136ab7b1d9595d8f85e3baee3801feb733e
+  SJUIKit: bdf86af3648e70483c57e2bfe2fcc7531337fa54
+  SJVideoPlayer: fb53250dbf0ad2f95c963e9a42efb2057b9e9f27
+  SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
+  SVGAPlayer: ca9c869316b468d995994c7fe82b9bd8645a0787
+  YTKNetwork: 0587ce85fda2e2c591405089cc9aaa61649aa5ed
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+
+PODFILE CHECKSUM: 745fc0da4c970aa405116f4dcf069c9951f58b6e
+
+COCOAPODS: 1.10.0.beta.2

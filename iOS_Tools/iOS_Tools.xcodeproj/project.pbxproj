@@ -3,25 +3,46 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		32D3DC4024F14E280098D608 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC3F24F14E280098D608 /* AppDelegate.m */; };
-		32D3DC4324F14E280098D608 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC4224F14E280098D608 /* SceneDelegate.m */; };
 		32D3DC4624F14E280098D608 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC4524F14E280098D608 /* ViewController.m */; };
 		32D3DC4924F14E280098D608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D3DC4724F14E280098D608 /* Main.storyboard */; };
 		32D3DC4B24F14E290098D608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32D3DC4A24F14E290098D608 /* Assets.xcassets */; };
 		32D3DC4E24F14E290098D608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D3DC4C24F14E290098D608 /* LaunchScreen.storyboard */; };
 		32D3DC5124F14E290098D608 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC5024F14E290098D608 /* main.m */; };
+		32D3DCBB24F181610098D608 /* JJClubListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC7F24F181610098D608 /* JJClubListViewController.m */; };
+		32D3DCBC24F181610098D608 /* JJClubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC8024F181610098D608 /* JJClubViewController.m */; };
+		32D3DCBD24F181610098D608 /* JJVideoFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC8B24F181610098D608 /* JJVideoFocusViewController.m */; };
+		32D3DCBE24F181610098D608 /* JJVideoFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC8C24F181610098D608 /* JJVideoFollowViewController.m */; };
+		32D3DCBF24F181610098D608 /* JJHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC8D24F181610098D608 /* JJHomeViewController.m */; };
+		32D3DCC024F181610098D608 /* JJVideoCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC8F24F181610098D608 /* JJVideoCollectionCell.m */; };
+		32D3DCC124F181610098D608 /* JJVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC9224F181610098D608 /* JJVideoModel.m */; };
+		32D3DCC224F181610098D608 /* JJVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC9524F181610098D608 /* JJVideoPlayerView.m */; };
+		32D3DCC324F181610098D608 /* JJVideoCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC9624F181610098D608 /* JJVideoCollectionView.m */; };
+		32D3DCC424F181610098D608 /* JJZoomHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC9C24F181610098D608 /* JJZoomHeaderViewController.m */; };
+		32D3DCC524F181610098D608 /* JJMomentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC9E24F181610098D608 /* JJMomentViewController.m */; };
+		32D3DCC624F181610098D608 /* JJMsgDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DCA224F181610098D608 /* JJMsgDetailViewController.m */; };
+		32D3DCC724F181610098D608 /* JJMsgSystemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DCA324F181610098D608 /* JJMsgSystemViewController.m */; };
+		32D3DCC824F181610098D608 /* JJMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DCA724F181610098D608 /* JJMessageViewController.m */; };
+		32D3DCC924F181610098D608 /* JJMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DCAC24F181610098D608 /* JJMineViewController.m */; };
+		32D3DCCA24F181610098D608 /* JJUserInfoBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DCB024F181610098D608 /* JJUserInfoBaseView.m */; };
+		32D3DCCB24F181610098D608 /* JJUserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DCB224F181610098D608 /* JJUserHeaderView.m */; };
+		32D3DCCC24F181610098D608 /* lufei.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32D3DCB524F181610098D608 /* lufei.jpg */; };
+		32D3DCCD24F181610098D608 /* JJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DCB724F181610098D608 /* JJNavigationController.m */; };
+		32D3DCCE24F181610098D608 /* JJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DCB824F181610098D608 /* JJTabBarController.m */; };
+		32D3DCD624F181800098D608 /* UIColor+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DCD224F181800098D608 /* UIColor+Extra.m */; };
+		32D3DCD724F181800098D608 /* JJBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DCD524F181800098D608 /* JJBaseViewController.m */; };
+		CA266E4349B178249216DF36 /* Pods_iOS_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		183541373169CF659B3164C6 /* Pods-iOS_Tools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Tools.debug.xcconfig"; path = "Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools.debug.xcconfig"; sourceTree = "<group>"; };
 		32D3DC3B24F14E280098D608 /* iOS_Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Tools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D3DC3E24F14E280098D608 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		32D3DC3F24F14E280098D608 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		32D3DC4124F14E280098D608 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		32D3DC4224F14E280098D608 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		32D3DC4424F14E280098D608 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		32D3DC4524F14E280098D608 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		32D3DC4824F14E280098D608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -29,6 +50,53 @@
 		32D3DC4D24F14E290098D608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32D3DC4F24F14E290098D608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32D3DC5024F14E290098D608 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32D3DC7F24F181610098D608 /* JJClubListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJClubListViewController.m; sourceTree = "<group>"; };
+		32D3DC8024F181610098D608 /* JJClubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJClubViewController.m; sourceTree = "<group>"; };
+		32D3DC8124F181610098D608 /* JJClubListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJClubListViewController.h; sourceTree = "<group>"; };
+		32D3DC8224F181610098D608 /* JJClubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJClubViewController.h; sourceTree = "<group>"; };
+		32D3DC8824F181610098D608 /* JJVideoFocusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJVideoFocusViewController.h; sourceTree = "<group>"; };
+		32D3DC8924F181610098D608 /* JJVideoFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJVideoFollowViewController.h; sourceTree = "<group>"; };
+		32D3DC8A24F181610098D608 /* JJHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJHomeViewController.h; sourceTree = "<group>"; };
+		32D3DC8B24F181610098D608 /* JJVideoFocusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJVideoFocusViewController.m; sourceTree = "<group>"; };
+		32D3DC8C24F181610098D608 /* JJVideoFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJVideoFollowViewController.m; sourceTree = "<group>"; };
+		32D3DC8D24F181610098D608 /* JJHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJHomeViewController.m; sourceTree = "<group>"; };
+		32D3DC8F24F181610098D608 /* JJVideoCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJVideoCollectionCell.m; sourceTree = "<group>"; };
+		32D3DC9024F181610098D608 /* JJVideoCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJVideoCollectionCell.h; sourceTree = "<group>"; };
+		32D3DC9224F181610098D608 /* JJVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJVideoModel.m; sourceTree = "<group>"; };
+		32D3DC9324F181610098D608 /* JJVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJVideoModel.h; sourceTree = "<group>"; };
+		32D3DC9524F181610098D608 /* JJVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJVideoPlayerView.m; sourceTree = "<group>"; };
+		32D3DC9624F181610098D608 /* JJVideoCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJVideoCollectionView.m; sourceTree = "<group>"; };
+		32D3DC9724F181610098D608 /* JJVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJVideoPlayerView.h; sourceTree = "<group>"; };
+		32D3DC9824F181610098D608 /* JJVideoCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJVideoCollectionView.h; sourceTree = "<group>"; };
+		32D3DC9B24F181610098D608 /* JJZoomHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJZoomHeaderViewController.h; sourceTree = "<group>"; };
+		32D3DC9C24F181610098D608 /* JJZoomHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJZoomHeaderViewController.m; sourceTree = "<group>"; };
+		32D3DC9E24F181610098D608 /* JJMomentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJMomentViewController.m; sourceTree = "<group>"; };
+		32D3DC9F24F181610098D608 /* JJMomentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMomentViewController.h; sourceTree = "<group>"; };
+		32D3DCA224F181610098D608 /* JJMsgDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJMsgDetailViewController.m; sourceTree = "<group>"; };
+		32D3DCA324F181610098D608 /* JJMsgSystemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJMsgSystemViewController.m; sourceTree = "<group>"; };
+		32D3DCA424F181610098D608 /* JJMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMessageViewController.h; sourceTree = "<group>"; };
+		32D3DCA524F181610098D608 /* JJMsgSystemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMsgSystemViewController.h; sourceTree = "<group>"; };
+		32D3DCA624F181610098D608 /* JJMsgDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMsgDetailViewController.h; sourceTree = "<group>"; };
+		32D3DCA724F181610098D608 /* JJMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJMessageViewController.m; sourceTree = "<group>"; };
+		32D3DCAC24F181610098D608 /* JJMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJMineViewController.m; sourceTree = "<group>"; };
+		32D3DCAD24F181610098D608 /* JJMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMineViewController.h; sourceTree = "<group>"; };
+		32D3DCB024F181610098D608 /* JJUserInfoBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJUserInfoBaseView.m; sourceTree = "<group>"; };
+		32D3DCB124F181610098D608 /* JJUserHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJUserHeaderView.h; sourceTree = "<group>"; };
+		32D3DCB224F181610098D608 /* JJUserHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJUserHeaderView.m; sourceTree = "<group>"; };
+		32D3DCB324F181610098D608 /* JJUserInfoBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJUserInfoBaseView.h; sourceTree = "<group>"; };
+		32D3DCB524F181610098D608 /* lufei.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lufei.jpg; sourceTree = "<group>"; };
+		32D3DCB724F181610098D608 /* JJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJNavigationController.m; sourceTree = "<group>"; };
+		32D3DCB824F181610098D608 /* JJTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJTabBarController.m; sourceTree = "<group>"; };
+		32D3DCB924F181610098D608 /* JJTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJTabBarController.h; sourceTree = "<group>"; };
+		32D3DCBA24F181610098D608 /* JJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJNavigationController.h; sourceTree = "<group>"; };
+		32D3DCD124F181800098D608 /* UIColor+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extra.h"; sourceTree = "<group>"; };
+		32D3DCD224F181800098D608 /* UIColor+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extra.m"; sourceTree = "<group>"; };
+		32D3DCD424F181800098D608 /* JJBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJBaseViewController.h; sourceTree = "<group>"; };
+		32D3DCD524F181800098D608 /* JJBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJBaseViewController.m; sourceTree = "<group>"; };
+		32D3DCD924F181940098D608 /* JJAppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAppConfig.h; sourceTree = "<group>"; };
+		32D3DCDA24F181EF0098D608 /* ToolsPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolsPrefixHeader.pch; sourceTree = "<group>"; };
+		80D20CA2196A5CC625556E6B /* Pods-iOS_Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Tools.release.xcconfig"; path = "Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools.release.xcconfig"; sourceTree = "<group>"; };
+		AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA266E4349B178249216DF36 /* Pods_iOS_Tools.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +116,8 @@
 			children = (
 				32D3DC3D24F14E280098D608 /* iOS_Tools */,
 				32D3DC3C24F14E280098D608 /* Products */,
+				35825BCAF47C217A7588D94B /* Pods */,
+				D82A72451973CF6B6465760D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,10 +134,12 @@
 			children = (
 				32D3DC3E24F14E280098D608 /* AppDelegate.h */,
 				32D3DC3F24F14E280098D608 /* AppDelegate.m */,
-				32D3DC4124F14E280098D608 /* SceneDelegate.h */,
-				32D3DC4224F14E280098D608 /* SceneDelegate.m */,
+				32D3DCD824F181940098D608 /* Macro */,
+				32D3DC7C24F181610098D608 /* Class */,
+				32D3DCCF24F181800098D608 /* Common */,
 				32D3DC4424F14E280098D608 /* ViewController.h */,
 				32D3DC4524F14E280098D608 /* ViewController.m */,
+				32D3DCDA24F181EF0098D608 /* ToolsPrefixHeader.pch */,
 				32D3DC4724F14E280098D608 /* Main.storyboard */,
 				32D3DC4A24F14E290098D608 /* Assets.xcassets */,
 				32D3DC4C24F14E290098D608 /* LaunchScreen.storyboard */,
@@ -76,6 +149,288 @@
 			path = iOS_Tools;
 			sourceTree = "<group>";
 		};
+		32D3DC7C24F181610098D608 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DC7D24F181610098D608 /* Club */,
+				32D3DC8624F181610098D608 /* Home */,
+				32D3DC9924F181610098D608 /* Moment */,
+				32D3DCA024F181610098D608 /* Message */,
+				32D3DCAA24F181610098D608 /* Mine */,
+				32D3DCB624F181610098D608 /* Main */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		32D3DC7D24F181610098D608 /* Club */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DC7E24F181610098D608 /* Controller */,
+				32D3DC8324F181610098D608 /* Cell */,
+				32D3DC8424F181610098D608 /* Model */,
+				32D3DC8524F181610098D608 /* View */,
+			);
+			path = Club;
+			sourceTree = "<group>";
+		};
+		32D3DC7E24F181610098D608 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DC7F24F181610098D608 /* JJClubListViewController.m */,
+				32D3DC8024F181610098D608 /* JJClubViewController.m */,
+				32D3DC8124F181610098D608 /* JJClubListViewController.h */,
+				32D3DC8224F181610098D608 /* JJClubViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		32D3DC8324F181610098D608 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		32D3DC8424F181610098D608 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		32D3DC8524F181610098D608 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		32D3DC8624F181610098D608 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DC8724F181610098D608 /* Controller */,
+				32D3DC8E24F181610098D608 /* Cell */,
+				32D3DC9124F181610098D608 /* Model */,
+				32D3DC9424F181610098D608 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		32D3DC8724F181610098D608 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DC8824F181610098D608 /* JJVideoFocusViewController.h */,
+				32D3DC8924F181610098D608 /* JJVideoFollowViewController.h */,
+				32D3DC8A24F181610098D608 /* JJHomeViewController.h */,
+				32D3DC8B24F181610098D608 /* JJVideoFocusViewController.m */,
+				32D3DC8C24F181610098D608 /* JJVideoFollowViewController.m */,
+				32D3DC8D24F181610098D608 /* JJHomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		32D3DC8E24F181610098D608 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DC8F24F181610098D608 /* JJVideoCollectionCell.m */,
+				32D3DC9024F181610098D608 /* JJVideoCollectionCell.h */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		32D3DC9124F181610098D608 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DC9224F181610098D608 /* JJVideoModel.m */,
+				32D3DC9324F181610098D608 /* JJVideoModel.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		32D3DC9424F181610098D608 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DC9524F181610098D608 /* JJVideoPlayerView.m */,
+				32D3DC9624F181610098D608 /* JJVideoCollectionView.m */,
+				32D3DC9724F181610098D608 /* JJVideoPlayerView.h */,
+				32D3DC9824F181610098D608 /* JJVideoCollectionView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		32D3DC9924F181610098D608 /* Moment */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DC9A24F181610098D608 /* 头部缩放 */,
+				32D3DC9D24F181610098D608 /* Controller */,
+			);
+			path = Moment;
+			sourceTree = "<group>";
+		};
+		32D3DC9A24F181610098D608 /* 头部缩放 */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DC9B24F181610098D608 /* JJZoomHeaderViewController.h */,
+				32D3DC9C24F181610098D608 /* JJZoomHeaderViewController.m */,
+			);
+			path = "头部缩放";
+			sourceTree = "<group>";
+		};
+		32D3DC9D24F181610098D608 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DC9E24F181610098D608 /* JJMomentViewController.m */,
+				32D3DC9F24F181610098D608 /* JJMomentViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		32D3DCA024F181610098D608 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DCA124F181610098D608 /* Controller */,
+				32D3DCA824F181610098D608 /* Cell */,
+				32D3DCA924F181610098D608 /* View */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		32D3DCA124F181610098D608 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DCA224F181610098D608 /* JJMsgDetailViewController.m */,
+				32D3DCA324F181610098D608 /* JJMsgSystemViewController.m */,
+				32D3DCA424F181610098D608 /* JJMessageViewController.h */,
+				32D3DCA524F181610098D608 /* JJMsgSystemViewController.h */,
+				32D3DCA624F181610098D608 /* JJMsgDetailViewController.h */,
+				32D3DCA724F181610098D608 /* JJMessageViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		32D3DCA824F181610098D608 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		32D3DCA924F181610098D608 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		32D3DCAA24F181610098D608 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DCAB24F181610098D608 /* Controller */,
+				32D3DCAE24F181610098D608 /* Cell */,
+				32D3DCAF24F181610098D608 /* View */,
+				32D3DCB424F181610098D608 /* Data */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		32D3DCAB24F181610098D608 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DCAC24F181610098D608 /* JJMineViewController.m */,
+				32D3DCAD24F181610098D608 /* JJMineViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		32D3DCAE24F181610098D608 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		32D3DCAF24F181610098D608 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DCB024F181610098D608 /* JJUserInfoBaseView.m */,
+				32D3DCB124F181610098D608 /* JJUserHeaderView.h */,
+				32D3DCB224F181610098D608 /* JJUserHeaderView.m */,
+				32D3DCB324F181610098D608 /* JJUserInfoBaseView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		32D3DCB424F181610098D608 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DCB524F181610098D608 /* lufei.jpg */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		32D3DCB624F181610098D608 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DCB724F181610098D608 /* JJNavigationController.m */,
+				32D3DCB824F181610098D608 /* JJTabBarController.m */,
+				32D3DCB924F181610098D608 /* JJTabBarController.h */,
+				32D3DCBA24F181610098D608 /* JJNavigationController.h */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		32D3DCCF24F181800098D608 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DCD024F181800098D608 /* Category */,
+				32D3DCD324F181800098D608 /* Base */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		32D3DCD024F181800098D608 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DCD124F181800098D608 /* UIColor+Extra.h */,
+				32D3DCD224F181800098D608 /* UIColor+Extra.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		32D3DCD324F181800098D608 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DCD424F181800098D608 /* JJBaseViewController.h */,
+				32D3DCD524F181800098D608 /* JJBaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		32D3DCD824F181940098D608 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DCD924F181940098D608 /* JJAppConfig.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		35825BCAF47C217A7588D94B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				183541373169CF659B3164C6 /* Pods-iOS_Tools.debug.xcconfig */,
+				80D20CA2196A5CC625556E6B /* Pods-iOS_Tools.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D82A72451973CF6B6465760D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,9 +438,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32D3DC5424F14E290098D608 /* Build configuration list for PBXNativeTarget "iOS_Tools" */;
 			buildPhases = (
+				5469C19B6B41FBEF47519FAE /* [CP] Check Pods Manifest.lock */,
 				32D3DC3724F14E280098D608 /* Sources */,
 				32D3DC3824F14E280098D608 /* Frameworks */,
 				32D3DC3924F14E280098D608 /* Resources */,
+				F8D4337E388F6A95774E3F5E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D3DC4E24F14E290098D608 /* LaunchScreen.storyboard in Resources */,
+				32D3DCCC24F181610098D608 /* lufei.jpg in Resources */,
 				32D3DC4B24F14E290098D608 /* Assets.xcassets in Resources */,
 				32D3DC4924F14E280098D608 /* Main.storyboard in Resources */,
 			);
@@ -141,15 +499,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5469C19B6B41FBEF47519FAE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOS_Tools-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8D4337E388F6A95774E3F5E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		32D3DC3724F14E280098D608 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D3DCC524F181610098D608 /* JJMomentViewController.m in Sources */,
+				32D3DCCE24F181610098D608 /* JJTabBarController.m in Sources */,
+				32D3DCC424F181610098D608 /* JJZoomHeaderViewController.m in Sources */,
 				32D3DC4624F14E280098D608 /* ViewController.m in Sources */,
 				32D3DC4024F14E280098D608 /* AppDelegate.m in Sources */,
+				32D3DCBB24F181610098D608 /* JJClubListViewController.m in Sources */,
+				32D3DCC924F181610098D608 /* JJMineViewController.m in Sources */,
+				32D3DCD724F181800098D608 /* JJBaseViewController.m in Sources */,
+				32D3DCC724F181610098D608 /* JJMsgSystemViewController.m in Sources */,
+				32D3DCC124F181610098D608 /* JJVideoModel.m in Sources */,
+				32D3DCCA24F181610098D608 /* JJUserInfoBaseView.m in Sources */,
+				32D3DCC324F181610098D608 /* JJVideoCollectionView.m in Sources */,
+				32D3DCBE24F181610098D608 /* JJVideoFollowViewController.m in Sources */,
+				32D3DCCD24F181610098D608 /* JJNavigationController.m in Sources */,
 				32D3DC5124F14E290098D608 /* main.m in Sources */,
-				32D3DC4324F14E280098D608 /* SceneDelegate.m in Sources */,
+				32D3DCC824F181610098D608 /* JJMessageViewController.m in Sources */,
+				32D3DCBF24F181610098D608 /* JJHomeViewController.m in Sources */,
+				32D3DCD624F181800098D608 /* UIColor+Extra.m in Sources */,
+				32D3DCBC24F181610098D608 /* JJClubViewController.m in Sources */,
+				32D3DCC224F181610098D608 /* JJVideoPlayerView.m in Sources */,
+				32D3DCCB24F181610098D608 /* JJUserHeaderView.m in Sources */,
+				32D3DCBD24F181610098D608 /* JJVideoFocusViewController.m in Sources */,
+				32D3DCC624F181610098D608 /* JJMsgDetailViewController.m in Sources */,
+				32D3DCC024F181610098D608 /* JJVideoCollectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,10 +707,12 @@
 		};
 		32D3DC5524F14E290098D608 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 183541373169CF659B3164C6 /* Pods-iOS_Tools.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6Y6DL4AM34;
+				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/ToolsPrefixHeader.pch";
 				INFOPLIST_FILE = iOS_Tools/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,10 +726,12 @@
 		};
 		32D3DC5624F14E290098D608 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80D20CA2196A5CC625556E6B /* Pods-iOS_Tools.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6Y6DL4AM34;
+				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/ToolsPrefixHeader.pch";
 				INFOPLIST_FILE = iOS_Tools/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
