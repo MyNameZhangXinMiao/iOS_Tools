@@ -28,7 +28,7 @@
     self.fd_prefersNavigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
 
-    self.data = @[@"空态图"];
+    self.data = @[@"空态图",@"自定义Toast",@"MBProgressHUD",@"自定义转场动画"];
     
     [self.view addSubview:self.navigationView];
     [self.view addSubview:self.tableView];

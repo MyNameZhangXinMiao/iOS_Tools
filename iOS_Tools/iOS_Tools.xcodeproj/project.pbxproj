@@ -52,6 +52,12 @@
 		32D3DD8124F18E580098D608 /* JJEmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DD8024F18E580098D608 /* JJEmptyViewController.m */; };
 		32D3DD8524F18F270098D608 /* JJBaseNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DD8424F18F270098D608 /* JJBaseNavigationView.m */; };
 		32D3DD8A24F1A0E00098D608 /* UIView+JJEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DD8924F1A0E00098D608 /* UIView+JJEmptyView.m */; };
+		32D3DD8F24F1B9B40098D608 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DD8D24F1B9B40098D608 /* MBProgressHUD.m */; };
+		32D3DDB624F1BD1F0098D608 /* JJToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDAD24F1BD1E0098D608 /* JJToast.m */; };
+		32D3DDB724F1BD1F0098D608 /* JJBaseToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDB124F1BD1E0098D608 /* JJBaseToast.m */; };
+		32D3DDB824F1BD1F0098D608 /* JJToast+Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDB224F1BD1F0098D608 /* JJToast+Window.m */; };
+		32D3DDB924F1BD1F0098D608 /* JJCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDB524F1BD1F0098D608 /* JJCustomView.m */; };
+		32D3DDBC24F1BE250098D608 /* NSString+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDBB24F1BE250098D608 /* NSString+Extra.m */; };
 		CA266E4349B178249216DF36 /* Pods_iOS_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +152,19 @@
 		32D3DD8424F18F270098D608 /* JJBaseNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJBaseNavigationView.m; sourceTree = "<group>"; };
 		32D3DD8824F1A0E00098D608 /* UIView+JJEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+JJEmptyView.h"; sourceTree = "<group>"; };
 		32D3DD8924F1A0E00098D608 /* UIView+JJEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+JJEmptyView.m"; sourceTree = "<group>"; };
+		32D3DD8D24F1B9B40098D608 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		32D3DD8E24F1B9B40098D608 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		32D3DDAD24F1BD1E0098D608 /* JJToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJToast.m; sourceTree = "<group>"; };
+		32D3DDAE24F1BD1E0098D608 /* JJBaseToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJBaseToast.h; sourceTree = "<group>"; };
+		32D3DDAF24F1BD1E0098D608 /* JJToast+Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JJToast+Window.h"; sourceTree = "<group>"; };
+		32D3DDB024F1BD1E0098D608 /* JJCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCustomView.h; sourceTree = "<group>"; };
+		32D3DDB124F1BD1E0098D608 /* JJBaseToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJBaseToast.m; sourceTree = "<group>"; };
+		32D3DDB224F1BD1F0098D608 /* JJToast+Window.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JJToast+Window.m"; sourceTree = "<group>"; };
+		32D3DDB324F1BD1F0098D608 /* JJToastHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJToastHeader.h; sourceTree = "<group>"; };
+		32D3DDB424F1BD1F0098D608 /* JJToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJToast.h; sourceTree = "<group>"; };
+		32D3DDB524F1BD1F0098D608 /* JJCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJCustomView.m; sourceTree = "<group>"; };
+		32D3DDBA24F1BE250098D608 /* NSString+Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extra.h"; sourceTree = "<group>"; };
+		32D3DDBB24F1BE250098D608 /* NSString+Extra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extra.m"; sourceTree = "<group>"; };
 		80D20CA2196A5CC625556E6B /* Pods-iOS_Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Tools.release.xcconfig"; path = "Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools.release.xcconfig"; sourceTree = "<group>"; };
 		AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -415,6 +434,7 @@
 		32D3DCB424F181610098D608 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				32D3DD8B24F1B9670098D608 /* Third */,
 				32D3DCB524F181610098D608 /* lufei.jpg */,
 			);
 			path = Data;
@@ -634,6 +654,9 @@
 		32D3DD7D24F18E310098D608 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				32D3DD9224F1BBD00098D608 /* MBProgressHUD */,
+				32D3DD9124F1BB8A0098D608 /* 自定义转场动画 */,
+				32D3DD9024F1B9F00098D608 /* 自定义Toast */,
 				32D3DD8224F18EFC0098D608 /* 自定义导航栏 */,
 				32D3DD7E24F18E400098D608 /* 空态图 */,
 			);
@@ -671,8 +694,57 @@
 			children = (
 				32D3DD8824F1A0E00098D608 /* UIView+JJEmptyView.h */,
 				32D3DD8924F1A0E00098D608 /* UIView+JJEmptyView.m */,
+				32D3DDBA24F1BE250098D608 /* NSString+Extra.h */,
+				32D3DDBB24F1BE250098D608 /* NSString+Extra.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		32D3DD8B24F1B9670098D608 /* Third */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DD8C24F1B9B30098D608 /* MBProgressHUD */,
+			);
+			path = Third;
+			sourceTree = "<group>";
+		};
+		32D3DD8C24F1B9B30098D608 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DD8D24F1B9B40098D608 /* MBProgressHUD.m */,
+				32D3DD8E24F1B9B40098D608 /* MBProgressHUD.h */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		32D3DD9024F1B9F00098D608 /* 自定义Toast */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "自定义Toast";
+			sourceTree = "<group>";
+		};
+		32D3DD9124F1BB8A0098D608 /* 自定义转场动画 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "自定义转场动画";
+			sourceTree = "<group>";
+		};
+		32D3DD9224F1BBD00098D608 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DDAE24F1BD1E0098D608 /* JJBaseToast.h */,
+				32D3DDB124F1BD1E0098D608 /* JJBaseToast.m */,
+				32D3DDB024F1BD1E0098D608 /* JJCustomView.h */,
+				32D3DDB524F1BD1F0098D608 /* JJCustomView.m */,
+				32D3DDB424F1BD1F0098D608 /* JJToast.h */,
+				32D3DDAD24F1BD1E0098D608 /* JJToast.m */,
+				32D3DDAF24F1BD1E0098D608 /* JJToast+Window.h */,
+				32D3DDB224F1BD1F0098D608 /* JJToast+Window.m */,
+				32D3DDB324F1BD1F0098D608 /* JJToastHeader.h */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		35825BCAF47C217A7588D94B /* Pods */ = {
@@ -820,10 +892,12 @@
 				32D3DD8A24F1A0E00098D608 /* UIView+JJEmptyView.m in Sources */,
 				32D3DD7124F18BC60098D608 /* JJUserInfoBaseView.m in Sources */,
 				32D3DC4024F14E280098D608 /* AppDelegate.m in Sources */,
+				32D3DD8F24F1B9B40098D608 /* MBProgressHUD.m in Sources */,
 				32D3DCBB24F181610098D608 /* KLClubListViewController.m in Sources */,
 				32D3DD7424F18BC60098D608 /* JJNavigationController.m in Sources */,
 				32D3DD8124F18E580098D608 /* JJEmptyViewController.m in Sources */,
 				32D3DCC924F181610098D608 /* KLMineViewController.m in Sources */,
+				32D3DDB724F1BD1F0098D608 /* JJBaseToast.m in Sources */,
 				32D3DD7024F18BC60098D608 /* JJMineViewController.m in Sources */,
 				32D3DD6F24F18BC60098D608 /* JJMessageViewController.m in Sources */,
 				32D3DCD724F181800098D608 /* JJBaseViewController.m in Sources */,
@@ -836,10 +910,13 @@
 				32D3DCC324F181610098D608 /* KLVideoCollectionView.m in Sources */,
 				32D3DCBE24F181610098D608 /* KLVideoFollowViewController.m in Sources */,
 				32D3DCCD24F181610098D608 /* KLNavigationController.m in Sources */,
+				32D3DDB624F1BD1F0098D608 /* JJToast.m in Sources */,
 				32D3DD7224F18BC60098D608 /* JJUserHeaderView.m in Sources */,
 				32D3DC5124F14E290098D608 /* main.m in Sources */,
 				32D3DCC824F181610098D608 /* KLMessageViewController.m in Sources */,
 				32D3DCBF24F181610098D608 /* KLHomeViewController.m in Sources */,
+				32D3DDB824F1BD1F0098D608 /* JJToast+Window.m in Sources */,
+				32D3DDBC24F1BE250098D608 /* NSString+Extra.m in Sources */,
 				32D3DD6B24F18BC60098D608 /* JJZoomHeaderViewController.m in Sources */,
 				32D3DCD624F181800098D608 /* UIColor+Extra.m in Sources */,
 				32D3DCBC24F181610098D608 /* KLClubViewController.m in Sources */,
@@ -848,6 +925,7 @@
 				32D3DCBD24F181610098D608 /* KLVideoFocusViewController.m in Sources */,
 				32D3DCC624F181610098D608 /* KLMsgDetailViewController.m in Sources */,
 				32D3DCC024F181610098D608 /* KLVideoCollectionCell.m in Sources */,
+				32D3DDB924F1BD1F0098D608 /* JJCustomView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

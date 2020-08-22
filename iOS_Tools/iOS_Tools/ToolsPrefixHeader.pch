@@ -25,6 +25,7 @@
 #import <FDFullscreenPopGesture/UINavigationController+FDFullscreenPopGesture.h>
 #import <Masonry.h>
 
+#import "NSString+Extra.h"
 
 
 #endif /* ToolsPrefixHeader_pch */
