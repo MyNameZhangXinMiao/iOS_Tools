@@ -58,6 +58,10 @@
 		32D3DDB824F1BD1F0098D608 /* JJToast+Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDB224F1BD1F0098D608 /* JJToast+Window.m */; };
 		32D3DDB924F1BD1F0098D608 /* JJCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDB524F1BD1F0098D608 /* JJCustomView.m */; };
 		32D3DDBC24F1BE250098D608 /* NSString+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDBB24F1BE250098D608 /* NSString+Extra.m */; };
+		32D3DDC924F1C0460098D608 /* KLEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDC424F1C0460098D608 /* KLEmptyView.m */; };
+		32D3DDCA24F1C0460098D608 /* UIView+KLEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDC524F1C0460098D608 /* UIView+KLEmptyView.m */; };
+		32D3DDCB24F1C0460098D608 /* KLEmptyBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDC724F1C0460098D608 /* KLEmptyBaseView.m */; };
+		32D3DDCC24F1C0460098D608 /* KLEmptyStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDC824F1C0460098D608 /* KLEmptyStateView.m */; };
 		CA266E4349B178249216DF36 /* Pods_iOS_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */; };
 /* End PBXBuildFile section */
 
@@ -165,6 +169,15 @@
 		32D3DDB524F1BD1F0098D608 /* JJCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJCustomView.m; sourceTree = "<group>"; };
 		32D3DDBA24F1BE250098D608 /* NSString+Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extra.h"; sourceTree = "<group>"; };
 		32D3DDBB24F1BE250098D608 /* NSString+Extra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extra.m"; sourceTree = "<group>"; };
+		32D3DDBF24F1C0460098D608 /* KLEmptyStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLEmptyStateView.h; sourceTree = "<group>"; };
+		32D3DDC124F1C0460098D608 /* KLEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLEmptyView.h; sourceTree = "<group>"; };
+		32D3DDC224F1C0460098D608 /* UIView+KLEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+KLEmptyView.h"; sourceTree = "<group>"; };
+		32D3DDC324F1C0460098D608 /* KLEmptyBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLEmptyBaseView.h; sourceTree = "<group>"; };
+		32D3DDC424F1C0460098D608 /* KLEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLEmptyView.m; sourceTree = "<group>"; };
+		32D3DDC524F1C0460098D608 /* UIView+KLEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KLEmptyView.m"; sourceTree = "<group>"; };
+		32D3DDC624F1C0460098D608 /* KLEmptyViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLEmptyViewHeader.h; sourceTree = "<group>"; };
+		32D3DDC724F1C0460098D608 /* KLEmptyBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLEmptyBaseView.m; sourceTree = "<group>"; };
+		32D3DDC824F1C0460098D608 /* KLEmptyStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLEmptyStateView.m; sourceTree = "<group>"; };
 		80D20CA2196A5CC625556E6B /* Pods-iOS_Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Tools.release.xcconfig"; path = "Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools.release.xcconfig"; sourceTree = "<group>"; };
 		AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -666,6 +679,7 @@
 		32D3DD7E24F18E400098D608 /* 空态图 */ = {
 			isa = PBXGroup;
 			children = (
+				32D3DDBD24F1C00F0098D608 /* 另一种写法 */,
 				32D3DD7F24F18E580098D608 /* JJEmptyViewController.h */,
 				32D3DD8024F18E580098D608 /* JJEmptyViewController.m */,
 			);
@@ -745,6 +759,38 @@
 				32D3DDB324F1BD1F0098D608 /* JJToastHeader.h */,
 			);
 			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		32D3DDBD24F1C00F0098D608 /* 另一种写法 */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DDBE24F1C0460098D608 /* KLEmptyView */,
+			);
+			path = "另一种写法";
+			sourceTree = "<group>";
+		};
+		32D3DDBE24F1C0460098D608 /* KLEmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DDC024F1C0460098D608 /* EmptyView */,
+				32D3DDBF24F1C0460098D608 /* KLEmptyStateView.h */,
+				32D3DDC824F1C0460098D608 /* KLEmptyStateView.m */,
+			);
+			path = KLEmptyView;
+			sourceTree = "<group>";
+		};
+		32D3DDC024F1C0460098D608 /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DDC324F1C0460098D608 /* KLEmptyBaseView.h */,
+				32D3DDC724F1C0460098D608 /* KLEmptyBaseView.m */,
+				32D3DDC124F1C0460098D608 /* KLEmptyView.h */,
+				32D3DDC424F1C0460098D608 /* KLEmptyView.m */,
+				32D3DDC624F1C0460098D608 /* KLEmptyViewHeader.h */,
+				32D3DDC224F1C0460098D608 /* UIView+KLEmptyView.h */,
+				32D3DDC524F1C0460098D608 /* UIView+KLEmptyView.m */,
+			);
+			path = EmptyView;
 			sourceTree = "<group>";
 		};
 		35825BCAF47C217A7588D94B /* Pods */ = {
@@ -888,6 +934,7 @@
 				32D3DD7524F18BC60098D608 /* JJTabBarController.m in Sources */,
 				32D3DD6424F18BC50098D608 /* JJClubViewController.m in Sources */,
 				32D3DC4624F14E280098D608 /* ViewController.m in Sources */,
+				32D3DDCC24F1C0460098D608 /* KLEmptyStateView.m in Sources */,
 				32D3DD7C24F18D560098D608 /* JJTableView.m in Sources */,
 				32D3DD8A24F1A0E00098D608 /* UIView+JJEmptyView.m in Sources */,
 				32D3DD7124F18BC60098D608 /* JJUserInfoBaseView.m in Sources */,
@@ -901,13 +948,16 @@
 				32D3DD7024F18BC60098D608 /* JJMineViewController.m in Sources */,
 				32D3DD6F24F18BC60098D608 /* JJMessageViewController.m in Sources */,
 				32D3DCD724F181800098D608 /* JJBaseViewController.m in Sources */,
+				32D3DDCB24F1C0460098D608 /* KLEmptyBaseView.m in Sources */,
 				32D3DD6D24F18BC60098D608 /* JJMsgDetailViewController.m in Sources */,
 				32D3DCC724F181610098D608 /* KLMsgSystemViewController.m in Sources */,
 				32D3DD6E24F18BC60098D608 /* JJMsgSystemViewController.m in Sources */,
+				32D3DDC924F1C0460098D608 /* KLEmptyView.m in Sources */,
 				32D3DD6C24F18BC60098D608 /* JJMomentViewController.m in Sources */,
 				32D3DCC124F181610098D608 /* KLVideoModel.m in Sources */,
 				32D3DCCA24F181610098D608 /* KLUserInfoBaseView.m in Sources */,
 				32D3DCC324F181610098D608 /* KLVideoCollectionView.m in Sources */,
+				32D3DDCA24F1C0460098D608 /* UIView+KLEmptyView.m in Sources */,
 				32D3DCBE24F181610098D608 /* KLVideoFollowViewController.m in Sources */,
 				32D3DCCD24F181610098D608 /* KLNavigationController.m in Sources */,
 				32D3DDB624F1BD1F0098D608 /* JJToast.m in Sources */,
