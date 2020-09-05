@@ -8,6 +8,7 @@
 
 #import "JJHomeViewController.h"
 #import "JJEmptyViewController.h"
+#import "JJDarkModeViewController.h"
 
 
 
@@ -28,7 +29,7 @@
     self.fd_prefersNavigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
 
-    self.data = @[@"空态图",@"自定义Toast",@"MBProgressHUD",@"自定义转场动画"];
+    self.data = @[@"空态图",@"自定义Toast",@"MBProgressHUD",@"自定义转场动画",@"暗黑模式适配"];
     
     [self.view addSubview:self.navigationView];
     [self.view addSubview:self.tableView];
@@ -74,8 +75,9 @@
     if ([text isEqualToString:@"空态图"]) {
         JJEmptyViewController *vc = [[JJEmptyViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-    } else {
-        
+    } else if ([text isEqualToString:@"暗黑模式适配"]) {
+        JJDarkModeViewController *vc = [[JJDarkModeViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

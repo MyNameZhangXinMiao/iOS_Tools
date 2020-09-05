@@ -62,6 +62,7 @@
 		32D3DDCA24F1C0460098D608 /* UIView+KLEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDC524F1C0460098D608 /* UIView+KLEmptyView.m */; };
 		32D3DDCB24F1C0460098D608 /* KLEmptyBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDC724F1C0460098D608 /* KLEmptyBaseView.m */; };
 		32D3DDCC24F1C0460098D608 /* KLEmptyStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDC824F1C0460098D608 /* KLEmptyStateView.m */; };
+		32D3DDD024F1C1910098D608 /* JJDarkModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDCF24F1C1910098D608 /* JJDarkModeViewController.m */; };
 		CA266E4349B178249216DF36 /* Pods_iOS_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +179,8 @@
 		32D3DDC624F1C0460098D608 /* KLEmptyViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLEmptyViewHeader.h; sourceTree = "<group>"; };
 		32D3DDC724F1C0460098D608 /* KLEmptyBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLEmptyBaseView.m; sourceTree = "<group>"; };
 		32D3DDC824F1C0460098D608 /* KLEmptyStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLEmptyStateView.m; sourceTree = "<group>"; };
+		32D3DDCE24F1C1910098D608 /* JJDarkModeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJDarkModeViewController.h; sourceTree = "<group>"; };
+		32D3DDCF24F1C1910098D608 /* JJDarkModeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJDarkModeViewController.m; sourceTree = "<group>"; };
 		80D20CA2196A5CC625556E6B /* Pods-iOS_Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Tools.release.xcconfig"; path = "Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools.release.xcconfig"; sourceTree = "<group>"; };
 		AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -539,9 +542,6 @@
 			isa = PBXGroup;
 			children = (
 				32D3DD3424F18BC50098D608 /* Controller */,
-				32D3DD3B24F18BC50098D608 /* Cell */,
-				32D3DD3E24F18BC50098D608 /* Model */,
-				32D3DD4124F18BC50098D608 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -553,27 +553,6 @@
 				32D3DD3A24F18BC50098D608 /* JJHomeViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		32D3DD3B24F18BC50098D608 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		32D3DD3E24F18BC50098D608 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		32D3DD4124F18BC50098D608 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		32D3DD4424F18BC50098D608 /* Moment */ = {
@@ -667,6 +646,7 @@
 		32D3DD7D24F18E310098D608 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				32D3DDCD24F1C1610098D608 /* 暗黑模式适配 */,
 				32D3DD9224F1BBD00098D608 /* MBProgressHUD */,
 				32D3DD9124F1BB8A0098D608 /* 自定义转场动画 */,
 				32D3DD9024F1B9F00098D608 /* 自定义Toast */,
@@ -791,6 +771,15 @@
 				32D3DDC524F1C0460098D608 /* UIView+KLEmptyView.m */,
 			);
 			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		32D3DDCD24F1C1610098D608 /* 暗黑模式适配 */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DDCE24F1C1910098D608 /* JJDarkModeViewController.h */,
+				32D3DDCF24F1C1910098D608 /* JJDarkModeViewController.m */,
+			);
+			path = "暗黑模式适配";
 			sourceTree = "<group>";
 		};
 		35825BCAF47C217A7588D94B /* Pods */ = {
@@ -932,6 +921,7 @@
 				32D3DCC424F181610098D608 /* KLZoomHeaderViewController.m in Sources */,
 				32D3DD7924F18CFB0098D608 /* JJBaseTableView.m in Sources */,
 				32D3DD7524F18BC60098D608 /* JJTabBarController.m in Sources */,
+				32D3DDD024F1C1910098D608 /* JJDarkModeViewController.m in Sources */,
 				32D3DD6424F18BC50098D608 /* JJClubViewController.m in Sources */,
 				32D3DC4624F14E280098D608 /* ViewController.m in Sources */,
 				32D3DDCC24F1C0460098D608 /* KLEmptyStateView.m in Sources */,
