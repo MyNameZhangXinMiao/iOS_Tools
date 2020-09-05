@@ -1,28 +1,29 @@
 //
-//  JJHomeViewController.m
-//  Douyin_oc
+//  JJBrowserListController.m
+//  iOS_Tools
 //
-//  Created by 播呗网络 on 2020/7/18.
+//  Created by 播呗网络 on 2020/9/6.
 //  Copyright © 2020 播呗网络. All rights reserved.
 //
 
-#import "JJHomeViewController.h"
-#import "JJEmptyViewController.h"
-#import "JJDarkModeViewController.h"
 #import "JJBrowserListController.h"
+#import "JJLocalImageViewController.h"
 
 
-
-@interface JJHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface JJBrowserListController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) JJBaseNavigationView *navigationView;
 
 @property (nonatomic, strong) JJTableView *tableView;
 
 @property (nonatomic, strong) NSArray *data;
+
+
+
 @end
 
-@implementation JJHomeViewController
+@implementation JJBrowserListController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +31,7 @@
     self.fd_prefersNavigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
 
-    self.data = @[@"空态图",@"自定义Toast",@"MBProgressHUD",@"自定义转场动画",@"暗黑模式适配",@"图片浏览器"];
+    self.data = @[@"本地图片"];
     
     [self.view addSubview:self.navigationView];
     [self.view addSubview:self.tableView];
@@ -73,14 +74,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSString *text = self.data[indexPath.row];
-    if ([text isEqualToString:@"空态图"]) {
-        JJEmptyViewController *vc = [[JJEmptyViewController alloc] init];
+    if ([text isEqualToString:@"本地图片"]) {
+        JJLocalImageViewController *vc = [[JJLocalImageViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([text isEqualToString:@"暗黑模式适配"]) {
-        JJDarkModeViewController *vc = [[JJDarkModeViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([text isEqualToString:@"图片浏览器"]){
-        JJBrowserListController *vc = [[JJBrowserListController alloc] init];
+        JJLocalImageViewController *vc = [[JJLocalImageViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -91,7 +89,12 @@
 - (JJBaseNavigationView *)navigationView{
     if (_navigationView == nil) {
         _navigationView = [[JJBaseNavigationView alloc] init];
-        _navigationView.title = @"首页";
+        _navigationView.title = @"图片浏览器";
+        @weakify(self);
+        _navigationView.backBtnActionCallBack = ^{
+            @strongify(self);
+            [self.navigationController popViewControllerAnimated:YES];
+        };
     }
     return _navigationView;
 }
