@@ -74,6 +74,8 @@
 		32D3DDCB24F1C0460098D608 /* KLEmptyBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDC724F1C0460098D608 /* KLEmptyBaseView.m */; };
 		32D3DDCC24F1C0460098D608 /* KLEmptyStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDC824F1C0460098D608 /* KLEmptyStateView.m */; };
 		32D3DDD024F1C1910098D608 /* JJDarkModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDCF24F1C1910098D608 /* JJDarkModeViewController.m */; };
+		32E0B29F25063BA400BD6E39 /* JJAutoRunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E0B29E25063BA400BD6E39 /* JJAutoRunViewController.m */; };
+		32E0B2A225063BB700BD6E39 /* JJAutoRunView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E0B2A125063BB700BD6E39 /* JJAutoRunView.m */; };
 		CA266E4349B178249216DF36 /* Pods_iOS_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */; };
 /* End PBXBuildFile section */
 
@@ -211,6 +213,10 @@
 		32D3DDC824F1C0460098D608 /* KLEmptyStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLEmptyStateView.m; sourceTree = "<group>"; };
 		32D3DDCE24F1C1910098D608 /* JJDarkModeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJDarkModeViewController.h; sourceTree = "<group>"; };
 		32D3DDCF24F1C1910098D608 /* JJDarkModeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJDarkModeViewController.m; sourceTree = "<group>"; };
+		32E0B29D25063BA400BD6E39 /* JJAutoRunViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJAutoRunViewController.h; sourceTree = "<group>"; };
+		32E0B29E25063BA400BD6E39 /* JJAutoRunViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJAutoRunViewController.m; sourceTree = "<group>"; };
+		32E0B2A025063BB700BD6E39 /* JJAutoRunView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJAutoRunView.h; sourceTree = "<group>"; };
+		32E0B2A125063BB700BD6E39 /* JJAutoRunView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJAutoRunView.m; sourceTree = "<group>"; };
 		80D20CA2196A5CC625556E6B /* Pods-iOS_Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Tools.release.xcconfig"; path = "Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools.release.xcconfig"; sourceTree = "<group>"; };
 		AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -734,6 +740,7 @@
 		32D3DD7D24F18E310098D608 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				32E0B29C25063B8100BD6E39 /* 跑马灯 */,
 				32038B7E2503EDEF000E2684 /* Browser */,
 				32D3DDCD24F1C1610098D608 /* 暗黑模式适配 */,
 				32D3DD9224F1BBD00098D608 /* MBProgressHUD */,
@@ -869,6 +876,17 @@
 				32D3DDCF24F1C1910098D608 /* JJDarkModeViewController.m */,
 			);
 			path = "暗黑模式适配";
+			sourceTree = "<group>";
+		};
+		32E0B29C25063B8100BD6E39 /* 跑马灯 */ = {
+			isa = PBXGroup;
+			children = (
+				32E0B29D25063BA400BD6E39 /* JJAutoRunViewController.h */,
+				32E0B29E25063BA400BD6E39 /* JJAutoRunViewController.m */,
+				32E0B2A025063BB700BD6E39 /* JJAutoRunView.h */,
+				32E0B2A125063BB700BD6E39 /* JJAutoRunView.m */,
+			);
+			path = "跑马灯";
 			sourceTree = "<group>";
 		};
 		35825BCAF47C217A7588D94B /* Pods */ = {
@@ -1037,6 +1055,7 @@
 				32D3DD6D24F18BC60098D608 /* JJMsgDetailViewController.m in Sources */,
 				32038B842503EEE7000E2684 /* JJLocalImageViewController.m in Sources */,
 				32D3DCC724F181610098D608 /* KLMsgSystemViewController.m in Sources */,
+				32E0B2A225063BB700BD6E39 /* JJAutoRunView.m in Sources */,
 				32D3DD6E24F18BC60098D608 /* JJMsgSystemViewController.m in Sources */,
 				32D3DDC924F1C0460098D608 /* KLEmptyView.m in Sources */,
 				32D3DD6C24F18BC60098D608 /* JJMomentViewController.m in Sources */,
@@ -1064,6 +1083,7 @@
 				32038B882503F0B8000E2684 /* JJImageCollectionCell.m in Sources */,
 				32D3DCBD24F181610098D608 /* KLVideoFocusViewController.m in Sources */,
 				32D3DCC624F181610098D608 /* KLMsgDetailViewController.m in Sources */,
+				32E0B29F25063BA400BD6E39 /* JJAutoRunViewController.m in Sources */,
 				32D3DCC024F181610098D608 /* KLVideoCollectionCell.m in Sources */,
 				32D3DDB924F1BD1F0098D608 /* JJCustomView.m in Sources */,
 			);

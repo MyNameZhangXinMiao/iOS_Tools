@@ -15,7 +15,7 @@
 /// 只显示文字HUD(自动消失)
 + (void)showMessage:(NSString *_Nonnull)message{
     
-    if ([NSString isNull:message]){
+    if ([NSString isNil:message]){
         return;
     }
     
@@ -50,7 +50,7 @@
 /// Window上显示文字MBHUD(自动消失),可以交互
 + (void)showMessageInteraction:(NSString *_Nonnull)message{
     
-    if ([NSString isNull:message]){
+    if ([NSString isNil:message]){
         return;
     }
     

@@ -16,7 +16,7 @@
 ///  只显示文字HUD(自动消失)
 + (void)showMessage:(NSString *_Nonnull)message toView:(UIView *)view{
     
-    if ([NSString isNull:message]){
+    if ([NSString isNil:message]){
         return;
     }
     
@@ -52,7 +52,7 @@
 /// 文字HUD,可以返回
 + (void)showMessageEnableNavigation:(NSString *_Nonnull)message toView:(UIView *_Nonnull)view{
     
-    if ([NSString isNull:message]){
+    if ([NSString isNil:message]){
         return;
     }
     
