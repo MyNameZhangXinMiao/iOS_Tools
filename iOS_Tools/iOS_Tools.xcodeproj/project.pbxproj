@@ -18,6 +18,7 @@
 		32038B922503F7D9000E2684 /* JJImageBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32038B912503F7D9000E2684 /* JJImageBrowserCell.m */; };
 		32A68956250404D000B497A0 /* JJPhotoBrowserFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A68955250404D000B497A0 /* JJPhotoBrowserFlowLayout.m */; };
 		32A6895A25041C4F00B497A0 /* MagicAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A6895925041C4F00B497A0 /* MagicAnimate.m */; };
+		32B61880251335A0006726B4 /* JJMoreScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6187F251335A0006726B4 /* JJMoreScrollViewController.m */; };
 		32D3DC4024F14E280098D608 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC3F24F14E280098D608 /* AppDelegate.m */; };
 		32D3DC4624F14E280098D608 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC4524F14E280098D608 /* ViewController.m */; };
 		32D3DC4924F14E280098D608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D3DC4724F14E280098D608 /* Main.storyboard */; };
@@ -100,6 +101,8 @@
 		32A68955250404D000B497A0 /* JJPhotoBrowserFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJPhotoBrowserFlowLayout.m; sourceTree = "<group>"; };
 		32A6895825041C4F00B497A0 /* MagicAnimate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagicAnimate.h; sourceTree = "<group>"; };
 		32A6895925041C4F00B497A0 /* MagicAnimate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagicAnimate.m; sourceTree = "<group>"; };
+		32B6187E251335A0006726B4 /* JJMoreScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJMoreScrollViewController.h; sourceTree = "<group>"; };
+		32B6187F251335A0006726B4 /* JJMoreScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJMoreScrollViewController.m; sourceTree = "<group>"; };
 		32D3DC3B24F14E280098D608 /* iOS_Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Tools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D3DC3E24F14E280098D608 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		32D3DC3F24F14E280098D608 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -288,6 +291,15 @@
 				32A6895925041C4F00B497A0 /* MagicAnimate.m */,
 			);
 			path = "转场动画";
+			sourceTree = "<group>";
+		};
+		32B6187D25133573006726B4 /* Scrollview嵌套 */ = {
+			isa = PBXGroup;
+			children = (
+				32B6187E251335A0006726B4 /* JJMoreScrollViewController.h */,
+				32B6187F251335A0006726B4 /* JJMoreScrollViewController.m */,
+			);
+			path = "Scrollview嵌套";
 			sourceTree = "<group>";
 		};
 		32D3DC3224F14E280098D608 = {
@@ -740,6 +752,7 @@
 		32D3DD7D24F18E310098D608 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				32B6187D25133573006726B4 /* Scrollview嵌套 */,
 				32E0B29C25063B8100BD6E39 /* 跑马灯 */,
 				32038B7E2503EDEF000E2684 /* Browser */,
 				32D3DDCD24F1C1610098D608 /* 暗黑模式适配 */,
@@ -1062,6 +1075,7 @@
 				32D3DCC124F181610098D608 /* KLVideoModel.m in Sources */,
 				32D3DCCA24F181610098D608 /* KLUserInfoBaseView.m in Sources */,
 				32D3DCC324F181610098D608 /* KLVideoCollectionView.m in Sources */,
+				32B61880251335A0006726B4 /* JJMoreScrollViewController.m in Sources */,
 				32D3DDCA24F1C0460098D608 /* UIView+KLEmptyView.m in Sources */,
 				32D3DCBE24F181610098D608 /* KLVideoFollowViewController.m in Sources */,
 				32038B812503EE55000E2684 /* JJBrowserListController.m in Sources */,

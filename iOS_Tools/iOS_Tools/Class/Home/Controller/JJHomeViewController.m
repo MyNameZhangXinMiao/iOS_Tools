@@ -11,6 +11,7 @@
 #import "JJDarkModeViewController.h"
 #import "JJBrowserListController.h"
 #import "JJAutoRunViewController.h"  //跑马灯
+#import "JJMoreScrollViewController.h"
 
 
 
@@ -31,7 +32,7 @@
     self.fd_prefersNavigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
 
-    self.data = @[@"空态图",@"自定义Toast",@"MBProgressHUD",@"自定义转场动画",@"暗黑模式适配",@"图片浏览器",@"跑马灯"];
+    self.data = @[@"空态图",@"自定义Toast",@"MBProgressHUD",@"自定义转场动画",@"暗黑模式适配",@"图片浏览器",@"跑马灯",@"scrollView嵌套"];
     
     [self.view addSubview:self.navigationView];
     [self.view addSubview:self.tableView];
@@ -86,7 +87,11 @@
     } else if ([text isEqualToString:@"跑马灯"]){
         JJAutoRunViewController *vc = [[JJAutoRunViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
+    } else if ([text isEqualToString:@"scrollView嵌套"]){
+        JJMoreScrollViewController *vc = [[JJMoreScrollViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
+    
 }
 
 
