@@ -53,6 +53,16 @@ UICollectionViewDataSource
     
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView == self.collectionView) {
+        self.scrollView.scrollEnabled = NO;
+    }
+}
+
+
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+}
 
 - (UIScrollView *)scrollView{
     if (_scrollView == nil) {
