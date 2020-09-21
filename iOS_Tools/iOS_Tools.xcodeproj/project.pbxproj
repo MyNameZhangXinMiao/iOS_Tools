@@ -757,8 +757,6 @@
 				32038B7E2503EDEF000E2684 /* Browser */,
 				32D3DDCD24F1C1610098D608 /* 暗黑模式适配 */,
 				32D3DD9224F1BBD00098D608 /* MBProgressHUD */,
-				32D3DD9124F1BB8A0098D608 /* 自定义转场动画 */,
-				32D3DD9024F1B9F00098D608 /* 自定义Toast */,
 				32D3DD8224F18EFC0098D608 /* 自定义导航栏 */,
 				32D3DD7E24F18E400098D608 /* 空态图 */,
 			);
@@ -818,20 +816,6 @@
 				32D3DD8E24F1B9B40098D608 /* MBProgressHUD.h */,
 			);
 			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
-		32D3DD9024F1B9F00098D608 /* 自定义Toast */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "自定义Toast";
-			sourceTree = "<group>";
-		};
-		32D3DD9124F1BB8A0098D608 /* 自定义转场动画 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "自定义转场动画";
 			sourceTree = "<group>";
 		};
 		32D3DD9224F1BBD00098D608 /* MBProgressHUD */ = {
