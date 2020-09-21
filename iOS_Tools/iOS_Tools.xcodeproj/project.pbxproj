@@ -77,6 +77,11 @@
 		32D3DDD024F1C1910098D608 /* JJDarkModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDCF24F1C1910098D608 /* JJDarkModeViewController.m */; };
 		32E0B29F25063BA400BD6E39 /* JJAutoRunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E0B29E25063BA400BD6E39 /* JJAutoRunViewController.m */; };
 		32E0B2A225063BB700BD6E39 /* JJAutoRunView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E0B2A125063BB700BD6E39 /* JJAutoRunView.m */; };
+		7D36FF832518EEB50021595F /* JJVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF822518EEB50021595F /* JJVideoViewController.m */; };
+		7D36FF892518F1470021595F /* JJVideoTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF882518F1470021595F /* JJVideoTest1ViewController.m */; };
+		7D36FF8D2518F6200021595F /* JJPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF8C2518F6200021595F /* JJPlayerView.m */; };
+		7D36FF912518F74C0021595F /* JJPlayerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF902518F74C0021595F /* JJPlayerConfiguration.m */; };
+		7D36FF952518F78C0021595F /* JJPlayerControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF942518F78C0021595F /* JJPlayerControls.m */; };
 		CA266E4349B178249216DF36 /* Pods_iOS_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */; };
 /* End PBXBuildFile section */
 
@@ -220,6 +225,16 @@
 		32E0B29E25063BA400BD6E39 /* JJAutoRunViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJAutoRunViewController.m; sourceTree = "<group>"; };
 		32E0B2A025063BB700BD6E39 /* JJAutoRunView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJAutoRunView.h; sourceTree = "<group>"; };
 		32E0B2A125063BB700BD6E39 /* JJAutoRunView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJAutoRunView.m; sourceTree = "<group>"; };
+		7D36FF812518EEB50021595F /* JJVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoViewController.h; sourceTree = "<group>"; };
+		7D36FF822518EEB50021595F /* JJVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoViewController.m; sourceTree = "<group>"; };
+		7D36FF872518F1470021595F /* JJVideoTest1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoTest1ViewController.h; sourceTree = "<group>"; };
+		7D36FF882518F1470021595F /* JJVideoTest1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoTest1ViewController.m; sourceTree = "<group>"; };
+		7D36FF8B2518F6200021595F /* JJPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJPlayerView.h; sourceTree = "<group>"; };
+		7D36FF8C2518F6200021595F /* JJPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJPlayerView.m; sourceTree = "<group>"; };
+		7D36FF8F2518F74C0021595F /* JJPlayerConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJPlayerConfiguration.h; sourceTree = "<group>"; };
+		7D36FF902518F74C0021595F /* JJPlayerConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJPlayerConfiguration.m; sourceTree = "<group>"; };
+		7D36FF932518F78C0021595F /* JJPlayerControls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJPlayerControls.h; sourceTree = "<group>"; };
+		7D36FF942518F78C0021595F /* JJPlayerControls.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJPlayerControls.m; sourceTree = "<group>"; };
 		80D20CA2196A5CC625556E6B /* Pods-iOS_Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Tools.release.xcconfig"; path = "Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools.release.xcconfig"; sourceTree = "<group>"; };
 		AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -752,6 +767,7 @@
 		32D3DD7D24F18E310098D608 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				7D36FF802518EE8F0021595F /* 自定义视频播放 */,
 				32B6187D25133573006726B4 /* Scrollview嵌套 */,
 				32E0B29C25063B8100BD6E39 /* 跑马灯 */,
 				32038B7E2503EDEF000E2684 /* Browser */,
@@ -895,6 +911,31 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7D36FF802518EE8F0021595F /* 自定义视频播放 */ = {
+			isa = PBXGroup;
+			children = (
+				7D36FF812518EEB50021595F /* JJVideoViewController.h */,
+				7D36FF822518EEB50021595F /* JJVideoViewController.m */,
+				7D36FF872518F1470021595F /* JJVideoTest1ViewController.h */,
+				7D36FF882518F1470021595F /* JJVideoTest1ViewController.m */,
+				7D36FF852518EFD40021595F /* VideoPlayer */,
+			);
+			path = "自定义视频播放";
+			sourceTree = "<group>";
+		};
+		7D36FF852518EFD40021595F /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				7D36FF8B2518F6200021595F /* JJPlayerView.h */,
+				7D36FF8C2518F6200021595F /* JJPlayerView.m */,
+				7D36FF8F2518F74C0021595F /* JJPlayerConfiguration.h */,
+				7D36FF902518F74C0021595F /* JJPlayerConfiguration.m */,
+				7D36FF932518F78C0021595F /* JJPlayerControls.h */,
+				7D36FF942518F78C0021595F /* JJPlayerControls.m */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
 		D82A72451973CF6B6465760D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1022,12 +1063,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D3DCC524F181610098D608 /* KLMomentViewController.m in Sources */,
+				7D36FF892518F1470021595F /* JJVideoTest1ViewController.m in Sources */,
 				32D3DD6724F18BC50098D608 /* JJHomeViewController.m in Sources */,
 				32D3DCCE24F181610098D608 /* KLTabBarController.m in Sources */,
 				32D3DD6324F18BC50098D608 /* JJClubListViewController.m in Sources */,
 				32D3DCC424F181610098D608 /* KLZoomHeaderViewController.m in Sources */,
 				32D3DD7924F18CFB0098D608 /* JJBaseTableView.m in Sources */,
 				32D3DD7524F18BC60098D608 /* JJTabBarController.m in Sources */,
+				7D36FF912518F74C0021595F /* JJPlayerConfiguration.m in Sources */,
 				32D3DDD024F1C1910098D608 /* JJDarkModeViewController.m in Sources */,
 				32D3DD6424F18BC50098D608 /* JJClubViewController.m in Sources */,
 				32D3DC4624F14E280098D608 /* ViewController.m in Sources */,
@@ -1041,6 +1084,7 @@
 				32A6895A25041C4F00B497A0 /* MagicAnimate.m in Sources */,
 				32D3DCBB24F181610098D608 /* KLClubListViewController.m in Sources */,
 				32D3DD7424F18BC60098D608 /* JJNavigationController.m in Sources */,
+				7D36FF952518F78C0021595F /* JJPlayerControls.m in Sources */,
 				32D3DD8124F18E580098D608 /* JJEmptyViewController.m in Sources */,
 				32D3DCC924F181610098D608 /* KLMineViewController.m in Sources */,
 				32038B8F2503F59E000E2684 /* JJImageModel.m in Sources */,
@@ -1063,6 +1107,7 @@
 				32D3DDCA24F1C0460098D608 /* UIView+KLEmptyView.m in Sources */,
 				32D3DCBE24F181610098D608 /* KLVideoFollowViewController.m in Sources */,
 				32038B812503EE55000E2684 /* JJBrowserListController.m in Sources */,
+				7D36FF8D2518F6200021595F /* JJPlayerView.m in Sources */,
 				32D3DCCD24F181610098D608 /* KLNavigationController.m in Sources */,
 				32D3DDB624F1BD1F0098D608 /* JJToast.m in Sources */,
 				32D3DD7224F18BC60098D608 /* JJUserHeaderView.m in Sources */,
@@ -1081,6 +1126,7 @@
 				32038B882503F0B8000E2684 /* JJImageCollectionCell.m in Sources */,
 				32D3DCBD24F181610098D608 /* KLVideoFocusViewController.m in Sources */,
 				32D3DCC624F181610098D608 /* KLMsgDetailViewController.m in Sources */,
+				7D36FF832518EEB50021595F /* JJVideoViewController.m in Sources */,
 				32E0B29F25063BA400BD6E39 /* JJAutoRunViewController.m in Sources */,
 				32D3DCC024F181610098D608 /* KLVideoCollectionCell.m in Sources */,
 				32D3DDB924F1BD1F0098D608 /* JJCustomView.m in Sources */,
