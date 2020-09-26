@@ -22,13 +22,22 @@ PODS:
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
   - FDFullscreenPopGesture (1.1)
-  - FLEX (2.4.0)
+  - FLEX (3.1.2)
+  - IQKeyboardManager (6.5.6)
   - JXCategoryView (1.5.5)
   - JXPagingView/Pager (2.0.8)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.7)
   - Protobuf (3.12.0)
   - Reachability (3.2)
+  - RealReachability (1.3.0):
+    - RealReachability/Connection (= 1.3.0)
+    - RealReachability/Ping (= 1.3.0)
+  - RealReachability/Connection (1.3.0)
+  - RealReachability/Ping (1.3.0)
+  - SDWebImage (5.8.4):
+    - SDWebImage/Core (= 5.8.4)
+  - SDWebImage/Core (5.8.4)
   - SJBaseVideoPlayer (3.3.8):
     - Masonry
     - Reachability
@@ -111,11 +120,14 @@ PODS:
 DEPENDENCIES:
   - BlocksKit (~> 2.2.5)
   - FDFullscreenPopGesture (~> 1.1)
-  - FLEX (~> 2.4.0)
+  - FLEX (~> 3.1.2)
+  - IQKeyboardManager (~> 6.5.6)
   - JXCategoryView (~> 1.5.5)
   - JXPagingView/Pager (~> 2.0.8)
   - Masonry (~> 1.1.0)
   - MJRefresh (~> 3.1.15.3)
+  - RealReachability
+  - SDWebImage (~> 5.8.4)
   - SJVideoPlayer (~> 3.2.6)
   - SVGAPlayer (~> 2.5.4)
   - YTKNetwork (~> 3.0.0)
@@ -127,12 +139,15 @@ SPEC REPOS:
     - BlocksKit
     - FDFullscreenPopGesture
     - FLEX
+    - IQKeyboardManager
     - JXCategoryView
     - JXPagingView
     - Masonry
     - MJRefresh
     - Protobuf
     - Reachability
+    - RealReachability
+    - SDWebImage
     - SJBaseVideoPlayer
     - SJUIKit
     - SJVideoPlayer
@@ -146,13 +161,16 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
+  FLEX: e13e805fc3eec8732cc227d1f7508770d46e9587
+  IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   JXCategoryView: 0293fcb356f10a5c2e679dac0a1a5f1899ee0c87
   JXPagingView: 913b44c05972f5b351232816f33db130b1b524ab
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  RealReachability: eae9c58d2db52fadd8e1cba4b5d4c028454fbc47
+  SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   SJBaseVideoPlayer: 85f98136ab7b1d9595d8f85e3baee3801feb733e
   SJUIKit: bdf86af3648e70483c57e2bfe2fcc7531337fa54
   SJVideoPlayer: fb53250dbf0ad2f95c963e9a42efb2057b9e9f27
@@ -162,6 +180,6 @@ SPEC CHECKSUMS:
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 1d55e0fd3be00d523f3647fa215f986827d7e1da
+PODFILE CHECKSUM: 02f61003801da19c27f3d9485a1f623fad65468b
 
-COCOAPODS: 1.10.0.beta.2
+COCOAPODS: 1.9.3

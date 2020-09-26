@@ -10,24 +10,28 @@ target 'iOS_Tools' do
  
  
   pod 'YTKNetwork', '~> 3.0.0'
+  pod 'SDWebImage', '~> 5.8.4'
+  pod 'Masonry', '~> 1.1.0'
+  pod 'RealReachability'
   
   pod 'JXCategoryView', '~> 1.5.5'
   pod 'JXPagingView/Pager', '~> 2.0.8'
+  pod 'MJRefresh', '~> 3.1.15.3'
+  pod 'SVGAPlayer', '~> 2.5.4'
+  
+  pod 'SJVideoPlayer', '~> 3.2.6'
   
   pod 'FDFullscreenPopGesture', '~> 1.1'
-  pod 'Masonry', '~> 1.1.0'
+  pod 'IQKeyboardManager','~> 6.5.6'
   
   
-  pod 'SVGAPlayer', '~> 2.5.4'
   #腾讯超级播放器
 #  pod 'SuperPlayer', '~> 3.2.7'
-  pod 'SJVideoPlayer', '~> 3.2.6'
-  pod 'MJRefresh', '~> 3.1.15.3'
   
   pod 'YYCategories', '~> 1.0.4'
   pod 'BlocksKit', '~> 2.2.5'
 
-  pod 'FLEX', '~> 2.4.0', :configurations => ['Debug']
-  
+  pod 'FLEX', '~> 3.1.2', :configurations => ['Debug']
+
   
 end
