@@ -1,14 +1,14 @@
 //
-//  JJPlayerControls.m
+//  JJAnimationView.m
 //  iOS_Tools
 //
-//  Created by zhouxuanhe on 2020/9/21.
+//  Created by zhouxuanhe on 2020/9/26.
 //  Copyright © 2020 播呗网络. All rights reserved.
 //
 
-#import "JJPlayerControls.h"
+#import "JJAnimationView.h"
 
-@implementation JJPlayerControls
+@implementation JJAnimationView
 
 /*
 // Only override drawRect: if you perform custom drawing.

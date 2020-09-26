@@ -80,8 +80,11 @@
 		7D36FF832518EEB50021595F /* JJVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF822518EEB50021595F /* JJVideoViewController.m */; };
 		7D36FF892518F1470021595F /* JJVideoTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF882518F1470021595F /* JJVideoTest1ViewController.m */; };
 		7D36FF8D2518F6200021595F /* JJPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF8C2518F6200021595F /* JJPlayerView.m */; };
-		7D36FF912518F74C0021595F /* JJPlayerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF902518F74C0021595F /* JJPlayerConfiguration.m */; };
-		7D36FF952518F78C0021595F /* JJPlayerControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF942518F78C0021595F /* JJPlayerControls.m */; };
+		7D56AE41251EED94000E7D39 /* JJSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D56AE40251EED94000E7D39 /* JJSlider.m */; };
+		7D56AED8251EF166000E7D39 /* JJAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D56AED7251EF166000E7D39 /* JJAnimationView.m */; };
+		7D56AF9C251F128E000E7D39 /* JJPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D56AF9B251F128E000E7D39 /* JJPlayer.bundle */; };
+		7D56AFA0251F12E7000E7D39 /* UIImage+JJPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D56AF9F251F12E7000E7D39 /* UIImage+JJPlayer.m */; };
+		7D5C9F68251E30A60083781F /* JJPlayerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5C9F67251E30A60083781F /* JJPlayerMaskView.m */; };
 		CA266E4349B178249216DF36 /* Pods_iOS_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */; };
 /* End PBXBuildFile section */
 
@@ -231,10 +234,16 @@
 		7D36FF882518F1470021595F /* JJVideoTest1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoTest1ViewController.m; sourceTree = "<group>"; };
 		7D36FF8B2518F6200021595F /* JJPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJPlayerView.h; sourceTree = "<group>"; };
 		7D36FF8C2518F6200021595F /* JJPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJPlayerView.m; sourceTree = "<group>"; };
-		7D36FF8F2518F74C0021595F /* JJPlayerConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJPlayerConfiguration.h; sourceTree = "<group>"; };
-		7D36FF902518F74C0021595F /* JJPlayerConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJPlayerConfiguration.m; sourceTree = "<group>"; };
-		7D36FF932518F78C0021595F /* JJPlayerControls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJPlayerControls.h; sourceTree = "<group>"; };
-		7D36FF942518F78C0021595F /* JJPlayerControls.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJPlayerControls.m; sourceTree = "<group>"; };
+		7D56AE3F251EED94000E7D39 /* JJSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJSlider.h; sourceTree = "<group>"; };
+		7D56AE40251EED94000E7D39 /* JJSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJSlider.m; sourceTree = "<group>"; };
+		7D56AE43251EEE1B000E7D39 /* JJPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJPlayer.h; sourceTree = "<group>"; };
+		7D56AED6251EF166000E7D39 /* JJAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJAnimationView.h; sourceTree = "<group>"; };
+		7D56AED7251EF166000E7D39 /* JJAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJAnimationView.m; sourceTree = "<group>"; };
+		7D56AF9B251F128E000E7D39 /* JJPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JJPlayer.bundle; sourceTree = "<group>"; };
+		7D56AF9E251F12E7000E7D39 /* UIImage+JJPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+JJPlayer.h"; sourceTree = "<group>"; };
+		7D56AF9F251F12E7000E7D39 /* UIImage+JJPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JJPlayer.m"; sourceTree = "<group>"; };
+		7D5C9F66251E30A60083781F /* JJPlayerMaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJPlayerMaskView.h; sourceTree = "<group>"; };
+		7D5C9F67251E30A60083781F /* JJPlayerMaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJPlayerMaskView.m; sourceTree = "<group>"; };
 		80D20CA2196A5CC625556E6B /* Pods-iOS_Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Tools.release.xcconfig"; path = "Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools.release.xcconfig"; sourceTree = "<group>"; };
 		AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -926,12 +935,18 @@
 		7D36FF852518EFD40021595F /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				7D56AF9B251F128E000E7D39 /* JJPlayer.bundle */,
+				7D56AE43251EEE1B000E7D39 /* JJPlayer.h */,
 				7D36FF8B2518F6200021595F /* JJPlayerView.h */,
 				7D36FF8C2518F6200021595F /* JJPlayerView.m */,
-				7D36FF8F2518F74C0021595F /* JJPlayerConfiguration.h */,
-				7D36FF902518F74C0021595F /* JJPlayerConfiguration.m */,
-				7D36FF932518F78C0021595F /* JJPlayerControls.h */,
-				7D36FF942518F78C0021595F /* JJPlayerControls.m */,
+				7D5C9F66251E30A60083781F /* JJPlayerMaskView.h */,
+				7D5C9F67251E30A60083781F /* JJPlayerMaskView.m */,
+				7D56AE3F251EED94000E7D39 /* JJSlider.h */,
+				7D56AE40251EED94000E7D39 /* JJSlider.m */,
+				7D56AED6251EF166000E7D39 /* JJAnimationView.h */,
+				7D56AED7251EF166000E7D39 /* JJAnimationView.m */,
+				7D56AF9E251F12E7000E7D39 /* UIImage+JJPlayer.h */,
+				7D56AF9F251F12E7000E7D39 /* UIImage+JJPlayer.m */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -1003,6 +1018,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D56AF9C251F128E000E7D39 /* JJPlayer.bundle in Resources */,
 				32038B7B2503ED94000E2684 /* video_2.MP4 in Resources */,
 				32D3DC4E24F14E290098D608 /* LaunchScreen.storyboard in Resources */,
 				32D3DCCC24F181610098D608 /* lufei.jpg in Resources */,
@@ -1067,13 +1083,14 @@
 				32D3DD6724F18BC50098D608 /* JJHomeViewController.m in Sources */,
 				32D3DCCE24F181610098D608 /* KLTabBarController.m in Sources */,
 				32D3DD6324F18BC50098D608 /* JJClubListViewController.m in Sources */,
+				7D5C9F68251E30A60083781F /* JJPlayerMaskView.m in Sources */,
 				32D3DCC424F181610098D608 /* KLZoomHeaderViewController.m in Sources */,
 				32D3DD7924F18CFB0098D608 /* JJBaseTableView.m in Sources */,
 				32D3DD7524F18BC60098D608 /* JJTabBarController.m in Sources */,
-				7D36FF912518F74C0021595F /* JJPlayerConfiguration.m in Sources */,
 				32D3DDD024F1C1910098D608 /* JJDarkModeViewController.m in Sources */,
 				32D3DD6424F18BC50098D608 /* JJClubViewController.m in Sources */,
 				32D3DC4624F14E280098D608 /* ViewController.m in Sources */,
+				7D56AE41251EED94000E7D39 /* JJSlider.m in Sources */,
 				32D3DDCC24F1C0460098D608 /* KLEmptyStateView.m in Sources */,
 				32D3DD7C24F18D560098D608 /* JJTableView.m in Sources */,
 				32D3DD8A24F1A0E00098D608 /* UIView+JJEmptyView.m in Sources */,
@@ -1084,7 +1101,6 @@
 				32A6895A25041C4F00B497A0 /* MagicAnimate.m in Sources */,
 				32D3DCBB24F181610098D608 /* KLClubListViewController.m in Sources */,
 				32D3DD7424F18BC60098D608 /* JJNavigationController.m in Sources */,
-				7D36FF952518F78C0021595F /* JJPlayerControls.m in Sources */,
 				32D3DD8124F18E580098D608 /* JJEmptyViewController.m in Sources */,
 				32D3DCC924F181610098D608 /* KLMineViewController.m in Sources */,
 				32038B8F2503F59E000E2684 /* JJImageModel.m in Sources */,
@@ -1104,12 +1120,14 @@
 				32D3DCCA24F181610098D608 /* KLUserInfoBaseView.m in Sources */,
 				32D3DCC324F181610098D608 /* KLVideoCollectionView.m in Sources */,
 				32B61880251335A0006726B4 /* JJMoreScrollViewController.m in Sources */,
+				7D56AFA0251F12E7000E7D39 /* UIImage+JJPlayer.m in Sources */,
 				32D3DDCA24F1C0460098D608 /* UIView+KLEmptyView.m in Sources */,
 				32D3DCBE24F181610098D608 /* KLVideoFollowViewController.m in Sources */,
 				32038B812503EE55000E2684 /* JJBrowserListController.m in Sources */,
 				7D36FF8D2518F6200021595F /* JJPlayerView.m in Sources */,
 				32D3DCCD24F181610098D608 /* KLNavigationController.m in Sources */,
 				32D3DDB624F1BD1F0098D608 /* JJToast.m in Sources */,
+				7D56AED8251EF166000E7D39 /* JJAnimationView.m in Sources */,
 				32D3DD7224F18BC60098D608 /* JJUserHeaderView.m in Sources */,
 				32D3DC5124F14E290098D608 /* main.m in Sources */,
 				32D3DCC824F181610098D608 /* KLMessageViewController.m in Sources */,

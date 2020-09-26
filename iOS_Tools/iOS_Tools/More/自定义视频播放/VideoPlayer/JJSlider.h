@@ -1,8 +1,8 @@
 //
-//  JJPlayerControls.h
+//  JJSlider.h
 //  iOS_Tools
 //
-//  Created by zhouxuanhe on 2020/9/21.
+//  Created by zhouxuanhe on 2020/9/26.
 //  Copyright © 2020 播呗网络. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JJPlayerControls : UIView
+@interface JJSlider : UISlider
 
 @end
 

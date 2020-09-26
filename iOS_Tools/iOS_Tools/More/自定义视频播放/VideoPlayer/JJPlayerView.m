@@ -8,16 +8,9 @@
 
 #import "JJPlayerView.h"
 #import <AVFoundation/AVFoundation.h>
-#import "JJPlayerConfiguration.h"
-#import "JJPlayerControls.h"
+#import "JJPlayerMaskView.h"
 
-/** 播放器的播放状态 */
-//typedef NS_ENUM(NSInteger, LYPlayerState) {
-//    LYPlayerStateFailed,     // 播放失败
-//    LYPlayerStateBuffering,  // 缓冲中
-//    LYPlayerStatePlaying,    // 播放中
-//    LYPlayerStatePause,      // 暂停播放
-//};
+
 
 ///播放器的播放状态
 typedef NS_ENUM(NSUInteger,JJPlayerState){
@@ -27,6 +20,34 @@ typedef NS_ENUM(NSUInteger,JJPlayerState){
     JJPlayerStateBuffering,   //缓冲中
     JJPlayerStateFailed,      //暂停失败
 };
+
+@implementation JJPlayerConfigure
+
++ (instancetype)defaultConfigure{
+    JJPlayerConfigure *configure = [[JJPlayerConfigure alloc] init];
+    
+    configure.backPlay        = YES;
+    configure.repeatPlay      = NO;
+    configure.isLandscape     = NO;
+    configure.autoRotate      = YES;
+    configure.mute            = NO;
+    configure.smallGestureControl  = NO;
+    configure.fullGestureControl   = YES;
+    configure.toolBarDisappearTime = 8;
+    configure.videoFillMode        = VideoFillModeResize;
+    configure.topToolBarHiddenType = TopToolBarHiddenNever;
+    configure.fullGestureControl   = YES;
+
+    configure.progressBackgroundColor = [UIColor colorWithRed:0.54118 green:0.51373 blue:0.50980 alpha:1.00000];
+    configure.progressPlayFinishColor = [UIColor greenColor];
+    configure.progressBufferColor     = [UIColor colorWithRed:0.84118 green:0.81373 blue:0.80980 alpha:1.00000];
+    configure.strokeColor             = [UIColor whiteColor];
+    
+    return configure;
+}
+
+
+@end
 
 
 @interface JJPlayerView ()
@@ -43,9 +64,9 @@ typedef NS_ENUM(NSUInteger,JJPlayerState){
 /// 是否处于全屏状态
 @property (nonatomic, assign) BOOL isFullScreen;
 /// 播放器配置信息
-@property (nonatomic, strong) JJPlayerConfiguration *playerConfiguration;
-/// 视频播放控制面板
-@property (nonatomic, strong) JJPlayerControls *playControls;
+@property (nonatomic, strong) JJPlayerConfigure *playerConfigure;
+/// 视频播放控制面板(遮罩)
+@property (nonatomic, strong) JJPlayerMaskView *playerMaskView;
 /// 非全屏状态下播放器 superview
 @property (nonatomic, strong) UIView *originalSuperview;
 /// 非全屏状态下播放器 frame
@@ -63,7 +84,7 @@ typedef NS_ENUM(NSUInteger,JJPlayerState){
 
 @implementation JJPlayerView
 
-- (instancetype)initWithFrame:(CGRect)frame configuration:(JJPlayerControls *)configuration{
+- (instancetype)initWithFrame:(CGRect)frame configuration:(JJPlayerConfigure *)configure{
     self = [super initWithFrame:frame];
     if (self) {
         [self setupUI];
