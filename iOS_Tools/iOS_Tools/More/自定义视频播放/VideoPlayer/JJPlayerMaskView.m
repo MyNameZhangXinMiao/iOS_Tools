@@ -255,7 +255,7 @@
 - (JJAnimationView *)loadingView{
     if (_loadingView == nil) {
         _loadingView = [[JJAnimationView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
-//        [_loadingView s]
+        [_loadingView startAnimation];
     }
     return _loadingView;
 }

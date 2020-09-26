@@ -8,8 +8,8 @@
 
 #import "JJPlayerView.h"
 #import <AVFoundation/AVFoundation.h>
-#import "JJPlayerMaskView.h"
-
+#import <MediaPlayer/MediaPlayer.h>
+#import "JJPlayer.h"
 
 
 ///播放器的播放状态
@@ -19,6 +19,11 @@ typedef NS_ENUM(NSUInteger,JJPlayerState){
     JJPlayerStatePlaying,     //播放中
     JJPlayerStateBuffering,   //缓冲中
     JJPlayerStateFailed,      //暂停失败
+};
+
+typedef NS_ENUM(NSUInteger, JJPanDirection) {
+    JJPanDirectionHorizontalMoved,  /// 横向移动
+    JJPanDirectionVerticalMoved,    /// 纵向移动
 };
 
 @implementation JJPlayerConfigure
@@ -50,35 +55,59 @@ typedef NS_ENUM(NSUInteger,JJPlayerState){
 @end
 
 
-@interface JJPlayerView ()
+@interface JJPlayerView ()<JJPlayerMaskViewDelegate,UIGestureRecognizerDelegate>
 
 
 /// 播放器
-@property (nonatomic, strong) AVPlayer *player;
+@property (nonatomic, strong)   AVPlayer         *player;
 /// 播放器item
-@property (nonatomic, strong) AVPlayerItem *playerItem;
+@property (nonatomic, strong)   AVPlayerItem     *playerItem;
 /// 播放器layer
-@property (nonatomic, strong) AVPlayerLayer *playerLayer;
-/// 是否播放完毕
-@property (nonatomic, assign) BOOL isFinish;
+@property (nonatomic, strong)   AVPlayerLayer    *playerLayer;
+/// 控件的原始frame
+@property (nonatomic, assign)   CGRect           customFrame;
+/// 父类控件
+@property (nonatomic, strong)   UIView           *fatherView;
+/// 视图拉伸模式
+@property (nonatomic, copy)     NSString         *fillMode;
 /// 是否处于全屏状态
-@property (nonatomic, assign) BOOL isFullScreen;
+@property (nonatomic, assign)   BOOL             isFullScreen;
+/// 工具条是否隐藏
+@property (nonatomic, assign)   BOOL             isDisappear;
+/// 用户播放标记
+@property (nonatomic, assign)   BOOL           isUserPlay;
+/// 点击最大化标记
+@property (nonatomic, assign)   BOOL          isUserTapMaxButton;
+/// 是否播放完毕
+@property (nonatomic, assign)  BOOL              isFinish;
+/// 用来保存快进的总时长
+@property (nonatomic, assign)   CGFloat sumTime;
 /// 播放器配置信息
 @property (nonatomic, strong) JJPlayerConfigure *playerConfigure;
 /// 视频播放控制面板(遮罩)
 @property (nonatomic, strong) JJPlayerMaskView *playerMaskView;
-/// 非全屏状态下播放器 superview
-@property (nonatomic, strong) UIView *originalSuperview;
-/// 非全屏状态下播放器 frame
-@property (nonatomic, assign) CGRect originalRect;
-/// 时间监听器
-@property (nonatomic, strong) id timeObserve;
+/// 滑动方向
+@property (nonatomic, assign)   JJPanDirection panDirection;
+/// 是否在调节音量
+@property (nonatomic, assign)   BOOL isVolume;
+/// 是否在拖拽
+@property (nonatomic, assign)   BOOL isDragged;
+/// 缓冲
+@property (nonatomic, assign)   BOOL isBuffering;
+/// 音量滑杆
+@property (nonatomic, strong) UISlider *volumeViewSlider;
+/// 进度条定时器(最好不要用NSTimer)
+@property (nonatomic, strong) NSTimer *sliderTimer;
+/// 点击屏幕定时器
+@property (nonatomic, strong) NSTimer *tapTimer;
 /// 播放器的播放状态
 @property (nonatomic, assign) JJPlayerState playerState;
-/// 是否结束播放
-@property (nonatomic, assign) BOOL playDidEnd;
 
 
+/// 返回按钮回调
+@property (nonatomic, copy) void(^BackBlock) (UIButton *backButton);
+/// 播放完成回调
+@property (nonatomic, copy) void(^EndBlock) (void);
 
 @end
 
@@ -105,7 +134,15 @@ typedef NS_ENUM(NSUInteger,JJPlayerState){
 #pragma mark - 初始化界面
 - (void)setupUI
 {
+    //默认初始值
+    _isFullScreen = NO;
+    _isDisappear = NO;
+    _isUserTapMaxButton = NO;
+    _isFinish = NO;
+    _isUserPlay = YES;
     
+    //开启
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     /// 监听横竖屏的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     /// 进入后台
@@ -131,7 +168,66 @@ typedef NS_ENUM(NSUInteger,JJPlayerState){
 //               strongSelf.currentPlayTimeCallBack(strongSelf.player, currentPlayTime);
 //           }
 //       }];
+    
+    // 创建播放器
+    self.backgroundColor = [UIColor blackColor];
+    // 获取系统音量
+    [self configureVolume];
+    // 遮罩
+    [self addSubview:self.maskView];
+    
 }
+
+#pragma mark - public
+
+#pragma mark - 更新配置
+- (void)updatePlayerModifyConfigure:(void (^)(JJPlayerConfigure * _Nonnull))playerConfigureBlock{
+    if (playerConfigureBlock) {
+        playerConfigureBlock(self.playerConfigure);
+    }
+    
+    switch (self.playerConfigure.videoFillMode) {
+        case VideoFillModeResize:
+            //拉伸视频内容达到边框占满,不按原来比例展示
+            _fillMode = AVLayerVideoGravityResize;
+            break;
+        case VideoFillModeResizeAspect:
+            //按原视频比例显示，是竖屏的就显示出竖屏的，两边留黑
+            _fillMode = AVLayerVideoGravityResizeAspect;
+            break;
+        case VideoFillModeResizeAspectFill:
+            //按原比例拉伸视频，直到两边屏幕都占满，但视频内容有部分会被剪切
+            _fillMode = AVLayerVideoGravityResizeAspectFill;
+            break;
+    }
+    
+    self.playerMaskView.progressBackGroundColor = self.playerConfigure.progressBackgroundColor;
+    self.playerMaskView.progressBufferColor = self.playerConfigure.progressBufferColor;
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+#pragma mark - 获取系统音量
+- (void)configureVolume{
+    MPVolumeView *volumeView = [[MPVolumeView alloc] init];
+    _volumeViewSlider = nil;
+    for (UIView *view in [volumeView subviews]){
+        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
+            _volumeViewSlider = (UISlider *)view;
+            break;
+        }
+    }
+}
+
+
 
 
 

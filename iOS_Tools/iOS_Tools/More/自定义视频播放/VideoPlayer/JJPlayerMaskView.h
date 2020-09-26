@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "JJPlayer.h"
+#import "JJAnimationView.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@class JJPlayerMaskView;
-@class JJSlider;
+//@class JJPlayerMaskView;
+//@class JJSlider;
 @protocol JJPlayerMaskViewDelegate <NSObject>
 
 /// 返回按钮点击事件代理
