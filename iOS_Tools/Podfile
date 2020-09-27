@@ -19,6 +19,7 @@ target 'iOS_Tools' do
   pod 'MJRefresh', '~> 3.1.15.3'
   pod 'SVGAPlayer', '~> 2.5.4'
   
+  pod 'YTKKeyValueStore', '~> 0.1.2'
   pod 'SJVideoPlayer', '~> 3.2.6'
   
   pod 'FDFullscreenPopGesture', '~> 1.1'
@@ -27,8 +28,10 @@ target 'iOS_Tools' do
   pod 'FMDB', '~> 2.7.5'
   pod 'YYImage', '~> 1.0.4'
   pod 'YYModel', '~> 1.0.4'
+  pod 'YYCategories', '~> 1.0.4'
+  
+  
   pod 'MJExtension', '~> 3.2.2'
-  pod 'YTKKeyValueStore', '~> 0.1.2'
 #  pod 'MBProgressHUD'//已经手动集成
   pod 'SVProgressHUD', '~> 2.2.5'
 
@@ -38,7 +41,6 @@ target 'iOS_Tools' do
   #腾讯超级播放器
 #  pod 'SuperPlayer', '~> 3.2.7'
   
-  pod 'YYCategories', '~> 1.0.4'
   pod 'BlocksKit', '~> 2.2.5'
 
   pod 'FLEX', '~> 3.1.2', :configurations => ['Debug']
