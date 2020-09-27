@@ -186,7 +186,7 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     // 获取系统音量
     [self configureVolume];
     // 遮罩
-    [self addSubview:self.maskView];
+    [self addSubview:self.playerMaskView];
     [self.layer insertSublayer:self.playerLayer atIndex:0];
     
 }
@@ -363,6 +363,25 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 
 #pragma mark - 装态
 - (void)setPlayerState:(JJPlayerState)playerState{
+    if (_playerState == playerState) {
+        return;
+    }
+    _playerState = playerState;
+    if (_playerState == JJPlayerStateBuffering) {
+        [self.playerMaskView.loadingView startAnimation];
+    } else if (_playerState == JJPlayerStateFailed) {
+        [self.playerMaskView.loadingView stopAnimation];
+        self.playerMaskView.failButton.hidden = NO;
+        self.playerMaskView.playButton.selected = NO;
+        NSLog(@"video-加载失败");
+    }else if (_playerState == JJPlayerStatePause){
+        [self.playerMaskView.loadingView stopAnimation];
+        if (_isUserPlay) {
+            [self pause];
+        }
+    }else{
+        [self.playerMaskView.loadingView stopAnimation];
+    }
     
 }
 

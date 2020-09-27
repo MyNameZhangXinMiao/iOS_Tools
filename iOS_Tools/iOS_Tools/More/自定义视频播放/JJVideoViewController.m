@@ -8,6 +8,8 @@
 
 #import "JJVideoViewController.h"
 #import "JJVideoTest1ViewController.h"
+#import "JJVideoTest2ViewController.h"
+#import "JJVideoTest3ViewController.h"
 
 
 
@@ -70,9 +72,11 @@
         JJVideoTest1ViewController *vc = [[JJVideoTest1ViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 1){
-        
+        JJVideoTest2ViewController *vc = [[JJVideoTest2ViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 2){
-        
+        JJVideoTest3ViewController *vc = [[JJVideoTest3ViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     
 }
