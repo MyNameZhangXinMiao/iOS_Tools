@@ -384,6 +384,11 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     }
     
 }
+#pragma mark - 标签
+- (void)setTitle:(NSString *)title{
+    _title = title;
+    self.playerMaskView.titleLabel.text = _title;
+}
 
 #pragma mark - 播放地址
 - (void)setUrl:(NSURL *)url{
@@ -808,7 +813,7 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 
 /// 暂停
 - (void)pause{
-    self.playerMaskView.playButton.selected = YES;
+    self.playerMaskView.playButton.selected = NO;
     [self.player pause];
     [self destorySliderTimer];
 }

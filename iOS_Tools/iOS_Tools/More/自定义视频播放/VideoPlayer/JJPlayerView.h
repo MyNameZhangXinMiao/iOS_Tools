@@ -86,6 +86,10 @@ typedef void(^EndBolck)(void);
 @property (nonatomic, strong) NSURL                   *url;
 /// 本地视频地址
 @property (nonatomic, strong) NSString                *filePath;
+/// 标题
+@property (nonatomic, copy)     NSString *title;
+
+
 
 
 /// 更新配置,只需要设置改变的配置即可

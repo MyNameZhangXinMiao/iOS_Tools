@@ -16,7 +16,6 @@
     NSString *imageName = [NSString stringWithFormat:@"%@@%dx", name, scale];
 //    NSBundle *bundle = [NSBundle mainBundle] pathForResource:@"" ofType:(nullable NSString *)
     
-    
     NSString * path = [[NSBundle mainBundle] pathForResource:@"JJPlayer" ofType:@"bundle"];
 
 //    NSString *secondP = [path stringByAppendingPathComponent:secondBName]
