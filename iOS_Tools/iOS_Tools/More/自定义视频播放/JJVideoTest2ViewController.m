@@ -7,8 +7,15 @@
 //
 
 #import "JJVideoTest2ViewController.h"
+#import "JJVideoTableViewCell.h"
 
-@interface JJVideoTest2ViewController ()
+
+@interface JJVideoTest2ViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+
+@property (nonatomic, strong) JJTableView *tableView;
+
+@property (nonatomic, strong) NSArray *data;
 
 @end
 
@@ -20,17 +27,69 @@
     self.navigationCustomView.hidden = NO;
     self.navigationCustomView.title = @"视频在Cell上播放";
     
+    [self setupUI];
+}
+
+
+#pragma mark - 初始化界面
+- (void)setupUI
+{
+    self.data = @[@"在view上展示",@"在cell上展示",@"在cell自动播放"];
+    
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.view).mas_offset(kNavBarHeight);
+    }];
+   
+    
     
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - tableView delegate
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return self.data.count;
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    JJVideoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JJVideoTableViewCell" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.text = self.data[indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+   
+}
+
+
+#pragma mark - getter and setter
+
+- (JJTableView *)tableView{
+    if (_tableView == nil) {
+        _tableView = [[JJTableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+        [_tableView registerClass:[JJVideoTableViewCell class] forCellReuseIdentifier:@"JJVideoTableViewCell"];
+        //_tableView.showsVerticalScrollIndicator = NO;
+        //_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        if (@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+            _tableView.estimatedRowHeight = 0;
+            _tableView.estimatedSectionHeaderHeight = 0;
+            _tableView.estimatedSectionFooterHeight = 0;
+        } else {
+            self.tableView.automaticallyAdjustsScrollIndicatorInsets = NO;
+        }
+    }
+    return _tableView;
+}
 
 @end
