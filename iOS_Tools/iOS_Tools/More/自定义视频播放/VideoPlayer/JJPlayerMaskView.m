@@ -273,7 +273,7 @@
 - (UIButton *)playButton{
     if (_playButton == nil) {
         _playButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_playButton setImage:[UIImage imageWithName:@"JJPauseButton"] forState:UIControlStateNormal];
+        [_playButton setImage:[UIImage imageWithName:@"JJPlayButton"] forState:UIControlStateNormal];
         [_playButton setImage:[UIImage imageWithName:@"JJPauseButton"] forState:UIControlStateSelected];
         [_playButton addTarget:self action:@selector(playButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -284,7 +284,7 @@
     if (_fullButton == nil) {
         _fullButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_fullButton setImage:[UIImage imageWithName:@"JJMaxButton"] forState:UIControlStateNormal];
-        [_fullButton setImage:[UIImage imageWithName:@"JJMaxButton"] forState:UIControlStateSelected];
+        [_fullButton setImage:[UIImage imageWithName:@"JJMinButton"] forState:UIControlStateSelected];
         [_fullButton addTarget:self action:@selector(fullButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _fullButton;

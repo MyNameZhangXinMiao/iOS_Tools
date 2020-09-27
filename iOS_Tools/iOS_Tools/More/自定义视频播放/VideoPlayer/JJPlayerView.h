@@ -41,7 +41,7 @@ typedef void(^EndBolck)(void);
 @property (nonatomic, assign)   BOOL smallGestureControl;
 /// 全屏幕手势控制,默认YES
 @property (nonatomic, assign)   BOOL fullGestureControl;
-/// 工具条消失时间,默认8s
+/// 工具条消失时间,默认8s,必须大于0
 @property (nonatomic, assign)   NSUInteger toolBarDisappearTime;
 /// 视频填充方式,默认全屏填充
 @property (nonatomic, assign)   VideoFillMode videoFillMode;

@@ -88,7 +88,7 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 @property (nonatomic, strong) JJPlayerMaskView *playerMaskView;
 /// 滑动方向
 @property (nonatomic, assign)   JJPanDirection panDirection;
-/// 是否在调节音量
+/// 是否在调节音量:YES为音量,NO为屏幕亮度
 @property (nonatomic, assign)   BOOL isVolume;
 /// 是否在拖拽
 @property (nonatomic, assign)   BOOL isDragged;
@@ -104,10 +104,14 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 @property (nonatomic, assign) JJPlayerState playerState;
 
 
+/// 记录点击屏幕定时器的时间
+@property (nonatomic, assign)   NSInteger tapTimeCount;
+
+
 /// 返回按钮回调
 @property (nonatomic, copy) void(^BackBlock) (UIButton *backButton);
 /// 播放完成回调
-@property (nonatomic, copy) void(^EndBlock) (void);
+@property (nonatomic, copy) void(^EndBlock)(void);
 
 @end
 
@@ -116,6 +120,7 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 - (instancetype)initWithFrame:(CGRect)frame configuration:(JJPlayerConfigure *)configure{
     self = [super initWithFrame:frame];
     if (self) {
+        self.playerConfigure = configure;
         [self setupUI];
     }
     return self;
@@ -140,6 +145,7 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     _isUserTapMaxButton = NO;
     _isFinish = NO;
     _isUserPlay = YES;
+    self.tapTimeCount = 0;
     
     //开启
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
@@ -175,10 +181,28 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     [self configureVolume];
     // 遮罩
     [self addSubview:self.maskView];
+    [self.layer insertSublayer:self.playerLayer atIndex:0];
     
 }
 
+#pragma mark - 获取系统音量
+- (void)configureVolume{
+    MPVolumeView *volumeView = [[MPVolumeView alloc] init];
+    _volumeViewSlider = nil;
+    for (UIView *view in [volumeView subviews]){
+        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
+            _volumeViewSlider = (UISlider *)view;
+            break;
+        }
+    }
+}
+
 #pragma mark - public
+
+- (void)updatePlayerAllConfigure:(JJPlayerConfigure *)configure{
+    self.playerConfigure = configure;
+    [self updateConfigure];
+}
 
 #pragma mark - 更新配置
 - (void)updatePlayerModifyConfigure:(void (^)(JJPlayerConfigure * _Nonnull))playerConfigureBlock{
@@ -186,6 +210,13 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
         playerConfigureBlock(self.playerConfigure);
     }
     
+    if (self.playerConfigure.toolBarDisappearTime < 1) {
+        self.playerConfigure.toolBarDisappearTime = 1;
+    }
+    [self updateConfigure];
+}
+
+- (void)updateConfigure{
     switch (self.playerConfigure.videoFillMode) {
         case VideoFillModeResize:
             //拉伸视频内容达到边框占满,不按原来比例展示
@@ -203,60 +234,589 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     
     self.playerMaskView.progressBackGroundColor = self.playerConfigure.progressBackgroundColor;
     self.playerMaskView.progressBufferColor = self.playerConfigure.progressBufferColor;
+    self.playerMaskView.progressPlayFinishColor = self.playerConfigure.progressPlayFinishColor;
+    self.player.muted = self.playerConfigure.mute;
+    @weakify(self);
+    [self.playerMaskView.loadingView updateWithConfigure:^(JJAnimationConfigure * _Nonnull configure) {
+        @strongify(self);
+        configure.backgroundColor = self.playerConfigure.strokeColor;
+    }];
+}
+
+#pragma mark - 重置工具条时间
+- (void)resetTooBarDisappearTimer{
+    [self destoryToolBarTimer];
+    self.tapTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(tapTimerAction) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.tapTimer forMode:NSRunLoopCommonModes];
+}
+//    __weak __typeof(self) weakSelf = self;
+//    __typeof(&*weakSelf) strongSelf = weakSelf;
+
+- (void)tapTimerAction{
     
-    
-    
+    if (self.tapTimeCount > self.playerConfigure.toolBarDisappearTime) {
+        [self destoryToolBarTimer];
+        self.tapTimeCount = 0;
+        self.isDisappear = YES;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.playerMaskView.topToolBar.alpha = 0;
+            self.playerMaskView.bottomToolBar.alpha = 0;
+        }];
+        return;
+    }
+    self.tapTimeCount ++;
     
 }
 
+// 销毁定时器
+- (void)destoryToolBarTimer{
+    [self.tapTimer invalidate];
+    self.tapTimer = nil;
+}
 
+//点击事件
+- (void)tapGestureAction:(UIGestureRecognizer *)tapGesture{
+    if (self.isDisappear) { //已经隐藏,现在要显示出来
+        [self resetTooBarDisappearTimer];
+        [UIView animateWithDuration:0.5 animations:^{
+            self.playerMaskView.topToolBar.alpha = 1.0;
+            self.playerMaskView.bottomToolBar.alpha = 1.0;
+        } completion:^(BOOL finished) {
+            if (!finished) {
+                self.playerMaskView.topToolBar.alpha = 1.0;
+                self.playerMaskView.bottomToolBar.alpha = 1.0;
+            }
+        }];
+    } else { //已经显示,需要隐藏
+        //取消定时器消失
+        [self destoryToolBarTimer];
+        [UIView animateWithDuration:0.5 animations:^{
+            self.playerMaskView.topToolBar.alpha = 0;
+            self.playerMaskView.bottomToolBar.alpha = 0;
+        } completion:^(BOOL finished) {
+            if (!finished) {
+                self.playerMaskView.topToolBar.alpha = 0;
+                self.playerMaskView.bottomToolBar.alpha = 0;
+            }
+        }];
+    }
+    _isDisappear = !_isDisappear;
+}
 
+#pragma mark - slider时间定时器
+#warning 这里可以不使用定时器,使用AVPlayer自带的block回调
+- (void)resetSliderTimer{
+    [self destorySliderTimer];
+    self.sliderTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(sliderTimerAction) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.sliderTimer forMode:NSRunLoopCommonModes];
+}
 
-
-
-
-#pragma mark - 获取系统音量
-- (void)configureVolume{
-    MPVolumeView *volumeView = [[MPVolumeView alloc] init];
-    _volumeViewSlider = nil;
-    for (UIView *view in [volumeView subviews]){
-        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
-            _volumeViewSlider = (UISlider *)view;
-            break;
+- (void)sliderTimerAction{
+    if (self.playerItem.duration.timescale != 0) {
+        self.playerMaskView.slider.maximumValue = 1;
+        CGFloat total = _playerItem.duration.value / _playerItem.duration.timescale;
+        self.playerMaskView.slider.value = CMTimeGetSeconds(self.playerItem.currentTime) / total;
+        //判断是否正在播放
+        if (self.playerItem.isPlaybackLikelyToKeepUp && self.playerMaskView.slider.value > 0) {
+            self.playerState = JJPlayerStatePlaying;
         }
+        
+        //当前时长
+        NSInteger proMin = (NSInteger)CMTimeGetSeconds([_player currentTime]) % 60;//当前秒
+        NSInteger proSec = (NSInteger)CMTimeGetSeconds([_player currentTime]) / 60;//当前分钟
+        self.playerMaskView.currentTimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", (long)proMin, (long)proSec];
+        //总时长
+        NSInteger durMin = (NSInteger)_playerItem.duration.value / _playerItem.duration.timescale / 60;//总分钟
+        NSInteger durSec = (NSInteger)_playerItem.duration.value / _playerItem.duration.timescale % 60;//总秒
+        self.playerMaskView.totalTimeLabel.text   = [NSString stringWithFormat:@"%02ld:%02ld", (long)durMin, (long)durSec];
     }
 }
 
+- (void)destorySliderTimer{
+    [self.sliderTimer invalidate];
+    self.sliderTimer = nil;
+}
 
+#pragma mark - 重置工具条隐藏方法
+- (void)resetTopBarHiddenType{
+    switch (self.playerConfigure.topToolBarHiddenType) {
+        case TopToolBarHiddenNever:
+            //不隐藏
+            self.playerMaskView.topToolBar.hidden = NO;
+            break;
+        case TopToolBarHiddenAlways:
+            //小屏和全屏都隐藏
+            self.playerMaskView.topToolBar.hidden = YES;
+            break;
+        case TopToolBarHiddenSmall:
+            //小屏隐藏，全屏不隐藏
+            self.playerMaskView.topToolBar.hidden = !self.isFullScreen;
+            break;
+    }
+}
 
-
-
-
-/// 重置配置
-- (void)reloadPlayer{
+#pragma mark - 装态
+- (void)setPlayerState:(JJPlayerState)playerState{
     
+}
+
+#pragma mark - 播放地址
+- (void)setUrl:(NSURL *)url{
+    if (_url == url) {
+        return;
+    }
+    [self resetPlayer];
+    //设置静音模式
+    AVAudioSession *seesion = [AVAudioSession sharedInstance];
+    [seesion setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [seesion setActive:YES error:nil];
+    _url = url;
+    
+    self.playerItem = [AVPlayerItem playerItemWithURL:_url];
+    //创建播放器
+    _player = [AVPlayer playerWithPlayerItem:_playerItem];
+    _playerLayer = [AVPlayerLayer playerLayerWithPlayer:_player];
+    _playerLayer.videoGravity = _fillMode;
+    [self.layer insertSublayer:_playerLayer atIndex:0];
+}
+
+- (void)setPlayerItem:(AVPlayerItem *)playerItem{
+    if (_playerItem == playerItem) {
+        return;
+    }
+    
+    if (_playerItem) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:_playerItem];
+        [_playerItem removeObserver:self forKeyPath:@"status"];
+        [_playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
+        [_playerItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
+        //重置播放器
+        [self resetPlayer];
+    }
+    _playerItem = playerItem;
+    if (playerItem) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayDidEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
+        [playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+        [playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
+        [playerItem addObserver:self forKeyPath:@"playbackBufferEmpty" options:NSKeyValueObservingOptionNew context:nil];
+    }
+}
+
+#pragma mark - kvo监听
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"status"]) {
+        if (self.player.currentItem.status == AVPlayerItemStatusReadyToPlay) {//加载完成,可以播放
+            //加载完成后,再添加平移手势
+            //添加平移手势,用来控制音量/亮度/快进快退
+            UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureDirection:)];
+            pan.delegate = self;
+            pan.maximumNumberOfTouches = 1;  //一根手指
+            pan.delaysTouchesBegan = YES;
+            pan.delaysTouchesEnded = YES;
+            pan.cancelsTouchesInView = YES;
+            [self.playerMaskView addGestureRecognizer:pan];
+            self.player.muted = self.playerConfigure.mute;
+        }else if (self.player.currentItem.status == AVPlayerItemStatusFailed){
+            // 解析失败(播放失败)
+            self.playerState = JJPlayerStateFailed;
+        }
+    }else if ([keyPath isEqualToString:@"loadedTimeRanges"]){
+        //计算缓冲进度
+        NSTimeInterval timeInterval = [self calculateBufferProgress];
+        CMTime duration = self.playerItem.duration;
+        CGFloat totalDuratuon = CMTimeGetSeconds(duration);
+        [self.playerMaskView.progressView setProgress:(timeInterval / totalDuratuon) animated:NO];
+    }else if ([keyPath isEqualToString:@"playbackBufferEmpty"]){
+        //当前缓冲时空的时候
+        if (self.playerItem.isPlaybackBufferEmpty) {
+            [self bufferingSomeSecond];//卡顿一会,缓冲几秒
+        }
+    }
+    
+}
+#pragma mark - 滑动手势方法
+- (void)panGestureDirection:(UIPanGestureRecognizer *)panGesture{
+    //根据在view上pan的位置,确定是调节音量还是调节亮度
+    CGPoint locationPoint = [panGesture locationInView:self];
+    //我们要确定,响应水平移动和垂直移动
+    //根据上次和本次移动的位置,算出一个速率的point
+    CGPoint thePoint = [panGesture velocityInView:self];
+    //判断是垂直移动还是水平移动
+    switch (panGesture.state) {
+        case UIGestureRecognizerStateBegan:{  //开始移动
+            //使用绝对值来判断方向
+            CGFloat x = fabs(thePoint.x);
+            CGFloat y = fabs(thePoint.y);
+            if (x > y) { //水平移动
+                [self jj_playerMaskViewProgressSliderTouchBegan:nil];
+                //显示遮罩
+                [UIView animateWithDuration:0.5 animations:^{
+                    self.playerMaskView.topToolBar.alpha = 1;
+                    self.playerMaskView.bottomToolBar.alpha = 1;
+                }];
+                //取消隐藏
+                self.panDirection = JJPanDirectionHorizontalMoved;
+                //给sumtime赋初值
+                CMTime time = self.player.currentTime;
+                self.sumTime = time.value/time.timescale;
+            }else if (x < y){ //垂直移动
+                self.panDirection = JJPanDirectionVerticalMoved;
+                //开始滑动的时候,状态改为正在控制音量
+                if (locationPoint.x > CGRectGetWidth(self.frame)/2) {
+                    self.isVolume = YES;
+                }else{ //装态改为亮度调节
+                    self.isVolume = NO;
+                }
+            }else{
+                //不处理该情况
+            }
+            
+            break;
+        }
+        case UIGestureRecognizerStateChanged:{  //正在移动
+            if (self.panDirection == JJPanDirectionHorizontalMoved) {
+                [self panHorizontalMoved:thePoint.x];
+            }else if (self.panDirection == JJPanDirectionVerticalMoved){
+                [self panVerticalMoved:thePoint.y];
+            }else{
+                NSLog(@"移动方向判断有误");
+            }
+            break;
+        }
+        case UIGestureRecognizerStateEnded:{
+            //移动结束也需要判断垂直和平移
+            if (self.panDirection == JJPanDirectionHorizontalMoved) {
+                self.sumTime = 0;
+                [self jj_playerMaskViewProgressSliderTouchEnd:nil];
+            }else if (self.panDirection == JJPanDirectionVerticalMoved){
+                self.isVolume = NO;
+            }
+        }
+        default:
+            break;
+    }
+}
+
+#pragma mark - 垂直滑动,调节音量和亮度
+- (void)panVerticalMoved:(CGFloat)value{
+    if (self.isVolume) { //音量
+        self.volumeViewSlider.value -= value/10000.0;
+    }else{ //亮度
+        [UIScreen mainScreen].brightness -= value/10000.0;
+    }
+}
+#pragma mark - 水平滑动,调节进度
+- (void)panHorizontalMoved:(CGFloat)value{
+    //水平滑动进度,逻辑多,多做一些判断
+    if (value == 0) {
+        return;
+    }
+    //每次滑动时间需要叠加.
+    self.sumTime += value/200.0;
+    //需要给sumTime限制范围
+    CMTime totalTime = self.playerItem.duration;
+    CGFloat totalMovieDuration = (CGFloat)(totalTime.value/totalTime.timescale);
+    if (self.sumTime > totalMovieDuration) {
+        self.sumTime = totalMovieDuration;
+    }
+    if (self.sumTime < 0) {
+        self.sumTime = 0;
+    }
+    self.isDragged = YES;
+    //计算出拖动的当前秒数
+    CGFloat dragedSeconds = self.sumTime;
+    //滑杆进度
+    CGFloat sliderValue = dragedSeconds/totalMovieDuration;
+    //设置滑杆
+    self.playerMaskView.slider.value = sliderValue;
+    
+    //转换成CMTime才能player来控制进度
+    CMTime dragedCMTime = CMTimeMake(dragedSeconds, 1);
+    [self.player seekToTime:dragedCMTime toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+    NSInteger proMin = (NSInteger)CMTimeGetSeconds(dragedCMTime) / 60;//当前秒
+    NSInteger proSec = (NSInteger)CMTimeGetSeconds(dragedCMTime) % 60;//当前分钟
+    self.playerMaskView.currentTimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld",proSec,proMin];
+    
+}
+
+
+
+// 计算缓冲进度
+- (NSTimeInterval)calculateBufferProgress{
+    NSArray *loadedTimeRanges = [[_player currentItem] loadedTimeRanges];
+    CMTimeRange timeRange = [loadedTimeRanges.firstObject CMTimeRangeValue];// 获取缓冲区域
+    float startSeconds = CMTimeGetSeconds(timeRange.start);
+    float durationSeconds = CMTimeGetSeconds(timeRange.duration);
+    NSTimeInterval result = startSeconds + durationSeconds;// 计算缓冲总进度
+    return result;
+}
+
+
+#pragma mark - 重置播放器
+- (void)resetPlayer{
+    //重置状态
+    self.playerState = JJPlayerStatePause;
+    _isUserPlay = YES;//用户点击标志
+    _isDisappear = NO;//工具条隐藏标记
+    //移除之前的
+    [self pause];//先暂停
+    [self.playerLayer removeFromSuperlayer];
+    self.playerLayer = nil;
+    self.player = nil;
+    //还原进度条和缓冲条
+    self.playerMaskView.slider.value = 0;
+    self.playerMaskView.progressView.progress = 0;
+    //重置时间
+    self.playerMaskView.currentTimeLabel.text = @"00:00";
+    self.playerMaskView.totalTimeLabel.text = @"00:00";
+    [self resetSliderTimer];
+    [self destoryToolBarTimer];
+    //重置Toolbar
+    [UIView animateWithDuration:0.25 animations:^{
+        self.playerMaskView.topToolBar.alpha = 1.0;
+        self.playerMaskView.bottomToolBar.alpha = 1.0;
+    }];
+    //重新添加工具条消失定时器
+    [self resetTooBarDisappearTimer];
+    self.playerMaskView.failButton.hidden = YES;
+    //开始转子动化
+    [self.playerMaskView.loadingView startAnimation];
+}
+
+//暂停,缓冲几秒
+- (void)bufferingSomeSecond{
+    self.playerState = JJPlayerStateBuffering;
+    _isBuffering = YES;
+    
+    //需要暂停一会
+    [self pause];
+    //延迟执行,
+    [self performSelector:@selector(bufferingSomeSecondEnd) withObject:@"Buffering" afterDelay:5];
+
+}
+
+//缓冲几秒结束后操作
+- (void)bufferingSomeSecondEnd{
+    [self play];
+    //如果执行了play还是没有播放,则说明缓存不够,再次缓存
+    _isBuffering = NO;
+    if (!self.playerItem.isPlaybackLikelyToKeepUp) {
+        [self bufferingSomeSecond];//继续缓冲几秒
+    }
+}
+
+#pragma mark - 拖动进度条 delgate
+//开始
+- (void)jj_playerMaskViewProgressSliderTouchBegan:(JJSlider *)slider{
+    //暂停
+    [self pause];
+    //销毁定时器
+    [self destoryToolBarTimer];
+}
+//结束
+- (void)jj_playerMaskViewProgressSliderTouchEnd:(JJSlider *)slider{
+    if (slider.value != 1) {
+        _isFinish = NO;
+    }
+    if (!self.playerItem.isPlaybackLikelyToKeepUp) {
+        [self bufferingSomeSecond];
+    }else{
+        [self play];
+    }
+    //重新添加定时器
+    [self resetTooBarDisappearTimer];
+}
+//拖拽过程中
+- (void)jj_playerMaskViewProgressSliderTouchChanged:(JJSlider *)slider{
+    //计算出拖动的当前秒数
+    
+    CMTime totalCMTime = self.playerItem.duration;
+    CGFloat total = (CGFloat)(totalCMTime.value/totalCMTime.timescale);
+    //计算出拖动的当前秒数
+    CGFloat dragedSeconds = total * slider.value;
+    //转换成CMTime才能player来控制进度
+    CMTime dragedCMTime = CMTimeMake(dragedSeconds, 1);
+    [self.player seekToTime:dragedCMTime toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+    NSInteger proMin = (NSInteger)CMTimeGetSeconds(dragedCMTime) / 60;//当前秒
+    NSInteger proSec = (NSInteger)CMTimeGetSeconds(dragedCMTime) % 60;//当前分钟
+    self.playerMaskView.currentTimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld",proSec,proMin];
+}
+
+//播放按钮点击事件代理
+- (void)jj_playerMaskViewPlayButtonAction:(UIButton *)button{
+    if (!button.selected) {
+        _isUserPlay = NO;
+        [self pause];
+    }else{
+        _isUserPlay = YES;
+        [self play];
+    }
+    //点击播放/暂停之后,需要重新计时
+    [self resetTooBarDisappearTimer];
+}
+//全屏按钮点击事件代理
+- (void)jj_playerMaskViewFullButtonAction:(UIButton *)button{
+    if (!_isFullScreen) {
+        _isUserTapMaxButton = YES;
+        [self fullScreenWithDirection:UIInterfaceOrientationLandscapeLeft];
+    }else{
+        [self originalScreen];
+    }
+}
+
+//返回按钮
+- (void)jj_playerMaskViewBackButtonAction:(UIButton *)button{
+    if (self.isFullScreen) {
+        [self originalScreen];
+    }else{
+        if (self.BackBlock) {
+            self.BackBlock(button);
+        }
+    }
+}
+#pragma mark - 屏幕翻转就会调用
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+
+     
+}
+
+#pragma mark - 全屏
+- (void)fullScreenWithDirection:(UIInterfaceOrientation)direction{
+    //记录播放器父类
+    _fatherView = self.superview;
+    //记录原始大小
+    _customFrame = self.frame;
+    _isFullScreen = YES;
+    [self resetTopBarHiddenType];
+    //添加到keyWindow上
+    UIWindow *keyWindow = [self getKeyWindow];
+    [keyWindow addSubview:self];
+    
+    
+    if (self.playerConfigure.isLandscape) {// isLandscape :当前页面是否支持全屏,默认NO
+        //手动点击需要旋转方向
+        if (_isUserTapMaxButton) {
+            [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationLandscapeRight] forKey:@"orientation"];
+        }
+        self.frame = CGRectMake(0, 0, MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height), MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height));
+    } else {
+        //播放器所在控制器不支持旋转，采用旋转view的方式实现
+        CGFloat duration = [UIApplication sharedApplication].statusBarOrientationAnimationDuration;
+        if (direction == UIInterfaceOrientationLandscapeLeft) {
+            [UIView animateWithDuration:duration animations:^{
+                self.transform = CGAffineTransformMakeRotation(M_PI / 2);
+            }];
+        } else {
+            [UIView animateWithDuration:duration animations:^{
+                self.transform = CGAffineTransformMakeRotation(- M_PI / 2);
+            }];
+        }
+        self.frame = CGRectMake(0, 0, MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height), MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height));
+    }
+    self.playerMaskView.fullButton.selected = YES;
+    
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+}
+
+- (UIWindow *)getKeyWindow{
+    if (@available(iOS 13.0, *)){
+        return [UIApplication sharedApplication].windows.lastObject;
+    }else{
+        return [UIApplication sharedApplication].delegate.window;
+    }
+}
+#pragma mark - 还原原始大小
+- (void)originalScreen{
+    self.isFullScreen = NO;
+    self.isUserTapMaxButton = NO;
+    [self resetTopBarHiddenType];
+    if (self.playerConfigure.isLandscape) {
+        //还原为竖屏
+        [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
+    } else {
+        //还原
+        CGFloat duration = [UIApplication sharedApplication].statusBarOrientationAnimationDuration;
+        [UIView animateWithDuration:duration animations:^{
+            self.transform = CGAffineTransformMakeRotation(0);
+        }];
+    }
+    self.frame = _customFrame;
+    //还原到原有父类上
+    [_fatherView addSubview:self];
+    self.playerMaskView.fullButton.selected = NO;
+}
+
+//播放失败按钮事件
+- (void)jj_playerMaskViewFailButtonAction:(UIButton *)button{
+    [self setUrl:_url];
+    [self play];
+}
+
+///播放完成
+- (void)moviePlayDidEnd:(NSNotification *)nofication{
+    _isFinish = YES;
+    if (self.playerConfigure.repeatPlay) {
+        _isFinish = NO;
+        [_player seekToTime:CMTimeMake(0, 1) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+        [self play];
+    } else {
+        [self pause];
+    }
+    if (self.EndBlock){
+        self.EndBlock();
+    }
 }
 
 /// 播放
 - (void)play{
-    
+    self.playerMaskView.playButton.selected = YES;
+//    [self.layer insertSublayer:self.playerLayer atIndex:0];
+    if (self.isFinish && self.playerMaskView.slider.value == 1) {
+        _isFinish = NO;
+        [_player seekToTime:CMTimeMake(0, 1) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+    } else {
+        [self.player play];
+        [self resetSliderTimer];
+    }
 }
 
 /// 暂停
 - (void)pause{
-    
+    self.playerMaskView.playButton.selected = YES;
+    [self.player pause];
+    [self destorySliderTimer];
 }
 
+- (void)endPlay:(EndBolck)end{
+    self.EndBlock = end;
+}
 
+- (void)backButtonAction:(BackButtonBlock)backBlock{
+    self.BackBlock = backBlock;
+}
 
-
-
+/// 销毁播放器
+- (void)destoryPlayer{
+    [self pause];
+    //销毁定时器
+    [self destorySliderTimer];
+    [self destoryToolBarTimer];
+    // 取消延迟执行的方法(就是卡顿缓冲的代码)
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(bufferingSomeSecondEnd) object:@"Buffering"];
+    //移除相关UI
+    [self.playerLayer removeFromSuperlayer];
+    [self removeFromSuperview];
+    self.playerMaskView.loadingView = nil;
+    self.player = nil;
+    self.playerMaskView = nil;
+}
 #pragma mark - 通知
 
 // 播放完成通知
 - (void)playbackFinished:(NSNotification *)notification
 {
-    AVPlayerItem *playerItem = (AVPlayerItem *)notification.object;
+//    AVPlayerItem *playerItem = (AVPlayerItem *)notification.object;
     
 }
 
@@ -303,4 +863,28 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 
 
 
+
+
+
+#pragma mark - lazy
+- (JJPlayerMaskView *)playerMaskView{
+    if (_playerMaskView == nil) {
+        _playerMaskView = [[JJPlayerMaskView alloc] init];
+        _playerMaskView.progressBackGroundColor = self.playerConfigure.progressBackgroundColor;
+        _playerMaskView.progressBufferColor = self.playerConfigure.progressBufferColor;
+        _playerMaskView.progressPlayFinishColor = self.playerConfigure.progressPlayFinishColor;
+        _playerMaskView.delegate = self;
+        //创建点击事件
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureAction:)];
+        [_playerMaskView addGestureRecognizer:tap];
+    }
+    return _playerMaskView;
+}
+
+- (JJPlayerConfigure *)playerConfigure{
+    if (_playerConfigure == nil) {
+        _playerConfigure = [JJPlayerConfigure defaultConfigure];
+    }
+    return _playerConfigure;
+}
 @end

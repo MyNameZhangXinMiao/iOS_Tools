@@ -10,26 +10,26 @@
 #import "JJPlayer.h"
 #import "JJAnimationView.h"
 
-NS_ASSUME_NONNULL_BEGIN
 //@class JJPlayerMaskView;
 //@class JJSlider;
 @protocol JJPlayerMaskViewDelegate <NSObject>
 
 /// 返回按钮点击事件代理
-- (void)jj_playerMaskViewBackButtonAction:(UIButton *)button;
+- (void)jj_playerMaskViewBackButtonAction:(UIButton *_Nonnull)button;
 /// 播放按钮点击事件代理
-- (void)jj_playerMaskViewPlayButtonAction:(UIButton *)button;
+- (void)jj_playerMaskViewPlayButtonAction:(UIButton *_Nonnull)button;
 /// 全屏按钮点击事件代理
-- (void)jj_playerMaskViewFullButtonAction:(UIButton *)button;
+- (void)jj_playerMaskViewFullButtonAction:(UIButton *_Nonnull)button;
 /// 开始滑动
-- (void)jj_playerMaskViewProgressSliderTouchBegan:(JJSlider *)slider;
+- (void)jj_playerMaskViewProgressSliderTouchBegan:(JJSlider *_Nullable)slider;
 /// 滑动中
-- (void)jj_playerMaskViewProgressSliderTouchChanged:(JJSlider *)slider;
+- (void)jj_playerMaskViewProgressSliderTouchChanged:(JJSlider *_Nullable)slider;
 /// 滑动结束
-- (void)jj_playerMaskViewProgressSliderTouchEnd:(JJSlider *)slider;
+- (void)jj_playerMaskViewProgressSliderTouchEnd:(JJSlider *_Nullable)slider;
 /// 播放失败按钮事件
-- (void)jj_playerMaskViewFailButtonAction:(UIButton *)button;
+- (void)jj_playerMaskViewFailButtonAction:(UIButton *_Nonnull)button;
 
+NS_ASSUME_NONNULL_BEGIN
 
 
 @end
@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 底部工具条
 @property (nonatomic, strong) UIView              *bottomToolBar;
 /// 加载动画
-@property (nonatomic, strong) JJAnimationView     *loadingView;
+@property (nonatomic, strong, nullable) JJAnimationView     *loadingView;
 /// 顶部工具条返回按钮(会和工具条一起消失显示)
 @property (nonatomic, strong) UIButton            *backButton;
 /// 顶部返回按钮,一直显示
