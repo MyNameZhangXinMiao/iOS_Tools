@@ -102,7 +102,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 单行的时候计算宽度
 /// @param font 字体大小
-- (CGFloat)widthForFont:(UIFont *)font;
+//- (CGFloat)widthForFont:(UIFont *)font;
 
 /// 删除小数点后面多余的0
 - (NSString *)removePointLastZero;

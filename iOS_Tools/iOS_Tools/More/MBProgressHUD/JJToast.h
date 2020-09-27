@@ -66,7 +66,7 @@ typedef void (^ToastDismissCompletion)(void);
 
 
 /// 文字 + 加载图
-+ (void)showLoadingWithTitle:(NSString *_Nonnull)title toView:(UIView *)view;
++ (void)showLoadingWithTitle:(NSString *_Nonnull)title toView:(UIView * _Nullable)view;
 
 
 /**

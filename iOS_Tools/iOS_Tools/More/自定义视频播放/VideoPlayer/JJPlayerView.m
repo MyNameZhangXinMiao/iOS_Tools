@@ -310,7 +310,7 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 }
 
 #pragma mark - slider时间定时器
-#warning 这里可以不使用定时器,使用AVPlayer自带的block回调
+//TODO: 这里可以不使用定时器,使用AVPlayer自带的block回调
 - (void)resetSliderTimer{
     [self destorySliderTimer];
     self.sliderTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(sliderTimerAction) userInfo:nil repeats:YES];
@@ -669,7 +669,7 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 
 //播放按钮点击事件代理
 - (void)jj_playerMaskViewPlayButtonAction:(UIButton *)button{
-    if (!button.selected) {
+    if (!button.isSelected) {
         _isUserPlay = NO;
         [self pause];
     }else{
@@ -831,7 +831,7 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(bufferingSomeSecondEnd) object:@"Buffering"];
     //移除相关UI
     [self.playerLayer removeFromSuperlayer];
-    [self removeFromSuperview];
+    self.playerLayer = nil;
     self.playerMaskView.loadingView = nil;
     self.player = nil;
     self.playerMaskView = nil;

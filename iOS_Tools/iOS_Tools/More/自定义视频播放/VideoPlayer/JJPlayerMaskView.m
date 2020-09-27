@@ -170,7 +170,7 @@
 }
 //播放按钮
 - (void)playButtonAction:(UIButton *)button{
-    button.selected = !button.selected;
+    button.selected = !button.isSelected;
     if (self.delegate && [self.delegate respondsToSelector:@selector(jj_playerMaskViewPlayButtonAction:)]) {
         [self.delegate jj_playerMaskViewPlayButtonAction:button];
     }else{

@@ -197,8 +197,14 @@
 ///< 隐藏HUD
 + (void)hideHUD{
     
-    UIView *view = [UIApplication sharedApplication].keyWindow;
-    [MBProgressHUD hideHUDForView:view animated:YES];
+    if (@available(iOS 13.0, *)){
+        UIView *view = [UIApplication sharedApplication].windows.lastObject;
+        [MBProgressHUD hideHUDForView:view animated:YES];
+    }else{
+        UIView *view = [UIApplication sharedApplication].delegate.window;
+        [MBProgressHUD hideHUDForView:view animated:YES];
+    }
+    
 }
 
 

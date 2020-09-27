@@ -23,6 +23,13 @@
     self.navigationCustomView.hidden = NO;
     self.navigationCustomView.title = @"视频在UIView上播放";
     
+    @weakify(self);
+    self.navigationCustomView.backBtnActionCallBack = ^{
+        @strongify(self);
+        [self.playerView destoryPlayer];
+        [self.navigationController popViewControllerAnimated:YES];
+    };
+    
     JJPlayerView *playerView = [[JJPlayerView alloc] initWithFrame:CGRectMake(0, 90, kScreenWidth, 300)];
     _playerView = playerView;
     [self.view addSubview:_playerView];
