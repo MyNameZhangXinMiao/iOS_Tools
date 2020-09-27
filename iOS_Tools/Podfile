@@ -10,9 +10,12 @@ target 'iOS_Tools' do
  
  
   pod 'YTKNetwork', '~> 3.0.0'
-  pod 'SDWebImage', '~> 5.8.4'
+
   pod 'Masonry', '~> 1.1.0'
   pod 'RealReachability'
+    
+  pod 'SDWebImage', '~> 5.8.4'
+  pod 'SDWebImageWebPCoder', '~> 0.6.1'
   
   pod 'JXCategoryView', '~> 1.5.5'
   pod 'JXPagingView/Pager', '~> 2.0.8'
