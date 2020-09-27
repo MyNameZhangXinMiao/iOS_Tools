@@ -135,6 +135,12 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     return self;
 }
 
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    self.playerMaskView.frame = self.bounds;
+    self.playerLayer.frame = self.bounds;
+}
+
 #pragma mark -
 #pragma mark - 初始化界面
 - (void)setupUI
@@ -849,20 +855,44 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 /** 屏幕翻转监听事件 */
 - (void)orientationChanged:(NSNotification *)notification {
     
+    if (self.playerConfigure.autoRotate) {
+        UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+        if (orientation == UIDeviceOrientationLandscapeLeft){
+            if (!_isFullScreen){
+                if (self.playerConfigure.isLandscape) {
+                    //播放器所在控制器页面支持旋转情况下，和正常情况是相反的
+                    [self fullScreenWithDirection:UIInterfaceOrientationLandscapeRight];
+                }else{
+                    [self fullScreenWithDirection:UIInterfaceOrientationLandscapeLeft];
+                }
+            }
+        } else if (orientation == UIDeviceOrientationLandscapeRight){
+            if (!_isFullScreen){
+                if (self.playerConfigure.isLandscape) {
+                    [self fullScreenWithDirection:UIInterfaceOrientationLandscapeLeft];
+                }else{
+                    [self fullScreenWithDirection:UIInterfaceOrientationLandscapeRight];
+                }
+            }
+        } else {
+            if (_isFullScreen){
+                [self originalScreen];
+            }
+        }
     }
+}
 
 /** 应用进入后台 */
 - (void)appDidEnterBackground:(NSNotification *)notify {
-     
+    [self pause];
 }
 
 /** 应用进入前台 */
 - (void)appDidEnterPlayground:(NSNotification *)notify {
-    
+    if (self.isUserPlay && self.playerConfigure.backPlay) {
+        [self play];
+    }
 }
-
-
-
 
 
 
@@ -887,4 +917,27 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     }
     return _playerConfigure;
 }
+
+
+
+
+
+
+
+
+- (void)dealloc{
+    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+    [_playerItem removeObserver:self forKeyPath:@"status"];
+    [_playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
+    [_playerItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
+    //回到竖屏
+    [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+#ifdef DEBUG
+    NSLog(@"播放器被销毁了");
+#endif
+    
+}
+
+
 @end
