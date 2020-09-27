@@ -158,6 +158,11 @@
     _slider.minimumTrackTintColor = _progressPlayFinishColor;
 }
 
+//双击
+- (void)doubleTapAction{
+    [self playButtonAction:self.playButton];
+}
+
 
 #pragma mark - 按钮点击事件
 //返回按钮

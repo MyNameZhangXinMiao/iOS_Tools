@@ -23,9 +23,6 @@
 
     return [UIImage imageWithContentsOfFile:imgNameFile];
 
-   
-    
-    
 //    [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"JJPlayer" ofType:@"bundle"]];
 //    NSString *path   = [bundle pathForResource:imageName ofType:@"png"];
 //    return [[UIImage imageWithContentsOfFile:path] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

@@ -76,8 +76,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 进度条播放完成颜色
 @property (nonatomic, strong) UIColor *progressPlayFinishColor;
 
-
-
+//双击
+- (void)doubleTapAction;
 
 
 @end

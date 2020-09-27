@@ -87,6 +87,7 @@
 		7D56AF9C251F128E000E7D39 /* JJPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D56AF9B251F128E000E7D39 /* JJPlayer.bundle */; };
 		7D56AFA0251F12E7000E7D39 /* UIImage+JJPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D56AF9F251F12E7000E7D39 /* UIImage+JJPlayer.m */; };
 		7D5C9F68251E30A60083781F /* JJPlayerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5C9F67251E30A60083781F /* JJPlayerMaskView.m */; };
+		7D8DBEBE2520BF0300C4AA9C /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7D8DBEBD2520BF0300C4AA9C /* video.mp4 */; };
 		CA266E4349B178249216DF36 /* Pods_iOS_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */; };
 /* End PBXBuildFile section */
 
@@ -250,6 +251,7 @@
 		7D56AF9F251F12E7000E7D39 /* UIImage+JJPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JJPlayer.m"; sourceTree = "<group>"; };
 		7D5C9F66251E30A60083781F /* JJPlayerMaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJPlayerMaskView.h; sourceTree = "<group>"; };
 		7D5C9F67251E30A60083781F /* JJPlayerMaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJPlayerMaskView.m; sourceTree = "<group>"; };
+		7D8DBEBD2520BF0300C4AA9C /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		80D20CA2196A5CC625556E6B /* Pods-iOS_Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Tools.release.xcconfig"; path = "Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools.release.xcconfig"; sourceTree = "<group>"; };
 		AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -957,6 +959,7 @@
 				7D56AED7251EF166000E7D39 /* JJAnimationView.m */,
 				7D56AF9E251F12E7000E7D39 /* UIImage+JJPlayer.h */,
 				7D56AF9F251F12E7000E7D39 /* UIImage+JJPlayer.m */,
+				7D8DBEBD2520BF0300C4AA9C /* video.mp4 */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -1032,6 +1035,7 @@
 				32038B7B2503ED94000E2684 /* video_2.MP4 in Resources */,
 				32D3DC4E24F14E290098D608 /* LaunchScreen.storyboard in Resources */,
 				32D3DCCC24F181610098D608 /* lufei.jpg in Resources */,
+				7D8DBEBE2520BF0300C4AA9C /* video.mp4 in Resources */,
 				32D3DC4B24F14E290098D608 /* Assets.xcassets in Resources */,
 				32038B7D2503ED94000E2684 /* video_0.MP4 in Resources */,
 				32D3DC4924F14E280098D608 /* Main.storyboard in Resources */,

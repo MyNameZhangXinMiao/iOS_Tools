@@ -280,8 +280,8 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     self.tapTimer = nil;
 }
 
-//点击事件
-- (void)tapGestureAction:(UIGestureRecognizer *)tapGesture{
+//单次点击事件
+- (void)singleTapGestureAction:(UIGestureRecognizer *)tapGesture{
     if (self.isDisappear) { //已经隐藏,现在要显示出来
         [self resetTooBarDisappearTimer];
         [UIView animateWithDuration:0.5 animations:^{
@@ -308,12 +308,16 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     }
     _isDisappear = !_isDisappear;
 }
+// 双击
+- (void)doubleTapGestureAction:(UIGestureRecognizer *)tapGesture{
+    [self.playerMaskView doubleTapAction];
+}
 
 #pragma mark - slider时间定时器
 //TODO: 这里可以不使用定时器,使用AVPlayer自带的block回调
 - (void)resetSliderTimer{
     [self destorySliderTimer];
-    self.sliderTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(sliderTimerAction) userInfo:nil repeats:YES];
+    self.sliderTimer = [NSTimer timerWithTimeInterval:0.2 target:self selector:@selector(sliderTimerAction) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.sliderTimer forMode:NSRunLoopCommonModes];
 }
 
@@ -328,8 +332,8 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
         }
         
         //当前时长
-        NSInteger proMin = (NSInteger)CMTimeGetSeconds([_player currentTime]) % 60;//当前秒
-        NSInteger proSec = (NSInteger)CMTimeGetSeconds([_player currentTime]) / 60;//当前分钟
+        NSInteger proMin = (NSInteger)CMTimeGetSeconds([_player currentTime]) / 60;//当前分钟
+        NSInteger proSec = (NSInteger)CMTimeGetSeconds([_player currentTime]) % 60;//当前秒
         self.playerMaskView.currentTimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", (long)proMin, (long)proSec];
         //总时长
         NSInteger durMin = (NSInteger)_playerItem.duration.value / _playerItem.duration.timescale / 60;//总分钟
@@ -679,6 +683,10 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
         [self pause];
     }else{
         _isUserPlay = YES;
+        if (self.isFinish) {
+            _isFinish = NO;
+            [_player seekToTime:CMTimeMake(0, 1) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+        }
         [self play];
     }
     //点击播放/暂停之后,需要重新计时
@@ -929,8 +937,15 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
         _playerMaskView.progressPlayFinishColor = self.playerConfigure.progressPlayFinishColor;
         _playerMaskView.delegate = self;
         //创建点击事件
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureAction:)];
-        [_playerMaskView addGestureRecognizer:tap];
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureAction:)];
+        [_playerMaskView addGestureRecognizer:singleTap];
+        
+        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doubleTapGestureAction:)];
+        doubleTap.numberOfTapsRequired = 2;
+        doubleTap.numberOfTouchesRequired = 1;
+        [_playerMaskView addGestureRecognizer:doubleTap];
+        //只有当doubleTapGesture识别失败的时候(即识别出这不是双击操作)，singleTapGesture才能开始识别
+        [singleTap requireGestureRecognizerToFail:doubleTap];
     }
     return _playerMaskView;
 }

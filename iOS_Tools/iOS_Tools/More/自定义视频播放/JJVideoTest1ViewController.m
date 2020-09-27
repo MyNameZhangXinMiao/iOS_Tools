@@ -32,7 +32,8 @@
     
     JJPlayerView *playerView = [[JJPlayerView alloc] initWithFrame:CGRectMake(0, 90, kScreenWidth, 300)];
     _playerView = playerView;
-    _playerView.title = @"自古英雄多红颜";
+//    _playerView.title = @"自古英雄多红颜";
+    _playerView.title = @"哎哟哎,搞笑节奏走起来!!!!";
     [self.view addSubview:_playerView];
     
     [_playerView updatePlayerModifyConfigure:^(JJPlayerConfigure * _Nonnull configure) {
@@ -42,11 +43,13 @@
     }];
     
     //视频地址
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"video" ofType:@"mp4"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"video" ofType:@"mp4"];
 //    NSString *urlString = @"https://dh2.v.netease.com/2017/cg/fxtpty.mp4";
     
-    NSString *urlString = @"http://120.24.184.1/cdm/media/k2/videos/1.mp4";
-    _playerView.url = [NSURL URLWithString:urlString];
+//    NSString *urlString = @"http://120.24.184.1/cdm/media/k2/videos/1.mp4";
+//    _playerView.url = [NSURL URLWithString:urlString];
+    _playerView.url = [NSURL fileURLWithPath:path];
+
     [_playerView play];
     
 }
