@@ -10,6 +10,7 @@
 #import "JJVideoTest1ViewController.h"
 #import "JJVideoTest2ViewController.h"
 #import "JJVideoTest3ViewController.h"
+#import "JJVideoTest4ViewController.h"
 
 
 
@@ -38,7 +39,7 @@
 #pragma mark - 初始化界面
 - (void)setupUI
 {
-    self.data = @[@"在view上展示",@"在cell上展示",@"在cell自动播放"];
+    self.data = @[@"在view上展示",@"在cell上展示",@"在cell自动播放",@"在tableView的headerView上播放"];
     
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -76,6 +77,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 2){
         JJVideoTest3ViewController *vc = [[JJVideoTest3ViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.row == 3){
+        JJVideoTest4ViewController *vc = [[JJVideoTest4ViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
     

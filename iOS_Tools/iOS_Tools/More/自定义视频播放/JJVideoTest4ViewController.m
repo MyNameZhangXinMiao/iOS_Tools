@@ -1,19 +1,20 @@
 //
-//  JJVideoTest2ViewController.m
+//  JJVideoTest4ViewController.m
 //  iOS_Tools
 //
-//  Created by 播呗网络 on 2020/9/27.
+//  Created by zhouxuanhe on 2020/9/28.
 //  Copyright © 2020 播呗网络. All rights reserved.
 //
 
-#import "JJVideoTest2ViewController.h"
+#import "JJVideoTest4ViewController.h"
 #import "JJVideoTableViewCell.h"
 #import "JJPlayer.h"
+#import "JJVideoTableHeaderView.h"
 
-@interface JJVideoTest2ViewController ()
+@interface JJVideoTest4ViewController ()
 <UITableViewDelegate,
 UITableViewDataSource,
-JJVideoTableViewCellDelegate
+JJVideoTableHeaderViewDelegate
 >
 
 @property (nonatomic, strong) JJTableView *tableView;
@@ -25,21 +26,24 @@ JJVideoTableViewCellDelegate
 @property (nonatomic, strong) JJVideoTableViewCell *lastCell;
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
+
+@property (nonatomic, strong) JJVideoTableHeaderView *headerView;;
+
 @end
 
-@implementation JJVideoTest2ViewController
+@implementation JJVideoTest4ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationCustomView.hidden = NO;
-    self.navigationCustomView.title = @"视频在Cell上播放";
+    self.navigationCustomView.title = @"在tableView的headerView上播放";
     @weakify(self);
     self.navigationCustomView.backBtnActionCallBack = ^{
         @strongify(self);
         [self.playerView destoryPlayer];
         [self.playerView removeFromSuperview];
-        self.playerView = nil;        
+        self.playerView = nil;
         [self.navigationController popViewControllerAnimated:YES];
     };
     
@@ -62,7 +66,6 @@ JJVideoTableViewCellDelegate
         [self.playerView destoryPlayer];
         [self.playerView removeFromSuperview];
         self.playerView = nil;
-        
     }
 }
 
@@ -79,18 +82,20 @@ JJVideoTableViewCellDelegate
     NSArray *userArray = [JJVideoModel mj_objectArrayWithKeyValuesArray:arrPlist];
     self.datas = [NSArray arrayWithArray:userArray];
     
-    
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.top.equalTo(self.view).mas_offset(kNavBarHeight);
         make.bottom.equalTo(self.view).mas_offset(-kBottomSafeHeight);
     }];
-   
+    
+    self.tableView.tableHeaderView = self.headerView;
+    self.headerView.model = self.datas.lastObject;
+    self.headerView.delegate = self;
     //设置自动计算行号模式
-      self.tableView.rowHeight = UITableViewAutomaticDimension;
-      //设置预估行高
-      self.tableView.estimatedRowHeight = 200;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    //设置预估行高
+    self.tableView.estimatedRowHeight = 200;
     
 }
 
@@ -99,14 +104,13 @@ JJVideoTableViewCellDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return self.datas.count;
+    return self.datas.count-1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     JJVideoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JJVideoTableViewCell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.delegate = self;
     if (self.datas.count > indexPath.row) {
         JJVideoModel *model = self.datas[indexPath.row];
         cell.model = model;
@@ -114,68 +118,22 @@ JJVideoTableViewCellDelegate
     return cell;
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-//    if (self.indexPath == indexPath) {
-//        return;
-//    }
-//    self.indexPath = indexPath;
-//    JJVideoTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//
-//    if (self.datas.count > indexPath.row) {
-//        [self.playerView destoryPlayer];
-//        [self.playerView removeFromSuperview];
-//        self.playerView = nil;
-//
-//        [cell addSubview:self.playerView];
-//        JJVideoModel *model = self.datas[indexPath.row];
-//        NSRange range = [model.videoName rangeOfString:@"."];
-//        NSString *name = [model.videoName substringToIndex:range.location];
-//        NSString *type = [model.videoName substringFromIndex:range.location+1];
-//        NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:type];
-//        _playerView.url = [NSURL fileURLWithPath:path];
-//        _playerView.title = model.title;
-//        [_playerView play];
-//    }
-//}
-
-//cell离开tableView时调用
-- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.indexPath == indexPath || self.lastCell == cell) {
-        //因为复用，同一个cell可能会走多次
-        [self.playerView destoryPlayer];
-        [self.playerView removeFromSuperview];
-        self.playerView = nil;
-        self.indexPath = nil;
-    }
-}
-
 #pragma mark - JJVideoTableViewCellDelegate
 
-- (void)jj_videoTableViewCellDidPlayButtonInCell:(JJVideoTableViewCell *)cell{
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+- (void)jj_videoTableHeaderViewDidPlayButtonInView:(JJVideoTableHeaderView *)headerView{
+    [self.playerView destoryPlayer];
+    [self.playerView removeFromSuperview];
+    self.playerView = nil;
     
-    if (self.indexPath == indexPath) {
-        return;
-    }
-    self.indexPath = indexPath;
-    
-    if (self.datas.count > indexPath.row) {
-        [self.playerView destoryPlayer];
-        [self.playerView removeFromSuperview];
-        self.playerView = nil;
-        
-        [cell addSubview:self.playerView];
-        JJVideoModel *model = self.datas[indexPath.row];
-        NSRange range = [model.videoName rangeOfString:@"."];
-        NSString *name = [model.videoName substringToIndex:range.location];
-        NSString *type = [model.videoName substringFromIndex:range.location+1];
-        NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:type];
-        _playerView.url = [NSURL fileURLWithPath:path];
-        _playerView.title = model.title;
-        [_playerView play];
-    }
+    [headerView addSubview:self.playerView];
+    JJVideoModel *model = self.datas.lastObject;
+    NSRange range = [model.videoName rangeOfString:@"."];
+    NSString *name = [model.videoName substringToIndex:range.location];
+    NSString *type = [model.videoName substringFromIndex:range.location+1];
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:type];
+    _playerView.url = [NSURL fileURLWithPath:path];
+    _playerView.title = model.title;
+    [_playerView play];
 }
 
 #pragma mark - getter and setter
@@ -188,8 +146,6 @@ JJVideoTableViewCellDelegate
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         [_tableView registerClass:[JJVideoTableViewCell class] forCellReuseIdentifier:@"JJVideoTableViewCell"];
-        //_tableView.showsVerticalScrollIndicator = NO;
-        //_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         if (@available(iOS 11.0, *)) {
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
             _tableView.estimatedRowHeight = 0;
@@ -204,7 +160,7 @@ JJVideoTableViewCellDelegate
 
 - (JJPlayerView *)playerView{
     if (_playerView == nil) {
-        _playerView = [[JJPlayerView alloc] initWithFrame:CGRectMake(0, 66, kScreenWidth, 300)];
+        _playerView = [[JJPlayerView alloc] initWithFrame:CGRectMake(0, 10, kScreenWidth, 300)];
         [_playerView updatePlayerModifyConfigure:^(JJPlayerConfigure * _Nonnull configure) {
             configure.backPlay = NO;
             configure.strokeColor = [UIColor redColor];
@@ -215,9 +171,17 @@ JJVideoTableViewCellDelegate
     return _playerView;
 }
 
+- (JJVideoTableHeaderView *)headerView{
+    if (_headerView == nil) {
+        _headerView = [[JJVideoTableHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 345)];
+    }
+    return _headerView;
+}
+
 
 - (void)dealloc{
-    NSLog(@"JJVideoTest2ViewController - 释放了");
+    NSLog(@"JJVideoTest4ViewController - 释放了");
 }
+
 
 @end

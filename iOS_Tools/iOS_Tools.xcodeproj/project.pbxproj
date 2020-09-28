@@ -93,6 +93,8 @@
 		7D56AF9C251F128E000E7D39 /* JJPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D56AF9B251F128E000E7D39 /* JJPlayer.bundle */; };
 		7D56AFA0251F12E7000E7D39 /* UIImage+JJPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D56AF9F251F12E7000E7D39 /* UIImage+JJPlayer.m */; };
 		7D5C9F68251E30A60083781F /* JJPlayerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5C9F67251E30A60083781F /* JJPlayerMaskView.m */; };
+		7D6084CF25222F0A0085C9B0 /* JJVideoTest4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6084CE25222F0A0085C9B0 /* JJVideoTest4ViewController.m */; };
+		7D6084D4252231510085C9B0 /* JJVideoTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6084D3252231510085C9B0 /* JJVideoTableHeaderView.m */; };
 		7D8DBEBE2520BF0300C4AA9C /* video1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7D8DBEBD2520BF0300C4AA9C /* video1.mp4 */; };
 		7D900B0B2520E63B00A5366A /* JJVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D900B0A2520E63B00A5366A /* JJVideoTableViewCell.m */; };
 		7D900B0F2520E66800A5366A /* JJVideoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D900B0E2520E66800A5366A /* JJVideoData.plist */; };
@@ -266,6 +268,10 @@
 		7D56AF9F251F12E7000E7D39 /* UIImage+JJPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JJPlayer.m"; sourceTree = "<group>"; };
 		7D5C9F66251E30A60083781F /* JJPlayerMaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJPlayerMaskView.h; sourceTree = "<group>"; };
 		7D5C9F67251E30A60083781F /* JJPlayerMaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJPlayerMaskView.m; sourceTree = "<group>"; };
+		7D6084CD25222F0A0085C9B0 /* JJVideoTest4ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoTest4ViewController.h; sourceTree = "<group>"; };
+		7D6084CE25222F0A0085C9B0 /* JJVideoTest4ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoTest4ViewController.m; sourceTree = "<group>"; };
+		7D6084D2252231510085C9B0 /* JJVideoTableHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoTableHeaderView.h; sourceTree = "<group>"; };
+		7D6084D3252231510085C9B0 /* JJVideoTableHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoTableHeaderView.m; sourceTree = "<group>"; };
 		7D8DBEBD2520BF0300C4AA9C /* video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.mp4; sourceTree = "<group>"; };
 		7D900B092520E63B00A5366A /* JJVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoTableViewCell.h; sourceTree = "<group>"; };
 		7D900B0A2520E63B00A5366A /* JJVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoTableViewCell.m; sourceTree = "<group>"; };
@@ -970,7 +976,10 @@
 				32C15A5125209554003473AF /* JJVideoTest2ViewController.m */,
 				32C15A5425209561003473AF /* JJVideoTest3ViewController.h */,
 				32C15A5525209561003473AF /* JJVideoTest3ViewController.m */,
+				7D6084CD25222F0A0085C9B0 /* JJVideoTest4ViewController.h */,
+				7D6084CE25222F0A0085C9B0 /* JJVideoTest4ViewController.m */,
 				7D900B0E2520E66800A5366A /* JJVideoData.plist */,
+				7D6084D12522312D0085C9B0 /* TableHeaderView */,
 				7D900B082520E62100A5366A /* Cell */,
 				7D36FF852518EFD40021595F /* VideoPlayer */,
 			);
@@ -997,6 +1006,15 @@
 				32FC8EE62521C4E3005A4F59 /* JJVideoModel.m */,
 			);
 			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		7D6084D12522312D0085C9B0 /* TableHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				7D6084D2252231510085C9B0 /* JJVideoTableHeaderView.h */,
+				7D6084D3252231510085C9B0 /* JJVideoTableHeaderView.m */,
+			);
+			path = TableHeaderView;
 			sourceTree = "<group>";
 		};
 		7D900B082520E62100A5366A /* Cell */ = {
@@ -1164,6 +1182,7 @@
 				32038B922503F7D9000E2684 /* JJImageBrowserCell.m in Sources */,
 				32A6895A25041C4F00B497A0 /* MagicAnimate.m in Sources */,
 				32D3DCBB24F181610098D608 /* KLClubListViewController.m in Sources */,
+				7D6084D4252231510085C9B0 /* JJVideoTableHeaderView.m in Sources */,
 				32D3DD7424F18BC60098D608 /* JJNavigationController.m in Sources */,
 				32D3DD8124F18E580098D608 /* JJEmptyViewController.m in Sources */,
 				32D3DCC924F181610098D608 /* KLMineViewController.m in Sources */,
@@ -1188,6 +1207,7 @@
 				7D56AFA0251F12E7000E7D39 /* UIImage+JJPlayer.m in Sources */,
 				32D3DDCA24F1C0460098D608 /* UIView+KLEmptyView.m in Sources */,
 				32D3DCBE24F181610098D608 /* KLVideoFollowViewController.m in Sources */,
+				7D6084CF25222F0A0085C9B0 /* JJVideoTest4ViewController.m in Sources */,
 				32038B812503EE55000E2684 /* JJBrowserListController.m in Sources */,
 				7D36FF8D2518F6200021595F /* JJPlayerView.m in Sources */,
 				32D3DCCD24F181610098D608 /* KLNavigationController.m in Sources */,
