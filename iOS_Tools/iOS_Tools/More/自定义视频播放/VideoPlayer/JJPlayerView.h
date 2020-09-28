@@ -8,9 +8,8 @@
 
 /*
  
- @"https://dh2.v.netease.com/2017/cg/fxtpty.mp4";
-     
- @"http://120.24.184.1/cdm/media/k2/videos/1.mp4";
+https://dh2.v.netease.com/2017/cg/fxtpty.mp4
+ http://200024424.vod.myqcloud.com/200024424_709ae516bdf811e6ad39991f76a4df69.f20.mp4
  
  */
 

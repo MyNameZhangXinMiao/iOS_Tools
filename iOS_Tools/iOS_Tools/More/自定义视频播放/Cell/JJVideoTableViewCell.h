@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "JJPlayer.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JJVideoTableViewCell : UITableViewCell
+
+
+@property (nonatomic, strong) JJVideoModel *model;
+
 
 @end
 

@@ -15,6 +15,7 @@
 #import "JJPlayerMaskView.h"
 #import "JJAnimationView.h"
 #import "UIImage+JJPlayer.h"
+#import "JJVideoModel.h"
 
 
 

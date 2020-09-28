@@ -43,7 +43,7 @@
     }];
     
     //视频地址
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"video" ofType:@"mp4"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"video1" ofType:@"mp4"];
 //    NSString *urlString = @"https://dh2.v.netease.com/2017/cg/fxtpty.mp4";
     
 //    NSString *urlString = @"http://120.24.184.1/cdm/media/k2/videos/1.mp4";
@@ -53,4 +53,20 @@
     [_playerView play];
     
 }
+
+- (void)willMoveToParentViewController:(UIViewController *)parent{
+    [super willMoveToParentViewController:parent];
+    NSLog(@"video-%@",parent);
+    
+}
+
+- (void)didMoveToParentViewController:(UIViewController *)parent{
+    [super didMoveToParentViewController:parent];
+    NSLog(@"video-%@",parent);
+    if(!parent){
+        NSLog(@"页面pop成功了");
+    }
+}
+
+
 @end

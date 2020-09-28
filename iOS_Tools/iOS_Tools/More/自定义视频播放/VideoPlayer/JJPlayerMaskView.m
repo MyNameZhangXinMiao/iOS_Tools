@@ -72,9 +72,9 @@
         make.bottom.mas_equalTo(-Margin);
         make.width.mas_equalTo(self.backButton.mas_height);
         if (@available(iOS 11.0, *)) {
-            make.left.mas_equalTo(self.mas_safeAreaLayoutGuideLeft).mas_offset(Margin);
+            make.left.mas_equalTo(self.mas_safeAreaLayoutGuideLeft).mas_offset(Margin*2);
         } else {
-            make.left.mas_equalTo(-Margin);
+            make.left.mas_equalTo(-Margin*2);
         }
     }];
     //标题
@@ -91,9 +91,9 @@
     [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(Margin);
         if (@available(iOS 11.0, *)) {
-            make.left.mas_equalTo(self.mas_safeAreaLayoutGuideLeft).mas_offset(Margin);
+            make.left.mas_equalTo(self.mas_safeAreaLayoutGuideLeft).mas_offset(Margin*2);
         } else {
-            make.left.mas_equalTo(Margin);
+            make.left.mas_equalTo(Margin*2);
         }
         make.bottom.mas_equalTo(-Margin);
         make.width.mas_equalTo(self.playButton.mas_height);
