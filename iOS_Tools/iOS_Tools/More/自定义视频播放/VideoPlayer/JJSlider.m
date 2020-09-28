@@ -14,11 +14,12 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        [self setup];
+        [self setupUI];
     }
     return self;
 }
-- (void)setup {
+
+- (void)setupUI {
     UIImage *thumbImage = [UIImage imageWithName:@"JJRoundButton"];
     [self setThumbImage:thumbImage forState:UIControlStateHighlighted];
     [self setThumbImage:thumbImage forState:UIControlStateNormal];

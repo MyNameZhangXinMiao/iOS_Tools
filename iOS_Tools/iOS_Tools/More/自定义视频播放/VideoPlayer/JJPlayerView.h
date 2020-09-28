@@ -6,6 +6,14 @@
 //  Copyright © 2020 播呗网络. All rights reserved.
 //
 
+/*
+ 
+ @"https://dh2.v.netease.com/2017/cg/fxtpty.mp4";
+     
+ @"http://120.24.184.1/cdm/media/k2/videos/1.mp4";
+ 
+ */
+
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN

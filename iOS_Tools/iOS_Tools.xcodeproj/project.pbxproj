@@ -79,6 +79,11 @@
 		32D3DDD024F1C1910098D608 /* JJDarkModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDCF24F1C1910098D608 /* JJDarkModeViewController.m */; };
 		32E0B29F25063BA400BD6E39 /* JJAutoRunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E0B29E25063BA400BD6E39 /* JJAutoRunViewController.m */; };
 		32E0B2A225063BB700BD6E39 /* JJAutoRunView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E0B2A125063BB700BD6E39 /* JJAutoRunView.m */; };
+		32FC8ED32521AD1B005A4F59 /* video2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ECE2521AD19005A4F59 /* video2.mov */; };
+		32FC8ED42521AD1B005A4F59 /* video4.mov in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ECF2521AD1A005A4F59 /* video4.mov */; };
+		32FC8ED52521AD1B005A4F59 /* video3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ED02521AD1A005A4F59 /* video3.mp4 */; };
+		32FC8ED62521AD1B005A4F59 /* video5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ED12521AD1B005A4F59 /* video5.mp4 */; };
+		32FC8ED72521AD1B005A4F59 /* video6.mov in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ED22521AD1B005A4F59 /* video6.mov */; };
 		7D36FF832518EEB50021595F /* JJVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF822518EEB50021595F /* JJVideoViewController.m */; };
 		7D36FF892518F1470021595F /* JJVideoTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF882518F1470021595F /* JJVideoTest1ViewController.m */; };
 		7D36FF8D2518F6200021595F /* JJPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF8C2518F6200021595F /* JJPlayerView.m */; };
@@ -87,7 +92,7 @@
 		7D56AF9C251F128E000E7D39 /* JJPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D56AF9B251F128E000E7D39 /* JJPlayer.bundle */; };
 		7D56AFA0251F12E7000E7D39 /* UIImage+JJPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D56AF9F251F12E7000E7D39 /* UIImage+JJPlayer.m */; };
 		7D5C9F68251E30A60083781F /* JJPlayerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5C9F67251E30A60083781F /* JJPlayerMaskView.m */; };
-		7D8DBEBE2520BF0300C4AA9C /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7D8DBEBD2520BF0300C4AA9C /* video.mp4 */; };
+		7D8DBEBE2520BF0300C4AA9C /* video1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7D8DBEBD2520BF0300C4AA9C /* video1.mp4 */; };
 		7D900B0B2520E63B00A5366A /* JJVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D900B0A2520E63B00A5366A /* JJVideoTableViewCell.m */; };
 		7D900B0F2520E66800A5366A /* JJVideoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D900B0E2520E66800A5366A /* JJVideoData.plist */; };
 		CA266E4349B178249216DF36 /* Pods_iOS_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */; };
@@ -237,6 +242,11 @@
 		32E0B29E25063BA400BD6E39 /* JJAutoRunViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJAutoRunViewController.m; sourceTree = "<group>"; };
 		32E0B2A025063BB700BD6E39 /* JJAutoRunView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJAutoRunView.h; sourceTree = "<group>"; };
 		32E0B2A125063BB700BD6E39 /* JJAutoRunView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJAutoRunView.m; sourceTree = "<group>"; };
+		32FC8ECE2521AD19005A4F59 /* video2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video2.mov; sourceTree = "<group>"; };
+		32FC8ECF2521AD1A005A4F59 /* video4.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video4.mov; sourceTree = "<group>"; };
+		32FC8ED02521AD1A005A4F59 /* video3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video3.mp4; sourceTree = "<group>"; };
+		32FC8ED12521AD1B005A4F59 /* video5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video5.mp4; sourceTree = "<group>"; };
+		32FC8ED22521AD1B005A4F59 /* video6.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video6.mov; sourceTree = "<group>"; };
 		7D36FF812518EEB50021595F /* JJVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoViewController.h; sourceTree = "<group>"; };
 		7D36FF822518EEB50021595F /* JJVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoViewController.m; sourceTree = "<group>"; };
 		7D36FF872518F1470021595F /* JJVideoTest1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoTest1ViewController.h; sourceTree = "<group>"; };
@@ -253,7 +263,7 @@
 		7D56AF9F251F12E7000E7D39 /* UIImage+JJPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JJPlayer.m"; sourceTree = "<group>"; };
 		7D5C9F66251E30A60083781F /* JJPlayerMaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJPlayerMaskView.h; sourceTree = "<group>"; };
 		7D5C9F67251E30A60083781F /* JJPlayerMaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJPlayerMaskView.m; sourceTree = "<group>"; };
-		7D8DBEBD2520BF0300C4AA9C /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		7D8DBEBD2520BF0300C4AA9C /* video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.mp4; sourceTree = "<group>"; };
 		7D900B092520E63B00A5366A /* JJVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoTableViewCell.h; sourceTree = "<group>"; };
 		7D900B0A2520E63B00A5366A /* JJVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoTableViewCell.m; sourceTree = "<group>"; };
 		7D900B0E2520E66800A5366A /* JJVideoData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = JJVideoData.plist; sourceTree = "<group>"; };
@@ -924,6 +934,19 @@
 			path = "跑马灯";
 			sourceTree = "<group>";
 		};
+		32FC8ECD2521A71E005A4F59 /* VideoSource */ = {
+			isa = PBXGroup;
+			children = (
+				7D8DBEBD2520BF0300C4AA9C /* video1.mp4 */,
+				32FC8ECE2521AD19005A4F59 /* video2.mov */,
+				32FC8ED02521AD1A005A4F59 /* video3.mp4 */,
+				32FC8ECF2521AD1A005A4F59 /* video4.mov */,
+				32FC8ED12521AD1B005A4F59 /* video5.mp4 */,
+				32FC8ED22521AD1B005A4F59 /* video6.mov */,
+			);
+			path = VideoSource;
+			sourceTree = "<group>";
+		};
 		35825BCAF47C217A7588D94B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -954,6 +977,7 @@
 		7D36FF852518EFD40021595F /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				32FC8ECD2521A71E005A4F59 /* VideoSource */,
 				7D56AF9B251F128E000E7D39 /* JJPlayer.bundle */,
 				7D56AE43251EEE1B000E7D39 /* JJPlayer.h */,
 				7D36FF8B2518F6200021595F /* JJPlayerView.h */,
@@ -966,7 +990,6 @@
 				7D56AED7251EF166000E7D39 /* JJAnimationView.m */,
 				7D56AF9E251F12E7000E7D39 /* UIImage+JJPlayer.h */,
 				7D56AF9F251F12E7000E7D39 /* UIImage+JJPlayer.m */,
-				7D8DBEBD2520BF0300C4AA9C /* video.mp4 */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -1050,11 +1073,16 @@
 				7D56AF9C251F128E000E7D39 /* JJPlayer.bundle in Resources */,
 				32038B7B2503ED94000E2684 /* video_2.MP4 in Resources */,
 				32D3DC4E24F14E290098D608 /* LaunchScreen.storyboard in Resources */,
+				32FC8ED72521AD1B005A4F59 /* video6.mov in Resources */,
 				32D3DCCC24F181610098D608 /* lufei.jpg in Resources */,
 				7D900B0F2520E66800A5366A /* JJVideoData.plist in Resources */,
-				7D8DBEBE2520BF0300C4AA9C /* video.mp4 in Resources */,
+				32FC8ED52521AD1B005A4F59 /* video3.mp4 in Resources */,
+				32FC8ED42521AD1B005A4F59 /* video4.mov in Resources */,
+				7D8DBEBE2520BF0300C4AA9C /* video1.mp4 in Resources */,
 				32D3DC4B24F14E290098D608 /* Assets.xcassets in Resources */,
 				32038B7D2503ED94000E2684 /* video_0.MP4 in Resources */,
+				32FC8ED32521AD1B005A4F59 /* video2.mov in Resources */,
+				32FC8ED62521AD1B005A4F59 /* video5.mp4 in Resources */,
 				32D3DC4924F14E280098D608 /* Main.storyboard in Resources */,
 				32038B7C2503ED94000E2684 /* video_1.MP4 in Resources */,
 			);
