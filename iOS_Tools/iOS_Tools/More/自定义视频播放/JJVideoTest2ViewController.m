@@ -10,13 +10,17 @@
 #import "JJVideoTableViewCell.h"
 #import "JJPlayer.h"
 
-@interface JJVideoTest2ViewController ()<UITableViewDelegate,UITableViewDataSource>
-
+@interface JJVideoTest2ViewController ()<UITableViewDelegate,UITableViewDataSource,JJVideoTableViewCellDelegate>
 
 @property (nonatomic, strong) JJTableView *tableView;
 
 @property (nonatomic, strong) NSArray *datas;
 
+@property (nonatomic, strong) JJPlayerView *playerView;
+
+@property (nonatomic, strong) JJVideoTableViewCell *lastCell;
+
+@property (nonatomic, strong) NSIndexPath *indexPath;
 @end
 
 @implementation JJVideoTest2ViewController
@@ -28,6 +32,7 @@
     self.navigationCustomView.title = @"视频在Cell上播放";
     
     [self setupUI];
+    [self setupVideoPlayerView];
 }
 
 
@@ -58,7 +63,31 @@
     
 }
 
+- (void)setupVideoPlayerView{
+    
+//    JJPlayerView *playerView = [[JJPlayerView alloc] initWithFrame:CGRectMake(0, 66, kScreenWidth, 300)];
+//    _playerView = playerView;
+//    _playerView.title = @"哎哟哎,搞笑节奏走起来!!!!";
+    
+//    [_playerView updatePlayerModifyConfigure:^(JJPlayerConfigure * _Nonnull configure) {
+//        configure.backPlay = NO;
+//        configure.strokeColor = [UIColor redColor];
+//        configure.topToolBarHiddenType = TopToolBarHiddenNever;
+//    }];
+    
+//    [self.view addSubview:_playerView];
 
+    
+    //视频地址
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"video1" ofType:@"mp4"];
+//    NSString *urlString = @"https://dh2.v.netease.com/2017/cg/fxtpty.mp4";
+    
+//    NSString *urlString = @"http://120.24.184.1/cdm/media/k2/videos/1.mp4";
+//    _playerView.url = [NSURL URLWithString:urlString];
+//    _playerView.url = [NSURL fileURLWithPath:path];
+
+//    [_playerView play];
+}
 
 
 
@@ -73,6 +102,7 @@
     
     JJVideoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JJVideoTableViewCell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.delegate = self;
     if (self.datas.count > indexPath.row) {
         JJVideoModel *model = self.datas[indexPath.row];
         cell.model = model;
@@ -80,12 +110,69 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+//    if (self.indexPath == indexPath) {
+//        return;
+//    }
+//    self.indexPath = indexPath;
+//    JJVideoTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//
+//    if (self.datas.count > indexPath.row) {
+//        [self.playerView destoryPlayer];
+//        [self.playerView removeFromSuperview];
+//        self.playerView = nil;
+//
+//        [cell addSubview:self.playerView];
+//        JJVideoModel *model = self.datas[indexPath.row];
+//        NSRange range = [model.videoName rangeOfString:@"."];
+//        NSString *name = [model.videoName substringToIndex:range.location];
+//        NSString *type = [model.videoName substringFromIndex:range.location+1];
+//        NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:type];
+//        _playerView.url = [NSURL fileURLWithPath:path];
+//        _playerView.title = model.title;
+//        [_playerView play];
+//    }
+//}
 
-   
+//cell离开tableView时调用
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.indexPath == indexPath || self.lastCell == cell) {
+        //因为复用，同一个cell可能会走多次
+        [self.playerView destoryPlayer];
+        [self.playerView removeFromSuperview];
+        self.playerView = nil;
+        self.indexPath = nil;
+    }
 }
 
+#pragma mark - JJVideoTableViewCellDelegate
+
+- (void)jj_videoTableViewCellDidPlayButtonInCell:(JJVideoTableViewCell *)cell{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    
+    if (self.indexPath == indexPath) {
+        return;
+    }
+    self.indexPath = indexPath;
+    
+    if (self.datas.count > indexPath.row) {
+        [self.playerView destoryPlayer];
+        [self.playerView removeFromSuperview];
+        self.playerView = nil;
+        
+        [cell addSubview:self.playerView];
+        JJVideoModel *model = self.datas[indexPath.row];
+        NSRange range = [model.videoName rangeOfString:@"."];
+        NSString *name = [model.videoName substringToIndex:range.location];
+        NSString *type = [model.videoName substringFromIndex:range.location+1];
+        NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:type];
+        _playerView.url = [NSURL fileURLWithPath:path];
+        _playerView.title = model.title;
+        [_playerView play];
+    }
+}
 
 #pragma mark - getter and setter
 
@@ -109,6 +196,19 @@
         }
     }
     return _tableView;
+}
+
+- (JJPlayerView *)playerView{
+    if (_playerView == nil) {
+        _playerView = [[JJPlayerView alloc] initWithFrame:CGRectMake(0, 66, kScreenWidth, 300)];
+        [_playerView updatePlayerModifyConfigure:^(JJPlayerConfigure * _Nonnull configure) {
+            configure.backPlay = NO;
+            configure.strokeColor = [UIColor redColor];
+            configure.topToolBarHiddenType = TopToolBarHiddenNever;
+            configure.repeatPlay = YES;
+        }];
+    }
+    return _playerView;
 }
 
 @end

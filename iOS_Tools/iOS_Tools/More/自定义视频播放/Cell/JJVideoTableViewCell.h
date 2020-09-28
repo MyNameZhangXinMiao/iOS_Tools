@@ -10,7 +10,17 @@
 #import "JJPlayer.h"
 NS_ASSUME_NONNULL_BEGIN
 
+
+@class JJVideoTableViewCell;
+@protocol JJVideoTableViewCellDelegate <NSObject>
+
+- (void)jj_videoTableViewCellDidPlayButtonInCell:(JJVideoTableViewCell *)cell;
+
+@end
+
 @interface JJVideoTableViewCell : UITableViewCell
+
+@property(nonatomic,weak)  id<JJVideoTableViewCellDelegate > delegate;
 
 
 @property (nonatomic, strong) JJVideoModel *model;

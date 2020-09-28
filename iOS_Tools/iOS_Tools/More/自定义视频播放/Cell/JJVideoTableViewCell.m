@@ -86,6 +86,11 @@
         make.bottom.equalTo(self.contentView).mas_offset(-10);
     }];
     
+    [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.contentView);
+        make.width.height.mas_equalTo(40);
+    }];
+    
 }
 
 
@@ -102,8 +107,9 @@
 
 - (void)playButtonAction:(UIButton *)button{
     
-    
-    
+    if ([self.delegate respondsToSelector:@selector(jj_videoTableViewCellDidPlayButtonInCell:)]) {
+        [self.delegate jj_videoTableViewCellDidPlayButtonInCell:self];
+    }
     
 }
 
