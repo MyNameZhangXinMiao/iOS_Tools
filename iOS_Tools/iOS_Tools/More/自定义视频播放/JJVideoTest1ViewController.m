@@ -65,8 +65,15 @@
     NSLog(@"video-%@",parent);
     if(!parent){
         NSLog(@"页面pop成功了");
+        [self.playerView destoryPlayer];
+        [self.playerView removeFromSuperview];
+        self.playerView = nil;    
+        
     }
 }
 
+- (void)dealloc{
+    NSLog(@"JJVideoTest1ViewController - 释放了");
+}
 
 @end

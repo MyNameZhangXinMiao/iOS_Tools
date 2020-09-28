@@ -972,9 +972,9 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     //回到竖屏
     [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-#ifdef DEBUG
-    NSLog(@"播放器被销毁了");
-#endif
+//#ifdef DEBUG
+    NSLog(@"JJPlayerView播放器被销毁了");
+//#endif
     
 }
 

@@ -36,9 +36,34 @@ JJVideoTableViewCellDelegate
     // Do any additional setup after loading the view.
     self.navigationCustomView.hidden = NO;
     self.navigationCustomView.title = @"视频在cell上自动播放";
-    
+    @weakify(self);
+    self.navigationCustomView.backBtnActionCallBack = ^{
+        @strongify(self);
+        [self.playerView destoryPlayer];
+        [self.playerView removeFromSuperview];
+        self.playerView = nil;
+        [self.navigationController popViewControllerAnimated:YES];
+    };
     [self setupUI];
     
+}
+
+
+- (void)willMoveToParentViewController:(UIViewController *)parent{
+    [super willMoveToParentViewController:parent];
+    NSLog(@"video-%@",parent);
+    
+}
+
+- (void)didMoveToParentViewController:(UIViewController *)parent{
+    [super didMoveToParentViewController:parent];
+    NSLog(@"video-%@",parent);
+    if(!parent){
+        NSLog(@"页面pop成功了");
+        [self.playerView destoryPlayer];
+        [self.playerView removeFromSuperview];
+        self.playerView = nil;
+    }
 }
 
 #pragma mark - 初始化界面
@@ -235,6 +260,11 @@ JJVideoTableViewCellDelegate
         }];
     }
     return _playerView;
+}
+
+
+- (void)dealloc{
+    NSLog(@"JJVideoTest3ViewController - 释放了");
 }
 
 @end

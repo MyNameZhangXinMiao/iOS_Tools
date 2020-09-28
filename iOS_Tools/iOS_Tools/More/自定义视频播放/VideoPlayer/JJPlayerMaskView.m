@@ -72,17 +72,17 @@
         make.bottom.mas_equalTo(-Margin);
         make.width.mas_equalTo(self.backButton.mas_height);
         if (@available(iOS 11.0, *)) {
-            make.left.mas_equalTo(self.mas_safeAreaLayoutGuideLeft).mas_offset(Margin*2);
+            make.left.equalTo(self.bottomToolBar.mas_safeAreaLayoutGuideLeft).mas_offset(Margin*2);
         } else {
             make.left.mas_equalTo(-Margin*2);
         }
     }];
     //标题
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.backButton.mas_right).mas_offset(Margin * 2);
+        make.left.equalTo(self.backButton.mas_right).mas_offset(Margin);
         make.centerY.equalTo(self.backButton);
         if (@available(iOS 11.0, *)) {
-            make.right.mas_equalTo(self.mas_safeAreaLayoutGuideRight).mas_offset(-Margin);
+            make.right.equalTo(self.bottomToolBar.mas_safeAreaLayoutGuideRight).mas_offset(-Margin);
         } else {
             make.right.mas_equalTo(-Margin);
         }
@@ -91,7 +91,7 @@
     [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(Margin);
         if (@available(iOS 11.0, *)) {
-            make.left.mas_equalTo(self.mas_safeAreaLayoutGuideLeft).mas_offset(Margin*2);
+            make.left.equalTo(self.bottomToolBar.mas_safeAreaLayoutGuideLeft).mas_offset(Margin*2);
         } else {
             make.left.mas_equalTo(Margin*2);
         }
@@ -104,14 +104,14 @@
         make.top.mas_equalTo(Margin);
         make.width.mas_equalTo(self.fullButton.mas_height);
         if (@available(iOS 11.0, *)) {
-            make.right.mas_equalTo(self.mas_safeAreaLayoutGuideRight).mas_offset(-Margin);
+            make.right.equalTo(self.bottomToolBar.mas_safeAreaLayoutGuideRight).mas_offset(-Margin);
         } else {
             make.right.mas_equalTo(-Margin);
         }
     }];
     //当前播放时间
     [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.playButton.mas_right).mas_offset(Margin);
+        make.left.equalTo(self.playButton.mas_right).mas_offset(Margin);
         make.width.mas_equalTo(45);
         make.centerY.equalTo(self.bottomToolBar);
     }];
@@ -135,6 +135,7 @@
     //失败按钮
     [self.failButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self);
+        make.width.height.mas_equalTo(40);
     }];
  
     
