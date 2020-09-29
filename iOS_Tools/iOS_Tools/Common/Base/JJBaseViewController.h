@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setupNavigationViewTitle:(NSString *)title;
 
+- (void)backButtonAction;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -37,6 +37,11 @@
 }
 
 
+- (void)backButtonAction{
+    
+}
+
+
 /*
 #pragma mark - Navigation
 
@@ -55,6 +60,7 @@
         @weakify(self);
         _navigationCustomView.backBtnActionCallBack = ^{
             @strongify(self);
+            [self backButtonAction];
             [self.navigationController popViewControllerAnimated:YES];
         };
     }

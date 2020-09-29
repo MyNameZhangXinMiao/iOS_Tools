@@ -13,6 +13,7 @@
 #import "JJAutoRunViewController.h"  //跑马灯
 #import "JJMoreScrollViewController.h"
 #import "JJVideoViewController.h"
+#import "JJAudioViewController.h"
 
 
 
@@ -33,7 +34,7 @@
     self.fd_prefersNavigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
 
-    self.data = @[@"空态图",@"自定义Toast",@"MBProgressHUD",@"自定义转场动画",@"暗黑模式适配",@"图片浏览器",@"跑马灯",@"scrollView嵌套",@"视频播放"];
+    self.data = @[@"空态图",@"自定义Toast",@"MBProgressHUD",@"自定义转场动画",@"暗黑模式适配",@"图片浏览器",@"跑马灯",@"scrollView嵌套",@"视频播放",@"AVAudioPlayer音频"];
     
     [self.view addSubview:self.navigationView];
     [self.view addSubview:self.tableView];
@@ -93,6 +94,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([text isEqualToString:@"视频播放"]){
         JJVideoViewController *vc = [[JJVideoViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([text isEqualToString:@"AVAudioPlayer音频"]){
+        JJAudioViewController *vc = [[JJAudioViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
     

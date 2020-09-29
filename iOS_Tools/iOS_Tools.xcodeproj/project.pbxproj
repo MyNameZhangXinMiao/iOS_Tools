@@ -86,6 +86,7 @@
 		32FC8ED72521AD1B005A4F59 /* video6.mov in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ED22521AD1B005A4F59 /* video6.mov */; };
 		32FC8EE72521C4E3005A4F59 /* JJVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8EE62521C4E3005A4F59 /* JJVideoModel.m */; };
 		32FC8F2C2522C8C7005A4F59 /* JJVideoTest5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F2B2522C8C7005A4F59 /* JJVideoTest5ViewController.m */; };
+		32FC8F312522CA4A005A4F59 /* JJAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F302522CA4A005A4F59 /* JJAudioViewController.m */; };
 		7D36FF832518EEB50021595F /* JJVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF822518EEB50021595F /* JJVideoViewController.m */; };
 		7D36FF892518F1470021595F /* JJVideoTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF882518F1470021595F /* JJVideoTest1ViewController.m */; };
 		7D36FF8D2518F6200021595F /* JJPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF8C2518F6200021595F /* JJPlayerView.m */; };
@@ -255,6 +256,8 @@
 		32FC8EE62521C4E3005A4F59 /* JJVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoModel.m; sourceTree = "<group>"; };
 		32FC8F2A2522C8C7005A4F59 /* JJVideoTest5ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoTest5ViewController.h; sourceTree = "<group>"; };
 		32FC8F2B2522C8C7005A4F59 /* JJVideoTest5ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoTest5ViewController.m; sourceTree = "<group>"; };
+		32FC8F2F2522CA4A005A4F59 /* JJAudioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJAudioViewController.h; sourceTree = "<group>"; };
+		32FC8F302522CA4A005A4F59 /* JJAudioViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJAudioViewController.m; sourceTree = "<group>"; };
 		7D36FF812518EEB50021595F /* JJVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoViewController.h; sourceTree = "<group>"; };
 		7D36FF822518EEB50021595F /* JJVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoViewController.m; sourceTree = "<group>"; };
 		7D36FF872518F1470021595F /* JJVideoTest1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoTest1ViewController.h; sourceTree = "<group>"; };
@@ -811,6 +814,7 @@
 		32D3DD7D24F18E310098D608 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				32FC8F2E2522CA32005A4F59 /* AVAudioPlayer音频 */,
 				7D36FF802518EE8F0021595F /* 自定义视频播放 */,
 				32B6187D25133573006726B4 /* Scrollview嵌套 */,
 				32E0B29C25063B8100BD6E39 /* 跑马灯 */,
@@ -957,6 +961,15 @@
 				32FC8ED22521AD1B005A4F59 /* video6.mov */,
 			);
 			path = VideoSource;
+			sourceTree = "<group>";
+		};
+		32FC8F2E2522CA32005A4F59 /* AVAudioPlayer音频 */ = {
+			isa = PBXGroup;
+			children = (
+				32FC8F2F2522CA4A005A4F59 /* JJAudioViewController.h */,
+				32FC8F302522CA4A005A4F59 /* JJAudioViewController.m */,
+			);
+			path = "AVAudioPlayer音频";
 			sourceTree = "<group>";
 		};
 		35825BCAF47C217A7588D94B /* Pods */ = {
@@ -1216,6 +1229,7 @@
 				32038B812503EE55000E2684 /* JJBrowserListController.m in Sources */,
 				7D36FF8D2518F6200021595F /* JJPlayerView.m in Sources */,
 				32D3DCCD24F181610098D608 /* KLNavigationController.m in Sources */,
+				32FC8F312522CA4A005A4F59 /* JJAudioViewController.m in Sources */,
 				32FC8EE72521C4E3005A4F59 /* JJVideoModel.m in Sources */,
 				32D3DDB624F1BD1F0098D608 /* JJToast.m in Sources */,
 				32C15A5225209554003473AF /* JJVideoTest2ViewController.m in Sources */,
