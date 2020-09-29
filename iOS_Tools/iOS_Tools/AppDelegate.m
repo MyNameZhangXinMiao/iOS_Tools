@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "KLTabBarController.h"
 #import "JJTabBarController.h"
+#import "JJApplePayManager.h"
+#import <StoreKit/StoreKit.h>
 
 @interface AppDelegate ()
 
@@ -27,9 +29,29 @@
     self.window.rootViewController = tabBarController;
     // 设置白色背景颜色,消除穿透效果
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    // 开启苹果未完成的支付
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:[JJApplePayManager shared]];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // 让window显示出来
     [self.window makeKeyAndVisible];
     
+    
+    
+   
     return YES;
 }
 

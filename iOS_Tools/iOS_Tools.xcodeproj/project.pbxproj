@@ -93,6 +93,9 @@
 		32FC8F5425230DA2005A4F59 /* JJChartLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F5325230DA2005A4F59 /* JJChartLineView.m */; };
 		32FC8F5B25230E45005A4F59 /* JJButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F5A25230E45005A4F59 /* JJButtonViewController.m */; };
 		32FC8F6125230E55005A4F59 /* JJButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F6025230E55005A4F59 /* JJButton.m */; };
+		32FC8F6625231985005A4F59 /* JJApplePalyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F6525231985005A4F59 /* JJApplePalyViewController.m */; };
+		32FC8F8125231F1A005A4F59 /* JJApplePayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F8025231F1A005A4F59 /* JJApplePayManager.m */; };
+		32FC8F8A25232B17005A4F59 /* JJSlotMachinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F8925232B17005A4F59 /* JJSlotMachinesViewController.m */; };
 		7D36FF832518EEB50021595F /* JJVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF822518EEB50021595F /* JJVideoViewController.m */; };
 		7D36FF892518F1470021595F /* JJVideoTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF882518F1470021595F /* JJVideoTest1ViewController.m */; };
 		7D36FF8D2518F6200021595F /* JJPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF8C2518F6200021595F /* JJPlayerView.m */; };
@@ -276,6 +279,12 @@
 		32FC8F5A25230E45005A4F59 /* JJButtonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJButtonViewController.m; sourceTree = "<group>"; };
 		32FC8F5F25230E55005A4F59 /* JJButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJButton.h; sourceTree = "<group>"; };
 		32FC8F6025230E55005A4F59 /* JJButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJButton.m; sourceTree = "<group>"; };
+		32FC8F6425231985005A4F59 /* JJApplePalyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJApplePalyViewController.h; sourceTree = "<group>"; };
+		32FC8F6525231985005A4F59 /* JJApplePalyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJApplePalyViewController.m; sourceTree = "<group>"; };
+		32FC8F7F25231F1A005A4F59 /* JJApplePayManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJApplePayManager.h; sourceTree = "<group>"; };
+		32FC8F8025231F1A005A4F59 /* JJApplePayManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJApplePayManager.m; sourceTree = "<group>"; };
+		32FC8F8825232B17005A4F59 /* JJSlotMachinesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJSlotMachinesViewController.h; sourceTree = "<group>"; };
+		32FC8F8925232B17005A4F59 /* JJSlotMachinesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJSlotMachinesViewController.m; sourceTree = "<group>"; };
 		7D36FF812518EEB50021595F /* JJVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoViewController.h; sourceTree = "<group>"; };
 		7D36FF822518EEB50021595F /* JJVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoViewController.m; sourceTree = "<group>"; };
 		7D36FF872518F1470021595F /* JJVideoTest1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoTest1ViewController.h; sourceTree = "<group>"; };
@@ -832,6 +841,8 @@
 		32D3DD7D24F18E310098D608 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				32FC8F8725232AE2005A4F59 /* 老虎机 */,
+				32FC8F632523196E005A4F59 /* 内购 */,
 				32FC8F5725230DFC005A4F59 /* 图文按钮 */,
 				32FC8F4B25230A16005A4F59 /* Chart图表 */,
 				32FC8F402522E709005A4F59 /* KVO */,
@@ -1048,6 +1059,34 @@
 				32FC8F6025230E55005A4F59 /* JJButton.m */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		32FC8F632523196E005A4F59 /* 内购 */ = {
+			isa = PBXGroup;
+			children = (
+				32FC8F6425231985005A4F59 /* JJApplePalyViewController.h */,
+				32FC8F6525231985005A4F59 /* JJApplePalyViewController.m */,
+				32FC8F6925231988005A4F59 /* applePay */,
+			);
+			path = "内购";
+			sourceTree = "<group>";
+		};
+		32FC8F6925231988005A4F59 /* applePay */ = {
+			isa = PBXGroup;
+			children = (
+				32FC8F7F25231F1A005A4F59 /* JJApplePayManager.h */,
+				32FC8F8025231F1A005A4F59 /* JJApplePayManager.m */,
+			);
+			path = applePay;
+			sourceTree = "<group>";
+		};
+		32FC8F8725232AE2005A4F59 /* 老虎机 */ = {
+			isa = PBXGroup;
+			children = (
+				32FC8F8825232B17005A4F59 /* JJSlotMachinesViewController.h */,
+				32FC8F8925232B17005A4F59 /* JJSlotMachinesViewController.m */,
+			);
+			path = "老虎机";
 			sourceTree = "<group>";
 		};
 		35825BCAF47C217A7588D94B /* Pods */ = {
@@ -1267,6 +1306,7 @@
 				32D3DD7524F18BC60098D608 /* JJTabBarController.m in Sources */,
 				32D3DDD024F1C1910098D608 /* JJDarkModeViewController.m in Sources */,
 				32D3DD6424F18BC50098D608 /* JJClubViewController.m in Sources */,
+				32FC8F6625231985005A4F59 /* JJApplePalyViewController.m in Sources */,
 				32D3DC4624F14E280098D608 /* ViewController.m in Sources */,
 				7D56AE41251EED94000E7D39 /* JJSlider.m in Sources */,
 				32D3DDCC24F1C0460098D608 /* KLEmptyStateView.m in Sources */,
@@ -1274,6 +1314,7 @@
 				32D3DD8A24F1A0E00098D608 /* UIView+JJEmptyView.m in Sources */,
 				32D3DD7124F18BC60098D608 /* JJUserInfoBaseView.m in Sources */,
 				32D3DC4024F14E280098D608 /* AppDelegate.m in Sources */,
+				32FC8F8A25232B17005A4F59 /* JJSlotMachinesViewController.m in Sources */,
 				32D3DD8F24F1B9B40098D608 /* MBProgressHUD.m in Sources */,
 				32038B922503F7D9000E2684 /* JJImageBrowserCell.m in Sources */,
 				32A6895A25041C4F00B497A0 /* MagicAnimate.m in Sources */,
@@ -1326,6 +1367,7 @@
 				32FC8F5425230DA2005A4F59 /* JJChartLineView.m in Sources */,
 				32D3DDBC24F1BE250098D608 /* NSString+Extra.m in Sources */,
 				32A68956250404D000B497A0 /* JJPhotoBrowserFlowLayout.m in Sources */,
+				32FC8F8125231F1A005A4F59 /* JJApplePayManager.m in Sources */,
 				32D3DD6B24F18BC60098D608 /* JJZoomHeaderViewController.m in Sources */,
 				32038B8C2503F49D000E2684 /* JJImageBrowser.m in Sources */,
 				32D3DCD624F181800098D608 /* UIColor+Extra.m in Sources */,
