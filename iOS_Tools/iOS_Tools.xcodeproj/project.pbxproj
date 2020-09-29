@@ -98,6 +98,8 @@
 		32FC8F8A25232B17005A4F59 /* JJSlotMachinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F8925232B17005A4F59 /* JJSlotMachinesViewController.m */; };
 		32FC8F9A25234B09005A4F59 /* JJAnimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F9925234B09005A4F59 /* JJAnimateViewController.m */; };
 		32FC8FA125234C18005A4F59 /* JJMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8FA025234C18005A4F59 /* JJMusicViewController.m */; };
+		7D0E4ED32523654C00D074EA /* JJAnimateCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0E4ED22523654C00D074EA /* JJAnimateCodeViewController.m */; };
+		7D0E4ED725236D5100D074EA /* JJSlotMachinesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0E4ED625236D5100D074EA /* JJSlotMachinesView.m */; };
 		7D36FF832518EEB50021595F /* JJVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF822518EEB50021595F /* JJVideoViewController.m */; };
 		7D36FF892518F1470021595F /* JJVideoTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF882518F1470021595F /* JJVideoTest1ViewController.m */; };
 		7D36FF8D2518F6200021595F /* JJPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF8C2518F6200021595F /* JJPlayerView.m */; };
@@ -291,6 +293,10 @@
 		32FC8F9925234B09005A4F59 /* JJAnimateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJAnimateViewController.m; sourceTree = "<group>"; };
 		32FC8F9F25234C18005A4F59 /* JJMusicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJMusicViewController.h; sourceTree = "<group>"; };
 		32FC8FA025234C18005A4F59 /* JJMusicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJMusicViewController.m; sourceTree = "<group>"; };
+		7D0E4ED12523654C00D074EA /* JJAnimateCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJAnimateCodeViewController.h; sourceTree = "<group>"; };
+		7D0E4ED22523654C00D074EA /* JJAnimateCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJAnimateCodeViewController.m; sourceTree = "<group>"; };
+		7D0E4ED525236D5100D074EA /* JJSlotMachinesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJSlotMachinesView.h; sourceTree = "<group>"; };
+		7D0E4ED625236D5100D074EA /* JJSlotMachinesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJSlotMachinesView.m; sourceTree = "<group>"; };
 		7D36FF812518EEB50021595F /* JJVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoViewController.h; sourceTree = "<group>"; };
 		7D36FF822518EEB50021595F /* JJVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoViewController.m; sourceTree = "<group>"; };
 		7D36FF872518F1470021595F /* JJVideoTest1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoTest1ViewController.h; sourceTree = "<group>"; };
@@ -1091,6 +1097,8 @@
 			children = (
 				32FC8F8825232B17005A4F59 /* JJSlotMachinesViewController.h */,
 				32FC8F8925232B17005A4F59 /* JJSlotMachinesViewController.m */,
+				7D0E4ED525236D5100D074EA /* JJSlotMachinesView.h */,
+				7D0E4ED625236D5100D074EA /* JJSlotMachinesView.m */,
 			);
 			path = "老虎机";
 			sourceTree = "<group>";
@@ -1100,6 +1108,7 @@
 			children = (
 				32FC8F9825234B09005A4F59 /* JJAnimateViewController.h */,
 				32FC8F9925234B09005A4F59 /* JJAnimateViewController.m */,
+				7D0E4ED02523653100D074EA /* animateCode */,
 				32FC8F9E25234C05005A4F59 /* Music */,
 				32FC8F8725232AE2005A4F59 /* 老虎机 */,
 			);
@@ -1122,6 +1131,15 @@
 				80D20CA2196A5CC625556E6B /* Pods-iOS_Tools.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7D0E4ED02523653100D074EA /* animateCode */ = {
+			isa = PBXGroup;
+			children = (
+				7D0E4ED12523654C00D074EA /* JJAnimateCodeViewController.h */,
+				7D0E4ED22523654C00D074EA /* JJAnimateCodeViewController.m */,
+			);
+			path = animateCode;
 			sourceTree = "<group>";
 		};
 		7D36FF802518EE8F0021595F /* 自定义视频播放 */ = {
@@ -1351,6 +1369,7 @@
 				32D3DCC924F181610098D608 /* KLMineViewController.m in Sources */,
 				32038B8F2503F59E000E2684 /* JJImageModel.m in Sources */,
 				32D3DDB724F1BD1F0098D608 /* JJBaseToast.m in Sources */,
+				7D0E4ED725236D5100D074EA /* JJSlotMachinesView.m in Sources */,
 				32D3DD7024F18BC60098D608 /* JJMineViewController.m in Sources */,
 				32C15A5625209561003473AF /* JJVideoTest3ViewController.m in Sources */,
 				32D3DD6F24F18BC60098D608 /* JJMessageViewController.m in Sources */,
@@ -1372,6 +1391,7 @@
 				32B61880251335A0006726B4 /* JJMoreScrollViewController.m in Sources */,
 				7D56AFA0251F12E7000E7D39 /* UIImage+JJPlayer.m in Sources */,
 				32FC8F4E25230A38005A4F59 /* JJChartViewController.m in Sources */,
+				7D0E4ED32523654C00D074EA /* JJAnimateCodeViewController.m in Sources */,
 				32D3DDCA24F1C0460098D608 /* UIView+KLEmptyView.m in Sources */,
 				32D3DCBE24F181610098D608 /* KLVideoFollowViewController.m in Sources */,
 				7D6084CF25222F0A0085C9B0 /* JJVideoTest4ViewController.m in Sources */,
