@@ -89,6 +89,8 @@
 		32FC8F312522CA4A005A4F59 /* JJAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F302522CA4A005A4F59 /* JJAudioViewController.m */; };
 		32FC8F372522D5B8005A4F59 /* JJQueueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F362522D5B8005A4F59 /* JJQueueViewController.m */; };
 		32FC8F432522E71C005A4F59 /* JJKVOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F422522E71C005A4F59 /* JJKVOViewController.m */; };
+		32FC8F4E25230A38005A4F59 /* JJChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F4D25230A38005A4F59 /* JJChartViewController.m */; };
+		32FC8F5425230DA2005A4F59 /* JJChartLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC8F5325230DA2005A4F59 /* JJChartLineView.m */; };
 		7D36FF832518EEB50021595F /* JJVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF822518EEB50021595F /* JJVideoViewController.m */; };
 		7D36FF892518F1470021595F /* JJVideoTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF882518F1470021595F /* JJVideoTest1ViewController.m */; };
 		7D36FF8D2518F6200021595F /* JJPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D36FF8C2518F6200021595F /* JJPlayerView.m */; };
@@ -264,6 +266,10 @@
 		32FC8F362522D5B8005A4F59 /* JJQueueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJQueueViewController.m; sourceTree = "<group>"; };
 		32FC8F412522E71C005A4F59 /* JJKVOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJKVOViewController.h; sourceTree = "<group>"; };
 		32FC8F422522E71C005A4F59 /* JJKVOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJKVOViewController.m; sourceTree = "<group>"; };
+		32FC8F4C25230A38005A4F59 /* JJChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJChartViewController.h; sourceTree = "<group>"; };
+		32FC8F4D25230A38005A4F59 /* JJChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJChartViewController.m; sourceTree = "<group>"; };
+		32FC8F5225230DA2005A4F59 /* JJChartLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJChartLineView.h; sourceTree = "<group>"; };
+		32FC8F5325230DA2005A4F59 /* JJChartLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJChartLineView.m; sourceTree = "<group>"; };
 		7D36FF812518EEB50021595F /* JJVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoViewController.h; sourceTree = "<group>"; };
 		7D36FF822518EEB50021595F /* JJVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoViewController.m; sourceTree = "<group>"; };
 		7D36FF872518F1470021595F /* JJVideoTest1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoTest1ViewController.h; sourceTree = "<group>"; };
@@ -820,6 +826,7 @@
 		32D3DD7D24F18E310098D608 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				32FC8F4B25230A16005A4F59 /* Chart图表 */,
 				32FC8F402522E709005A4F59 /* KVO */,
 				32FC8F342522D59E005A4F59 /* AVQueuePlayer列表 */,
 				32FC8F2E2522CA32005A4F59 /* AVAudioPlayer音频 */,
@@ -996,6 +1003,25 @@
 				32FC8F422522E71C005A4F59 /* JJKVOViewController.m */,
 			);
 			path = KVO;
+			sourceTree = "<group>";
+		};
+		32FC8F4B25230A16005A4F59 /* Chart图表 */ = {
+			isa = PBXGroup;
+			children = (
+				32FC8F4C25230A38005A4F59 /* JJChartViewController.h */,
+				32FC8F4D25230A38005A4F59 /* JJChartViewController.m */,
+				32FC8F5125230D1D005A4F59 /* chartView */,
+			);
+			path = "Chart图表";
+			sourceTree = "<group>";
+		};
+		32FC8F5125230D1D005A4F59 /* chartView */ = {
+			isa = PBXGroup;
+			children = (
+				32FC8F5225230DA2005A4F59 /* JJChartLineView.h */,
+				32FC8F5325230DA2005A4F59 /* JJChartLineView.m */,
+			);
+			path = chartView;
 			sourceTree = "<group>";
 		};
 		35825BCAF47C217A7588D94B /* Pods */ = {
@@ -1249,6 +1275,7 @@
 				32D3DCC324F181610098D608 /* KLVideoCollectionView.m in Sources */,
 				32B61880251335A0006726B4 /* JJMoreScrollViewController.m in Sources */,
 				7D56AFA0251F12E7000E7D39 /* UIImage+JJPlayer.m in Sources */,
+				32FC8F4E25230A38005A4F59 /* JJChartViewController.m in Sources */,
 				32D3DDCA24F1C0460098D608 /* UIView+KLEmptyView.m in Sources */,
 				32D3DCBE24F181610098D608 /* KLVideoFollowViewController.m in Sources */,
 				7D6084CF25222F0A0085C9B0 /* JJVideoTest4ViewController.m in Sources */,
@@ -1268,6 +1295,7 @@
 				32D3DCBF24F181610098D608 /* KLHomeViewController.m in Sources */,
 				7D900B0B2520E63B00A5366A /* JJVideoTableViewCell.m in Sources */,
 				32D3DDB824F1BD1F0098D608 /* JJToast+Window.m in Sources */,
+				32FC8F5425230DA2005A4F59 /* JJChartLineView.m in Sources */,
 				32D3DDBC24F1BE250098D608 /* NSString+Extra.m in Sources */,
 				32A68956250404D000B497A0 /* JJPhotoBrowserFlowLayout.m in Sources */,
 				32D3DD6B24F18BC60098D608 /* JJZoomHeaderViewController.m in Sources */,

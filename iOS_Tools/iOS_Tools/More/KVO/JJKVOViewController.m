@@ -10,7 +10,7 @@
 
 @interface JJKVOViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic, strong) UITableView *tableview;
+@property (nonatomic, strong) UITableView *tableView;
 
 
 @end
@@ -21,11 +21,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    self.navigationCustomView.hidden = NO;
     self.navigationCustomView.title = @"KVO";
-
     
-    [self.view addSubview:self.tableview];
-    [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.view).mas_offset(kNavBarHeight);
+        make.bottom.equalTo(self.view).mas_offset(-kBottomSafeHeight);
+    }];
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
     
     //这样设置背景色都是不对的
@@ -45,8 +52,25 @@
      static void *PersonAccountBalanceContext = &PersonAccountBalanceContext;
      static void *PersonAccountInterestRateContext = &PersonAccountInterestRateContext;
      */
-    [self.tableview addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+    [self.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
  }
+
+- (void)willMoveToParentViewController:(UIViewController *)parent{
+    [super willMoveToParentViewController:parent];
+    NSLog(@"video-%@",parent);
+    
+}
+
+- (void)didMoveToParentViewController:(UIViewController *)parent{
+    [super didMoveToParentViewController:parent];
+    NSLog(@"video-%@",parent);
+    if(!parent){
+        NSLog(@"页面pop成功了");
+        [self removeViewObserver];
+    }
+}
+
+
 
 #pragma mark - tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -92,16 +116,18 @@
     return image;
 }
 
+- (void)removeViewObserver{
+    [self.tableView removeObserver:self forKeyPath:@"contentOffset"];
+}
 
 #pragma mark -懒加载
-- (UITableView *)tableview{
-    if (_tableview == nil) {
-        _tableview = [[UITableView alloc]init];
-        _tableview.delegate = self;
-        _tableview.dataSource = self;
-        _tableview.frame = self.view.bounds;
+- (UITableView *)tableView{
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc] init];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
     }
-    return _tableview;
+    return _tableView;
 }
 
 
