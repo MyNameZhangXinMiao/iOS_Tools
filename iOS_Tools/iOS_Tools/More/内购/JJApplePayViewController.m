@@ -1,18 +1,18 @@
 //
-//  JJApplePalyViewController.m
+//  JJApplePayViewController.m
 //  iOS_Tools
 //
 //  Created by 播呗网络 on 2020/9/29.
 //  Copyright © 2020 播呗网络. All rights reserved.
 //
 
-#import "JJApplePalyViewController.h"
+#import "JJApplePayViewController.h"
 
-@interface JJApplePalyViewController ()
+@interface JJApplePayViewController ()
 
 @end
 
-@implementation JJApplePalyViewController
+@implementation JJApplePayViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

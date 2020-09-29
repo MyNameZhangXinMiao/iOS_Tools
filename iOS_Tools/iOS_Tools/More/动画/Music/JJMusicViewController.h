@@ -1,5 +1,5 @@
 //
-//  JJApplePalyViewController.h
+//  JJMusicViewController.h
 //  iOS_Tools
 //
 //  Created by 播呗网络 on 2020/9/29.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JJApplePalyViewController : JJBaseViewController
+@interface JJMusicViewController : JJBaseViewController
 
 @end
 
