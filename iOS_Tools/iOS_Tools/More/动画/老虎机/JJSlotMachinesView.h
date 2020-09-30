@@ -29,6 +29,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSUInteger)numberOfSlotsInSlotMachine:(JJSlotMachinesView *)slotMachine;
 - (NSArray *)iconsForSlotsInSlotMachine:(JJSlotMachinesView *)slotMachine;
 
+@optional
+- (CGFloat)jj_slotVerticalSpacingInSlotMachine:(JJSlotMachinesView *)slotMachine;
+- (CGFloat)jj_slotHorizontalSpacingInSlotMachine:(JJSlotMachinesView *)slotMachine;
+- (CGFloat)jj_slotWidthInSlotMachinesView:(JJSlotMachinesView *)slotMachine;
+
+
 @end
 
 
