@@ -82,7 +82,6 @@
     if (!_jsonResponseSerializer) {
         _jsonResponseSerializer = [AFJSONResponseSerializer serializer];
         _jsonResponseSerializer.acceptableStatusCodes = _allStatusCodes;
-
     }
     return _jsonResponseSerializer;
 }
@@ -253,7 +252,6 @@
     NSAssert(request.requestTask != nil, @"requestTask should not be nil");
 
     // Set request task priority
-    // !!Available on iOS 8 +
     if ([request.requestTask respondsToSelector:@selector(priority)]) {
         switch (request.requestPriority) {
             case YTKRequestPriorityHigh:
@@ -523,7 +521,7 @@
 
     NSString *downloadTargetPath;
     BOOL isDirectory;
-    if(![[NSFileManager defaultManager] fileExistsAtPath:downloadPath isDirectory:&isDirectory]) {
+    if (![[NSFileManager defaultManager] fileExistsAtPath:downloadPath isDirectory:&isDirectory]) {
         isDirectory = NO;
     }
     // If targetPath is a directory, use the file name we got from the urlRequest.
@@ -584,22 +582,24 @@
 
 - (NSString *)incompleteDownloadTempCacheFolder {
     NSFileManager *fileManager = [NSFileManager new];
-    static NSString *cacheFolder;
+    NSString *cacheFolder = [NSTemporaryDirectory() stringByAppendingPathComponent:kYTKNetworkIncompleteDownloadFolderName];
 
-    if (!cacheFolder) {
-        NSString *cacheDir = NSTemporaryDirectory();
-        cacheFolder = [cacheDir stringByAppendingPathComponent:kYTKNetworkIncompleteDownloadFolderName];
+    BOOL isDirectory = NO;
+    if ([fileManager fileExistsAtPath:cacheFolder isDirectory:&isDirectory] && isDirectory) {
+        return cacheFolder;
     }
-
     NSError *error = nil;
-    if(![fileManager createDirectoryAtPath:cacheFolder withIntermediateDirectories:YES attributes:nil error:&error]) {
-        YTKLog(@"Failed to create cache directory at %@", cacheFolder);
-        cacheFolder = nil;
+    if ([fileManager createDirectoryAtPath:cacheFolder withIntermediateDirectories:YES attributes:nil error:&error] && error == nil) {
+        return cacheFolder;
     }
-    return cacheFolder;
+    YTKLog(@"Failed to create cache directory at %@ with error: %@", cacheFolder, error != nil ? error.localizedDescription : @"unkown");
+    return nil;
 }
 
 - (NSURL *)incompleteDownloadTempPathForDownloadPath:(NSString *)downloadPath {
+    if (downloadPath == nil || downloadPath.length == 0) {
+        return nil;
+    }
     NSString *tempPath = nil;
     NSString *md5URLString = [YTKNetworkUtils md5StringFromString:downloadPath];
     tempPath = [[self incompleteDownloadTempCacheFolder] stringByAppendingPathComponent:md5URLString];

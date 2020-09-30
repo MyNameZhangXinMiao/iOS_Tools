@@ -107,6 +107,10 @@
         NSInteger scrollLayerTopIndex = - (i + kMinTurn + 3) * iconCount;
         
         for (int j = 0; j > scrollLayerTopIndex; j--) {
+            
+            int ee = abs(j);
+            int dd = abs(j) % iconCount;
+            
             UIImage *iconImage = [slotIcons objectAtIndex:abs(j) % iconCount];
             
             CALayer *iconImageLayer = [[CALayer alloc] init];
@@ -124,6 +128,7 @@
     
 }
 
+/// <#Description#>
 - (void)startSliding{
     if (_isSliding) {
         return;

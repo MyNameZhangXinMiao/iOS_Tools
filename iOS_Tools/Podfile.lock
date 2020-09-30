@@ -27,8 +27,8 @@ PODS:
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
   - IQKeyboardManager (6.5.6)
-  - JXCategoryView (1.5.5)
-  - JXPagingView/Pager (2.0.8)
+  - JXCategoryView (1.5.7)
+  - JXPagingView/Pager (2.0.13)
   - libwebp (1.1.0):
     - libwebp/demux (= 1.1.0)
     - libwebp/mux (= 1.1.0)
@@ -41,8 +41,7 @@ PODS:
   - Masonry (1.1.0)
   - MJExtension (3.2.2)
   - MJRefresh (3.1.15.7)
-  - Protobuf (3.12.0)
-  - Reachability (3.2)
+  - Protobuf (3.13.0)
   - RealReachability (1.3.0):
     - RealReachability/Connection (= 1.3.0)
     - RealReachability/Ping (= 1.3.0)
@@ -54,69 +53,6 @@ PODS:
   - SDWebImageWebPCoder (0.6.1):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.7)
-  - SJBaseVideoPlayer (3.3.8):
-    - Masonry
-    - Reachability
-    - SJBaseVideoPlayer/AVPlayer (= 3.3.8)
-    - SJBaseVideoPlayer/Common (= 3.3.8)
-    - SJUIKit/AttributesFactory (>= 0.0.0.38)
-    - SJUIKit/ObserverHelper
-    - SJUIKit/Queues
-    - SJUIKit/SQLite3
-  - SJBaseVideoPlayer/AVPlayer (3.3.8):
-    - Masonry
-    - Reachability
-    - SJBaseVideoPlayer/Common
-    - SJUIKit/AttributesFactory (>= 0.0.0.38)
-    - SJUIKit/ObserverHelper
-    - SJUIKit/Queues
-    - SJUIKit/SQLite3
-  - SJBaseVideoPlayer/Common (3.3.8):
-    - Masonry
-    - Reachability
-    - SJBaseVideoPlayer/ResourceLoader
-    - SJUIKit/AttributesFactory (>= 0.0.0.38)
-    - SJUIKit/ObserverHelper
-    - SJUIKit/Queues
-    - SJUIKit/SQLite3
-  - SJBaseVideoPlayer/ResourceLoader (3.3.8):
-    - Masonry
-    - Reachability
-    - SJUIKit/AttributesFactory (>= 0.0.0.38)
-    - SJUIKit/ObserverHelper
-    - SJUIKit/Queues
-    - SJUIKit/SQLite3
-  - SJUIKit/AttributesFactory (0.0.0.51):
-    - SJUIKit/AttributesFactory/Deprecated (= 0.0.0.51)
-    - SJUIKit/AttributesFactory/UIKitText (= 0.0.0.51)
-  - SJUIKit/AttributesFactory/Deprecated (0.0.0.51)
-  - SJUIKit/AttributesFactory/UIKitText (0.0.0.51)
-  - SJUIKit/ObserverHelper (0.0.0.51)
-  - SJUIKit/Queues (0.0.0.51)
-  - SJUIKit/SQLite3 (0.0.0.51):
-    - SJUIKit/SQLite3/Core (= 0.0.0.51)
-    - SJUIKit/SQLite3/Protocol (= 0.0.0.51)
-    - YYModel
-  - SJUIKit/SQLite3/Core (0.0.0.51):
-    - SJUIKit/SQLite3/Protocol
-    - YYModel
-  - SJUIKit/SQLite3/Protocol (0.0.0.51):
-    - YYModel
-  - SJVideoPlayer (3.2.6):
-    - SJBaseVideoPlayer (>= 3.3.3)
-    - SJVideoPlayer/Common (= 3.2.6)
-    - SJVideoPlayer/ControlLayers (= 3.2.6)
-    - SJVideoPlayer/ResourceLoader (= 3.2.6)
-  - SJVideoPlayer/Common (3.2.6):
-    - Masonry
-    - SJBaseVideoPlayer (>= 3.3.3)
-    - SJUIKit/AttributesFactory
-    - SJVideoPlayer/ResourceLoader
-  - SJVideoPlayer/ControlLayers (3.2.6):
-    - SJBaseVideoPlayer (>= 3.3.3)
-    - SJVideoPlayer/Common
-  - SJVideoPlayer/ResourceLoader (3.2.6):
-    - SJBaseVideoPlayer (>= 3.3.3)
   - SSZipArchive (2.2.3)
   - SVGAPlayer (2.5.4):
     - SVGAPlayer/Core (= 2.5.4)
@@ -129,7 +65,7 @@ PODS:
   - SVProgressHUD (2.2.5)
   - YTKKeyValueStore (0.1.2):
     - FMDB (~> 2.0)
-  - YTKNetwork (3.0.0):
+  - YTKNetwork (3.0.4):
     - AFNetworking/NSURLSession (~> 4.0)
   - YYCategories (1.0.4):
     - YYCategories/no-arc (= 1.0.4)
@@ -152,8 +88,7 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1.15.3)
   - RealReachability
   - SDWebImage (~> 5.8.4)
-  - SDWebImageWebPCoder
-  - SJVideoPlayer (~> 3.2.6)
+  - SDWebImageWebPCoder (~> 0.6.1)
   - SVGAPlayer (~> 2.5.4)
   - SVProgressHUD (~> 2.2.5)
   - YTKKeyValueStore (~> 0.1.2)
@@ -177,13 +112,9 @@ SPEC REPOS:
     - MJExtension
     - MJRefresh
     - Protobuf
-    - Reachability
     - RealReachability
     - SDWebImage
     - SDWebImageWebPCoder
-    - SJBaseVideoPlayer
-    - SJUIKit
-    - SJVideoPlayer
     - SSZipArchive
     - SVGAPlayer
     - SVProgressHUD
@@ -200,29 +131,25 @@ SPEC CHECKSUMS:
   FLEX: e13e805fc3eec8732cc227d1f7508770d46e9587
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
-  JXCategoryView: 0293fcb356f10a5c2e679dac0a1a5f1899ee0c87
-  JXPagingView: 913b44c05972f5b351232816f33db130b1b524ab
+  JXCategoryView: fca2146e87eeaf014c71041337cb07bd4de5830b
+  JXPagingView: 821ed274f09eaf2843a96c3a74e9d138e27d9730
   libwebp: 04242ef451672185c1fe41b285a034d2fbda483c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
-  Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
-  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
   RealReachability: eae9c58d2db52fadd8e1cba4b5d4c028454fbc47
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21
-  SJBaseVideoPlayer: 85f98136ab7b1d9595d8f85e3baee3801feb733e
-  SJUIKit: bdf86af3648e70483c57e2bfe2fcc7531337fa54
-  SJVideoPlayer: fb53250dbf0ad2f95c963e9a42efb2057b9e9f27
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   SVGAPlayer: ca9c869316b468d995994c7fe82b9bd8645a0787
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
-  YTKNetwork: 0587ce85fda2e2c591405089cc9aaa61649aa5ed
+  YTKNetwork: a096f80c18c7e7cc0e623a0fbea0a1bfd3f5bcf2
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: f2a0061fc7d5858ec8c18fe49e4a96d1f133ddca
+PODFILE CHECKSUM: fe8667050a42ec8e77f76f4cb0ca0d274c51afaa
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0.beta.2
