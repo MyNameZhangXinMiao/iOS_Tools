@@ -8,7 +8,7 @@
 
 #import "JJSlotMachinesView.h"
 
-#define kMinTurn 5
+#define kMinTurn 4
 #define kMargin 15
 
 @interface JJSlotMachinesView ()

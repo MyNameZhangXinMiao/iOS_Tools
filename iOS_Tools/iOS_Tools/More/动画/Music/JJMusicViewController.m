@@ -60,7 +60,7 @@
     self.imgView.frame = CGRectMake(12, 14, 150, 150);
     [self.bgImgView addSubview:self.imgView];
     
-    self.playImgView.frame = CGRectMake(70, 2, 97, 29);
+    self.playImgView.frame = CGRectMake(10, 2, 100, 22);
     [self.bgImgView addSubview:self.playImgView];
     
 }
@@ -92,13 +92,13 @@
         */
         self.isAnimation = YES;
         // 设置定点
-        [self setAnchorPoint:CGPointMake(7.0/97, 7.0/29) forView:self.playImgView];
+        [self setAnchorPoint:CGPointMake(7.0/100, 7.0/22) forView:self.playImgView];
         // 旋转-30°
         [UIView animateWithDuration:0.25 animations:^{
-            self.playImgView.transform = CGAffineTransformMakeRotation(M_PI_2 / 3);
+            self.playImgView.transform = CGAffineTransformMakeRotation(M_PI_2 / 4);
         }completion:^(BOOL finished) {
             if (!finished) {
-                self.playImgView.transform = CGAffineTransformMakeRotation(M_PI_2 / 3);
+                self.playImgView.transform = CGAffineTransformMakeRotation(M_PI_2 / 4);
             }
         }];
         
@@ -106,7 +106,7 @@
         self.isAnimation = NO;
 
         // 设置定点
-        [self setAnchorPoint:CGPointMake(7.0/97, 7.0/29) forView:self.playImgView];
+        [self setAnchorPoint:CGPointMake(7.0/100, 7.0/22) forView:self.playImgView];
         
         // 恢复
         [UIView animateWithDuration:0.25 animations:^{
@@ -155,6 +155,12 @@
         _playImgView.image = [UIImage imageNamed:@"music2"];
     }
     return _playImgView;
+}
+
+- (void)dealloc{
+    
+    
+    
 }
 
 @end
