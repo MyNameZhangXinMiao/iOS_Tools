@@ -8,8 +8,8 @@
 
 #import "JJSlotMachinesView.h"
 
-#define kMinTurn 6
-
+#define kMinTurn 5
+#define kMargin 15
 
 @interface JJSlotMachinesView ()
 
@@ -46,7 +46,7 @@
     
     _slotScrollLayerArray = [NSMutableArray array];
     
-    self.singleUnitDuration = 0.14f;
+    self.singleUnitDuration = 0.1f;
     
 }
 
@@ -97,7 +97,7 @@
         [_slotScrollLayerArray addObject:slotScrollLayer];
     }
     
-    CGFloat singleUnitHeight = _contentView.frame.size.height / 3;
+    CGFloat singleUnitHeight = _contentView.frame.size.height - kMargin * 2;
     
     NSArray *slotIcons = [self.dataSource iconsForSlotsInSlotMachine:self];
     NSUInteger iconCount = [slotIcons count];
@@ -108,15 +108,12 @@
         
         for (int j = 0; j > scrollLayerTopIndex; j--) {
             
-            int ee = abs(j);
-            int dd = abs(j) % iconCount;
-            
             UIImage *iconImage = [slotIcons objectAtIndex:abs(j) % iconCount];
             
             CALayer *iconImageLayer = [[CALayer alloc] init];
             // adjust the beginning offset of the first unit
             NSInteger offsetYUnit = j + 1 + iconCount;
-            iconImageLayer.frame = CGRectMake(0, offsetYUnit * singleUnitHeight, slotScrollLayer.frame.size.width, singleUnitHeight);
+            iconImageLayer.frame = CGRectMake(0, offsetYUnit * (singleUnitHeight + kMargin * 2) + kMargin, slotScrollLayer.frame.size.width, singleUnitHeight);
             
             iconImageLayer.contents = (id)iconImage.CGImage;
             iconImageLayer.contentsScale = iconImage.scale;
@@ -178,7 +175,7 @@
                 toBeAddedLayer.contentsScale = toBeDeletedLayer.contentsScale;
                 toBeAddedLayer.contentsGravity = toBeDeletedLayer.contentsGravity;
                 
-                CGFloat shiftY = slotIconsCount * toBeAddedLayer.frame.size.height * (kMinTurn + i + 3);
+                CGFloat shiftY = slotIconsCount * (toBeAddedLayer.frame.size.height + kMargin * 2) * (kMinTurn + i + 3);
                 toBeAddedLayer.position = CGPointMake(toBeAddedLayer.position.x, toBeAddedLayer.position.y - shiftY);
                 
                 [toBeDeletedLayer removeFromSuperlayer];
@@ -196,7 +193,7 @@
         }
     }];
     
-    static NSString * const keyPath = @"position.y";
+    NSString * keyPath = @"position.y";
     
     for (int i = 0; i < [_slotScrollLayerArray count]; i++) {
         CALayer *slotScrollLayer = [_slotScrollLayerArray objectAtIndex:i];
@@ -205,13 +202,13 @@
         NSUInteger currentIndex = [[_currentSlotResults objectAtIndex:i] unsignedIntegerValue];
         
         NSUInteger howManyUnit = (i + kMinTurn) * slotIconsCount + resultIndex - currentIndex;
-        CGFloat slideY = howManyUnit * (_contentView.frame.size.height / 3);
+        CGFloat slideY = howManyUnit * (_contentView.frame.size.height);
         
         CABasicAnimation *slideAnimation = [CABasicAnimation animationWithKeyPath:keyPath];
         //NSLog(@"%@",slideAnimation.keyPath);
         slideAnimation.fillMode = kCAFillModeForwards;
         slideAnimation.duration = howManyUnit * self.singleUnitDuration;
-        slideAnimation.toValue = [NSNumber numberWithFloat:slotScrollLayer.position.y + slideY ];
+        slideAnimation.toValue = [NSNumber numberWithFloat:slotScrollLayer.position.y + slideY];
         NSLog(@"slotScrollLayer.position.y + slideY~%f",slotScrollLayer.position.y + slideY);
         slideAnimation.removedOnCompletion = NO;
         //slideAnimation.repeatDuration = 1;
@@ -219,6 +216,8 @@
         //NSLog(@"%@",slotScrollLayer.animationKeys);
         [completePositionArray addObject:slideAnimation.toValue];
     }
+
+    
     [CATransaction commit];
     
 }

@@ -46,7 +46,7 @@ JJSlotMachinesViewDataSource
         [self.datas addObject:img];
     }
     
-    _slotMachinesView = [[JJSlotMachinesView alloc] initWithFrame:CGRectMake(0, 200, kScreenWidth - 80, 193)];
+    _slotMachinesView = [[JJSlotMachinesView alloc] initWithFrame:CGRectMake(0, 200, kScreenWidth - 80, 120)];
     _slotMachinesView.center = CGPointMake(kScreenWidth / 2,480);
     _slotMachinesView.delegate = self;
     _slotMachinesView.dataSource = self;
