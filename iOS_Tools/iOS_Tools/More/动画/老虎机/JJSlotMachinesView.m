@@ -112,7 +112,7 @@
             
             CALayer *iconImageLayer = [[CALayer alloc] init];
             // adjust the beginning offset of the first unit
-            NSInteger offsetYUnit = j + 1 + iconCount;
+            NSInteger offsetYUnit = j + iconCount;      //j + 1 + iconCount;
             iconImageLayer.frame = CGRectMake(0, offsetYUnit * (singleUnitHeight + kMargin * 2) + kMargin, slotScrollLayer.frame.size.width, singleUnitHeight);
             
             iconImageLayer.contents = (id)iconImage.CGImage;

@@ -30,6 +30,13 @@
     // Do any additional setup after loading the view.
     self.navigationCustomView.hidden = NO;
     self.navigationCustomView.title = @"音乐动画";
+    @weakify(self);
+    self.navigationCustomView.backBtnActionCallBack = ^{
+        @strongify(self);
+        [self.navigationController popViewControllerAnimated:YES];
+        [self.displayLink invalidate];
+        self.displayLink = nil;
+    };
     
     // 创建定时器，不停刷新动画
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(imgRotation)];
