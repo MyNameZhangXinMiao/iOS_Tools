@@ -7,6 +7,7 @@
 //
 
 #import "JJHomeViewController.h"
+#import "JJTestViewController.h"
 #import "JJEmptyViewController.h"
 #import "JJDarkModeViewController.h"
 #import "JJBrowserListController.h"
@@ -39,7 +40,7 @@
     self.fd_prefersNavigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
 
-    self.data = @[@"空态图",@"自定义Toast",@"MBProgressHUD",@"自定义转场动画",@"暗黑模式适配",@"图片浏览器",@"跑马灯",@"scrollView嵌套",@"视频播放",@"AVAudioPlayer音频",@"AVQueuePlayer播放",@"KVO",@"Chart图表",@"图文按钮",@"内购",@"动画"];
+    self.data = @[@"测试",@"空态图",@"自定义Toast",@"MBProgressHUD",@"自定义转场动画",@"暗黑模式适配",@"图片浏览器",@"跑马灯",@"scrollView嵌套",@"视频播放",@"AVAudioPlayer音频",@"AVQueuePlayer播放",@"KVO",@"Chart图表",@"图文按钮",@"内购",@"动画"];
     
     [self.view addSubview:self.navigationView];
     [self.view addSubview:self.tableView];
@@ -82,7 +83,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSString *text = self.data[indexPath.row];
-    if ([text isEqualToString:@"空态图"]) {
+    if ([text isEqualToString:@"测试"]){
+        JJTestViewController *vc = [[JJTestViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([text isEqualToString:@"空态图"]) {
         JJEmptyViewController *vc = [[JJEmptyViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([text isEqualToString:@"暗黑模式适配"]) {

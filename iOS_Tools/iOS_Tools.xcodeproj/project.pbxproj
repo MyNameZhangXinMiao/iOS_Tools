@@ -16,6 +16,8 @@
 		32038B8C2503F49D000E2684 /* JJImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 32038B8B2503F49D000E2684 /* JJImageBrowser.m */; };
 		32038B8F2503F59E000E2684 /* JJImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32038B8E2503F59E000E2684 /* JJImageModel.m */; };
 		32038B922503F7D9000E2684 /* JJImageBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32038B912503F7D9000E2684 /* JJImageBrowserCell.m */; };
+		32A583642533FC3600F045A3 /* JJTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A583632533FC3600F045A3 /* JJTestViewController.m */; };
+		32A583692533FDFE00F045A3 /* JJTestImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A583682533FDFE00F045A3 /* JJTestImage.m */; };
 		32A68956250404D000B497A0 /* JJPhotoBrowserFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A68955250404D000B497A0 /* JJPhotoBrowserFlowLayout.m */; };
 		32A6895A25041C4F00B497A0 /* MagicAnimate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A6895925041C4F00B497A0 /* MagicAnimate.m */; };
 		32B61880251335A0006726B4 /* JJMoreScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B6187F251335A0006726B4 /* JJMoreScrollViewController.m */; };
@@ -133,6 +135,10 @@
 		32038B8E2503F59E000E2684 /* JJImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJImageModel.m; sourceTree = "<group>"; };
 		32038B902503F7D9000E2684 /* JJImageBrowserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJImageBrowserCell.h; sourceTree = "<group>"; };
 		32038B912503F7D9000E2684 /* JJImageBrowserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJImageBrowserCell.m; sourceTree = "<group>"; };
+		32A583622533FC3600F045A3 /* JJTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJTestViewController.h; sourceTree = "<group>"; };
+		32A583632533FC3600F045A3 /* JJTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJTestViewController.m; sourceTree = "<group>"; };
+		32A583672533FDFD00F045A3 /* JJTestImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJTestImage.h; sourceTree = "<group>"; };
+		32A583682533FDFE00F045A3 /* JJTestImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJTestImage.m; sourceTree = "<group>"; };
 		32A68954250404D000B497A0 /* JJPhotoBrowserFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJPhotoBrowserFlowLayout.h; sourceTree = "<group>"; };
 		32A68955250404D000B497A0 /* JJPhotoBrowserFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJPhotoBrowserFlowLayout.m; sourceTree = "<group>"; };
 		32A6895825041C4F00B497A0 /* MagicAnimate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagicAnimate.h; sourceTree = "<group>"; };
@@ -383,6 +389,17 @@
 				32A68955250404D000B497A0 /* JJPhotoBrowserFlowLayout.m */,
 			);
 			path = "浏览器";
+			sourceTree = "<group>";
+		};
+		32A583612533FC1E00F045A3 /* 测试页面 */ = {
+			isa = PBXGroup;
+			children = (
+				32A583622533FC3600F045A3 /* JJTestViewController.h */,
+				32A583632533FC3600F045A3 /* JJTestViewController.m */,
+				32A583672533FDFD00F045A3 /* JJTestImage.h */,
+				32A583682533FDFE00F045A3 /* JJTestImage.m */,
+			);
+			path = "测试页面";
 			sourceTree = "<group>";
 		};
 		32A6895725041C2B00B497A0 /* 转场动画 */ = {
@@ -853,6 +870,7 @@
 		32D3DD7D24F18E310098D608 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				32A583612533FC1E00F045A3 /* 测试页面 */,
 				32FC8F9725234AF4005A4F59 /* 动画 */,
 				32FC8F632523196E005A4F59 /* 内购 */,
 				32FC8F5725230DFC005A4F59 /* 图文按钮 */,
@@ -1395,9 +1413,11 @@
 				32D3DDCA24F1C0460098D608 /* UIView+KLEmptyView.m in Sources */,
 				32D3DCBE24F181610098D608 /* KLVideoFollowViewController.m in Sources */,
 				7D6084CF25222F0A0085C9B0 /* JJVideoTest4ViewController.m in Sources */,
+				32A583642533FC3600F045A3 /* JJTestViewController.m in Sources */,
 				32038B812503EE55000E2684 /* JJBrowserListController.m in Sources */,
 				7D36FF8D2518F6200021595F /* JJPlayerView.m in Sources */,
 				32D3DCCD24F181610098D608 /* KLNavigationController.m in Sources */,
+				32A583692533FDFE00F045A3 /* JJTestImage.m in Sources */,
 				32FC8F432522E71C005A4F59 /* JJKVOViewController.m in Sources */,
 				32FC8F312522CA4A005A4F59 /* JJAudioViewController.m in Sources */,
 				32FC8EE72521C4E3005A4F59 /* JJVideoModel.m in Sources */,
