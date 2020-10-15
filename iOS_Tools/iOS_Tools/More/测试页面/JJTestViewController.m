@@ -32,7 +32,7 @@
     [self.view addSubview:self.imgView1];
     [self.view addSubview:self.imgView2];
     
-    UIImage *img1 = [JJTestImage drawText:@"1" forImage:[UIImage imageNamed:@"messagelist_number_icon"]];
+    UIImage *img1 = [JJTestImage drawText1:@"8" text2:@"9"];
     self.imgView1.image = img1;
     UIImage *img2 = [JJTestImage drawText1:@"3" text2:@"2" forImage:[UIImage imageNamed:@"messagelist_number_icon"]];
     self.imgView2.image = img2;

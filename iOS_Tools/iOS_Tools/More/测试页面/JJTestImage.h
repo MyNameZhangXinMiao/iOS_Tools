@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIImage *)drawText:(NSString *)text forImage:(UIImage *)image;
 + (UIImage *)drawText1:(NSString *)text1 text2:(NSString *)text2 forImage:(UIImage *)image;
++ (UIImage *)drawText1:(NSString *)text1 text2:(NSString *)text2;
 
 - (UIImage *)imageWithTitle:(NSString *)title fontSize:(CGFloat)fontSize;
 

@@ -37,6 +37,42 @@
     return newImage;
 }
 
++ (UIImage *)drawText1:(NSString *)text1 text2:(NSString *)text2{
+    
+    UIImage *image = [UIImage imageNamed:@"messagelist_number_icon"];
+    
+    CGSize size = CGSizeMake(image.size.width,image.size.height ); // 画布大小
+    UIGraphicsBeginImageContextWithOptions(size,NO,0.0);
+    
+    [image drawAtPoint:CGPointMake(0,0)];
+    // 获得一个位图图形上下文
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextDrawPath(context,kCGPathStroke);
+    UIFont *boldFont = [UIFont fontWithName:@"PingFangSC-Semibold" size:10];
+    NSDictionary *attributes = @{NSFontAttributeName:boldFont, NSForegroundColorAttributeName:[UIColor colorWithHexString:@"#413956"]};
+    
+    NSString *str1 = @"0";
+    if (text1.length > 0) {
+        str1 = [text1 substringToIndex:1];
+    }
+    NSString *str2 = @"0";
+    if (text2.length > 0) {
+        str2 = [text2 substringToIndex:1];
+    }
+    
+    // 画文字 让文字处于居中模式
+    [str1 drawAtPoint:CGPointMake(3,2.5) withAttributes:attributes];
+    [str2 drawAtPoint:CGPointMake(9,2.5) withAttributes:attributes];
+    
+    // 返回绘制的新图形
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+
 
 //在图片上绘制文字
 + (UIImage *)drawText:(NSString *)text forImage:(UIImage *)image{
