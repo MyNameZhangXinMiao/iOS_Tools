@@ -8,20 +8,16 @@
 
 #import "JJHomeViewController.h"
 #import "JJTestViewController.h"
-#import "JJEmptyViewController.h"
 #import "JJDarkModeViewController.h"
-#import "JJBrowserListController.h"
-#import "JJAutoRunViewController.h"  //跑马灯
 #import "JJMoreScrollViewController.h"
-#import "JJVideoViewController.h"
-#import "JJAudioViewController.h"
-#import "JJQueueViewController.h"
 #import "JJChartViewController.h"
 #import "JJKVOViewController.h"
 #import "JJChartViewController.h"
-#import "JJButtonViewController.h"
 #import "JJApplePayViewController.h"
 #import "JJAnimateViewController.h"
+#import "JJFunctionGroupViewController.h"  //音视频图像
+#import "JJVideoImagesViewController.h"  //功能模块封装
+
 
 @interface JJHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -40,12 +36,13 @@
     self.fd_prefersNavigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
 
-    self.data = @[@"测试",@"空态图",@"自定义Toast",@"MBProgressHUD",@"自定义转场动画",@"暗黑模式适配",@"图片浏览器",@"跑马灯",@"scrollView嵌套",@"视频播放",@"AVAudioPlayer音频",@"AVQueuePlayer播放",@"KVO",@"Chart图表",@"图文按钮",@"内购",@"动画"];
+    self.data = @[@"测试",@"MBProgressHUD",@"自定义转场动画",@"暗黑模式适配",@"scrollView嵌套",@"KVO",@"Chart图表",@"内购",@"动画",@"音视频图像",@"功能模块封装"];
     
     [self.view addSubview:self.navigationView];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view);
+        make.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.view).mas_offset(-kTabBarHeight);
         make.top.equalTo(self.view).mas_offset(kNavBarHeight);
     }];
     [self.navigationView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -86,29 +83,11 @@
     if ([text isEqualToString:@"测试"]){
         JJTestViewController *vc = [[JJTestViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([text isEqualToString:@"空态图"]) {
-        JJEmptyViewController *vc = [[JJEmptyViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
     } else if ([text isEqualToString:@"暗黑模式适配"]) {
         JJDarkModeViewController *vc = [[JJDarkModeViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([text isEqualToString:@"图片浏览器"]){
-        JJBrowserListController *vc = [[JJBrowserListController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([text isEqualToString:@"跑马灯"]){
-        JJAutoRunViewController *vc = [[JJAutoRunViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
     } else if ([text isEqualToString:@"scrollView嵌套"]){
         JJMoreScrollViewController *vc = [[JJMoreScrollViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([text isEqualToString:@"视频播放"]){
-        JJVideoViewController *vc = [[JJVideoViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([text isEqualToString:@"AVAudioPlayer音频"]){
-        JJAudioViewController *vc = [[JJAudioViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([text isEqualToString:@"AVQueuePlayer播放"]){
-        JJQueueViewController *vc = [[JJQueueViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([text isEqualToString:@"Chart图表"]){
         JJChartViewController *vc = [[JJChartViewController alloc] init];
@@ -119,14 +98,17 @@
     } else if ([text isEqualToString:@"Chart图表"]){
         JJChartViewController *vc = [[JJChartViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([text isEqualToString:@"图文按钮"]){
-        JJButtonViewController *vc = [[JJButtonViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
     } else if ([text isEqualToString:@"内购"]){
         JJApplePayViewController *vc = [[JJApplePayViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([text isEqualToString:@"动画"]){
         JJAnimateViewController *vc = [[JJAnimateViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([text isEqualToString:@"音视频图像"]){
+        JJVideoImagesViewController *vc = [[JJVideoImagesViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([text isEqualToString:@"功能模块封装"]){
+        JJFunctionGroupViewController *vc = [[JJFunctionGroupViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
     

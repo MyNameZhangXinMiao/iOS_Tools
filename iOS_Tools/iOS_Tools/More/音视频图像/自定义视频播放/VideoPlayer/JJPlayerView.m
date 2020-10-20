@@ -739,7 +739,10 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
         self.frame = CGRectMake(0, 0, MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height), MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height));
     } else {
         //播放器所在控制器不支持旋转，采用旋转view的方式实现
-        CGFloat duration = [UIApplication sharedApplication].statusBarOrientationAnimationDuration;
+        CGFloat duration = 0.3;
+         
+        // CGFloat duration = [UIApplication sharedApplication].statusBarOrientationAnimationDuration;
+        
         if (direction == UIInterfaceOrientationLandscapeLeft) {
             [UIView animateWithDuration:duration animations:^{
                 self.transform = CGAffineTransformMakeRotation(M_PI / 2);
@@ -774,7 +777,8 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
         [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
     } else {
         //还原
-        CGFloat duration = [UIApplication sharedApplication].statusBarOrientationAnimationDuration;
+//        CGFloat duration = [UIApplication sharedApplication].statusBarOrientationAnimationDuration;
+        CGFloat duration = 0.3;
         [UIView animateWithDuration:duration animations:^{
             self.transform = CGAffineTransformMakeRotation(0);
         }];

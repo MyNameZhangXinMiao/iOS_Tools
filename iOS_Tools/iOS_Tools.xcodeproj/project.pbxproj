@@ -81,6 +81,8 @@
 		32D3DDD024F1C1910098D608 /* JJDarkModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DDCF24F1C1910098D608 /* JJDarkModeViewController.m */; };
 		32E0B29F25063BA400BD6E39 /* JJAutoRunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E0B29E25063BA400BD6E39 /* JJAutoRunViewController.m */; };
 		32E0B2A225063BB700BD6E39 /* JJAutoRunView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E0B2A125063BB700BD6E39 /* JJAutoRunView.m */; };
+		32FC5B79253ECC6900336CFE /* JJVideoImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC5B78253ECC6900336CFE /* JJVideoImagesViewController.m */; };
+		32FC5B82253ECE5100336CFE /* JJFunctionGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC5B81253ECE5100336CFE /* JJFunctionGroupViewController.m */; };
 		32FC8ED32521AD1B005A4F59 /* video2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ECE2521AD19005A4F59 /* video2.mov */; };
 		32FC8ED42521AD1B005A4F59 /* video4.mov in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ECF2521AD1A005A4F59 /* video4.mov */; };
 		32FC8ED52521AD1B005A4F59 /* video3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ED02521AD1A005A4F59 /* video3.mp4 */; };
@@ -266,6 +268,10 @@
 		32E0B29E25063BA400BD6E39 /* JJAutoRunViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJAutoRunViewController.m; sourceTree = "<group>"; };
 		32E0B2A025063BB700BD6E39 /* JJAutoRunView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJAutoRunView.h; sourceTree = "<group>"; };
 		32E0B2A125063BB700BD6E39 /* JJAutoRunView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJAutoRunView.m; sourceTree = "<group>"; };
+		32FC5B77253ECC6900336CFE /* JJVideoImagesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoImagesViewController.h; sourceTree = "<group>"; };
+		32FC5B78253ECC6900336CFE /* JJVideoImagesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoImagesViewController.m; sourceTree = "<group>"; };
+		32FC5B80253ECE5100336CFE /* JJFunctionGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJFunctionGroupViewController.h; sourceTree = "<group>"; };
+		32FC5B81253ECE5100336CFE /* JJFunctionGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJFunctionGroupViewController.m; sourceTree = "<group>"; };
 		32FC8ECE2521AD19005A4F59 /* video2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video2.mov; sourceTree = "<group>"; };
 		32FC8ECF2521AD1A005A4F59 /* video4.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video4.mov; sourceTree = "<group>"; };
 		32FC8ED02521AD1A005A4F59 /* video3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video3.mp4; sourceTree = "<group>"; };
@@ -773,6 +779,8 @@
 		32D3DD3424F18BC50098D608 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				32FC5B7F253ECE0100336CFE /* 功能模块封装 */,
+				32FC5B70253ECBB000336CFE /* 音视频图像 */,
 				32D3DD3724F18BC50098D608 /* JJHomeViewController.h */,
 				32D3DD3A24F18BC50098D608 /* JJHomeViewController.m */,
 			);
@@ -870,15 +878,13 @@
 		32D3DD7D24F18E310098D608 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				32FC5B76253ECC0800336CFE /* 音视频图像 */,
 				32A583612533FC1E00F045A3 /* 测试页面 */,
 				32FC8F9725234AF4005A4F59 /* 动画 */,
 				32FC8F632523196E005A4F59 /* 内购 */,
 				32FC8F5725230DFC005A4F59 /* 图文按钮 */,
 				32FC8F4B25230A16005A4F59 /* Chart图表 */,
 				32FC8F402522E709005A4F59 /* KVO */,
-				32FC8F342522D59E005A4F59 /* AVQueuePlayer列表 */,
-				32FC8F2E2522CA32005A4F59 /* AVAudioPlayer音频 */,
-				7D36FF802518EE8F0021595F /* 自定义视频播放 */,
 				32B6187D25133573006726B4 /* Scrollview嵌套 */,
 				32E0B29C25063B8100BD6E39 /* 跑马灯 */,
 				32038B7E2503EDEF000E2684 /* Browser */,
@@ -1011,6 +1017,34 @@
 				32E0B2A125063BB700BD6E39 /* JJAutoRunView.m */,
 			);
 			path = "跑马灯";
+			sourceTree = "<group>";
+		};
+		32FC5B70253ECBB000336CFE /* 音视频图像 */ = {
+			isa = PBXGroup;
+			children = (
+				32FC5B77253ECC6900336CFE /* JJVideoImagesViewController.h */,
+				32FC5B78253ECC6900336CFE /* JJVideoImagesViewController.m */,
+			);
+			path = "音视频图像";
+			sourceTree = "<group>";
+		};
+		32FC5B76253ECC0800336CFE /* 音视频图像 */ = {
+			isa = PBXGroup;
+			children = (
+				7D36FF802518EE8F0021595F /* 自定义视频播放 */,
+				32FC8F2E2522CA32005A4F59 /* AVAudioPlayer音频 */,
+				32FC8F342522D59E005A4F59 /* AVQueuePlayer列表 */,
+			);
+			path = "音视频图像";
+			sourceTree = "<group>";
+		};
+		32FC5B7F253ECE0100336CFE /* 功能模块封装 */ = {
+			isa = PBXGroup;
+			children = (
+				32FC5B80253ECE5100336CFE /* JJFunctionGroupViewController.h */,
+				32FC5B81253ECE5100336CFE /* JJFunctionGroupViewController.m */,
+			);
+			path = "功能模块封装";
 			sourceTree = "<group>";
 		};
 		32FC8ECD2521A71E005A4F59 /* VideoSource */ = {
@@ -1417,11 +1451,13 @@
 				32038B812503EE55000E2684 /* JJBrowserListController.m in Sources */,
 				7D36FF8D2518F6200021595F /* JJPlayerView.m in Sources */,
 				32D3DCCD24F181610098D608 /* KLNavigationController.m in Sources */,
+				32FC5B82253ECE5100336CFE /* JJFunctionGroupViewController.m in Sources */,
 				32A583692533FDFE00F045A3 /* JJTestImage.m in Sources */,
 				32FC8F432522E71C005A4F59 /* JJKVOViewController.m in Sources */,
 				32FC8F312522CA4A005A4F59 /* JJAudioViewController.m in Sources */,
 				32FC8EE72521C4E3005A4F59 /* JJVideoModel.m in Sources */,
 				32D3DDB624F1BD1F0098D608 /* JJToast.m in Sources */,
+				32FC5B79253ECC6900336CFE /* JJVideoImagesViewController.m in Sources */,
 				32FC8F372522D5B8005A4F59 /* JJQueueViewController.m in Sources */,
 				32C15A5225209554003473AF /* JJVideoTest2ViewController.m in Sources */,
 				32FC8F9A25234B09005A4F59 /* JJAnimateViewController.m in Sources */,
