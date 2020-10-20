@@ -22,7 +22,6 @@ target 'iOS_Tools' do
   pod 'SVGAPlayer', '~> 2.5.4'
   
   pod 'YTKKeyValueStore', '~> 0.1.2'
-#  pod 'SJVideoPlayer', '~> 3.2.6'
   
   pod 'FDFullscreenPopGesture', '~> 1.1'
   pod 'IQKeyboardManager','~> 6.5.6'

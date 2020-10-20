@@ -40,6 +40,7 @@
         configure.backPlay = NO;
         configure.strokeColor = [UIColor redColor];
         configure.topToolBarHiddenType = TopToolBarHiddenNever;
+        configure.isLandscape = YES;
     }];
     
     //视频地址

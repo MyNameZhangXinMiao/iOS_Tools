@@ -86,6 +86,7 @@
 		32FC5B8B253EE3F100336CFE /* video_h_0.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 32FC5B88253EE3F000336CFE /* video_h_0.MP4 */; };
 		32FC5B8C253EE3F100336CFE /* video_h_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 32FC5B89253EE3F100336CFE /* video_h_2.MP4 */; };
 		32FC5B8D253EE3F100336CFE /* video_h_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 32FC5B8A253EE3F100336CFE /* video_h_1.MP4 */; };
+		32FC5B94253F093F00336CFE /* JJScreenRotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC5B93253F093F00336CFE /* JJScreenRotationViewController.m */; };
 		32FC8ED32521AD1B005A4F59 /* video2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ECE2521AD19005A4F59 /* video2.mov */; };
 		32FC8ED42521AD1B005A4F59 /* video4.mov in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ECF2521AD1A005A4F59 /* video4.mov */; };
 		32FC8ED52521AD1B005A4F59 /* video3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ED02521AD1A005A4F59 /* video3.mp4 */; };
@@ -278,6 +279,8 @@
 		32FC5B88253EE3F000336CFE /* video_h_0.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_h_0.MP4; sourceTree = "<group>"; };
 		32FC5B89253EE3F100336CFE /* video_h_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_h_2.MP4; sourceTree = "<group>"; };
 		32FC5B8A253EE3F100336CFE /* video_h_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_h_1.MP4; sourceTree = "<group>"; };
+		32FC5B92253F093F00336CFE /* JJScreenRotationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJScreenRotationViewController.h; sourceTree = "<group>"; };
+		32FC5B93253F093F00336CFE /* JJScreenRotationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJScreenRotationViewController.m; sourceTree = "<group>"; };
 		32FC8ECE2521AD19005A4F59 /* video2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video2.mov; sourceTree = "<group>"; };
 		32FC8ECF2521AD1A005A4F59 /* video4.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video4.mov; sourceTree = "<group>"; };
 		32FC8ED02521AD1A005A4F59 /* video3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video3.mp4; sourceTree = "<group>"; };
@@ -1033,6 +1036,7 @@
 		32FC5B76253ECC0800336CFE /* 音视频图像 */ = {
 			isa = PBXGroup;
 			children = (
+				32FC5B91253F091200336CFE /* 屏幕旋转 */,
 				7D36FF802518EE8F0021595F /* 自定义视频播放 */,
 				32FC8F2E2522CA32005A4F59 /* AVAudioPlayer音频 */,
 				32FC8F342522D59E005A4F59 /* AVQueuePlayer列表 */,
@@ -1059,6 +1063,15 @@
 				32FC8F5725230DFC005A4F59 /* 图文按钮 */,
 			);
 			path = "功能模块封装";
+			sourceTree = "<group>";
+		};
+		32FC5B91253F091200336CFE /* 屏幕旋转 */ = {
+			isa = PBXGroup;
+			children = (
+				32FC5B92253F093F00336CFE /* JJScreenRotationViewController.h */,
+				32FC5B93253F093F00336CFE /* JJScreenRotationViewController.m */,
+			);
+			path = "屏幕旋转";
 			sourceTree = "<group>";
 		};
 		32FC8ECD2521A71E005A4F59 /* VideoSource */ = {
@@ -1471,6 +1484,7 @@
 				32038B812503EE55000E2684 /* JJBrowserListController.m in Sources */,
 				7D36FF8D2518F6200021595F /* JJPlayerView.m in Sources */,
 				32D3DCCD24F181610098D608 /* KLNavigationController.m in Sources */,
+				32FC5B94253F093F00336CFE /* JJScreenRotationViewController.m in Sources */,
 				32FC5B82253ECE5100336CFE /* JJFunctionGroupViewController.m in Sources */,
 				32A583692533FDFE00F045A3 /* JJTestImage.m in Sources */,
 				32FC8F432522E71C005A4F59 /* JJKVOViewController.m in Sources */,
@@ -1650,6 +1664,7 @@
 				DEVELOPMENT_TEAM = 6Y6DL4AM34;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/ToolsPrefixHeader.pch";
 				INFOPLIST_FILE = iOS_Tools/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1669,6 +1684,7 @@
 				DEVELOPMENT_TEAM = 6Y6DL4AM34;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/ToolsPrefixHeader.pch";
 				INFOPLIST_FILE = iOS_Tools/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

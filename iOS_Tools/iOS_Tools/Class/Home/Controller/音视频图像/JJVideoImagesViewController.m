@@ -10,6 +10,7 @@
 #import "JJVideoViewController.h"
 #import "JJAudioViewController.h"
 #import "JJQueueViewController.h"
+#import "JJScreenRotationViewController.h"
 
 
 
@@ -43,7 +44,7 @@ UITableViewDataSource>
 #pragma mark - 初始化界面
 - (void)setupUI
 {
-    self.data = @[@"视频播放",@"AVAudioPlayer音频",@"AVQueuePlayer播放"];
+    self.data = @[@"视频播放",@"AVAudioPlayer音频",@"AVQueuePlayer播放",@"屏幕旋转"];
     
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -73,17 +74,20 @@ UITableViewDataSource>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    if (indexPath.row == 0) {
+    NSString *text = self.data[indexPath.row];
+    if ([text isEqualToString:@"视频播放"]){
         JJVideoViewController *vc = [[JJVideoViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row == 1){
+    }else if ([text isEqualToString:@"AVAudioPlayer音频"]){
         JJAudioViewController *vc = [[JJAudioViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row == 2){
+    }else if ([text isEqualToString:@"AVQueuePlayer播放"]){
         JJQueueViewController *vc = [[JJQueueViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
+    }else if ([text isEqualToString:@"屏幕旋转"]){
+        JJScreenRotationViewController *vc = [[JJScreenRotationViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    
 }
 
 
@@ -105,7 +109,7 @@ UITableViewDataSource>
             _tableView.estimatedSectionHeaderHeight = 0;
             _tableView.estimatedSectionFooterHeight = 0;
         } else {
-            self.tableView.automaticallyAdjustsScrollIndicatorInsets = NO;
+            self.automaticallyAdjustsScrollViewInsets = NO;
         }
     }
     return _tableView;
