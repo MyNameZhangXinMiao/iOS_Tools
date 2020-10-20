@@ -38,10 +38,8 @@ target 'iOS_Tools' do
 
   
 #  pod 'JQFMDB'
-  
-  #腾讯超级播放器
-#  pod 'SuperPlayer', '~> 3.2.7'
-  
+  #pod 'CocoaAsyncSocket'
+
   pod 'BlocksKit', '~> 2.2.5'
 
   pod 'FLEX', '~> 3.1.2', :configurations => ['Debug']
