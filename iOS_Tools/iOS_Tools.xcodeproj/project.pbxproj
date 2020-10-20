@@ -878,20 +878,16 @@
 		32D3DD7D24F18E310098D608 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				32FC5B86253EDC7B00336CFE /* 功能模块封装 */,
 				32FC5B76253ECC0800336CFE /* 音视频图像 */,
 				32A583612533FC1E00F045A3 /* 测试页面 */,
 				32FC8F9725234AF4005A4F59 /* 动画 */,
 				32FC8F632523196E005A4F59 /* 内购 */,
-				32FC8F5725230DFC005A4F59 /* 图文按钮 */,
 				32FC8F4B25230A16005A4F59 /* Chart图表 */,
 				32FC8F402522E709005A4F59 /* KVO */,
 				32B6187D25133573006726B4 /* Scrollview嵌套 */,
-				32E0B29C25063B8100BD6E39 /* 跑马灯 */,
-				32038B7E2503EDEF000E2684 /* Browser */,
 				32D3DDCD24F1C1610098D608 /* 暗黑模式适配 */,
-				32D3DD9224F1BBD00098D608 /* MBProgressHUD */,
 				32D3DD8224F18EFC0098D608 /* 自定义导航栏 */,
-				32D3DD7E24F18E400098D608 /* 空态图 */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -1043,6 +1039,18 @@
 			children = (
 				32FC5B80253ECE5100336CFE /* JJFunctionGroupViewController.h */,
 				32FC5B81253ECE5100336CFE /* JJFunctionGroupViewController.m */,
+			);
+			path = "功能模块封装";
+			sourceTree = "<group>";
+		};
+		32FC5B86253EDC7B00336CFE /* 功能模块封装 */ = {
+			isa = PBXGroup;
+			children = (
+				32D3DD9224F1BBD00098D608 /* MBProgressHUD */,
+				32E0B29C25063B8100BD6E39 /* 跑马灯 */,
+				32D3DD7E24F18E400098D608 /* 空态图 */,
+				32038B7E2503EDEF000E2684 /* Browser */,
+				32FC8F5725230DFC005A4F59 /* 图文按钮 */,
 			);
 			path = "功能模块封装";
 			sourceTree = "<group>";
