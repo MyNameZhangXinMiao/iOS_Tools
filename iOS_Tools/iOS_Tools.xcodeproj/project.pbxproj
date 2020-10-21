@@ -87,6 +87,7 @@
 		32FC5B8C253EE3F100336CFE /* video_h_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 32FC5B89253EE3F100336CFE /* video_h_2.MP4 */; };
 		32FC5B8D253EE3F100336CFE /* video_h_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 32FC5B8A253EE3F100336CFE /* video_h_1.MP4 */; };
 		32FC5B94253F093F00336CFE /* JJScreenRotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC5B93253F093F00336CFE /* JJScreenRotationViewController.m */; };
+		32FC5BA42540373500336CFE /* JJVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FC5BA32540373500336CFE /* JJVideoPlayer.m */; };
 		32FC8ED32521AD1B005A4F59 /* video2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ECE2521AD19005A4F59 /* video2.mov */; };
 		32FC8ED42521AD1B005A4F59 /* video4.mov in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ECF2521AD1A005A4F59 /* video4.mov */; };
 		32FC8ED52521AD1B005A4F59 /* video3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 32FC8ED02521AD1A005A4F59 /* video3.mp4 */; };
@@ -281,6 +282,8 @@
 		32FC5B8A253EE3F100336CFE /* video_h_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_h_1.MP4; sourceTree = "<group>"; };
 		32FC5B92253F093F00336CFE /* JJScreenRotationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJScreenRotationViewController.h; sourceTree = "<group>"; };
 		32FC5B93253F093F00336CFE /* JJScreenRotationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJScreenRotationViewController.m; sourceTree = "<group>"; };
+		32FC5BA22540373500336CFE /* JJVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoPlayer.h; sourceTree = "<group>"; };
+		32FC5BA32540373500336CFE /* JJVideoPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoPlayer.m; sourceTree = "<group>"; };
 		32FC8ECE2521AD19005A4F59 /* video2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video2.mov; sourceTree = "<group>"; };
 		32FC8ECF2521AD1A005A4F59 /* video4.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video4.mov; sourceTree = "<group>"; };
 		32FC8ED02521AD1A005A4F59 /* video3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video3.mp4; sourceTree = "<group>"; };
@@ -1074,6 +1077,15 @@
 			path = "屏幕旋转";
 			sourceTree = "<group>";
 		};
+		32FC5BA12540370800336CFE /* VideoPlayerTool */ = {
+			isa = PBXGroup;
+			children = (
+				32FC5BA22540373500336CFE /* JJVideoPlayer.h */,
+				32FC5BA32540373500336CFE /* JJVideoPlayer.m */,
+			);
+			path = VideoPlayerTool;
+			sourceTree = "<group>";
+		};
 		32FC8ECD2521A71E005A4F59 /* VideoSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -1250,6 +1262,7 @@
 		7D36FF852518EFD40021595F /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				32FC5BA12540370800336CFE /* VideoPlayerTool */,
 				32FC8ECD2521A71E005A4F59 /* VideoSource */,
 				7D56AF9B251F128E000E7D39 /* JJPlayer.bundle */,
 				7D56AE43251EEE1B000E7D39 /* JJPlayer.h */,
@@ -1424,6 +1437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FC5BA42540373500336CFE /* JJVideoPlayer.m in Sources */,
 				32D3DCC524F181610098D608 /* KLMomentViewController.m in Sources */,
 				7D36FF892518F1470021595F /* JJVideoTest1ViewController.m in Sources */,
 				32D3DD6724F18BC50098D608 /* JJHomeViewController.m in Sources */,

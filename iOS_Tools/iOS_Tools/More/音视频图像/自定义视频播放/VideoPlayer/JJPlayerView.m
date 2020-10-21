@@ -56,7 +56,10 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 
 
 @interface JJPlayerView ()<JJPlayerMaskViewDelegate,UIGestureRecognizerDelegate>
-
+{
+   id _timeObserver;
+   id _itemEndObserver;
+}
 
 /// 播放器
 @property (nonatomic, strong)   AVPlayer         *player;
@@ -170,16 +173,16 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(routeChanged:) name:AVAudioSessionRouteChangeNotification object:nil];
     // 添加观察者监控播放器状态
     [self addObserver:self forKeyPath:@"playStatus" options:NSKeyValueObservingOptionNew context:nil];
-       // 添加观察者监控进度
-//       __weak typeof(self) weakSelf = self;
-//       _timeObserver = [_player addPeriodicTimeObserverForInterval:CMTimeMake(1, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
-//           __strong typeof(self) strongSelf = weakSelf;
-//
-//           if (strongSelf.currentPlayTimeCallBack) {
-//               float currentPlayTime = (double)strongSelf.currentItem.currentTime.value / strongSelf.currentItem.currentTime.timescale;
-//               strongSelf.currentPlayTimeCallBack(strongSelf.player, currentPlayTime);
-//           }
-//       }];
+    // 添加观察者监控进度
+//    __weak typeof(self) weakSelf = self;
+    _timeObserver = [_player addPeriodicTimeObserverForInterval:CMTimeMake(1, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+//        __strong typeof(self) strongSelf = weakSelf;
+        
+//        if (strongSelf.currentPlayTimeCallBack) {
+//            float currentPlayTime = (double)strongSelf.currentItem.currentTime.value / strongSelf.currentItem.currentTime.timescale;
+//            strongSelf.currentPlayTimeCallBack(strongSelf.player, currentPlayTime);
+//        }
+    }];
     
     // 创建播放器
     self.backgroundColor = [UIColor blackColor];

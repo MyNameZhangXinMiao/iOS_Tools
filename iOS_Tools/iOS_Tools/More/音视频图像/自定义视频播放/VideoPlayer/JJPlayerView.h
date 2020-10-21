@@ -90,11 +90,11 @@ typedef void(^EndBolck)(void);
 /// 是否是全屏
 @property (nonatomic, assign, readonly) BOOL          isFullScreen;
 /// 网络视频地址
-@property (nonatomic, strong) NSURL                   *url;
+@property (nonatomic, strong)          NSURL          *url;
 /// 本地视频地址
-@property (nonatomic, strong) NSString                *filePath;
+@property (nonatomic, strong)          NSString       *filePath;
 /// 标题
-@property (nonatomic, copy)     NSString *title;
+@property (nonatomic, copy)            NSString       *title;
 
 
 
@@ -107,16 +107,18 @@ typedef void(^EndBolck)(void);
 /// @param configure 配置信息
 - (void)updatePlayerAllConfigure:(JJPlayerConfigure *)configure;
 
-
 /// 播放
 - (void)play;
+
 /// 暂停
 - (void)pause;
 
 /// 返回按钮回调方法,只有小屏会调用，全屏点击默认回到小屏
 - (void)backButtonAction:(BackButtonBlock)backBlock;
+
 /// 播放完成回调
 - (void)endPlay:(EndBolck)end;
+
 /// 销毁播放器
 - (void)destoryPlayer;
 
