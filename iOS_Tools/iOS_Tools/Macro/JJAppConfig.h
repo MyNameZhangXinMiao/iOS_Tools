@@ -22,7 +22,7 @@
 #define KScreenWidth    [[UIScreen mainScreen] bounds].size.width
 #define KScreenHeight   [[UIScreen mainScreen] bounds].size.height
 
-#define kIs_iPhone_X ([[UIScreen mainScreen] bounds].size.height == 812.0 || [[UIScreen mainScreen] bounds].size.height == 896 )
+#define kIs_iPhone_X ([[UIScreen mainScreen] bounds].size.height == 812.0 || [[UIScreen mainScreen] bounds].size.height == 896 || [[UIScreen mainScreen] bounds].size.height == 844 || [[UIScreen mainScreen] bounds].size.height == 926)
 //#define kIs_iPhone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 
 
