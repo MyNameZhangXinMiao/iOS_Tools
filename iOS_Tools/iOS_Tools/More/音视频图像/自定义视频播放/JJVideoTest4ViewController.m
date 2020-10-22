@@ -164,7 +164,7 @@ JJVideoTableHeaderViewDelegate
         [_playerView updatePlayerModifyConfigure:^(JJPlayerConfigure * _Nonnull configure) {
             configure.backPlay = NO;
             configure.strokeColor = [UIColor redColor];
-            configure.topToolBarHiddenType = TopToolBarHiddenNever;
+            configure.topToolBarHiddenType = JJTopToolBarHiddenNever;
             configure.repeatPlay = YES;
         }];
     }

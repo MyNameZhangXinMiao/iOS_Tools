@@ -17,15 +17,22 @@ https://dh2.v.netease.com/2017/cg/fxtpty.mp4
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger,VideoFillMode){
-    VideoFillModeResize = 0,       ///<拉伸占满整个播放器，不按原比例拉伸
-    VideoFillModeResizeAspect,     ///<按原视频比例显示，是竖屏的就显示出竖屏的，两边留黑
-    VideoFillModeResizeAspectFill, ///<按照原比例拉伸占满整个播放器，但视频内容超出部分会被剪切
+typedef NS_ENUM(NSInteger,JJVideoFillMode){
+    JJVideoFillModeResize = 0,       ///<拉伸占满整个播放器，不按原比例拉伸
+    JJVideoFillModeResizeAspect,     ///<按原视频比例显示，是竖屏的就显示出竖屏的，两边留黑
+    JJVideoFillModeResizeAspectFill, ///<按照原比例拉伸占满整个播放器，但视频内容超出部分会被剪切
 };
-typedef NS_ENUM(NSUInteger, TopToolBarHiddenType) {
-    TopToolBarHiddenNever = 0, ///<小屏和全屏都不隐藏
-    TopToolBarHiddenAlways,    ///<小屏和全屏都隐藏
-    TopToolBarHiddenSmall,     ///<小屏隐藏，全屏不隐藏
+typedef NS_ENUM(NSUInteger, JJTopToolBarHiddenType) {//这是所说的隐藏就是不显示,不隐藏的情况下,点击页面也会自动消失的.
+    JJTopToolBarHiddenNever = 0, ///<小屏和全屏都不隐藏
+    JJTopToolBarHiddenAlways,    ///<小屏和全屏都隐藏
+    JJTopToolBarHiddenSmall,     ///<小屏隐藏，全屏不隐藏
+};
+
+typedef NS_ENUM(NSUInteger, JJBarrageShowType) {
+    JJBarrageShowTypeNormal = 0,   //默认不显示
+    JJBarrageShowTypeOneLine,    // 仅显示一行弹幕,一般用于弹幕量较少的情况.,或者小屏幕情况
+    JJBarrageShowTypeUpperHalf,      // 上半区显示
+    JJBarrageShowTypeFullScreen      // 全屏显示
 };
 
 
@@ -48,12 +55,23 @@ typedef void(^EndBolck)(void);
 @property (nonatomic, assign)   BOOL smallGestureControl;
 /// 全屏幕手势控制,默认YES
 @property (nonatomic, assign)   BOOL fullGestureControl;
+/// 是否显示中间的暂停/播放按钮, 默认YES
+@property (nonatomic, assign)   BOOL isShowMiddlePlayButton;   //功能未实现
+/// 弹幕显示模式,默认不显示
+@property (nonatomic, assign)   JJBarrageShowType barrageShowType; //功能未实现
+/// 全屏模式下是否显示锁屏按钮
+@property (nonatomic, assign)   BOOL isShowLockButton; //功能未实现
+
+
+
+
+
 /// 工具条消失时间,默认8s,必须大于0
 @property (nonatomic, assign)   NSUInteger toolBarDisappearTime;
 /// 视频填充方式,默认全屏填充
-@property (nonatomic, assign)   VideoFillMode videoFillMode;
+@property (nonatomic, assign)   JJVideoFillMode videoFillMode;
 /// 顶部工具条隐藏方式,默认不隐藏
-@property (nonatomic, assign)   TopToolBarHiddenType topToolBarHiddenType;
+@property (nonatomic, assign)   JJTopToolBarHiddenType topToolBarHiddenType;
 
 /// ----------   Color
 /// 进度条背景颜色
@@ -85,6 +103,12 @@ typedef void(^EndBolck)(void);
 @interface JJPlayerView : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame configuration:(JJPlayerConfigure *)configure;
+
+
+
+@property (nonatomic, strong, readonly) UIView *topBarView;
+
+@property (nonatomic, strong, readonly) UIView *bottomBarView;
 
 
 /// 是否是全屏

@@ -39,8 +39,8 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     configure.smallGestureControl  = NO;
     configure.fullGestureControl   = YES;
     configure.toolBarDisappearTime = 8;
-    configure.videoFillMode        = VideoFillModeResize;
-    configure.topToolBarHiddenType = TopToolBarHiddenNever;
+    configure.videoFillMode        = JJVideoFillModeResize;
+    configure.topToolBarHiddenType = JJTopToolBarHiddenNever;
     configure.fullGestureControl   = YES;
 
     configure.progressBackgroundColor = [UIColor colorWithRed:0.54118 green:0.51373 blue:0.50980 alpha:1.00000];
@@ -111,6 +111,11 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 @property (nonatomic, assign)   NSInteger tapTimeCount;
 
 
+/// 是否已经移除了KVO
+@property (nonatomic, assign)   BOOL isRemoveObserver;
+
+
+
 /// 返回按钮回调
 @property (nonatomic, copy) void(^BackBlock) (UIButton *backButton);
 /// 播放完成回调
@@ -171,8 +176,6 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruptionComing:) name:AVAudioSessionInterruptionNotification object:nil];
     // 添加插拔耳机的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(routeChanged:) name:AVAudioSessionRouteChangeNotification object:nil];
-    // 添加观察者监控播放器状态
-    [self addObserver:self forKeyPath:@"playStatus" options:NSKeyValueObservingOptionNew context:nil];
     // 添加观察者监控进度
 //    __weak typeof(self) weakSelf = self;
     _timeObserver = [_player addPeriodicTimeObserverForInterval:CMTimeMake(1, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
@@ -227,15 +230,15 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 
 - (void)updateConfigure{
     switch (self.playerConfigure.videoFillMode) {
-        case VideoFillModeResize:
+        case JJVideoFillModeResize:
             //拉伸视频内容达到边框占满,不按原来比例展示
             _fillMode = AVLayerVideoGravityResize;
             break;
-        case VideoFillModeResizeAspect:
+        case JJVideoFillModeResizeAspect:
             //按原视频比例显示，是竖屏的就显示出竖屏的，两边留黑
             _fillMode = AVLayerVideoGravityResizeAspect;
             break;
-        case VideoFillModeResizeAspectFill:
+        case JJVideoFillModeResizeAspectFill:
             //按原比例拉伸视频，直到两边屏幕都占满，但视频内容有部分会被剪切
             _fillMode = AVLayerVideoGravityResizeAspectFill;
             break;
@@ -353,15 +356,15 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 #pragma mark - 重置工具条隐藏方法
 - (void)resetTopBarHiddenType{
     switch (self.playerConfigure.topToolBarHiddenType) {
-        case TopToolBarHiddenNever:
+        case JJTopToolBarHiddenNever:
             //不隐藏
             self.playerMaskView.topToolBar.hidden = NO;
             break;
-        case TopToolBarHiddenAlways:
+        case JJTopToolBarHiddenAlways:
             //小屏和全屏都隐藏
             self.playerMaskView.topToolBar.hidden = YES;
             break;
-        case TopToolBarHiddenSmall:
+        case JJTopToolBarHiddenSmall:
             //小屏隐藏，全屏不隐藏
             self.playerMaskView.topToolBar.hidden = !self.isFullScreen;
             break;
@@ -423,15 +426,20 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     }
     
     if (_playerItem) {
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:_playerItem];
-        [_playerItem removeObserver:self forKeyPath:@"status"];
-        [_playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
-        [_playerItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
+        
+        if (!self.isRemoveObserver) {
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:_playerItem];
+            [_playerItem removeObserver:self forKeyPath:@"status"];
+            [_playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
+            [_playerItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
+        }
+        self.isRemoveObserver = YES;
         //重置播放器
         [self resetPlayer];
     }
     _playerItem = playerItem;
     if (playerItem) {
+        self.isRemoveObserver = NO;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayDidEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
         [playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
         [playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
@@ -655,6 +663,8 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     if (slider.value != 1) {
         _isFinish = NO;
     }
+    [self.playerItem cancelPendingSeeks];
+
     if (!self.playerItem.isPlaybackLikelyToKeepUp) {
         [self bufferingSomeSecond];
     }else{
@@ -828,6 +838,7 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 
 /// 暂停
 - (void)pause{
+    [self.playerItem cancelPendingSeeks];
     self.playerMaskView.playButton.selected = NO;
     [self.player pause];
     [self destorySliderTimer];
