@@ -35,7 +35,7 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     configure.repeatPlay      = NO;
     configure.isLandscape     = NO;
     configure.autoRotate      = YES;
-    configure.mute            = NO;
+    configure.isMute            = NO;
     configure.smallGestureControl  = NO;
     configure.fullGestureControl   = YES;
     configure.toolBarDisappearTime = 8;
@@ -50,6 +50,16 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     
     return configure;
 }
+
+static id _instance;
++ (instancetype)shared{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _instance = [JJPlayerConfigure defaultConfigure];
+    });
+    return _instance;
+}
+
 
 
 @end
@@ -247,7 +257,7 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     self.playerMaskView.progressBackGroundColor = self.playerConfigure.progressBackgroundColor;
     self.playerMaskView.progressBufferColor = self.playerConfigure.progressBufferColor;
     self.playerMaskView.progressPlayFinishColor = self.playerConfigure.progressPlayFinishColor;
-    self.player.muted = self.playerConfigure.mute;
+    self.player.muted = self.playerConfigure.isMute;
     @weakify(self);
     [self.playerMaskView.loadingView updateWithConfigure:^(JJAnimationConfigure * _Nonnull configure) {
         @strongify(self);
@@ -460,7 +470,7 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
             pan.delaysTouchesEnded = YES;
             pan.cancelsTouchesInView = YES;
             [self.playerMaskView addGestureRecognizer:pan];
-            self.player.muted = self.playerConfigure.mute;
+            self.player.muted = self.playerConfigure.isMute;
         }else if (self.player.currentItem.status == AVPlayerItemStatusFailed){
             // 解析失败(播放失败)
             self.playerState = JJPlayerStateFailed;

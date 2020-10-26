@@ -48,7 +48,14 @@ typedef NS_ENUM(NSUInteger,JJToolBarHideAnimationType){
     JJToolBarHideAnimationTypeMove //移动消失
 };
 
-
+///播放速度
+typedef NS_ENUM(NSUInteger,JJTPlayRateType){
+    JJTPlayRateType1 = 0, //默认正常速度
+    JJTPlayRateType0_5,   //0.5
+    JJTPlayRateType1_25 , // 1.25
+    JJTPlayRateType1_5,   //1.5
+    JJTPlayRateType2,     //2
+};
 
 
 typedef void(^BackButtonBlock)(UIButton *button);
@@ -65,7 +72,7 @@ typedef void(^EndBolck)(void);
 /// 是否自动旋转,默认YES
 @property (nonatomic, assign)   BOOL autoRotate;
 /// 静音,默认NO
-@property (nonatomic, assign)   BOOL mute;
+@property (nonatomic, assign)   BOOL isMute;
 /// 小屏幕手势控制,默认NO
 @property (nonatomic, assign)   BOOL smallGestureControl;
 /// 全屏幕手势控制,默认YES
@@ -101,8 +108,8 @@ typedef void(^EndBolck)(void);
 + (instancetype)defaultConfigure;
 
 
-
-
+/// 全局统一配置信息,只需要在合适的地方调用一次即可(是一个单例)
++ (instancetype)shared;
 
 
 
@@ -116,10 +123,20 @@ typedef void(^EndBolck)(void);
 - (instancetype)initWithFrame:(CGRect)frame configuration:(JJPlayerConfigure *)configure;
 
 
+/// 顶部bar视图,(默认透明)
 @property (nonatomic, strong, readonly) UIView        *topBarView;
-
+/// 底部bar视图,(默认透明)
 @property (nonatomic, strong, readonly) UIView        *bottomBarView;
 
+
+/// 是否使用统一的配置信息
+/// 默认是NO,也就是说一个播放器,设置一个configure,多个播放器可以使用不同的样式.
+/// 如果是YES的情况,就是说明全局都是用统一的配置信息,全局你的播放器样式一致.
+/// YES的情况下,不用调用updatePlayerModifyConfigure方法.该方法会被屏蔽
+@property (nonatomic, assign)          BOOL          isUseUnifiedConfigure;
+
+/// 播放速度枚举(此功能没有UI, 需要自定义UI)
+@property (nonatomic, assign)          JJTPlayRateType rateType;
 
 /// 是否是全屏
 @property (nonatomic, assign, readonly) BOOL          isFullScreen;
