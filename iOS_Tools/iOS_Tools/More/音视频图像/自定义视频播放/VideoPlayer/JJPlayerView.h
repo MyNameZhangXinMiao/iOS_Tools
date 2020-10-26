@@ -35,6 +35,21 @@ typedef NS_ENUM(NSUInteger, JJBarrageShowType) {
     JJBarrageShowTypeFullScreen      // 全屏显示
 };
 
+///播放按钮位置
+typedef NS_ENUM(NSUInteger, JJPlayButtonPositionType) {
+    JJPlayButtonPositionTypeLeftBottom = 0, //默认左下
+    JJPlayButtonPositionTypeMiddle,  //中间
+    JJPlayButtonPositionTypeBottomAndMidle,  //只中间和做下都展示出来
+};
+
+///顶部bar和底部bar消失样式
+typedef NS_ENUM(NSUInteger,JJToolBarHideAnimationType){
+    JJToolBarHideAnimationTypeAlpha = 0, //透明度消失
+    JJToolBarHideAnimationTypeMove //移动消失
+};
+
+
+
 
 typedef void(^BackButtonBlock)(UIButton *button);
 typedef void(^EndBolck)(void);
@@ -55,19 +70,17 @@ typedef void(^EndBolck)(void);
 @property (nonatomic, assign)   BOOL smallGestureControl;
 /// 全屏幕手势控制,默认YES
 @property (nonatomic, assign)   BOOL fullGestureControl;
-/// 是否显示中间的暂停/播放按钮, 默认YES
-@property (nonatomic, assign)   BOOL isShowMiddlePlayButton;   //功能未实现
-/// 弹幕显示模式,默认不显示
-@property (nonatomic, assign)   JJBarrageShowType barrageShowType; //功能未实现
-/// 全屏模式下是否显示锁屏按钮
-@property (nonatomic, assign)   BOOL isShowLockButton; //功能未实现
-
-
-
-
-
 /// 工具条消失时间,默认8s,必须大于0
 @property (nonatomic, assign)   NSUInteger toolBarDisappearTime;
+
+/// 全屏模式下是否显示锁屏按钮
+@property (nonatomic, assign)   BOOL isShowLockButton; //功能未实现
+/// 弹幕显示模式,默认不显示
+@property (nonatomic, assign)   JJBarrageShowType barrageShowType; //功能未实现
+/// 播放按钮位置
+@property (nonatomic, assign)   JJPlayButtonPositionType playButtonPositionType; //功能未实现
+/// 顶部bar和底部bar消失样式
+@property (nonatomic, assign)   JJToolBarHideAnimationType toolBarHideType; //功能未实现
 /// 视频填充方式,默认全屏填充
 @property (nonatomic, assign)   JJVideoFillMode videoFillMode;
 /// 顶部工具条隐藏方式,默认不隐藏
@@ -75,13 +88,13 @@ typedef void(^EndBolck)(void);
 
 /// ----------   Color
 /// 进度条背景颜色
-@property (nonatomic, strong) UIColor *progressBackgroundColor;
+@property (nonatomic, strong)   UIColor *progressBackgroundColor;
 /// 缓冲条背景颜色
-@property (nonatomic, strong) UIColor *progressBufferColor;
+@property (nonatomic, strong)   UIColor *progressBufferColor;
 /// 进度条播放完成颜色
-@property (nonatomic, strong) UIColor *progressPlayFinishColor;
+@property (nonatomic, strong)   UIColor *progressPlayFinishColor;
 /// 动画转子背景颜色
-@property (nonatomic, strong) UIColor *strokeColor;
+@property (nonatomic, strong)   UIColor *strokeColor;
 
 
 /// 初始化方法
@@ -95,20 +108,17 @@ typedef void(^EndBolck)(void);
 
 
 
-
-
-
 @end
 
 @interface JJPlayerView : UIView
 
+/// 唯一初始化方法
 - (instancetype)initWithFrame:(CGRect)frame configuration:(JJPlayerConfigure *)configure;
 
 
+@property (nonatomic, strong, readonly) UIView        *topBarView;
 
-@property (nonatomic, strong, readonly) UIView *topBarView;
-
-@property (nonatomic, strong, readonly) UIView *bottomBarView;
+@property (nonatomic, strong, readonly) UIView        *bottomBarView;
 
 
 /// 是否是全屏
