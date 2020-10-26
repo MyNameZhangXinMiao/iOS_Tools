@@ -35,6 +35,8 @@
     [self.topToolBar addSubview:self.backButton];
     [self.topToolBar addSubview:self.titleLabel];
     
+    [self addSubview:self.lockButton];
+    
     [self addSubview:self.bottomToolBar];
     [self.bottomToolBar addSubview:self.playButton];
     [self.bottomToolBar addSubview:self.fullButton];
@@ -69,20 +71,20 @@
     //返回按钮
     [self.backButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(Margin);
-        make.bottom.mas_equalTo(-Margin);
-        make.width.mas_equalTo(self.backButton.mas_height);
         if (@available(iOS 11.0, *)) {
-            make.left.equalTo(self.bottomToolBar.mas_safeAreaLayoutGuideLeft).mas_offset(Margin*2);
+            make.left.equalTo(self.topToolBar.mas_safeAreaLayoutGuideLeft).mas_offset(Margin*2);
         } else {
             make.left.mas_equalTo(-Margin*2);
         }
+        make.bottom.mas_equalTo(-Margin);
+        make.width.mas_equalTo(self.backButton.mas_height);
     }];
     //标题
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.backButton.mas_right).mas_offset(Margin);
         make.centerY.equalTo(self.backButton);
         if (@available(iOS 11.0, *)) {
-            make.right.equalTo(self.bottomToolBar.mas_safeAreaLayoutGuideRight).mas_offset(-Margin);
+            make.right.equalTo(self.topToolBar.mas_safeAreaLayoutGuideRight).mas_offset(-Margin);
         } else {
             make.right.mas_equalTo(-Margin);
         }
@@ -98,6 +100,13 @@
         make.bottom.mas_equalTo(-Margin);
         make.width.mas_equalTo(self.playButton.mas_height);
     }];
+    //锁定按钮
+    [self.lockButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).mas_offset(kStatusBarHeight-20+44);
+        make.width.height.mas_equalTo(44);
+        make.centerY.equalTo(self);
+    }];
+    
     //全屏按钮
     [self.fullButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(-Margin);
@@ -203,6 +212,32 @@
     }else{
         NSLog(@"没有实现代理或者没有设置代理人-jj_playerMaskViewFailButtonAction");
     }
+}
+
+// 锁屏按钮
+- (void)lockButtonAction:(UIButton *)button{
+    button.selected = !button.selected;
+    
+    if (button.selected) {  //lock
+        [self updateLockButtonWith:YES];
+    } else {  //unlock
+        [self updateLockButtonWith:NO];
+    }
+}
+
+- (void)updateLockButtonWith:(BOOL)isShow{
+    if (isShow) {  //
+        [self.lockButton mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self).mas_offset(kStatusBarHeight-20+44);
+        }];
+    } else {
+//        [self.lockButton mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.left.equalTo(self).mas_offset(-44);
+//        }];
+    }
+//    [UIView animateWithDuration:0.25 animations:^{
+//        [self.lockButton layoutIfNeeded];
+//    }];
 }
 
 // 滑动开始
@@ -355,7 +390,15 @@
     return _failButton;
 }
 
-
+- (UIButton *)lockButton{
+    if (_lockButton == nil) {
+        _lockButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_lockButton setImage:[UIImage imageWithName:@"JJPlayer_unlock"] forState:UIControlStateNormal];
+        [_lockButton setImage:[UIImage imageWithName:@"JJPlayer_lock"] forState:UIControlStateSelected];
+        [_lockButton addTarget:self action:@selector(lockButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _lockButton;
+}
 
 
 

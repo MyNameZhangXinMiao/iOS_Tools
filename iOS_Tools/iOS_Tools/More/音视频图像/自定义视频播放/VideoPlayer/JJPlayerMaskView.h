@@ -55,6 +55,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 顶部返回按钮,一直显示
 @property (nonatomic, strong) UIButton            *backOnlyButton;
 
+
+@property (nonatomic, strong) UIButton            *lockButton;
+
 /// 底部工具条播放/暂停按钮
 @property (nonatomic, strong) UIButton            *playButton;
 /// 底部工具条全屏按钮
