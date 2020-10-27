@@ -221,7 +221,7 @@
     if (button.selected) {  //lock
         [self updateLockButtonWith:YES];
     } else {  //unlock
-        [self updateLockButtonWith:NO];
+        
     }
 }
 
@@ -231,13 +231,13 @@
             make.left.equalTo(self).mas_offset(kStatusBarHeight-20+44);
         }];
     } else {
-//        [self.lockButton mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(self).mas_offset(-44);
-//        }];
+        [self.lockButton mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self).mas_offset(-44);
+        }];
     }
-//    [UIView animateWithDuration:0.25 animations:^{
-//        [self.lockButton layoutIfNeeded];
-//    }];
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.lockButton.superview layoutIfNeeded];
+    }];
 }
 
 // 滑动开始

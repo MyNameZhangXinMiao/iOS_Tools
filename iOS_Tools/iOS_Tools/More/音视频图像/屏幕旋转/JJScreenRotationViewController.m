@@ -40,9 +40,9 @@ typedef NS_ENUM(NSUInteger, ScreenRotationType){
 #pragma mark - 初始化界面
 - (void)setupUI{
     
-     ///1.监听屏幕旋转通知
-        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rotateScreenViews:) name:UIDeviceOrientationDidChangeNotification object:nil];
+    ///1.监听屏幕旋转通知
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rotateScreenViews:) name:UIDeviceOrientationDidChangeNotification object:nil];
     
     self.playView.frame = CGRectMake(0, kNavBarHeight, kScreenWidth, kScreenWidth *1.2);
 

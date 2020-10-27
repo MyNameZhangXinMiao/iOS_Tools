@@ -35,7 +35,7 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     configure.repeatPlay      = NO;
     configure.isLandscape     = NO;
     configure.autoRotate      = YES;
-    configure.isMute            = NO;
+    configure.isMute          = NO;
     configure.smallGestureControl  = NO;
     configure.fullGestureControl   = YES;
     configure.toolBarDisappearTime = 8;
@@ -47,6 +47,12 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     configure.progressPlayFinishColor = [UIColor greenColor];
     configure.progressBufferColor     = [UIColor colorWithRed:0.84118 green:0.81373 blue:0.80980 alpha:1.00000];
     configure.strokeColor             = [UIColor whiteColor];
+    
+    
+    configure.barrageShowType = JJBarrageShowTypeNormal;
+    configure.playButtonPositionType = JJPlayButtonPositionTypeLeftBottom;
+    configure.toolBarHideType = JJToolBarHideAnimationTypeAlpha;
+    
     
     return configure;
 }
@@ -88,25 +94,25 @@ static id _instance;
 /// 工具条是否隐藏
 @property (nonatomic, assign)   BOOL             isDisappear;
 /// 用户播放标记
-@property (nonatomic, assign)   BOOL           isUserPlay;
+@property (nonatomic, assign)   BOOL             isUserPlay;
 /// 点击最大化标记
-@property (nonatomic, assign)   BOOL          isUserTapMaxButton;
+@property (nonatomic, assign)   BOOL             isUserTapMaxButton;
 /// 是否播放完毕
-@property (nonatomic, assign)  BOOL              isFinish;
-/// 用来保存快进的总时长
-@property (nonatomic, assign)   CGFloat sumTime;
-/// 播放器配置信息
-@property (nonatomic, strong) JJPlayerConfigure *playerConfigure;
-/// 视频播放控制面板(遮罩)
-@property (nonatomic, strong) JJPlayerMaskView *playerMaskView;
-/// 滑动方向
-@property (nonatomic, assign)   JJPanDirection panDirection;
+@property (nonatomic, assign)   BOOL             isFinish;
 /// 是否在调节音量:YES为音量,NO为屏幕亮度
 @property (nonatomic, assign)   BOOL isVolume;
 /// 是否在拖拽
 @property (nonatomic, assign)   BOOL isDragged;
 /// 缓冲
 @property (nonatomic, assign)   BOOL isBuffering;
+/// 用来保存快进的总时长
+@property (nonatomic, assign)   CGFloat sumTime;
+/// 播放器配置信息
+@property (nonatomic, strong) JJPlayerConfigure *playerConfigure;
+/// 视频播放控制面板(遮罩)
+@property (nonatomic, strong) JJPlayerMaskView  *playerMaskView;
+/// 滑动方向
+@property (nonatomic, assign) JJPanDirection     panDirection;
 /// 音量滑杆
 @property (nonatomic, strong) UISlider *volumeViewSlider;
 /// 进度条定时器(最好不要用NSTimer)

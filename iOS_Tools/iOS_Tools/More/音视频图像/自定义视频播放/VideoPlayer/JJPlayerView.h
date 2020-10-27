@@ -90,7 +90,7 @@ typedef void(^EndBolck)(void);
 @property (nonatomic, assign)   JJToolBarHideAnimationType toolBarHideType; //功能未实现
 /// 视频填充方式,默认全屏填充
 @property (nonatomic, assign)   JJVideoFillMode videoFillMode;
-/// 顶部工具条隐藏方式,默认不隐藏
+/// 顶部工具条展示方式,默认不隐藏
 @property (nonatomic, assign)   JJTopToolBarHiddenType topToolBarHiddenType;
 
 /// ----------   Color
