@@ -1,6 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
-${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework
 ${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework
 ${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework
 ${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework

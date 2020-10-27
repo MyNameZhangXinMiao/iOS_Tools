@@ -40,8 +40,6 @@ target 'iOS_Tools' do
 #  pod 'JQFMDB'
   #pod 'CocoaAsyncSocket'
 
-  pod 'BlocksKit', '~> 2.2.5'
-
   pod 'FLEX', '~> 3.1.2', :configurations => ['Debug']
 
   
