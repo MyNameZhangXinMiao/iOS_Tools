@@ -17,6 +17,13 @@
 		32038B8F2503F59E000E2684 /* JJImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32038B8E2503F59E000E2684 /* JJImageModel.m */; };
 		32038B922503F7D9000E2684 /* JJImageBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32038B912503F7D9000E2684 /* JJImageBrowserCell.m */; };
 		3256C07F2547CBA000F37D5F /* JJBaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C07E2547CBA000F37D5F /* JJBaseListViewController.m */; };
+		3256C0BD2547FC7700F37D5F /* JJChartDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C0BC2547FC7700F37D5F /* JJChartDetailViewController.m */; };
+		3256C0E62548100300F37D5F /* XHCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C0DE2548100100F37D5F /* XHCircleView.m */; };
+		3256C0E72548100300F37D5F /* XHChartLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C0DF2548100200F37D5F /* XHChartLineView.m */; };
+		3256C0E82548100300F37D5F /* XHAxisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C0E42548100200F37D5F /* XHAxisView.m */; };
+		3256C0E92548100300F37D5F /* XHLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C0E52548100200F37D5F /* XHLineChart.m */; };
+		3256C0EF2548101200F37D5F /* XHValuePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C0EB2548101100F37D5F /* XHValuePopView.m */; };
+		3256C0F02548101200F37D5F /* XHSpiderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C0EE2548101100F37D5F /* XHSpiderView.m */; };
 		32A583642533FC3600F045A3 /* JJTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A583632533FC3600F045A3 /* JJTestViewController.m */; };
 		32A583692533FDFE00F045A3 /* JJTestImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A583682533FDFE00F045A3 /* JJTestImage.m */; };
 		32A68956250404D000B497A0 /* JJPhotoBrowserFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A68955250404D000B497A0 /* JJPhotoBrowserFlowLayout.m */; };
@@ -144,6 +151,20 @@
 		32038B912503F7D9000E2684 /* JJImageBrowserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJImageBrowserCell.m; sourceTree = "<group>"; };
 		3256C07D2547CBA000F37D5F /* JJBaseListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJBaseListViewController.h; sourceTree = "<group>"; };
 		3256C07E2547CBA000F37D5F /* JJBaseListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJBaseListViewController.m; sourceTree = "<group>"; };
+		3256C0BB2547FC7700F37D5F /* JJChartDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJChartDetailViewController.h; sourceTree = "<group>"; };
+		3256C0BC2547FC7700F37D5F /* JJChartDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJChartDetailViewController.m; sourceTree = "<group>"; };
+		3256C0DE2548100100F37D5F /* XHCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHCircleView.m; sourceTree = "<group>"; };
+		3256C0DF2548100200F37D5F /* XHChartLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHChartLineView.m; sourceTree = "<group>"; };
+		3256C0E02548100200F37D5F /* XHChartLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHChartLineView.h; sourceTree = "<group>"; };
+		3256C0E12548100200F37D5F /* XHAxisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHAxisView.h; sourceTree = "<group>"; };
+		3256C0E22548100200F37D5F /* XHLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHLineChart.h; sourceTree = "<group>"; };
+		3256C0E32548100200F37D5F /* XHCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHCircleView.h; sourceTree = "<group>"; };
+		3256C0E42548100200F37D5F /* XHAxisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHAxisView.m; sourceTree = "<group>"; };
+		3256C0E52548100200F37D5F /* XHLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHLineChart.m; sourceTree = "<group>"; };
+		3256C0EB2548101100F37D5F /* XHValuePopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHValuePopView.m; sourceTree = "<group>"; };
+		3256C0EC2548101100F37D5F /* XHSpiderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHSpiderView.h; sourceTree = "<group>"; };
+		3256C0ED2548101100F37D5F /* XHValuePopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHValuePopView.h; sourceTree = "<group>"; };
+		3256C0EE2548101100F37D5F /* XHSpiderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHSpiderView.m; sourceTree = "<group>"; };
 		32A583622533FC3600F045A3 /* JJTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJTestViewController.h; sourceTree = "<group>"; };
 		32A583632533FC3600F045A3 /* JJTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJTestViewController.m; sourceTree = "<group>"; };
 		32A583672533FDFD00F045A3 /* JJTestImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJTestImage.h; sourceTree = "<group>"; };
@@ -1134,6 +1155,8 @@
 			children = (
 				32FC8F4C25230A38005A4F59 /* JJChartViewController.h */,
 				32FC8F4D25230A38005A4F59 /* JJChartViewController.m */,
+				3256C0BB2547FC7700F37D5F /* JJChartDetailViewController.h */,
+				3256C0BC2547FC7700F37D5F /* JJChartDetailViewController.m */,
 				32FC8F5125230D1D005A4F59 /* chartView */,
 			);
 			path = "Chart图表";
@@ -1142,8 +1165,20 @@
 		32FC8F5125230D1D005A4F59 /* chartView */ = {
 			isa = PBXGroup;
 			children = (
+				3256C0E12548100200F37D5F /* XHAxisView.h */,
+				3256C0E42548100200F37D5F /* XHAxisView.m */,
+				3256C0E02548100200F37D5F /* XHChartLineView.h */,
+				3256C0DF2548100200F37D5F /* XHChartLineView.m */,
+				3256C0E32548100200F37D5F /* XHCircleView.h */,
+				3256C0DE2548100100F37D5F /* XHCircleView.m */,
+				3256C0E22548100200F37D5F /* XHLineChart.h */,
+				3256C0E52548100200F37D5F /* XHLineChart.m */,
 				32FC8F5225230DA2005A4F59 /* JJChartLineView.h */,
 				32FC8F5325230DA2005A4F59 /* JJChartLineView.m */,
+				3256C0EC2548101100F37D5F /* XHSpiderView.h */,
+				3256C0EE2548101100F37D5F /* XHSpiderView.m */,
+				3256C0ED2548101100F37D5F /* XHValuePopView.h */,
+				3256C0EB2548101100F37D5F /* XHValuePopView.m */,
 			);
 			path = chartView;
 			sourceTree = "<group>";
@@ -1459,18 +1494,21 @@
 				32FC8F8A25232B17005A4F59 /* JJSlotMachinesViewController.m in Sources */,
 				32D3DD8F24F1B9B40098D608 /* MBProgressHUD.m in Sources */,
 				32038B922503F7D9000E2684 /* JJImageBrowserCell.m in Sources */,
+				3256C0BD2547FC7700F37D5F /* JJChartDetailViewController.m in Sources */,
 				32A6895A25041C4F00B497A0 /* MagicAnimate.m in Sources */,
 				32D3DCBB24F181610098D608 /* KLClubListViewController.m in Sources */,
 				7D6084D4252231510085C9B0 /* JJVideoTableHeaderView.m in Sources */,
 				32D3DD7424F18BC60098D608 /* JJNavigationController.m in Sources */,
 				32D3DD8124F18E580098D608 /* JJEmptyViewController.m in Sources */,
 				32D3DCC924F181610098D608 /* KLMineViewController.m in Sources */,
+				3256C0E72548100300F37D5F /* XHChartLineView.m in Sources */,
 				32038B8F2503F59E000E2684 /* JJImageModel.m in Sources */,
 				32D3DDB724F1BD1F0098D608 /* JJBaseToast.m in Sources */,
 				7D0E4ED725236D5100D074EA /* JJSlotMachinesView.m in Sources */,
 				32D3DD7024F18BC60098D608 /* JJMineViewController.m in Sources */,
 				32C15A5625209561003473AF /* JJVideoTest3ViewController.m in Sources */,
 				32D3DD6F24F18BC60098D608 /* JJMessageViewController.m in Sources */,
+				3256C0E92548100300F37D5F /* XHLineChart.m in Sources */,
 				32D3DCD724F181800098D608 /* JJBaseViewController.m in Sources */,
 				32FC8FA125234C18005A4F59 /* JJMusicViewController.m in Sources */,
 				32D3DDCB24F1C0460098D608 /* KLEmptyBaseView.m in Sources */,
@@ -1480,9 +1518,12 @@
 				32E0B2A225063BB700BD6E39 /* JJAutoRunView.m in Sources */,
 				32D3DD6E24F18BC60098D608 /* JJMsgSystemViewController.m in Sources */,
 				32D3DDC924F1C0460098D608 /* KLEmptyView.m in Sources */,
+				3256C0E62548100300F37D5F /* XHCircleView.m in Sources */,
 				32FC8F5B25230E45005A4F59 /* JJButtonViewController.m in Sources */,
+				3256C0EF2548101200F37D5F /* XHValuePopView.m in Sources */,
 				32D3DD6C24F18BC60098D608 /* JJMomentViewController.m in Sources */,
 				32FC8F6125230E55005A4F59 /* JJButton.m in Sources */,
+				3256C0F02548101200F37D5F /* XHSpiderView.m in Sources */,
 				32D3DCC124F181610098D608 /* KLVideoModel.m in Sources */,
 				32D3DCCA24F181610098D608 /* KLUserInfoBaseView.m in Sources */,
 				32D3DCC324F181610098D608 /* KLVideoCollectionView.m in Sources */,
@@ -1519,6 +1560,7 @@
 				32D3DDBC24F1BE250098D608 /* NSString+Extra.m in Sources */,
 				32A68956250404D000B497A0 /* JJPhotoBrowserFlowLayout.m in Sources */,
 				32FC8F8125231F1A005A4F59 /* JJApplePayManager.m in Sources */,
+				3256C0E82548100300F37D5F /* XHAxisView.m in Sources */,
 				32D3DD6B24F18BC60098D608 /* JJZoomHeaderViewController.m in Sources */,
 				32038B8C2503F49D000E2684 /* JJImageBrowser.m in Sources */,
 				32D3DCD624F181800098D608 /* UIColor+Extra.m in Sources */,

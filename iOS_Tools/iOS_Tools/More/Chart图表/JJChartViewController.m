@@ -7,6 +7,7 @@
 //
 
 #import "JJChartViewController.h"
+#import "JJChartDetailViewController.h"
 
 @interface JJChartViewController ()
 
@@ -51,22 +52,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     NSString *text = self.data[indexPath.row];
-    if ([text isEqualToString:@"折线图"]){
-        UIViewController *vc = [[UIViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if ([text isEqualToString:@"蜘蛛图"]){
-        UIViewController *vc = [[UIViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if ([text isEqualToString:@"曲线图"]){
-        UIViewController *vc = [[UIViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if ([text isEqualToString:@"虚线图"]){
-        UIViewController *vc = [[UIViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if ([text isEqualToString:@"柱状图"]){
-        UIViewController *vc = [[UIViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+    JJChartDetailViewController *vc = [[JJChartDetailViewController alloc] init];
+    vc.titleString = text;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
