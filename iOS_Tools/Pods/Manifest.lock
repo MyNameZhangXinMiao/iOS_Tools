@@ -27,7 +27,7 @@ PODS:
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
   - IQKeyboardManager (6.5.6)
-  - JXCategoryView (1.5.7)
+  - JXCategoryView (1.5.8)
   - JXPagingView/Pager (2.0.13)
   - libwebp (1.1.0):
     - libwebp/demux (= 1.1.0)
@@ -54,13 +54,13 @@ PODS:
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.7)
   - SSZipArchive (2.2.3)
-  - SVGAPlayer (2.5.4):
-    - SVGAPlayer/Core (= 2.5.4)
-    - SVGAPlayer/ProtoFiles (= 2.5.4)
-  - SVGAPlayer/Core (2.5.4):
+  - SVGAPlayer (2.5.5):
+    - SVGAPlayer/Core (= 2.5.5)
+    - SVGAPlayer/ProtoFiles (= 2.5.5)
+  - SVGAPlayer/Core (2.5.5):
     - SSZipArchive (>= 1.8.1)
     - SVGAPlayer/ProtoFiles
-  - SVGAPlayer/ProtoFiles (2.5.4):
+  - SVGAPlayer/ProtoFiles (2.5.5):
     - Protobuf (~> 3.4)
   - SVProgressHUD (2.2.5)
   - YTKKeyValueStore (0.1.2):
@@ -81,18 +81,18 @@ DEPENDENCIES:
   - FLEX (~> 3.1.2)
   - FMDB (~> 2.7.5)
   - IQKeyboardManager (~> 6.5.6)
-  - JXCategoryView (~> 1.5.5)
-  - JXPagingView/Pager (~> 2.0.8)
+  - JXCategoryView (~> 1.5.7)
+  - JXPagingView/Pager (~> 2.0.13)
   - Masonry (~> 1.1.0)
   - MJExtension (~> 3.2.2)
-  - MJRefresh (~> 3.1.15.3)
-  - RealReachability
+  - MJRefresh (~> 3.1.15.7)
+  - RealReachability (~> 1.3.0)
   - SDWebImage (~> 5.8.4)
   - SDWebImageWebPCoder (~> 0.6.1)
   - SVGAPlayer (~> 2.5.4)
   - SVProgressHUD (~> 2.2.5)
   - YTKKeyValueStore (~> 0.1.2)
-  - YTKNetwork (~> 3.0.0)
+  - YTKNetwork (~> 3.0.4)
   - YYCategories (~> 1.0.4)
   - YYImage (~> 1.0.4)
   - YYModel (~> 1.0.4)
@@ -131,7 +131,7 @@ SPEC CHECKSUMS:
   FLEX: e13e805fc3eec8732cc227d1f7508770d46e9587
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
-  JXCategoryView: fca2146e87eeaf014c71041337cb07bd4de5830b
+  JXCategoryView: 778a620f76070d6598fd8d7239991b8da8326170
   JXPagingView: 821ed274f09eaf2843a96c3a74e9d138e27d9730
   libwebp: 04242ef451672185c1fe41b285a034d2fbda483c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -142,7 +142,7 @@ SPEC CHECKSUMS:
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
-  SVGAPlayer: ca9c869316b468d995994c7fe82b9bd8645a0787
+  SVGAPlayer: 74a9dff6d92758439d3bf4cf40a35585b0e337d2
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
   YTKNetwork: a096f80c18c7e7cc0e623a0fbea0a1bfd3f5bcf2
@@ -150,6 +150,6 @@ SPEC CHECKSUMS:
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: fe8667050a42ec8e77f76f4cb0ca0d274c51afaa
+PODFILE CHECKSUM: 053066fa455ae995cbfcd3548b37d15598479db6
 
 COCOAPODS: 1.10.0.beta.2

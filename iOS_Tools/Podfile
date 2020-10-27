@@ -16,10 +16,10 @@ target 'iOS_Tools' do
   pod 'SDWebImage', '~> 5.8.4'
   pod 'SDWebImageWebPCoder', '~> 0.6.1'
   
-  pod 'JXCategoryView', '~> 1.5.7'
+  pod 'JXCategoryView', '~> 1.5.8'
   pod 'JXPagingView/Pager', '~> 2.0.13'
   pod 'MJRefresh', '~> 3.1.15.7'
-  pod 'SVGAPlayer', '~> 2.5.4'
+  pod 'SVGAPlayer', '~> 2.5.5'
   
   pod 'YTKKeyValueStore', '~> 0.1.2'
   
