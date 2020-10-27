@@ -6,11 +6,11 @@
 //  Copyright © 2020 播呗网络. All rights reserved.
 //
 
-#import "JJBaseViewController.h"
+#import "JJBaseListViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JJChartViewController : JJBaseViewController
+@interface JJChartViewController : JJBaseListViewController
 
 @end
 
