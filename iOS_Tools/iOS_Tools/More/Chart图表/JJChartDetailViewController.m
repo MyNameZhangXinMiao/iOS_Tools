@@ -34,12 +34,23 @@
         [self setupSpiderView];
     }else if ([self.titleString isEqualToString:@"曲线图"]){
 
+        /*
+         NSArray *tempDataArr = @[@"0.59",@"0.836",@"0.656",@"1.0"];
+         RMLaunchAnimationView *_animationView = [[RMLaunchAnimationView alloc]initWithFrame:CGRectMake(0, kScreenHeight-300*(kScreenHeight/568.0), kScreenWidth, 300*(kScreenHeight/568.0))];
+         _animationView.backgroundColor = [UIColor clearColor];
+         _animationView.dataArr = tempDataArr;
+         [self.view addSubview:_animationView];
+         */
         
     }else if ([self.titleString isEqualToString:@"虚线图"]){
 
 
     }else if ([self.titleString isEqualToString:@"柱状图"]){
 
+    }else if ([self.titleString isEqualToString:@"折线阴影图"]){
+        [self setupChartShadowView];
+    }else if ([self.titleString isEqualToString:@"饼图"]){
+        
     }
 }
 
@@ -113,6 +124,56 @@
     unitLabel.font = [UIFont systemFontOfSize:15.f];
     [self.view addSubview:unitLabel];
 
+}
+
+
+- (void)setupChartShadowView{
+    
+    // 初始化折线图
+    self.lineChart = [[XHLineChart alloc] initWithFrame:CGRectMake(10, 80, [UIScreen mainScreen].bounds.size.width - 20, [UIScreen mainScreen].bounds.size.width *3/5)];
+    self.lineChart.backgroundColor = [UIColor whiteColor];
+    // 设置折线图属性
+    self.lineChart.title = @""; // 折线图名称
+    NSMutableArray *orderedArray = [[NSMutableArray alloc]init];
+    float max = 0;
+    for(int i = 0; i < 24; i++){
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        NSString *xValue;
+        NSString *yValue;
+        if (i<10) {
+            xValue = [NSString stringWithFormat:@"0%d:00",i];
+        } else {
+            xValue = [NSString stringWithFormat:@"%d:00",i];
+        }
+        yValue = [NSString stringWithFormat:@"%u",arc4random() % 100];
+        if ([yValue floatValue]>max) {
+            max = [yValue floatValue];
+        }
+        dict = [@{
+                  @"item" : xValue, @"count":yValue
+                  } mutableCopy];
+        [orderedArray addObject:dict];
+    }
+    
+    self.lineChart.maxValue = max;
+    if (max == 0) {
+        self.lineChart.maxValue = 5;
+    }
+    self.lineChart.xScaleMarkLEN = 60;
+    self.lineChart.yMarkTitles = @[@"0",[NSString stringWithFormat:@"%.2lf",max/5],[NSString stringWithFormat:@"%.2lf",max*2/5],[NSString stringWithFormat:@"%.2lf",max*3/5],[NSString stringWithFormat:@"%.2lf",max*4/5],[NSString stringWithFormat:@"%.2lf",max]]; // Y轴刻度标签
+    
+    [self.lineChart setXMarkTitlesAndValues:orderedArray titleKey:@"item" valueKey:@"count"]; // X轴刻度标签及相应的值
+    self.lineChart.type = ChartLineTypeShadow;
+    //设置完数据等属性后绘图折线图
+    [self.lineChart mapping];
+    [self.view addSubview:self.lineChart];
+    //头顶上的时间标志
+    UILabel * unitLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 60, 100, 15)];
+    unitLabel.text = @"电量(度)";
+    unitLabel.textColor = [UIColor lightGrayColor];
+    unitLabel.font = [UIFont systemFontOfSize:15.f];
+    [self.view addSubview:unitLabel];
+    
 }
 
 @end

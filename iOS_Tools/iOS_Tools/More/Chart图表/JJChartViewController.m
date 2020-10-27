@@ -21,7 +21,7 @@
     self.navigationCustomView.hidden = NO;
     self.navigationCustomView.title = @"Chart图表";
     
-    self.data = @[@"折线图",@"蜘蛛图",@"曲线图",@"虚线图",@"柱状图"];
+    self.data = @[@"折线图",@"蜘蛛图",@"曲线图",@"虚线图",@"柱状图",@"折线阴影图",@"饼图"];
     [self.tableView reloadData];
     
     [self setupUI];
