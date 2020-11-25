@@ -30,7 +30,7 @@ static const NSInteger kTItleLabelTag = 888;
 @property (nonatomic, strong) NSMutableArray *valuePointArray;
 @property (nonatomic, strong) NSMutableArray *titleLabelArray;
 
-@property (nonatomic,copy)void (^sleepBlock)();
+@property (nonatomic, copy) void (^sleepBlock)(void);
 
 @end
 
