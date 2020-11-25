@@ -17,6 +17,7 @@
 #import "JJAnimateViewController.h"
 #import "JJFunctionGroupViewController.h"  //音视频图像
 #import "JJVideoImagesViewController.h"  //功能模块封装
+#import "JJBezierViewController.h"   //贝塞尔曲线
 
 
 @interface JJHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -36,7 +37,7 @@
     self.fd_prefersNavigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
 
-    self.data = @[@"测试",@"MBProgressHUD",@"自定义转场动画",@"暗黑模式适配",@"scrollView嵌套",@"KVO",@"Chart图表",@"内购",@"动画",@"音视频图像",@"功能模块封装"];
+    self.data = @[@"测试",@"MBProgressHUD",@"自定义转场动画",@"暗黑模式适配",@"scrollView嵌套",@"KVO",@"Chart图表",@"内购",@"动画",@"音视频图像",@"功能模块封装",@"贝塞尔曲线"];
     
     [self.view addSubview:self.navigationView];
     [self.view addSubview:self.tableView];
@@ -110,7 +111,11 @@
     }else if ([text isEqualToString:@"功能模块封装"]){
         JJFunctionGroupViewController *vc = [[JJFunctionGroupViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
+    }else if ([text isEqualToString:@"贝塞尔曲线"]){
+        JJBezierViewController *vc = [[JJBezierViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
+    
     
 }
 

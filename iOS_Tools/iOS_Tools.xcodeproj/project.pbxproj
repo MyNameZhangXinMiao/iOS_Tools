@@ -16,6 +16,7 @@
 		32038B8C2503F49D000E2684 /* JJImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 32038B8B2503F49D000E2684 /* JJImageBrowser.m */; };
 		32038B8F2503F59E000E2684 /* JJImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32038B8E2503F59E000E2684 /* JJImageModel.m */; };
 		32038B922503F7D9000E2684 /* JJImageBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32038B912503F7D9000E2684 /* JJImageBrowserCell.m */; };
+		321CC574256E80CF00F48FD3 /* JJBezierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321CC573256E80CF00F48FD3 /* JJBezierViewController.m */; };
 		3256C07F2547CBA000F37D5F /* JJBaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C07E2547CBA000F37D5F /* JJBaseListViewController.m */; };
 		3256C0BD2547FC7700F37D5F /* JJChartDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C0BC2547FC7700F37D5F /* JJChartDetailViewController.m */; };
 		3256C0E62548100300F37D5F /* XHCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C0DE2548100100F37D5F /* XHCircleView.m */; };
@@ -149,6 +150,8 @@
 		32038B8E2503F59E000E2684 /* JJImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJImageModel.m; sourceTree = "<group>"; };
 		32038B902503F7D9000E2684 /* JJImageBrowserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJImageBrowserCell.h; sourceTree = "<group>"; };
 		32038B912503F7D9000E2684 /* JJImageBrowserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJImageBrowserCell.m; sourceTree = "<group>"; };
+		321CC572256E80CF00F48FD3 /* JJBezierViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJBezierViewController.h; sourceTree = "<group>"; };
+		321CC573256E80CF00F48FD3 /* JJBezierViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJBezierViewController.m; sourceTree = "<group>"; };
 		3256C07D2547CBA000F37D5F /* JJBaseListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJBaseListViewController.h; sourceTree = "<group>"; };
 		3256C07E2547CBA000F37D5F /* JJBaseListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJBaseListViewController.m; sourceTree = "<group>"; };
 		3256C0BB2547FC7700F37D5F /* JJChartDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJChartDetailViewController.h; sourceTree = "<group>"; };
@@ -428,6 +431,15 @@
 				32A68955250404D000B497A0 /* JJPhotoBrowserFlowLayout.m */,
 			);
 			path = "浏览器";
+			sourceTree = "<group>";
+		};
+		321CC571256E809C00F48FD3 /* 贝塞尔曲线 */ = {
+			isa = PBXGroup;
+			children = (
+				321CC572256E80CF00F48FD3 /* JJBezierViewController.h */,
+				321CC573256E80CF00F48FD3 /* JJBezierViewController.m */,
+			);
+			path = "贝塞尔曲线";
 			sourceTree = "<group>";
 		};
 		32A583612533FC1E00F045A3 /* 测试页面 */ = {
@@ -911,6 +923,7 @@
 		32D3DD7D24F18E310098D608 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				321CC571256E809C00F48FD3 /* 贝塞尔曲线 */,
 				32FC5B86253EDC7B00336CFE /* 功能模块封装 */,
 				32FC5B76253ECC0800336CFE /* 音视频图像 */,
 				32A583612533FC1E00F045A3 /* 测试页面 */,
@@ -1556,6 +1569,7 @@
 				32D3DCBF24F181610098D608 /* KLHomeViewController.m in Sources */,
 				7D900B0B2520E63B00A5366A /* JJVideoTableViewCell.m in Sources */,
 				32D3DDB824F1BD1F0098D608 /* JJToast+Window.m in Sources */,
+				321CC574256E80CF00F48FD3 /* JJBezierViewController.m in Sources */,
 				32FC8F5425230DA2005A4F59 /* JJChartLineView.m in Sources */,
 				32D3DDBC24F1BE250098D608 /* NSString+Extra.m in Sources */,
 				32A68956250404D000B497A0 /* JJPhotoBrowserFlowLayout.m in Sources */,
