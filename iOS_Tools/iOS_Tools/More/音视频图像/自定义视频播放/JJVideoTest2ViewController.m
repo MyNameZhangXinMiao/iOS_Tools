@@ -190,14 +190,6 @@ JJVideoTableViewCellDelegate
         [_tableView registerClass:[JJVideoTableViewCell class] forCellReuseIdentifier:@"JJVideoTableViewCell"];
         //_tableView.showsVerticalScrollIndicator = NO;
         //_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        if (@available(iOS 11.0, *)) {
-            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-            _tableView.estimatedRowHeight = 0;
-            _tableView.estimatedSectionHeaderHeight = 0;
-            _tableView.estimatedSectionFooterHeight = 0;
-        } else {
-            self.tableView.automaticallyAdjustsScrollIndicatorInsets = NO;
-        }
     }
     return _tableView;
 }

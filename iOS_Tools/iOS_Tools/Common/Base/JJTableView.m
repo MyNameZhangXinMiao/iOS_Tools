@@ -10,12 +10,60 @@
 
 @implementation JJTableView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        [self configTableView];
+                
+    }
+    return self;
 }
-*/
+
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self configTableView];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
+    self = [super initWithFrame:frame style:style];
+    if (self) {
+        [self configTableView];
+    }
+    return self;
+}
+
+- (void)configTableView{
+    
+    self.tableFooterView = [UIView new];
+    self.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    
+    if (@available(iOS 11.0, *)) {
+        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.estimatedRowHeight = 0;
+        self.estimatedSectionHeaderHeight = 0;
+        self.estimatedSectionFooterHeight = 0;
+    }
+    
+    if (@available(iOS 13.0, *)) {
+        self.automaticallyAdjustsScrollIndicatorInsets = NO;
+    } else {
+        // Fallback on earlier versions
+    }
+    
+    
+    
+}
+
+
 
 @end
