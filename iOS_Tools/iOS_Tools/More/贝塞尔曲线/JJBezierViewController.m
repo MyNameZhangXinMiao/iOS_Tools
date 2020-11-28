@@ -21,15 +21,27 @@
     self.navigationCustomView.hidden = NO;
     self.navigationCustomView.title = @"贝塞尔曲线";
 
-
-    JJBezierView *bezierView = [[JJBezierView alloc] initWithFrame:CGRectMake(50, 200, kScreenWidth-100, 300)];
-    [self.view addSubview:bezierView];
-    bezierView.layer.borderWidth = 1;
+    [self drawTest];
+    
+    
+    
+    
+    
 
 }
 
 
 
+
+
+
+- (void)drawTest{
+    JJBezierView *bezierView = [[JJBezierView alloc] initWithFrame:CGRectMake(0, 200, kScreenWidth, 300)];
+    [self.view addSubview:bezierView];
+   // bezierView.layer.borderWidth = 1;
+    
+    bezierView.backgroundColor = [UIColor blueColor];
+}
 
 
 
