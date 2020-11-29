@@ -181,6 +181,8 @@
  */
 
 
+//带内切角的矩形
+/*
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     
@@ -192,6 +194,25 @@
     path.lineWidth = 5.0;
     path.lineCapStyle = kCGLineCapRound; //线条拐角
     path.lineJoinStyle = kCGLineJoinRound; //终点处理
+    
+    [path stroke];
+}
+ */
+
+//虚线
+- (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+    
+    UIColor *color = [UIColor redColor];
+    [color set]; //设置线条颜色
+    
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(100, 80)];
+    [path addLineToPoint:CGPointMake(350, 120)];
+    path.lineWidth = 2;
+
+    CGFloat dash[] = {8.0,3.0,16.0,7.0};
+    [path setLineDash:dash count:4 phase:7];
     
     [path stroke];
 }

@@ -30,6 +30,12 @@
 
 }
 
+- (void)test1{
+    
+    CAShapeLayer *layer = [[CAShapeLayer alloc] init];
+    
+}
+
 
 
 
