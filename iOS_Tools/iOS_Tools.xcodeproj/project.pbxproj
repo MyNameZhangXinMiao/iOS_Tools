@@ -131,6 +131,7 @@
 		7D8DBEBE2520BF0300C4AA9C /* video1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7D8DBEBD2520BF0300C4AA9C /* video1.mp4 */; };
 		7D900B0B2520E63B00A5366A /* JJVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D900B0A2520E63B00A5366A /* JJVideoTableViewCell.m */; };
 		7D900B0F2520E66800A5366A /* JJVideoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D900B0E2520E66800A5366A /* JJVideoData.plist */; };
+		7DD21D782573C93900430E78 /* JJBezierAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD21D772573C93900430E78 /* JJBezierAnimationView.m */; };
 		CA266E4349B178249216DF36 /* Pods_iOS_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */; };
 /* End PBXBuildFile section */
 
@@ -372,6 +373,8 @@
 		7D900B092520E63B00A5366A /* JJVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoTableViewCell.h; sourceTree = "<group>"; };
 		7D900B0A2520E63B00A5366A /* JJVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoTableViewCell.m; sourceTree = "<group>"; };
 		7D900B0E2520E66800A5366A /* JJVideoData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = JJVideoData.plist; sourceTree = "<group>"; };
+		7DD21D762573C93900430E78 /* JJBezierAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJBezierAnimationView.h; sourceTree = "<group>"; };
+		7DD21D772573C93900430E78 /* JJBezierAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJBezierAnimationView.m; sourceTree = "<group>"; };
 		80D20CA2196A5CC625556E6B /* Pods-iOS_Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Tools.release.xcconfig"; path = "Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools.release.xcconfig"; sourceTree = "<group>"; };
 		AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -443,6 +446,8 @@
 				321CC573256E80CF00F48FD3 /* JJBezierViewController.m */,
 				321CC577256E83B000F48FD3 /* JJBezierView.h */,
 				321CC578256E83B000F48FD3 /* JJBezierView.m */,
+				7DD21D762573C93900430E78 /* JJBezierAnimationView.h */,
+				7DD21D772573C93900430E78 /* JJBezierAnimationView.m */,
 			);
 			path = "贝塞尔曲线";
 			sourceTree = "<group>";
@@ -1568,6 +1573,7 @@
 				32FC8F372522D5B8005A4F59 /* JJQueueViewController.m in Sources */,
 				32C15A5225209554003473AF /* JJVideoTest2ViewController.m in Sources */,
 				32FC8F9A25234B09005A4F59 /* JJAnimateViewController.m in Sources */,
+				7DD21D782573C93900430E78 /* JJBezierAnimationView.m in Sources */,
 				7D56AED8251EF166000E7D39 /* JJAnimationView.m in Sources */,
 				32D3DD7224F18BC60098D608 /* JJUserHeaderView.m in Sources */,
 				32D3DC5124F14E290098D608 /* main.m in Sources */,
