@@ -17,7 +17,7 @@
 #import "JJAnimateViewController.h"
 #import "JJFunctionGroupViewController.h"  //音视频图像
 #import "JJVideoImagesViewController.h"  //功能模块封装
-#import "JJBezierViewController.h"   //贝塞尔曲线
+#import "JJBeizerListViewController.h" //贝塞尔曲线
 
 
 @interface JJHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -112,7 +112,7 @@
         JJFunctionGroupViewController *vc = [[JJFunctionGroupViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([text isEqualToString:@"贝塞尔曲线"]){
-        JJBezierViewController *vc = [[JJBezierViewController alloc] init];
+        JJBeizerListViewController *vc = [[JJBeizerListViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
     

@@ -8,7 +8,6 @@
 
 #import "JJBezierViewController.h"
 #import "JJBezierView.h"
-#import "JJBezierAnimationView.h"
 
 
 @interface JJBezierViewController ()
@@ -40,11 +39,9 @@
     //    [self test1];
 //    [self test2];
 //    [self test3];
-//    [self test4];
+    [self test4];
 
-//    JJBezierAnimationView *bezierView = [[JJBezierAnimationView alloc] init];
-//    [bezierView setItemValues:@[@"1",@"4",@"3",@"2",@"8",@"6",@"2",@"8",@"5",@"7",@"4",@"6"]];
-//    [self.bgView addSubview:bezierView];
+
 
 }
 

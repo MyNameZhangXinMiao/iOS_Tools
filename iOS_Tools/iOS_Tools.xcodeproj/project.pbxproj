@@ -18,6 +18,9 @@
 		32038B922503F7D9000E2684 /* JJImageBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32038B912503F7D9000E2684 /* JJImageBrowserCell.m */; };
 		321CC574256E80CF00F48FD3 /* JJBezierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321CC573256E80CF00F48FD3 /* JJBezierViewController.m */; };
 		321CC579256E83B000F48FD3 /* JJBezierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 321CC578256E83B000F48FD3 /* JJBezierView.m */; };
+		321CC5F72575114200F48FD3 /* JJCuteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 321CC5F62575114200F48FD3 /* JJCuteView.m */; };
+		321CC5FB2575117100F48FD3 /* JJBeizerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321CC5FA2575117100F48FD3 /* JJBeizerListViewController.m */; };
+		321CC5FF2575128700F48FD3 /* JJBezierAnimateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321CC5FE2575128700F48FD3 /* JJBezierAnimateController.m */; };
 		3256C07F2547CBA000F37D5F /* JJBaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C07E2547CBA000F37D5F /* JJBaseListViewController.m */; };
 		3256C0BD2547FC7700F37D5F /* JJChartDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C0BC2547FC7700F37D5F /* JJChartDetailViewController.m */; };
 		3256C0E62548100300F37D5F /* XHCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C0DE2548100100F37D5F /* XHCircleView.m */; };
@@ -156,6 +159,12 @@
 		321CC573256E80CF00F48FD3 /* JJBezierViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJBezierViewController.m; sourceTree = "<group>"; };
 		321CC577256E83B000F48FD3 /* JJBezierView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJBezierView.h; sourceTree = "<group>"; };
 		321CC578256E83B000F48FD3 /* JJBezierView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJBezierView.m; sourceTree = "<group>"; };
+		321CC5F52575114200F48FD3 /* JJCuteView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCuteView.h; sourceTree = "<group>"; };
+		321CC5F62575114200F48FD3 /* JJCuteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJCuteView.m; sourceTree = "<group>"; };
+		321CC5F92575117100F48FD3 /* JJBeizerListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJBeizerListViewController.h; sourceTree = "<group>"; };
+		321CC5FA2575117100F48FD3 /* JJBeizerListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJBeizerListViewController.m; sourceTree = "<group>"; };
+		321CC5FD2575128700F48FD3 /* JJBezierAnimateController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJBezierAnimateController.h; sourceTree = "<group>"; };
+		321CC5FE2575128700F48FD3 /* JJBezierAnimateController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJBezierAnimateController.m; sourceTree = "<group>"; };
 		3256C07D2547CBA000F37D5F /* JJBaseListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJBaseListViewController.h; sourceTree = "<group>"; };
 		3256C07E2547CBA000F37D5F /* JJBaseListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJBaseListViewController.m; sourceTree = "<group>"; };
 		3256C0BB2547FC7700F37D5F /* JJChartDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJChartDetailViewController.h; sourceTree = "<group>"; };
@@ -442,12 +451,18 @@
 		321CC571256E809C00F48FD3 /* 贝塞尔曲线 */ = {
 			isa = PBXGroup;
 			children = (
+				321CC5F92575117100F48FD3 /* JJBeizerListViewController.h */,
+				321CC5FA2575117100F48FD3 /* JJBeizerListViewController.m */,
 				321CC572256E80CF00F48FD3 /* JJBezierViewController.h */,
 				321CC573256E80CF00F48FD3 /* JJBezierViewController.m */,
+				321CC5FD2575128700F48FD3 /* JJBezierAnimateController.h */,
+				321CC5FE2575128700F48FD3 /* JJBezierAnimateController.m */,
 				321CC577256E83B000F48FD3 /* JJBezierView.h */,
 				321CC578256E83B000F48FD3 /* JJBezierView.m */,
 				7DD21D762573C93900430E78 /* JJBezierAnimationView.h */,
 				7DD21D772573C93900430E78 /* JJBezierAnimationView.m */,
+				321CC5F52575114200F48FD3 /* JJCuteView.h */,
+				321CC5F62575114200F48FD3 /* JJCuteView.m */,
 			);
 			path = "贝塞尔曲线";
 			sourceTree = "<group>";
@@ -1513,6 +1528,7 @@
 				32D3DD7C24F18D560098D608 /* JJTableView.m in Sources */,
 				32D3DD8A24F1A0E00098D608 /* UIView+JJEmptyView.m in Sources */,
 				32D3DD7124F18BC60098D608 /* JJUserInfoBaseView.m in Sources */,
+				321CC5FB2575117100F48FD3 /* JJBeizerListViewController.m in Sources */,
 				32D3DC4024F14E280098D608 /* AppDelegate.m in Sources */,
 				32FC8F8A25232B17005A4F59 /* JJSlotMachinesViewController.m in Sources */,
 				32D3DD8F24F1B9B40098D608 /* MBProgressHUD.m in Sources */,
@@ -1570,6 +1586,7 @@
 				32FC8EE72521C4E3005A4F59 /* JJVideoModel.m in Sources */,
 				32D3DDB624F1BD1F0098D608 /* JJToast.m in Sources */,
 				32FC5B79253ECC6900336CFE /* JJVideoImagesViewController.m in Sources */,
+				321CC5F72575114200F48FD3 /* JJCuteView.m in Sources */,
 				32FC8F372522D5B8005A4F59 /* JJQueueViewController.m in Sources */,
 				32C15A5225209554003473AF /* JJVideoTest2ViewController.m in Sources */,
 				32FC8F9A25234B09005A4F59 /* JJAnimateViewController.m in Sources */,
@@ -1577,6 +1594,7 @@
 				7D56AED8251EF166000E7D39 /* JJAnimationView.m in Sources */,
 				32D3DD7224F18BC60098D608 /* JJUserHeaderView.m in Sources */,
 				32D3DC5124F14E290098D608 /* main.m in Sources */,
+				321CC5FF2575128700F48FD3 /* JJBezierAnimateController.m in Sources */,
 				32D3DCC824F181610098D608 /* KLMessageViewController.m in Sources */,
 				32D3DCBF24F181610098D608 /* KLHomeViewController.m in Sources */,
 				7D900B0B2520E63B00A5366A /* JJVideoTableViewCell.m in Sources */,
