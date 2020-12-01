@@ -9,10 +9,18 @@
 #import "JJBezierAnimateController.h"
 #import "JJBezierAnimationView.h"
 #import "JJCuteView.h"
+#import "JJQQBaseView.h"
 
 
 
 @interface JJBezierAnimateController ()
+
+/// QQ消息动画原理
+@property (nonatomic, strong) UISlider *centerSlider;
+@property (nonatomic, strong) UISlider *touchSlider;
+@property (nonatomic, strong) JJQQBaseView *qqBaseView;
+
+
 
 @end
 
@@ -31,11 +39,19 @@
         [bezierView setItemValues:@[@"1",@"4",@"3",@"2",@"8",@"6",@"2",@"8",@"5",@"7",@"4",@"6"]];
         [self.view addSubview:bezierView];
         
-    }else if ([self.typeStr isEqualToString:@"QQ消息动画"]){
+    }else if ([self.typeStr isEqualToString:@"QQ消息动画原理"]){
         
+        _qqBaseView = [[JJQQBaseView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        [self.view addSubview:self.qqBaseView];
+        
+        [self.view bringSubviewToFront:self.navigationCustomView];
+        
+        self.centerSlider.frame = CGRectMake(50, 100, kScreenWidth-100, 50);
+        self.touchSlider.frame = CGRectMake(50, 200, kScreenWidth-100, 50);
+        [self.view addSubview:self.centerSlider];
+        [self.view addSubview:self.touchSlider];
         
     }else if ([self.typeStr isEqualToString:@"果冻动画"]){
-        
         JJCuteView *cuteView = [[JJCuteView alloc] initWithFrame:CGRectMake(0, 100, 320, 568)];
         cuteView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:cuteView];
@@ -49,17 +65,44 @@
 }
 
 
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//拖动滑杆
+- (void)onProgressChanged:(UISlider *)slider{
+    CGFloat value = slider.value;
+    NSLog(@"progress:%f", value);
+    
+    switch (slider.tag) {
+        case 100:{
+            CGFloat r = RADIUS;
+            [self.qqBaseView changeCenterCircleRadiusTo:r * value];
+            break;
+        }
+        case 101:{
+            CGFloat r = RADIUS;
+            [self.qqBaseView changeTouchCircleRadiusTo:r * value];
+            break;
+        }
+        default:
+            break;
+    }
 }
-*/
+
+#pragma mark - lazy
+- (UISlider *)centerSlider{
+    if (!_centerSlider) {
+        _centerSlider = [[UISlider alloc] init];
+        _centerSlider.tag = 100;
+        [_centerSlider addTarget:self action:@selector(onProgressChanged:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _centerSlider;
+}
+
+- (UISlider *)touchSlider{
+    if (!_touchSlider) {
+        _touchSlider = [[UISlider alloc] init];
+        _touchSlider.tag = 101;
+        [_touchSlider addTarget:self action:@selector(onProgressChanged:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _touchSlider;
+}
 
 @end
