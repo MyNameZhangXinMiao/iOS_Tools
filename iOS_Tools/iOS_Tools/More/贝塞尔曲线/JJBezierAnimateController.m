@@ -55,11 +55,13 @@
         JJCuteView *cuteView = [[JJCuteView alloc] initWithFrame:CGRectMake(0, 100, 320, 568)];
         cuteView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:cuteView];
+    }else if ([self.typeStr isEqualToString:@"QQ消息动画"]){
         
-    }else if ([self.typeStr isEqualToString:@"贝塞尔曲线"]){
+        
+        
+        
         
     }
-    
     
     
 }
