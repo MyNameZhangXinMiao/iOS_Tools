@@ -775,7 +775,7 @@ static id _instance;
     if (@available(iOS 13.0, *)){
         return [UIApplication sharedApplication].windows.lastObject;
     }else{
-        return [UIApplication sharedApplication].delegate.window;
+        return [UIApplication sharedApplication].keyWindow;
     }
 }
 #pragma mark - 还原原始大小
