@@ -39,7 +39,6 @@
     [self.view addSubview:_playerView];
     
     [_playerView updatePlayerModifyConfigure:^(JJPlayerConfigure * _Nonnull configure) {
-        configure.backPlay = NO;
         configure.strokeColor = [UIColor redColor];
         configure.topToolBarHiddenType = JJTopToolBarHiddenNever;
     }];

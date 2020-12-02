@@ -28,26 +28,6 @@ typedef NS_ENUM(NSUInteger, JJTopToolBarHiddenType) {//这是所说的隐藏就�
     JJTopToolBarHiddenSmall,     ///<小屏隐藏，全屏不隐藏
 };
 
-typedef NS_ENUM(NSUInteger, JJBarrageShowType) {
-    JJBarrageShowTypeNormal = 0,   //默认不显示
-    JJBarrageShowTypeOneLine,    // 仅显示一行弹幕,一般用于弹幕量较少的情况.,或者小屏幕情况
-    JJBarrageShowTypeUpperHalf,      // 上半区显示
-    JJBarrageShowTypeFullScreen      // 全屏显示
-};
-
-///播放按钮位置
-typedef NS_ENUM(NSUInteger, JJPlayButtonPositionType) {
-    JJPlayButtonPositionTypeLeftBottom = 0, //默认左下
-    JJPlayButtonPositionTypeMiddle,  //中间
-    JJPlayButtonPositionTypeBottomAndMidle,  //只中间和做下都展示出来
-};
-
-///顶部bar和底部bar消失样式
-typedef NS_ENUM(NSUInteger,JJToolBarHideAnimationType){
-    JJToolBarHideAnimationTypeAlpha = 0, //透明度消失
-    JJToolBarHideAnimationTypeMove //移动消失
-};
-
 ///播放速度
 typedef NS_ENUM(NSUInteger,JJTPlayRateType){
     JJTPlayRateType1 = 0, //默认正常速度
@@ -63,8 +43,6 @@ typedef void(^EndBolck)(void);
 
 @interface JJPlayerConfigure : NSObject
 
-/// 后台返回是否自动播放,默认Yes,会跟随用户,如果是播放状态进入后台，返回会继续播放
-@property (nonatomic, assign)   BOOL backPlay;
 /// 是否自动播放,默认NO
 @property (nonatomic, assign)   BOOL repeatPlay;
 /// 当前页面是否支持全屏,默认NO
@@ -80,14 +58,7 @@ typedef void(^EndBolck)(void);
 /// 工具条消失时间,默认8s,必须大于0
 @property (nonatomic, assign)   NSUInteger toolBarDisappearTime;
 
-/// 全屏模式下是否显示锁屏按钮
-@property (nonatomic, assign)   BOOL isShowLockButton; //功能未实现
-/// 弹幕显示模式,默认不显示
-@property (nonatomic, assign)   JJBarrageShowType barrageShowType; //功能未实现
-/// 播放按钮位置
-@property (nonatomic, assign)   JJPlayButtonPositionType playButtonPositionType; //功能未实现
-/// 顶部bar和底部bar消失样式
-@property (nonatomic, assign)   JJToolBarHideAnimationType toolBarHideType; //功能未实现
+ //功能未实现
 /// 视频填充方式,默认全屏填充
 @property (nonatomic, assign)   JJVideoFillMode videoFillMode;
 /// 顶部工具条展示方式,默认不隐藏

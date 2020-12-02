@@ -31,7 +31,6 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
 + (instancetype)defaultConfigure{
     JJPlayerConfigure *configure = [[JJPlayerConfigure alloc] init];
     
-    configure.backPlay        = YES;
     configure.repeatPlay      = NO;
     configure.isLandscape     = NO;
     configure.autoRotate      = YES;
@@ -47,12 +46,6 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     configure.progressPlayFinishColor = [UIColor greenColor];
     configure.progressBufferColor     = [UIColor colorWithRed:0.84118 green:0.81373 blue:0.80980 alpha:1.00000];
     configure.strokeColor             = [UIColor whiteColor];
-    
-    
-    configure.barrageShowType = JJBarrageShowTypeNormal;
-    configure.playButtonPositionType = JJPlayButtonPositionTypeLeftBottom;
-    configure.toolBarHideType = JJToolBarHideAnimationTypeAlpha;
-    
     
     return configure;
 }
@@ -73,7 +66,6 @@ static id _instance;
 
 @interface JJPlayerView ()<JJPlayerMaskViewDelegate,UIGestureRecognizerDelegate>
 {
-   id _timeObserver;
    id _itemEndObserver;
 }
 
@@ -115,8 +107,6 @@ static id _instance;
 @property (nonatomic, assign) JJPanDirection     panDirection;
 /// 音量滑杆
 @property (nonatomic, strong) UISlider *volumeViewSlider;
-/// 进度条定时器(最好不要用NSTimer)
-@property (nonatomic, strong) NSTimer *sliderTimer;
 /// 点击屏幕定时器
 @property (nonatomic, strong) NSTimer *tapTimer;
 /// 播放器的播放状态
@@ -194,15 +184,8 @@ static id _instance;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(routeChanged:) name:AVAudioSessionRouteChangeNotification object:nil];
     // 添加观察者监控进度
 //    __weak typeof(self) weakSelf = self;
-    _timeObserver = [_player addPeriodicTimeObserverForInterval:CMTimeMake(1, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
-//        __strong typeof(self) strongSelf = weakSelf;
-        
-//        if (strongSelf.currentPlayTimeCallBack) {
-//            float currentPlayTime = (double)strongSelf.currentItem.currentTime.value / strongSelf.currentItem.currentTime.timescale;
-//            strongSelf.currentPlayTimeCallBack(strongSelf.player, currentPlayTime);
-//        }
-    }];
     
+   
     // 创建播放器
     self.backgroundColor = [UIColor blackColor];
     // 获取系统音量
@@ -212,6 +195,37 @@ static id _instance;
     [self.layer insertSublayer:self.playerLayer atIndex:0];
     
 }
+
+- (void)addPeriodicTimeObserver{
+    @weakify(self);
+    [_player addPeriodicTimeObserverForInterval:CMTimeMake(1, 10) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+        @strongify(self);
+        [self sliderTimerAction];
+    }];
+    
+}
+
+- (void)sliderTimerAction{
+    if (self.playerItem.duration.timescale != 0) {
+        self.playerMaskView.slider.maximumValue = 1;
+        CGFloat total = _playerItem.duration.value / _playerItem.duration.timescale;
+        self.playerMaskView.slider.value = CMTimeGetSeconds(self.playerItem.currentTime) / total;
+        //判断是否正在播放
+        if (self.playerItem.isPlaybackLikelyToKeepUp && self.playerMaskView.slider.value > 0) {
+            self.playerState = JJPlayerStatePlaying;
+        }
+        
+        //当前时长
+        NSInteger proMin = (NSInteger)CMTimeGetSeconds([_player currentTime]) / 60;//当前分钟
+        NSInteger proSec = (NSInteger)CMTimeGetSeconds([_player currentTime]) % 60;//当前秒
+        self.playerMaskView.currentTimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", (long)proMin, (long)proSec];
+        //总时长
+        NSInteger durMin = (NSInteger)_playerItem.duration.value / _playerItem.duration.timescale / 60;//总分钟
+        NSInteger durSec = (NSInteger)_playerItem.duration.value / _playerItem.duration.timescale % 60;//总秒
+        self.playerMaskView.totalTimeLabel.text   = [NSString stringWithFormat:@"%02ld:%02ld", (long)durMin, (long)durSec];
+    }
+}
+
 
 #pragma mark - 获取系统音量
 - (void)configureVolume{
@@ -335,39 +349,6 @@ static id _instance;
     [self.playerMaskView doubleTapAction];
 }
 
-#pragma mark - slider时间定时器
-//TODO: 这里可以不使用定时器,使用AVPlayer自带的block回调
-- (void)resetSliderTimer{
-    [self destorySliderTimer];
-    self.sliderTimer = [NSTimer timerWithTimeInterval:0.2 target:self selector:@selector(sliderTimerAction) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:self.sliderTimer forMode:NSRunLoopCommonModes];
-}
-
-- (void)sliderTimerAction{
-    if (self.playerItem.duration.timescale != 0) {
-        self.playerMaskView.slider.maximumValue = 1;
-        CGFloat total = _playerItem.duration.value / _playerItem.duration.timescale;
-        self.playerMaskView.slider.value = CMTimeGetSeconds(self.playerItem.currentTime) / total;
-        //判断是否正在播放
-        if (self.playerItem.isPlaybackLikelyToKeepUp && self.playerMaskView.slider.value > 0) {
-            self.playerState = JJPlayerStatePlaying;
-        }
-        
-        //当前时长
-        NSInteger proMin = (NSInteger)CMTimeGetSeconds([_player currentTime]) / 60;//当前分钟
-        NSInteger proSec = (NSInteger)CMTimeGetSeconds([_player currentTime]) % 60;//当前秒
-        self.playerMaskView.currentTimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", (long)proMin, (long)proSec];
-        //总时长
-        NSInteger durMin = (NSInteger)_playerItem.duration.value / _playerItem.duration.timescale / 60;//总分钟
-        NSInteger durSec = (NSInteger)_playerItem.duration.value / _playerItem.duration.timescale % 60;//总秒
-        self.playerMaskView.totalTimeLabel.text   = [NSString stringWithFormat:@"%02ld:%02ld", (long)durMin, (long)durSec];
-    }
-}
-
-- (void)destorySliderTimer{
-    [self.sliderTimer invalidate];
-    self.sliderTimer = nil;
-}
 
 #pragma mark - 重置工具条隐藏方法
 - (void)resetTopBarHiddenType{
@@ -477,6 +458,7 @@ static id _instance;
             pan.cancelsTouchesInView = YES;
             [self.playerMaskView addGestureRecognizer:pan];
             self.player.muted = self.playerConfigure.isMute;
+            [self addPeriodicTimeObserver];
         }else if (self.player.currentItem.status == AVPlayerItemStatusFailed){
             // 解析失败(播放失败)
             self.playerState = JJPlayerStateFailed;
@@ -630,7 +612,7 @@ static id _instance;
     //重置时间
     self.playerMaskView.currentTimeLabel.text = @"00:00";
     self.playerMaskView.totalTimeLabel.text = @"00:00";
-    [self resetSliderTimer];
+
     [self destoryToolBarTimer];
     //重置Toolbar
     [UIView animateWithDuration:0.25 animations:^{
@@ -848,7 +830,6 @@ static id _instance;
         [_player seekToTime:CMTimeMake(0, 1) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
     } else {
         [self.player play];
-        [self resetSliderTimer];
     }
 }
 
@@ -857,7 +838,6 @@ static id _instance;
     [self.playerItem cancelPendingSeeks];
     self.playerMaskView.playButton.selected = NO;
     [self.player pause];
-    [self destorySliderTimer];
 }
 
 - (void)endPlay:(EndBolck)end{
@@ -872,7 +852,6 @@ static id _instance;
 - (void)destoryPlayer{
     [self pause];
     //销毁定时器
-    [self destorySliderTimer];
     [self destoryToolBarTimer];
     // 取消延迟执行的方法(就是卡顿缓冲的代码)
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(bufferingSomeSecondEnd) object:@"Buffering"];
@@ -955,11 +934,10 @@ static id _instance;
 
 /** 应用进入前台 */
 - (void)appDidEnterPlayground:(NSNotification *)notify {
-    if (self.isUserPlay && self.playerConfigure.backPlay) {
+    if (self.isUserPlay) {
         [self play];
     }
 }
-
 
 
 #pragma mark - lazy

@@ -154,7 +154,6 @@ JJVideoTableHeaderViewDelegate
     if (_playerView == nil) {
         _playerView = [[JJPlayerView alloc] initWithFrame:CGRectMake(0, 10, kScreenWidth, 300)];
         [_playerView updatePlayerModifyConfigure:^(JJPlayerConfigure * _Nonnull configure) {
-            configure.backPlay = NO;
             configure.strokeColor = [UIColor redColor];
             configure.topToolBarHiddenType = JJTopToolBarHiddenNever;
             configure.repeatPlay = YES;
