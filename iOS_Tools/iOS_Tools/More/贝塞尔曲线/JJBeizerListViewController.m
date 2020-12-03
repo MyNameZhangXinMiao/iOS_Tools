@@ -24,7 +24,7 @@
     self.navigationCustomView.hidden = NO;
     self.navigationCustomView.title = @"贝塞尔曲线";
     
-    self.data = @[@"贝塞尔曲线",@"折线动画",@"果冻动画",@"QQ消息动画原理",@"QQ消息动画"];
+    self.data = @[@"贝塞尔曲线",@"折线动画",@"果冻动画",@"QQ消息动画原理",@"QQ消息动画",@"CGContextRef"];
     [self.tableView reloadData];
     
     
@@ -50,6 +50,10 @@
         vc.typeStr = text;
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([text isEqualToString:@"QQ消息动画原理"]){
+        JJBezierAnimateController *vc = [[JJBezierAnimateController alloc] init];
+        vc.typeStr = text;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([text isEqualToString:@"CGContextRef"]){
         JJBezierAnimateController *vc = [[JJBezierAnimateController alloc] init];
         vc.typeStr = text;
         [self.navigationController pushViewController:vc animated:YES];

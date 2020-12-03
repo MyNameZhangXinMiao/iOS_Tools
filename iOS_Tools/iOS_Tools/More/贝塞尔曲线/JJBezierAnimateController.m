@@ -61,6 +61,9 @@
         
         
         
+    }else if ([self.typeStr isEqualToString:@"CGContextRef"]){//上下文
+        
+        
     }
     
     
