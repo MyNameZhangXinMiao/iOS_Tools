@@ -39,8 +39,8 @@
     //    [self test1];
 //    [self test2];
 //    [self test3];
-    [self test4];
-
+//    [self test4];
+    [self test5];
 
 
 }
@@ -125,6 +125,36 @@
     [self.testView.layer addSublayer:lineLayer];
     self.testView.layer.mask = lineLayer;
     
+}
+
+- (void)test5{
+    
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    
+    //50, 150
+    //100 250
+    //150 50
+    //200 200
+
+    [path moveToPoint:CGPointMake(50, 150)];
+    
+    [path addCurveToPoint:CGPointMake(100, 250) controlPoint1:CGPointMake(75, 150) controlPoint2:CGPointMake(75, 250)];
+    [path addCurveToPoint:CGPointMake(150, 50) controlPoint1:CGPointMake(125, 250) controlPoint2:CGPointMake(125, 50)];
+    [path addCurveToPoint:CGPointMake(200, 200) controlPoint1:CGPointMake(175, 50) controlPoint2:CGPointMake(175, 200)];
+    
+    [path stroke];
+   
+    // 设置路径画布
+    CAShapeLayer *lineLayer = [CAShapeLayer layer];
+    lineLayer.bounds = CGRectMake(0, 0, 300, 300);
+    lineLayer.position = CGPointMake(150, 150);
+    lineLayer.lineWidth = 3.0;
+    lineLayer.strokeColor = [UIColor redColor].CGColor; //   边线颜色
+    lineLayer.path = path.CGPath;
+    lineLayer.fillColor = [UIColor clearColor].CGColor;   //  默认是black
+    lineLayer.lineCap = kCALineCapRound;
+    lineLayer.lineJoin = kCALineJoinRound; //线条拐角
+    [self.bgView.layer addSublayer:lineLayer];
 }
 
 
