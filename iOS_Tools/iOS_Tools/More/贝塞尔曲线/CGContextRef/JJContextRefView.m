@@ -70,8 +70,8 @@
     /*画线及孤线*/
     //画线
     CGPoint aPoints[2];//坐标点
-    aPoints[0] =CGPointMake(100, 80);//坐标1
-    aPoints[1] =CGPointMake(130, 80);//坐标2
+    aPoints[0] = CGPointMake(100, 80);//坐标1
+    aPoints[1] = CGPointMake(130, 80);//坐标2
     //CGContextAddLines(CGContextRef c, const CGPoint points[],size_t count)
     //points[]坐标数组，和count大小
     CGContextAddLines(context, aPoints, 2);//添加线
@@ -196,9 +196,9 @@
     /*画三角形*/
     //只要三个点就行跟画一条线方式一样，把三点连接起来
     CGPoint sPoints[3];//坐标点
-    sPoints[0] =CGPointMake(100, 220);//坐标1
-    sPoints[1] =CGPointMake(130, 220);//坐标2
-    sPoints[2] =CGPointMake(130, 160);//坐标3
+    sPoints[0] = CGPointMake(100, 220);//坐标1
+    sPoints[1] = CGPointMake(130, 220);//坐标2
+    sPoints[2] = CGPointMake(130, 160);//坐标3
     CGContextAddLines(context, sPoints, 3);//添加线
     CGContextClosePath(context);//封起来
     CGContextDrawPath(context, kCGPathFillStroke); //根据坐标绘制路径
