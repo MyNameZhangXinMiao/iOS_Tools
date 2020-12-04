@@ -20,9 +20,10 @@
     
     [super drawRect:rect];
     
-    //    [self test1];
-//    [self test2];
+    // [self test1];
+    // [self test2];
     
+    // [self test3];
     [self test4];
     
 }
@@ -35,16 +36,15 @@
     CGContextSetRGBFillColor (context,  1, 0, 0, 1.0);//设置填充颜色
     UIFont *font = [UIFont boldSystemFontOfSize:15.0];//设置
     
-    //    NSDictionary *attributes = @{ NSFontAttributeName:[UIFont systemFontOfSize:10], NSForegroundColorAttributeName:[UIColor redColor]};
-    
-    [@"画圆：" drawInRect:CGRectMake(10, 20, 80, 20) withAttributes:@{ NSFontAttributeName:font}];
-    [@"画线及孤线：" drawInRect:CGRectMake(10, 80, 100, 20) withAttributes:@{ NSFontAttributeName:font}];
-    [@"画矩形：" drawInRect:CGRectMake(10, 120, 80, 20) withAttributes:@{ NSFontAttributeName:font}];
-    [@"画扇形和椭圆：" drawInRect:CGRectMake(10, 160, 110, 20) withAttributes:@{ NSFontAttributeName:font}];
-    [@"画三角形：" drawInRect:CGRectMake(10, 220, 80, 20) withAttributes:@{ NSFontAttributeName:font}];
-    [@"画圆角矩形：" drawInRect:CGRectMake(10, 260, 100, 20) withAttributes:@{ NSFontAttributeName:font}];
-    [@"画贝塞尔曲线：" drawInRect:CGRectMake(10, 300, 100, 20) withAttributes:@{ NSFontAttributeName:font}];
-    [@"图片：" drawInRect:CGRectMake(10, 340, 80, 20) withAttributes:@{ NSFontAttributeName:font}];
+    // NSDictionary *attributes = @{ NSFontAttributeName:[UIFont systemFontOfSize:10], NSForegroundColorAttributeName:[UIColor redColor]};
+    [@"画圆：" drawInRect:CGRectMake(10, 20, 80, 20) withAttributes:@{NSFontAttributeName:font}];
+    [@"画线及孤线：" drawInRect:CGRectMake(10, 80, 100, 20) withAttributes:@{NSFontAttributeName:font}];
+    [@"画矩形：" drawInRect:CGRectMake(10, 120, 80, 20) withAttributes:@{NSFontAttributeName:font}];
+    [@"画扇形和椭圆：" drawInRect:CGRectMake(10, 160, 110, 20) withAttributes:@{NSFontAttributeName:font}];
+    [@"画三角形：" drawInRect:CGRectMake(10, 220, 80, 20) withAttributes:@{NSFontAttributeName:font}];
+    [@"画圆角矩形：" drawInRect:CGRectMake(10, 260, 100, 20) withAttributes:@{NSFontAttributeName:font}];
+    [@"画贝塞尔曲线：" drawInRect:CGRectMake(10, 300, 100, 20) withAttributes:@{NSFontAttributeName:font}];
+    [@"图片：" drawInRect:CGRectMake(10, 340, 80, 20) withAttributes:@{NSFontAttributeName:font}];
     
     /*画圆*/
     //边框圆
@@ -237,6 +237,7 @@
     
 }
 
+/// 同时画多条线
 - (void)test3{
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     //设置画笔属性
@@ -264,6 +265,19 @@
     //        CGContextMoveToPoint(ctx, _centerX, _centerY);
     //        CGContextAddLineToPoint(ctx, point.x, point.y);
     //    }
+    
+    CGPoint point = CGPointMake(kScreenWidth/2, kScreenWidth/2);
+    CGContextMoveToPoint(ctx, kScreenWidth/2, kScreenWidth/2-100);
+    CGContextAddLineToPoint(ctx, point.x, point.y);
+    
+    CGContextMoveToPoint(ctx, kScreenWidth/2-100, kScreenWidth/2);
+    CGContextAddLineToPoint(ctx, point.x, point.y);
+    
+    CGContextMoveToPoint(ctx, kScreenWidth/2+50, kScreenWidth/2+50);
+    CGContextAddLineToPoint(ctx, point.x, point.y);
+    
+    CGContextMoveToPoint(ctx, kScreenWidth/2+100, kScreenWidth/2-50);
+    CGContextAddLineToPoint(ctx, point.x, point.y);
     
     CGContextStrokePath(ctx);
 }
