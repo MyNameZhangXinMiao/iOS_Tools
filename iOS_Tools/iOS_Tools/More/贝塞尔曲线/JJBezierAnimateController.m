@@ -10,7 +10,7 @@
 #import "JJBezierAnimationView.h"
 #import "JJCuteView.h"
 #import "JJQQBaseView.h"
-
+#import "JJContextRefView.h"
 
 
 @interface JJBezierAnimateController ()
@@ -63,7 +63,9 @@
         
     }else if ([self.typeStr isEqualToString:@"CGContextRef"]){//上下文
         
-        
+        JJContextRefView *context = [[JJContextRefView alloc] initWithFrame:CGRectMake(0, 100, kScreenWidth, kScreenWidth)];
+        context.backgroundColor = [UIColor blueColor];
+        [self.view addSubview:context];
     }
     
     
