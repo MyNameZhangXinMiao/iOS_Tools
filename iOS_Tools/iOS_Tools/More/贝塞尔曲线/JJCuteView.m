@@ -10,8 +10,9 @@
 
 
 #define kControlMinHeight 100
-@interface JJCuteView ()
+@interface JJCuteView ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic, strong) UIView *navView;
 @property (nonatomic, strong) CAShapeLayer *shapeLayer;
 @property (nonatomic, strong) UIView *controlView;            // 切点,用Q表示
 @property (nonatomic, assign) CGFloat controlX;               // 切点x坐标
@@ -19,6 +20,9 @@
 @property (nonatomic, strong) CADisplayLink *displayLink;
 @property (nonatomic, assign) BOOL isAnimating;
 @property (nonatomic, assign) CGFloat controlHeight;
+
+
+@property (nonatomic, strong) JJTableView *tableView;
 
 @end
 @implementation JJCuteView
@@ -42,13 +46,24 @@ static NSString *const kControlY = @"controlY";
     [self addObserver:self forKeyPath:kControlX options:NSKeyValueObservingOptionNew context:nil];
     [self addObserver:self forKeyPath:kControlY options:NSKeyValueObservingOptionNew context:nil];
     
+    
+    // 手势
+//    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanAction:)];
+//    self.userInteractionEnabled = YES;
+//    [self addGestureRecognizer:pan];
+    
+    [self addSubview:self.tableView];
+    [self.tableView.panGestureRecognizer addTarget:self action:@selector(handlePanAction:)];
+
+    self.navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kControlMinHeight)];
+    [self addSubview:self.navView];
     _shapeLayer = [CAShapeLayer layer];
     _shapeLayer.fillColor = [UIColor colorWithRed:57/255.0 green:67/255.0 blue:89/255.0 alpha:1.0].CGColor;
-    [self.layer addSublayer:_shapeLayer];
+    [self.navView.layer addSublayer:_shapeLayer];
     
     _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(calculatePath)];
-    [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     _displayLink.paused = YES;
+    [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     
     
     self.controlX = kScreenWidth/2.0;       // Q点x坐标
@@ -60,11 +75,6 @@ static NSString *const kControlY = @"controlY";
     self.controlHeight = kControlMinHeight;
     _isAnimating = NO;
     
-    // 手势
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanAction:)];
-    self.userInteractionEnabled = YES;
-    [self addGestureRecognizer:pan];
-    
 }
 
 - (void)handlePanAction:(UIPanGestureRecognizer *)pan{
@@ -73,7 +83,6 @@ static NSString *const kControlY = @"controlY";
         if (pan.state == UIGestureRecognizerStateChanged){
             
             CGPoint point = [pan translationInView:self];
-            
             // 这部分代码使Q点跟着手势走
             self.controlHeight = point.y*0.7 + kControlMinHeight;
             self.controlX = kScreenWidth/2.0 + point.x;
@@ -83,22 +92,27 @@ static NSString *const kControlY = @"controlY";
         }else if (pan.state == UIGestureRecognizerStateCancelled ||
                   pan.state == UIGestureRecognizerStateEnded ||
                   pan.state == UIGestureRecognizerStateFailed){
-            
-           //手势结束,_shapeLayer昌盛产生弹簧效果
-            _isAnimating = YES;
-            _displayLink.paused = NO;           //开启displaylink,会执行方法calculatePath.
 
-            //弹簧
-            [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                self.controlView.frame = CGRectMake(kScreenWidth/2.0, kControlMinHeight, 3, 3);
-            } completion:^(BOOL finished) {
-                if(finished){
-                    self.displayLink.paused = YES;
-                    self.isAnimating = NO;
-                }
-            }];
+            //手势结束,_shapeLayer昌盛产生弹簧效果
+             _isAnimating = YES;
+             _displayLink.paused = NO;           //开启displaylink,会执行方法calculatePath.
+
+             //弹簧
+             [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                 self.controlView.frame = CGRectMake(kScreenWidth/2.0, kControlMinHeight, 3, 3);
+             } completion:^(BOOL finished) {
+                 if(finished){
+                     self.displayLink.paused = YES;
+                     self.isAnimating = NO;
+                 }
+             }];
+            
+            
         }
     }
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
 }
 
 
@@ -126,6 +140,45 @@ static NSString *const kControlY = @"controlY";
     self.controlX = layer.position.x;
     self.controlY = layer.position.y;
     
+}
+
+
+#pragma mark -- TableView data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 6;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
+    
+    return cell;
+}
+
+
+
+
+#pragma mark - lazy
+- (JJTableView *)tableView{
+    if (_tableView == nil) {
+        _tableView = [[JJTableView alloc] initWithFrame:CGRectMake(0, kNavBarHeight, kScreenWidth, kScreenHeight-kNavBarHeight)];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.backgroundColor = [UIColor whiteColor];
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    }
+    return _tableView;
 }
 
 

@@ -52,7 +52,7 @@
         [self.view addSubview:self.touchSlider];
         
     }else if ([self.typeStr isEqualToString:@"果冻动画"]){
-        JJCuteView *cuteView = [[JJCuteView alloc] initWithFrame:CGRectMake(0, 100, 320, 568)];
+        JJCuteView *cuteView = [[JJCuteView alloc] initWithFrame:CGRectMake(0, 100, 320, kScreenHeight-100)];
         cuteView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:cuteView];
     }else if ([self.typeStr isEqualToString:@"QQ消息动画"]){
