@@ -26,6 +26,19 @@ typedef NS_ENUM(NSUInteger, JJPanDirection) {
     JJPanDirectionVerticalMoved,    /// 纵向移动
 };
 
+@interface JJPlayerLayer : UIView
+
+@end
+
+@implementation JJPlayerLayer
+
++ (Class)layerClass {
+    return AVPlayerLayer.class;
+}
+
+@end
+
+
 @implementation JJPlayerConfigure
 
 + (instancetype)defaultConfigure{
@@ -65,9 +78,6 @@ static id _instance;
 
 
 @interface JJPlayerView ()<JJPlayerMaskViewDelegate,UIGestureRecognizerDelegate>
-{
-   id _itemEndObserver;
-}
 
 /// 播放器
 @property (nonatomic, strong)   AVPlayer         *player;
@@ -182,9 +192,6 @@ static id _instance;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruptionComing:) name:AVAudioSessionInterruptionNotification object:nil];
     // 添加插拔耳机的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(routeChanged:) name:AVAudioSessionRouteChangeNotification object:nil];
-    // 添加观察者监控进度
-//    __weak typeof(self) weakSelf = self;
-    
    
     // 创建播放器
     self.backgroundColor = [UIColor blackColor];
@@ -423,7 +430,6 @@ static id _instance;
     }
     
     if (_playerItem) {
-        
         if (!self.isRemoveObserver) {
             [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:_playerItem];
             [_playerItem removeObserver:self forKeyPath:@"status"];
@@ -459,6 +465,12 @@ static id _instance;
             [self.playerMaskView addGestureRecognizer:pan];
             self.player.muted = self.playerConfigure.isMute;
             [self addPeriodicTimeObserver];
+            if (self.player.currentItem.status == AVPlayerItemStatusReadyToPlay) {
+                self.playerState = JJPlayerStatePlaying;
+            }else if (self.player.currentItem.status == AVPlayerItemStatusFailed) {
+                self.playerState = JJPlayerStateFailed;
+            }
+            
         }else if (self.player.currentItem.status == AVPlayerItemStatusFailed){
             // 解析失败(播放失败)
             self.playerState = JJPlayerStateFailed;
@@ -472,6 +484,7 @@ static id _instance;
     }else if ([keyPath isEqualToString:@"playbackBufferEmpty"]){
         //当前缓冲时空的时候
         if (self.playerItem.isPlaybackBufferEmpty) {
+            self.playerState = JJPlayerStateBuffering;
             [self bufferingSomeSecond];//卡顿一会,缓冲几秒
         }
     }

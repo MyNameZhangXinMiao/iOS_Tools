@@ -66,14 +66,12 @@
 #pragma mark - getter and setter
 - (JJTableView *)tableView{
     if (_tableView == nil) {
-        _tableView = [[JJTableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView = [[JJTableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
-        //_tableView.showsVerticalScrollIndicator = NO;
-        //_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _tableView;
 }
