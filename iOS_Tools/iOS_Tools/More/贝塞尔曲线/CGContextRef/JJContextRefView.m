@@ -23,77 +23,21 @@
     [super drawRect:rect];
 
     CGContextRef context = UIGraphicsGetCurrentContext();
+    /*画贝塞尔曲线*/
+    //二次曲线
+    CGContextMoveToPoint(context, 120, 300);//设置Path的起点
+    CGContextAddQuadCurveToPoint(context,190, 310, 120, 390);//设置贝塞尔曲线的控制点坐标和终点坐标
+    CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);//线框颜色
+    CGContextSetLineWidth(context, 3.0);//线的宽度
 
-    /*画矩形*/
-    CGContextStrokeRect(context,CGRectMake(100, 120, 10, 10));//画方框
-    CGContextFillRect(context,CGRectMake(120, 120, 10, 10));//填充框
-    //矩形，并填弃颜色
-    CGContextSetLineWidth(context, 2.0);//线的宽度
-    CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);//填充颜色
-    CGContextSetStrokeColorWithColor(context, [UIColor yellowColor].CGColor);//线框颜色
-    CGContextAddRect(context,CGRectMake(140, 120, 60, 30));//画方框
-    CGContextDrawPath(context, kCGPathFillStroke);//绘画路径
+    CGContextStrokePath(context);
+    //三次曲线函数
+    CGContextMoveToPoint(context, 200, 300);//设置Path的起点
+    CGContextAddCurveToPoint(context,250, 280, 250, 400, 280, 300);//设置贝塞尔曲线的控制点坐标和控制点坐标终点坐标
+    CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);//线框颜色
+    CGContextSetLineWidth(context, 3.0);//线的宽度
 
-    //矩形，并填弃渐变颜色
-    //第一种填充方式，第一种方式必须导入类库quartcore并#import <QuartzCore/QuartzCore.h>，这个就不属于在context上画，而是将层插入到view层上面。那么这里就设计到Quartz Core 图层编程了。
-    CAGradientLayer *gradient1 = [CAGradientLayer layer];
-    gradient1.frame = CGRectMake(240, 120, 60, 30);
-    gradient1.colors = [NSArray arrayWithObjects:(id)[UIColor whiteColor].CGColor,
-                        (id)[UIColor grayColor].CGColor,
-                        (id)[UIColor blackColor].CGColor,
-                        (id)[UIColor yellowColor].CGColor,
-                        (id)[UIColor blueColor].CGColor,
-                        (id)[UIColor redColor].CGColor,
-                        (id)[UIColor greenColor].CGColor,
-                        (id)[UIColor orangeColor].CGColor,
-                        (id)[UIColor brownColor].CGColor,nil];
-    [self.layer insertSublayer:gradient1 atIndex:0];
-    //第二种填充方式
-    CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
-    CGFloat colors[] =
-    {
-        1,1,1, 1.00,
-        1,1,0, 1.00,
-        1,0,0, 1.00,
-        1,0,1, 1.00,
-        0,1,1, 1.00,
-        0,1,0, 1.00,
-        0,0,1, 1.00,
-        0,0,0, 1.00,
-    };
-    CGGradientRef gradient = CGGradientCreateWithColorComponents
-    (rgb, colors, NULL, sizeof(colors)/(sizeof(colors[0])*4));//形成梯形，渐变的效果
-    CGColorSpaceRelease(rgb);
-    //画线形成一个矩形
-    //CGContextSaveGState与CGContextRestoreGState的作用
-    /*
-     CGContextSaveGState函数的作用是将当前图形状态推入堆栈。之后，您对图形状态所做的修改会影响随后的描画操作，但不影响存储在堆栈中的拷贝。在修改完成后，您可以通过CGContextRestoreGState函数把堆栈顶部的状态弹出，返回到之前的图形状态。这种推入和弹出的方式是回到之前图形状态的快速方法，避免逐个撤消所有的状态修改；这也是将某些状态（比如裁剪路径）恢复到原有设置的唯一方式。
-     */
-    CGContextSaveGState(context);
-    CGContextMoveToPoint(context, 220, 90);
-    CGContextAddLineToPoint(context, 240, 90);
-    CGContextAddLineToPoint(context, 240, 110);
-    CGContextAddLineToPoint(context, 220, 110);
-    CGContextClip(context);//context裁剪路径,后续操作的路径
-    //CGContextDrawLinearGradient(CGContextRef context,CGGradientRef gradient, CGPoint startPoint, CGPoint endPoint,CGGradientDrawingOptions options)
-    //gradient渐变颜色,startPoint开始渐变的起始位置,endPoint结束坐标,options开始坐标之前or开始之后开始渐变
-    CGContextDrawLinearGradient(context, gradient,CGPointMake
-                                (220,90) ,CGPointMake(240,110),
-                                kCGGradientDrawsAfterEndLocation);
-    CGContextRestoreGState(context);// 恢复到之前的context
-
-    //再写一个看看效果
-    CGContextSaveGState(context);
-    CGContextMoveToPoint(context, 260, 90);
-    CGContextAddLineToPoint(context, 280, 90);
-    CGContextAddLineToPoint(context, 280, 100);
-    CGContextAddLineToPoint(context, 260, 100);
-    CGContextClip(context);//裁剪路径
-    //说白了，开始坐标和结束坐标是控制渐变的方向和形状
-    CGContextDrawLinearGradient(context, gradient,CGPointMake
-                                (260, 90) ,CGPointMake(260, 100),
-                                kCGGradientDrawsAfterEndLocation);
-    CGContextRestoreGState(context);// 恢复到之前的context
+    CGContextStrokePath(context);
 }
      
 //    [self test1];
@@ -266,7 +210,8 @@
     CGContextDrawPath(context, kCGPathFillStroke); //绘制路径
     
     //画椭圆
-    CGContextAddEllipseInRect(context, CGRectMake(160, 180, 20, 8)); //椭圆
+    CGContextAddEllipseInRect(context, CGRectMake(160, 180, 30, 15)); //椭圆
+    CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);//填充颜色
     CGContextDrawPath(context, kCGPathFillStroke);
     
     /*画三角形*/
