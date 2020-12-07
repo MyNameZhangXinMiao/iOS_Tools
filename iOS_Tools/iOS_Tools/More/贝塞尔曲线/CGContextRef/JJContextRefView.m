@@ -16,17 +16,93 @@
 @end
 @implementation JJContextRefView
 
+
+
+
 - (void)drawRect:(CGRect)rect {
-    
     [super drawRect:rect];
-    
-    // [self test1];
+
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    /*画矩形*/
+    CGContextStrokeRect(context,CGRectMake(100, 120, 10, 10));//画方框
+    CGContextFillRect(context,CGRectMake(120, 120, 10, 10));//填充框
+    //矩形，并填弃颜色
+    CGContextSetLineWidth(context, 2.0);//线的宽度
+    CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);//填充颜色
+    CGContextSetStrokeColorWithColor(context, [UIColor yellowColor].CGColor);//线框颜色
+    CGContextAddRect(context,CGRectMake(140, 120, 60, 30));//画方框
+    CGContextDrawPath(context, kCGPathFillStroke);//绘画路径
+
+    //矩形，并填弃渐变颜色
+    //第一种填充方式，第一种方式必须导入类库quartcore并#import <QuartzCore/QuartzCore.h>，这个就不属于在context上画，而是将层插入到view层上面。那么这里就设计到Quartz Core 图层编程了。
+    CAGradientLayer *gradient1 = [CAGradientLayer layer];
+    gradient1.frame = CGRectMake(240, 120, 60, 30);
+    gradient1.colors = [NSArray arrayWithObjects:(id)[UIColor whiteColor].CGColor,
+                        (id)[UIColor grayColor].CGColor,
+                        (id)[UIColor blackColor].CGColor,
+                        (id)[UIColor yellowColor].CGColor,
+                        (id)[UIColor blueColor].CGColor,
+                        (id)[UIColor redColor].CGColor,
+                        (id)[UIColor greenColor].CGColor,
+                        (id)[UIColor orangeColor].CGColor,
+                        (id)[UIColor brownColor].CGColor,nil];
+    [self.layer insertSublayer:gradient1 atIndex:0];
+    //第二种填充方式
+    CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
+    CGFloat colors[] =
+    {
+        1,1,1, 1.00,
+        1,1,0, 1.00,
+        1,0,0, 1.00,
+        1,0,1, 1.00,
+        0,1,1, 1.00,
+        0,1,0, 1.00,
+        0,0,1, 1.00,
+        0,0,0, 1.00,
+    };
+    CGGradientRef gradient = CGGradientCreateWithColorComponents
+    (rgb, colors, NULL, sizeof(colors)/(sizeof(colors[0])*4));//形成梯形，渐变的效果
+    CGColorSpaceRelease(rgb);
+    //画线形成一个矩形
+    //CGContextSaveGState与CGContextRestoreGState的作用
+    /*
+     CGContextSaveGState函数的作用是将当前图形状态推入堆栈。之后，您对图形状态所做的修改会影响随后的描画操作，但不影响存储在堆栈中的拷贝。在修改完成后，您可以通过CGContextRestoreGState函数把堆栈顶部的状态弹出，返回到之前的图形状态。这种推入和弹出的方式是回到之前图形状态的快速方法，避免逐个撤消所有的状态修改；这也是将某些状态（比如裁剪路径）恢复到原有设置的唯一方式。
+     */
+    CGContextSaveGState(context);
+    CGContextMoveToPoint(context, 220, 90);
+    CGContextAddLineToPoint(context, 240, 90);
+    CGContextAddLineToPoint(context, 240, 110);
+    CGContextAddLineToPoint(context, 220, 110);
+    CGContextClip(context);//context裁剪路径,后续操作的路径
+    //CGContextDrawLinearGradient(CGContextRef context,CGGradientRef gradient, CGPoint startPoint, CGPoint endPoint,CGGradientDrawingOptions options)
+    //gradient渐变颜色,startPoint开始渐变的起始位置,endPoint结束坐标,options开始坐标之前or开始之后开始渐变
+    CGContextDrawLinearGradient(context, gradient,CGPointMake
+                                (220,90) ,CGPointMake(240,110),
+                                kCGGradientDrawsAfterEndLocation);
+    CGContextRestoreGState(context);// 恢复到之前的context
+
+    //再写一个看看效果
+    CGContextSaveGState(context);
+    CGContextMoveToPoint(context, 260, 90);
+    CGContextAddLineToPoint(context, 280, 90);
+    CGContextAddLineToPoint(context, 280, 100);
+    CGContextAddLineToPoint(context, 260, 100);
+    CGContextClip(context);//裁剪路径
+    //说白了，开始坐标和结束坐标是控制渐变的方向和形状
+    CGContextDrawLinearGradient(context, gradient,CGPointMake
+                                (260, 90) ,CGPointMake(260, 100),
+                                kCGGradientDrawsAfterEndLocation);
+    CGContextRestoreGState(context);// 恢复到之前的context
+}
+     
+//    [self test1];
     // [self test2];
     
     // [self test3];
-    [self test4];
+//    [self test4];
     
-}
+//}
 
 - (void)test4{
     //打开上下文,画布
@@ -79,24 +155,24 @@
     
     //画笑脸弧线
     //左
-    CGContextSetRGBStrokeColor(context, 0, 0, 1, 1);//改变画笔颜色
+    CGContextSetRGBStrokeColor(context, 1, 1, 1, 1);//改变画笔颜色
     CGContextMoveToPoint(context, 140, 80);//开始坐标p1
     //CGContextAddArcToPoint(CGContextRef c, CGFloat x1, CGFloat y1,CGFloat x2, CGFloat y2, CGFloat radius)
-    //x1,y1跟p1形成一条线的坐标p2，x2,y2结束坐标跟p3形成一条线的p3,radius半径,注意, 需要算好半径的长度,
+    //x1,y1跟p1形成一条切线(切点p2)，x2,y2跟x1,y1形成一条切线(切点p3),radius半径,注意, 需要算好半径的长度,
     CGContextAddArcToPoint(context, 148, 68, 156, 80, 10);
     CGContextStrokePath(context);//绘画路径
     
     //右
     CGContextMoveToPoint(context, 160, 80);//开始坐标p1
     //CGContextAddArcToPoint(CGContextRef c, CGFloat x1, CGFloat y1,CGFloat x2, CGFloat y2, CGFloat radius)
-    //x1,y1跟p1形成一条线的坐标p2，x2,y2结束坐标跟p3形成一条线的p3,radius半径,注意, 需要算好半径的长度,
+    //x1,y1跟p1形成一条切线(切点p2)，x2,y2跟x1,y1形成一条切线(切点p3),radius半径,注意, 需要算好半径的长度,
     CGContextAddArcToPoint(context, 168, 68, 176, 80, 10);
     CGContextStrokePath(context);//绘画路径
     
     //右
     CGContextMoveToPoint(context, 150, 90);//开始坐标p1
     //CGContextAddArcToPoint(CGContextRef c, CGFloat x1, CGFloat y1,CGFloat x2, CGFloat y2, CGFloat radius)
-    //x1,y1跟p1形成一条线的坐标p2，x2,y2结束坐标跟p3形成一条线的p3,radius半径,注意, 需要算好半径的长度,
+    //x1,y1跟p1形成一条切线(切点p2)，x2,y2跟x1,y1形成一条切线(切点p3),radius半径,注意, 需要算好半径的长度,
     CGContextAddArcToPoint(context, 158, 102, 166, 90, 10);
     CGContextStrokePath(context);//绘画路径
     //注，如果还是没弄明白怎么回事，请参考：http://donbe.blog.163.com/blog/static/138048021201052093633776/
@@ -245,26 +321,6 @@
     CGContextSetFillColorWithColor(ctx, [UIColor clearColor].CGColor);
     CGContextSetLineWidth(ctx, 1);
     CGContextSetLineJoin(ctx, kCGLineJoinRound);
-    //绘制多重等边多边形
-    //    for (int i = 0; i < _pointsToWebArrayArray.count; i++) {
-    //        NSArray *pointToWebArray = _pointsToWebArrayArray[i];
-    //        for (int j = 0; j < pointToWebArray.count; j++) {
-    //            CGPoint point = [pointToWebArray[j] CGPointValue];
-    //            if (j == 0) {
-    //                CGContextMoveToPoint(ctx, point.x, point.y);
-    //            }
-    //            CGContextAddLineToPoint(ctx, point.x, point.y);
-    //        }
-    //        CGContextClosePath(ctx);
-    //    }
-    //绘制从中心点到端点的线段，数量等于多边形边数
-    //    NSArray <NSValue *> *lastPointsToWebArray = _pointsToWebArrayArray.lastObject;
-    //    for (int i = 0; i < lastPointsToWebArray.count; i++) {
-    //
-    //        CGPoint point = [lastPointsToWebArray[i] CGPointValue];
-    //        CGContextMoveToPoint(ctx, _centerX, _centerY);
-    //        CGContextAddLineToPoint(ctx, point.x, point.y);
-    //    }
     
     CGPoint point = CGPointMake(kScreenWidth/2, kScreenWidth/2);
     CGContextMoveToPoint(ctx, kScreenWidth/2, kScreenWidth/2-100);
@@ -307,20 +363,20 @@
 }
 
 - (void)test1{
-    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+    CGContextRef context = UIGraphicsGetCurrentContext();
     //设置虚线颜色
-    CGContextSetStrokeColorWithColor(currentContext, [UIColor whiteColor].CGColor);
+    CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
     //设置虚线宽度
-    CGContextSetLineWidth(currentContext, 1);
+    CGContextSetLineWidth(context, 1);
     //设置虚线绘制起点
-    CGContextMoveToPoint(currentContext, 0, 110);
+    CGContextMoveToPoint(context, 0, 110);
     //设置虚线绘制终点
-    CGContextAddLineToPoint(currentContext, self.frame.origin.x + self.frame.size.width, 110);
+    CGContextAddLineToPoint(context, self.frame.origin.x + self.frame.size.width, 110);
     //设置虚线排列的宽度间隔:下面的arr中的数字表示先绘制3个点再绘制1个点
     CGFloat arr[] = {3,1};
     //下面最后一个参数“2”代表排列的个数。
-    CGContextSetLineDash(currentContext, 0, arr, 2);
-    CGContextDrawPath(currentContext, kCGPathStroke);
+    CGContextSetLineDash(context, 0, arr, 2);
+    CGContextDrawPath(context, kCGPathStroke);
     
 }
 
