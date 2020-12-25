@@ -137,6 +137,7 @@
 		7D8DBEBE2520BF0300C4AA9C /* video1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7D8DBEBD2520BF0300C4AA9C /* video1.mp4 */; };
 		7D900B0B2520E63B00A5366A /* JJVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D900B0A2520E63B00A5366A /* JJVideoTableViewCell.m */; };
 		7D900B0F2520E66800A5366A /* JJVideoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D900B0E2520E66800A5366A /* JJVideoData.plist */; };
+		7D921D00258DE12500FA1C5F /* JJTest2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D921CFF258DE12500FA1C5F /* JJTest2ViewController.m */; };
 		7DD21D782573C93900430E78 /* JJBezierAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD21D772573C93900430E78 /* JJBezierAnimationView.m */; };
 		CA266E4349B178249216DF36 /* Pods_iOS_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB825EA5F681104DC389EB34 /* Pods_iOS_Tools.framework */; };
 /* End PBXBuildFile section */
@@ -391,6 +392,8 @@
 		7D900B092520E63B00A5366A /* JJVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJVideoTableViewCell.h; sourceTree = "<group>"; };
 		7D900B0A2520E63B00A5366A /* JJVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJVideoTableViewCell.m; sourceTree = "<group>"; };
 		7D900B0E2520E66800A5366A /* JJVideoData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = JJVideoData.plist; sourceTree = "<group>"; };
+		7D921CFE258DE12500FA1C5F /* JJTest2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJTest2ViewController.h; sourceTree = "<group>"; };
+		7D921CFF258DE12500FA1C5F /* JJTest2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJTest2ViewController.m; sourceTree = "<group>"; };
 		7DD21D762573C93900430E78 /* JJBezierAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJBezierAnimationView.h; sourceTree = "<group>"; };
 		7DD21D772573C93900430E78 /* JJBezierAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJBezierAnimationView.m; sourceTree = "<group>"; };
 		80D20CA2196A5CC625556E6B /* Pods-iOS_Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Tools.release.xcconfig"; path = "Target Support Files/Pods-iOS_Tools/Pods-iOS_Tools.release.xcconfig"; sourceTree = "<group>"; };
@@ -503,6 +506,8 @@
 			children = (
 				32A583622533FC3600F045A3 /* JJTestViewController.h */,
 				32A583632533FC3600F045A3 /* JJTestViewController.m */,
+				7D921CFE258DE12500FA1C5F /* JJTest2ViewController.h */,
+				7D921CFF258DE12500FA1C5F /* JJTest2ViewController.m */,
 				32A583672533FDFD00F045A3 /* JJTestImage.h */,
 				32A583682533FDFE00F045A3 /* JJTestImage.m */,
 			);
@@ -1644,6 +1649,7 @@
 				32D3DCD624F181800098D608 /* UIColor+Extra.m in Sources */,
 				32D3DCBC24F181610098D608 /* KLClubViewController.m in Sources */,
 				32D3DD8524F18F270098D608 /* JJBaseNavigationView.m in Sources */,
+				7D921D00258DE12500FA1C5F /* JJTest2ViewController.m in Sources */,
 				32D3DCCB24F181610098D608 /* KLUserHeaderView.m in Sources */,
 				32038B882503F0B8000E2684 /* JJImageCollectionCell.m in Sources */,
 				32FC8F2C2522C8C7005A4F59 /* JJVideoTest5ViewController.m in Sources */,

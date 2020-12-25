@@ -8,6 +8,7 @@
 
 #import "JJTestViewController.h"
 #import "JJTestImage.h"
+#import "JJTest2ViewController.h"
 
 @interface JJTestViewController ()
 
@@ -36,10 +37,21 @@
     self.imgView1.image = img1;
     UIImage *img2 = [JJTestImage drawText1:@"3" text2:@"2" forImage:[UIImage imageNamed:@"messagelist_number_icon"]];
     self.imgView2.image = img2;
+    
+    
+    UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    
+    btn.frame = CGRectMake(100, 100, 100, 100);
+    btn.backgroundColor = [UIColor redColor];
+    [btn addTarget:self action:@selector(btnClcik) forControlEvents:UIControlEventTouchUpInside];
 
+    [self.view addSubview:btn];
 }
 
- 
+- (void)btnClcik{
+    JJTest2ViewController *vc = [[JJTest2ViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 
 
