@@ -18,6 +18,7 @@
 #import "JJFunctionGroupViewController.h"  //音视频图像
 #import "JJVideoImagesViewController.h"  //功能模块封装
 #import "JJBeizerListViewController.h" //贝塞尔曲线
+#import "JJRacViewController.h"
 
 
 @interface JJHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -37,7 +38,7 @@
     self.fd_prefersNavigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
 
-    self.data = @[@"测试",@"MBProgressHUD",@"自定义转场动画",@"暗黑模式适配",@"scrollView嵌套",@"KVO",@"Chart图表",@"内购",@"动画",@"音视频图像",@"功能模块封装",@"贝塞尔曲线"];
+    self.data = @[@"测试",@"MBProgressHUD",@"自定义转场动画",@"暗黑模式适配",@"scrollView嵌套",@"KVO",@"Chart图表",@"内购",@"动画",@"音视频图像",@"功能模块封装",@"贝塞尔曲线",@"ReactiveObjC"];
     
     [self.view addSubview:self.navigationView];
     [self.view addSubview:self.tableView];
@@ -113,6 +114,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if ([text isEqualToString:@"贝塞尔曲线"]){
         JJBeizerListViewController *vc = [[JJBeizerListViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([text isEqualToString:@"ReactiveObjC"]){
+        JJRacViewController *vc = [[JJRacViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
     

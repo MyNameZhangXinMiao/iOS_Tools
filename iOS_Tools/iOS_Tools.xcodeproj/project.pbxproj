@@ -24,6 +24,8 @@
 		321CC60C25761A8E00F48FD3 /* JJQQBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 321CC60B25761A8E00F48FD3 /* JJQQBaseView.m */; };
 		321CC61025761B4700F48FD3 /* Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = 321CC60F25761B4700F48FD3 /* Circle.m */; };
 		321CC6D025790C1500F48FD3 /* JJContextRefView.m in Sources */ = {isa = PBXBuildFile; fileRef = 321CC6CF25790C1500F48FD3 /* JJContextRefView.m */; };
+		3224292D25FA0B7600F172B4 /* JJRacViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3224292C25FA0B7600F172B4 /* JJRacViewController.m */; };
+		3224293225FA191000F172B4 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3224293125FA191000F172B4 /* LoginViewModel.m */; };
 		3256C07F2547CBA000F37D5F /* JJBaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C07E2547CBA000F37D5F /* JJBaseListViewController.m */; };
 		3256C0BD2547FC7700F37D5F /* JJChartDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C0BC2547FC7700F37D5F /* JJChartDetailViewController.m */; };
 		3256C0E62548100300F37D5F /* XHCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3256C0DE2548100100F37D5F /* XHCircleView.m */; };
@@ -176,6 +178,10 @@
 		321CC60F25761B4700F48FD3 /* Circle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Circle.m; sourceTree = "<group>"; };
 		321CC6CE25790C1500F48FD3 /* JJContextRefView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJContextRefView.h; sourceTree = "<group>"; };
 		321CC6CF25790C1500F48FD3 /* JJContextRefView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJContextRefView.m; sourceTree = "<group>"; };
+		3224292B25FA0B7600F172B4 /* JJRacViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJRacViewController.h; sourceTree = "<group>"; };
+		3224292C25FA0B7600F172B4 /* JJRacViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJRacViewController.m; sourceTree = "<group>"; };
+		3224293025FA191000F172B4 /* LoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
+		3224293125FA191000F172B4 /* LoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
 		3256C07D2547CBA000F37D5F /* JJBaseListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJBaseListViewController.h; sourceTree = "<group>"; };
 		3256C07E2547CBA000F37D5F /* JJBaseListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJBaseListViewController.m; sourceTree = "<group>"; };
 		3256C0BB2547FC7700F37D5F /* JJChartDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJChartDetailViewController.h; sourceTree = "<group>"; };
@@ -501,6 +507,25 @@
 				321CC6CF25790C1500F48FD3 /* JJContextRefView.m */,
 			);
 			path = CGContextRef;
+			sourceTree = "<group>";
+		};
+		3224292925FA0ADC00F172B4 /* ReactiveObjC */ = {
+			isa = PBXGroup;
+			children = (
+				3224292B25FA0B7600F172B4 /* JJRacViewController.h */,
+				3224292C25FA0B7600F172B4 /* JJRacViewController.m */,
+				3224292F25FA18FE00F172B4 /* ViewModel */,
+			);
+			path = ReactiveObjC;
+			sourceTree = "<group>";
+		};
+		3224292F25FA18FE00F172B4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3224293025FA191000F172B4 /* LoginViewModel.h */,
+				3224293125FA191000F172B4 /* LoginViewModel.m */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		32A583612533FC1E00F045A3 /* 测试页面 */ = {
@@ -986,6 +1011,7 @@
 		32D3DD7D24F18E310098D608 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				3224292925FA0ADC00F172B4 /* ReactiveObjC */,
 				321CC571256E809C00F48FD3 /* 贝塞尔曲线 */,
 				32FC5B86253EDC7B00336CFE /* 功能模块封装 */,
 				32FC5B76253ECC0800336CFE /* 音视频图像 */,
@@ -1592,6 +1618,7 @@
 				32D3DCD724F181800098D608 /* JJBaseViewController.m in Sources */,
 				32FC8FA125234C18005A4F59 /* JJMusicViewController.m in Sources */,
 				32D3DDCB24F1C0460098D608 /* KLEmptyBaseView.m in Sources */,
+				3224292D25FA0B7600F172B4 /* JJRacViewController.m in Sources */,
 				32D3DD6D24F18BC60098D608 /* JJMsgDetailViewController.m in Sources */,
 				32038B842503EEE7000E2684 /* JJLocalImageViewController.m in Sources */,
 				32D3DCC724F181610098D608 /* KLMsgSystemViewController.m in Sources */,
@@ -1641,6 +1668,7 @@
 				32D3DCC824F181610098D608 /* KLMessageViewController.m in Sources */,
 				32D3DCBF24F181610098D608 /* KLHomeViewController.m in Sources */,
 				7D900B0B2520E63B00A5366A /* JJVideoTableViewCell.m in Sources */,
+				3224293225FA191000F172B4 /* LoginViewModel.m in Sources */,
 				32D3DDB824F1BD1F0098D608 /* JJToast+Window.m in Sources */,
 				321CC574256E80CF00F48FD3 /* JJBezierViewController.m in Sources */,
 				32FC8F5425230DA2005A4F59 /* JJChartLineView.m in Sources */,
