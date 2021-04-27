@@ -283,8 +283,38 @@
 }
 
 
-//数据
+//rac-定时器
 - (void)test5{
+    
+    
+    //主线程每两秒执行一次
+//    __block NSInteger i = 0;
+//    [[RACSignal interval:2 onScheduler:[RACScheduler mainThreadScheduler]] subscribeNext:^(NSDate * _Nullable x) {
+//        NSLog(@"1-------:%ld,    \n2----:%@",i,x);
+//        i++;
+//    }];
+    
+    //创建一个新的线程
+//    [[RACSignal interval:1 onScheduler:[RACScheduler schedulerWithPriority:RACSchedulerPriorityHigh name:@"e"]]
+//    subscribeNext:^(NSDate * _Nullable x) {
+//
+//        NSLog(@"%@",[NSThread currentThread]);
+//    }];
+    
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        NSLog(@"开始了----%@",[NSDate date]);
+        [subscriber sendNext:@"ing  +++ "];
+        return nil;
+    }];
+    [[signal delay:3] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"收到了-----%@",[NSDate date]);
+    }];
+    
+
+    
+    
+    
+    
     
 }
 
