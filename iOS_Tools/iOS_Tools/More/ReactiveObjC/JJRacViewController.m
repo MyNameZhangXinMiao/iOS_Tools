@@ -10,8 +10,9 @@
 #import "ReactiveObjC.h"
 #import "JJRedView.h"
 #import <ReactiveObjC/ReactiveObjC.h>
+#import "JJGreenView.h"
 
-@interface JJRacViewController ()
+@interface JJRacViewController ()<UITextFieldDelegate>
 
 
 
@@ -27,8 +28,10 @@
 
 @property (nonatomic, strong) JJRedView *redView;
 
+@property (nonatomic, strong) UITextField *textField;
 
 
+@property (nonatomic, strong) JJGreenView *greenView;
 
 @end
 
@@ -44,26 +47,26 @@
     // [self test1];
     // [self test2];
     // [self test3];
-    // [self test4];
-     [self test4_kvo];
+//     [self test4];
+    
+     [self test5];
     // [self test2];
     // [self test2];
-    // [self test2];
-
+   
 }
 
 #pragma mark - 初始化界面
 - (void)setupUI{
  
-    self.redView = [[JJRedView alloc] initWithFrame:CGRectMake(100, 100, 150, 150)];
+    self.redView = [[JJRedView alloc] initWithFrame:CGRectMake(100, 100, 180, 180)];
     self.redView.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.redView];
     
-//    self.button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    self.button.frame = CGRectMake(30, 30, 80, 50);
-//    self.button.backgroundColor = [UIColor blueColor];
+    self.button = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.button.frame = CGRectMake(30, 130, 80, 50);
+    self.button.backgroundColor = [UIColor blueColor];
 //    [self.button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.redView addSubview:self.button];
+    [self.redView addSubview:self.button];
     
     
 }
@@ -147,8 +150,18 @@
 }
 
 //RAC的基本用法 - 事件处理
+
 - (void)test4{
-    
+//    [self test4_selector];
+//    [self test4_kvo];
+//    [self test4_btn];
+//    [self test4_notif];
+//    [self test4_textField];
+    [self test4_delegate];
+}
+
+
+- (void)test4_selector{
     
     [[self.redView rac_signalForSelector:@selector(buttonClick:)] subscribeNext:^(RACTuple * _Nullable x) {
         NSLog(@"--- %@",x);
@@ -175,27 +188,105 @@
 //
 //    }];
     
+    //用法一
     [[_redView rac_valuesAndChangesForKeyPath:@"frame" options:NSKeyValueObservingOptionNew observer:self] subscribeNext:^(id x) {
         
-        NSLog(@"----:     %@",x);
+        NSLog(@"1----:     %@",x);
         
+    }];
+    //用法二
+    [[_redView rac_valuesForKeyPath:@"frame" observer:self] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"2----:     %@",x);
+    }];
+    //用法三
+    [RACObserve(_redView, frame) subscribeNext:^(id  _Nullable x) {
+        NSLog(@"3----:     %@",x);
+    }];
+     
+    //用法二三在程序运行的时候就会监听到,通过log日志就能看出区别
+    //写法一是在数值改变的时候再打印结果
+    
+}
+
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    _redView.frame = CGRectMake(101, 101, 181, 181);
+//}
+
+//RAC的基本用法 - 监听点击事件
+- (void)test4_btn{
+    
+    [[_button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+       
+        NSLog(@"button----:     %@",x);
+        
+        NSDictionary *dic = @{@"key":@"value"};
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"test4_notif" object:nil userInfo:dic];
     }];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    _redView.frame = CGRectMake(101, 101, 151, 151);
+//通知
+- (void)test4_notif{
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"test4_notif" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+            
+        NSLog(@"Notification------: %@",x);
+    }];
+    
+    /*
+     rac_addObserverForName 返回的是RACSigal信号,既然是信号就可以订阅,可以发发布信息
+     */
+}
+
+//textField
+- (void)test4_textField{
+    
+    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(100, 300, 200, 50)];
+    self.textField.layer.borderWidth = 1;
+    self.textField.placeholder = @"RactiveCocoa";
+    [self.view addSubview:self.textField];
+    
+    //监听文本输入
+//    [_textField.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
+//
+//        NSLog(@"textfield:----  %@",x);
+//    }];
+//
+//    //可根据自己想要监听的事件选择
+//    [[_textField rac_signalForControlEvents:UIControlEventEditingChanged] subscribeNext:^(__kindof UIControl * _Nullable x) {
+//            NSLog(@"%@",x);
+//    }];
+    //添加条件 --  下面表示输入文字长度 > 10 时才会调用subscribeNext
+    [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
+         
+        return value.length > 2;
+        
+    }] subscribeNext:^(NSString * _Nullable x) {
+        NSLog(@"输入框内容：%@", x);
+    }];
+    
+}
+
+//代理
+- (void)test4_delegate{
+    
+    self.greenView = [[JJGreenView alloc] initWithFrame:CGRectMake(100, 400, 180, 180)];
+    self.greenView.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:self.greenView];
+    
+    [_greenView.btnClickSignal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"---- :   %@",x);
+    }];
+    
+    /*
+     代理作为项目频繁使用的一直协议机制,我们通常需要先定义代理协议,实现代理协议方法,并且需要注意循环引用的问题.
+     */
 }
 
 
-
-
-
-
-
-
-
-
-
+//数据
+- (void)test5{
+    
+}
 
 
 
@@ -218,7 +309,7 @@
 
 
 - (void)dealloc{
-    NSLog(@"dealloc");
+    NSLog(@"Ractive - dealloc");
 }
 
 @end

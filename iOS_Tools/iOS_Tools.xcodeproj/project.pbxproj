@@ -43,6 +43,7 @@
 		32C15A5625209561003473AF /* JJVideoTest3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C15A5525209561003473AF /* JJVideoTest3ViewController.m */; };
 		32CE7146263691E4007337C2 /* JJRedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CE7145263691E4007337C2 /* JJRedView.m */; };
 		32CE714A2636A6A9007337C2 /* RactiveCocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CE71492636A6A9007337C2 /* RactiveCocoa.m */; };
+		32CE71A32638124D007337C2 /* JJGreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CE71A22638124D007337C2 /* JJGreenView.m */; };
 		32D3DC4024F14E280098D608 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC3F24F14E280098D608 /* AppDelegate.m */; };
 		32D3DC4624F14E280098D608 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3DC4524F14E280098D608 /* ViewController.m */; };
 		32D3DC4924F14E280098D608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D3DC4724F14E280098D608 /* Main.storyboard */; };
@@ -218,6 +219,8 @@
 		32CE7145263691E4007337C2 /* JJRedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJRedView.m; sourceTree = "<group>"; };
 		32CE71482636A6A9007337C2 /* RactiveCocoa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RactiveCocoa.h; sourceTree = "<group>"; };
 		32CE71492636A6A9007337C2 /* RactiveCocoa.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RactiveCocoa.m; sourceTree = "<group>"; };
+		32CE71A12638124D007337C2 /* JJGreenView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJGreenView.h; sourceTree = "<group>"; };
+		32CE71A22638124D007337C2 /* JJGreenView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJGreenView.m; sourceTree = "<group>"; };
 		32D3DC3B24F14E280098D608 /* iOS_Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Tools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D3DC3E24F14E280098D608 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		32D3DC3F24F14E280098D608 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -522,6 +525,8 @@
 				3224292C25FA0B7600F172B4 /* JJRacViewController.m */,
 				32CE7144263691E4007337C2 /* JJRedView.h */,
 				32CE7145263691E4007337C2 /* JJRedView.m */,
+				32CE71A12638124D007337C2 /* JJGreenView.h */,
+				32CE71A22638124D007337C2 /* JJGreenView.m */,
 				32CE71482636A6A9007337C2 /* RactiveCocoa.h */,
 				32CE71492636A6A9007337C2 /* RactiveCocoa.m */,
 				3224292F25FA18FE00F172B4 /* ViewModel */,
@@ -1614,6 +1619,7 @@
 				32A6895A25041C4F00B497A0 /* MagicAnimate.m in Sources */,
 				32D3DCBB24F181610098D608 /* KLClubListViewController.m in Sources */,
 				7D6084D4252231510085C9B0 /* JJVideoTableHeaderView.m in Sources */,
+				32CE71A32638124D007337C2 /* JJGreenView.m in Sources */,
 				32D3DD7424F18BC60098D608 /* JJNavigationController.m in Sources */,
 				32D3DD8124F18E580098D608 /* JJEmptyViewController.m in Sources */,
 				32D3DCC924F181610098D608 /* KLMineViewController.m in Sources */,
