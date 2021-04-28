@@ -47,11 +47,11 @@
     // [self test1];
     // [self test2];
     // [self test3];
-//     [self test4];
+    // [self test4];
     
-     [self test5];
-    // [self test2];
-    // [self test2];
+    // [self test5];
+//     [self test6];
+      [self test7_RACCommand];
    
 }
 
@@ -310,21 +310,91 @@
         NSLog(@"收到了-----%@",[NSDate date]);
     }];
     
+}
 
+//RAC-RACMulticastConnection
+- (void)test6{
     
+    //在项目中我们一般都会涉及网络请求,在使用RAC进行网络请求的时候:
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        NSLog(@"网络请求");
+        
+        [subscriber sendNext:@"得到网络请求数据"];
+        return nil;
+    }];
+
+    [signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"1 --- %@",x);
+    }];
     
+    [signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"2 --- %@",x);
+    }];
     
+    [signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"3 --- %@",x);
+    }];
     
+    /*
+     2021-04-28 16:39:23.735706+0800 iOS_Tools[5607:119926] 网络请求
+     2021-04-28 16:39:23.735872+0800 iOS_Tools[5607:119926] 1 --- 得到网络请求数据
+     2021-04-28 16:39:23.736080+0800 iOS_Tools[5607:119926] 网络请求
+     2021-04-28 16:39:23.736193+0800 iOS_Tools[5607:119926] 2 --- 得到网络请求数据
+     2021-04-28 16:39:23.736337+0800 iOS_Tools[5607:119926] 网络请求
+     2021-04-28 16:39:23.736463+0800 iOS_Tools[5607:119926] 3 --- 得到网络请求数据
+     
+     从结果看,请求了3次,但是实际开发中,我们不可能请求3次的.我们请求一次就够了,
+     这个时候我们可以RACMulticastConnection这个类了,这其实是一个连接类,
+     连接类的意思就是当一个信号被多次订阅,他可以帮我们避免多次创建信号中的block.
+     
+     基本用法如下:
+     */
     
+    [self test6_RACMulticastConnection];
+}
+
+- (void)test6_RACMulticastConnection{
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        NSLog(@"我又请求接口了");
+        
+        [subscriber sendNext:@"我又得到请求数据了"];
+        return nil;
+    }];
+    
+    RACMulticastConnection *connect = [signal publish];
+    
+    [connect.signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"1 --- %@",x);
+    }];
+    [connect.signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"2 --- %@",x);
+    }];
+    [connect.signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"3 --- %@",x);
+    }];
+    [connect connect];
 }
 
 
-
-
-
-
-
-
+//RAC - RACCommand
+- (void)test7_RACCommand{
+    //command翻译过来就是命令,RACCommand
+    /*
+    RACCommand *command = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        
+        return nil;
+    }];
+    
+    [command execute:@"开始飞起来"];
+    
+     崩溃了
+     崩溃日志:Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'nil signal returned from signal block for value: 开始飞起来'
+     
+     log中明确的告诉我们,返回的信号不能为空,既然如此我们就放回
+     */
+    
+    
+}
 
 
 
