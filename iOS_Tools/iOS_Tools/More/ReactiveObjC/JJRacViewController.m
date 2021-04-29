@@ -51,7 +51,7 @@
     
     // [self test5];
 //     [self test6];
-      [self test7_RACCommand];
+      [self test7];
    
 }
 
@@ -375,7 +375,13 @@
     [connect connect];
 }
 
+//RAC - RACCommand
 
+- (void)test7{
+//    [self test7_RACCommand];
+//    [self test7_switchToLatest];
+    [self test7_demo];
+}
 //RAC - RACCommand
 - (void)test7_RACCommand{
     //command翻译过来就是命令,RACCommand
@@ -394,9 +400,121 @@
      */
     
     
+    RACCommand *command = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        
+        NSLog(@"---  %@",input);
+        return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+            
+            [subscriber sendNext:@"大佬大佬放过我"];
+            return nil;
+        }];
+    }];
+    
+    //必须写在 execute 方法上面
+    [command.executionSignals subscribeNext:^(id  _Nullable x) {
+        NSLog(@"接收数据--  哈哈 ---  %@",x);// <RACDynamicSignal: 0x60000326f940> name:
+        
+        [x subscribeNext:^(id  _Nullable x) {
+            NSLog(@"这里会是什么呢? - %@",x);
+            //一波三折终于拿到了值,现在我们看看execute这个方法里面到底做客什么
+        }];
+    }];
+
+    RACSignal *signal = [command execute:@"开始飞起来"];
+    
+    [signal subscribeNext:^(id  _Nullable x) {
+        
+        NSLog(@"接收数据 ---  %@",x);
+    }];
+    
+    
+    
 }
 
+//除了上面的双层订阅,我们还可以用这个switchToLatest
+- (void)test7_switchToLatest{
+    
+    RACCommand *command = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        NSLog(@"%@",input);
+        
+        return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+            [subscriber sendNext:@"大佬大佬放过我"];
+            return nil;
+        }];
+    }];
+    
+    [command.executionSignals.switchToLatest subscribeNext:^(id  _Nullable x) {
+        NSLog(@"接收数据 ---  %@",x);
+    }];
+    
+    [command execute:@"开始飞起来"];
+    
+    /*
+     其中swiftchToLatest表示最新发送的信号.
+     
+     */
+}
 
+//验证swiftchToLatest发送的是不是最新的信号
+- (void)test7_demo{
+    
+    //1.先创建5个RACSubject,其中第一个为信号中的信号(也就是发送的数据是信号)
+    RACSubject *signalOfSignal = [RACSubject subject];
+    RACSubject *signal1 = [RACSubject subject];
+    RACSubject *signal2 = [RACSubject subject];
+    RACSubject *signal3 = [RACSubject subject];
+    RACSubject *signal4 = [RACSubject subject];
+
+    //👇👇👇👇👇👇
+    //2.然后就订阅信号中的信号(因为我们约定了发送的是信号,所以接收到的也是信号,既然是信号就可以订阅)
+//    [signalOfSignal subscribeNext:^(id  _Nullable x) {
+//        [x subscribeNext:^(id  _Nullable x) {
+//            NSLog(@"%@",x);
+//        }];
+//    }];
+//
+//    //3.发送数据
+//    [signalOfSignal sendNext:signal1];
+//    [signal1 sendNext:@"1"];
+    
+    /*
+     现在我们看一下log吧
+     2021-04-29 17:27:25.481110+0800 iOS_Tools[24973:535931] 1
+    */
+    
+  //  👇👇👇👇👇👇
+//    //现在我们再switchToLatest订阅
+//    [signalOfSignal.switchToLatest subscribeNext:^(id  _Nullable x) {
+//        NSLog(@"%@",x);
+//    }];
+//
+//    [signalOfSignal sendNext:signal1];
+//    [signal1 sendNext:@"2"];
+//
+//    /*
+//     log:2021-04-29 17:30:01.644538+0800 iOS_Tools[25002:538233] 2
+//     */
+    
+    //下面我们开始测试发送多个信号,看拿到的是不是最后一个信号
+    
+    [signalOfSignal.switchToLatest subscribeNext:^(id  _Nullable x) {
+        NSLog(@"%@",x);
+    }];
+
+    [signalOfSignal sendNext:signal1];
+    [signalOfSignal sendNext:signal2];
+    [signalOfSignal sendNext:signal3];
+    [signalOfSignal sendNext:signal4];
+    
+    [signal1 sendNext:@"1"];
+    [signal2 sendNext:@"2"];
+    [signal3 sendNext:@"3"];
+    [signal4 sendNext:@"4"];
+    
+    /*
+     log:2021-04-29 17:55:33.854705+0800 iOS_Tools[25218:551012] 4
+     */
+}
 
 
 
